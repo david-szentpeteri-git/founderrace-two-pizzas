@@ -39,6 +39,23 @@ export function AutoRefresh({ seconds = 10 }: { seconds?: number }) {
   return null;
 }
 
+/** Small submit button that asks for confirmation first. */
+export function ConfirmSubmit({ children, confirmText }: { children: React.ReactNode; confirmText: string }) {
+  const { pending } = useFormStatus();
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      onClick={(e) => {
+        if (!window.confirm(confirmText)) e.preventDefault();
+      }}
+      className="shrink-0 text-sm font-medium text-zinc-500 underline-offset-4 hover:text-red-700 hover:underline disabled:opacity-50"
+    >
+      {pending ? "Removing..." : children}
+    </button>
+  );
+}
+
 /** Submit button that shows `pendingLabel` while its form's server action runs. */
 export function SubmitButton({
   children,

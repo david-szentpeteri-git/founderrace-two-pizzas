@@ -3,14 +3,14 @@ import Link from "next/link";
 import QRCode from "qrcode";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
-import { AutoRefresh, CopyButton, SubmitButton } from "@/components/organiser/client";
+import { AutoRefresh, ConfirmSubmit, CopyButton, SubmitButton } from "@/components/organiser/client";
 import { ButtonLink } from "@/components/ui/button";
 import { Card, Pill } from "@/components/ui/card";
 import { getAdminView } from "@/lib/data";
 import { hasDatabase } from "@/lib/db";
 import { FREE_GUEST_LIMIT, MIN_GUESTS_TO_MATCH, PAID_GUEST_LIMIT, siteUrl } from "@/lib/site";
 import { formatEventDate } from "@/lib/utils";
-import { generateIntrosAction, startCheckoutAction } from "./actions";
+import { generateIntrosAction, removeGuestAction, startCheckoutAction } from "./actions";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300; // matching a big room can take a minute
@@ -31,6 +31,8 @@ const ERRORS: Record<string, string> = {
   generate: "Something went wrong while making the intros. Please try again.",
   checkout: "We couldn't open the payment page. Please try again in a moment.",
   alreadypaid: "This event is already upgraded.",
+  demo: "This is the sample event, so it can't be changed. Create your own event to try everything.",
+  remove: "We couldn't remove that guest just now. Please try again.",
 };
 
 export default async function OrganiserPage({ params, searchParams }: Props) {
@@ -66,7 +68,9 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
 
   const count = guests.length;
   const overLimit = count > view.guestLimit;
-  const withoutHellos = guests.filter((g) => g.helloCount === 0).length;
+  const withoutHellos = guests.filter((g) => g.helloCount < 3).length;
+  const allNew = guests.filter((g) => g.helloCount < 3).every((g) => g.helloCount === 0);
+  const removed = typeof query.removed === "string" ? query.removed : null;
   const matched = event.status === "matched";
   const isFree = view.plan === "free";
   const when = formatEventDate(event.startsAt, event.timeZone);
@@ -136,6 +140,11 @@ ${joinUrl}
         ) : null}
 
         {error ? <p className="rounded-2xl bg-red-50 p-4 text-base font-medium text-red-700">{error}</p> : null}
+        {removed ? (
+          <p className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">
+            Guest #{removed} removed.{matched ? " Anyone who had them in their three can get a new match with \"Update intros\"." : ""}
+          </p>
+        ) : null}
         {checkoutNote ? (
           <p className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">{checkoutNote}</p>
         ) : null}
@@ -212,7 +221,9 @@ ${joinUrl}
                     {withoutHellos > 0 ? (
                       <form action={generateIntrosAction.bind(null, adminToken, "new")}>
                         <SubmitButton pendingLabel="Matching new arrivals...">
-                          Match {withoutHellos} new arrival{withoutHellos === 1 ? "" : "s"}
+                          {allNew
+                            ? `Match ${withoutHellos} new arrival${withoutHellos === 1 ? "" : "s"}`
+                            : `Update intros for ${withoutHellos} guest${withoutHellos === 1 ? "" : "s"}`}
                         </SubmitButton>
                       </form>
                     ) : null}
@@ -266,9 +277,18 @@ ${joinUrl}
                         {g.interests.length ? ` · ${g.interests.join(", ")}` : ""}
                       </p>
                     </div>
-                    <Link href={`/g/${g.token}`} className="shrink-0 text-sm font-medium underline-offset-4 hover:underline">
-                      {g.helloCount > 0 ? "See their hellos" : "Their page"}
-                    </Link>
+                    <div className="flex shrink-0 items-center gap-4">
+                      <Link href={`/g/${g.token}`} className="text-sm font-medium underline-offset-4 hover:underline">
+                        {g.helloCount > 0 ? "See their hellos" : "Their page"}
+                      </Link>
+                      {view.plan !== "demo" ? (
+                        <form action={removeGuestAction.bind(null, adminToken, g.number)}>
+                          <ConfirmSubmit confirmText={`Remove ${g.name} (#${g.number}) from this event? Their answers and intros are deleted.`}>
+                            Remove
+                          </ConfirmSubmit>
+                        </form>
+                      ) : null}
+                    </div>
                   </li>
                 ))}
             </ul>

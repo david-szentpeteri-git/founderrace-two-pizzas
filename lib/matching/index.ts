@@ -32,8 +32,10 @@ function trimTo(text: string, maxWords: number): string {
 }
 
 /**
- * Generates hellos for an event. With `onlyNew`, only guests without hellos
- * are matched (late arrivals); everyone else keeps theirs.
+ * Generates hellos for an event. With `onlyNew`, guests without hellos (late
+ * arrivals) get new ones, guests left with one or two (someone they were
+ * matched with was removed) are topped up and keep the ones they have, and
+ * everyone with three keeps theirs.
  */
 export async function generateIntros(event: EventRow, { onlyNew = false } = {}): Promise<MatchRunResult> {
   const [rows, existing] = await Promise.all([eventGuests(event.id), eventMatches(event.id)]);
@@ -43,21 +45,34 @@ export async function generateIntros(event: EventRow, { onlyNew = false } = {}):
   const everyone = rows.map(toMatchGuest);
   const byKey = new Map(everyone.map((g) => [g.key, g]));
 
-  const withHellos = new Set(existing.map((m) => m.guest_id));
-  const targets = onlyNew ? everyone.filter((g) => !withHellos.has(g.id)) : everyone;
+  const helloCount = new Map<string, number>();
+  for (const m of existing) helloCount.set(m.guest_id, (helloCount.get(m.guest_id) ?? 0) + 1);
+  const targets = onlyNew ? everyone.filter((g) => (helloCount.get(g.id) ?? 0) < HELLOS_PER_GUEST) : everyone;
+  // Guests who keep some hellos: seed the proposal with them so only the gap is filled.
+  const kept = new Map<string, ProposedHello[]>();
+  if (onlyNew) {
+    for (const m of [...existing].sort((a, b) => a.rank - b.rank)) {
+      if (!targets.some((t) => t.id === m.guest_id)) continue;
+      const list = kept.get(m.guest_id) ?? [];
+      list.push({ matchId: m.match_guest_id, reason: m.reason, opener: m.opener, source: m.source });
+      kept.set(m.guest_id, list);
+    }
+  }
   if (targets.length === 0) return { guestsMatched: 0, aiHellos: 0, fallbackHellos: 0, usedAi: false };
 
   // Popularity counts start from the hellos we keep.
   const suggested = new Map<string, number>();
   if (onlyNew) for (const m of existing) suggested.set(m.match_guest_id, (suggested.get(m.match_guest_id) ?? 0) + 1);
 
-  const proposal = new Map<string, ProposedHello[]>();
+  const proposal = new Map<string, ProposedHello[]>(kept);
   let usedAi = false;
+  // Only guests with no hellos at all go to Claude; top-ups use the heuristic.
+  const aiTargets = targets.filter((g) => !kept.has(g.id));
 
-  if (hasClaude()) {
+  if (hasClaude() && aiTargets.length > 0) {
     const roster = rosterText(event.name, event.description, everyone);
     const batches: MatchGuest[][] = [];
-    for (let i = 0; i < targets.length; i += BATCH_SIZE) batches.push(targets.slice(i, i + BATCH_SIZE));
+    for (let i = 0; i < aiTargets.length; i += BATCH_SIZE) batches.push(aiTargets.slice(i, i + BATCH_SIZE));
     const results = await Promise.all(batches.map((b) => claudeBatch(roster, b.map((g) => g.key))));
 
     for (const result of results) {
@@ -65,7 +80,7 @@ export async function generateIntros(event: EventRow, { onlyNew = false } = {}):
       usedAi = true;
       for (const entry of result.guests) {
         const guest = byKey.get(entry.guestId.trim());
-        if (!guest || proposal.has(guest.id) || !targets.some((t) => t.id === guest.id)) continue;
+        if (!guest || proposal.has(guest.id) || !aiTargets.some((t) => t.id === guest.id)) continue;
         const picked: ProposedHello[] = [];
         for (const h of entry.hellos) {
           const other = byKey.get(h.matchId.trim());

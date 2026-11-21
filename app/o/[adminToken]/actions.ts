@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getEventRowByAdminToken, eventGuests } from "@/lib/data";
+import { getEventRowByAdminToken, eventGuests, removeGuest } from "@/lib/data";
 import { generateIntros } from "@/lib/matching";
 import { EVENT_PRICE_EUR_CENTS, siteUrl } from "@/lib/site";
 import type Stripe from "stripe";
@@ -15,6 +15,7 @@ function back(adminToken: string, params: Record<string, string>): never {
 export async function generateIntrosAction(adminToken: string, mode: "all" | "new"): Promise<void> {
   const event = await getEventRowByAdminToken(adminToken);
   if (!event) back(adminToken, { error: "notfound" });
+  if (event.plan === "demo") back(adminToken, { error: "demo" });
 
   const guests = await eventGuests(event.id);
   if (guests.length > event.guest_limit) back(adminToken, { error: "limit" });
@@ -30,10 +31,25 @@ export async function generateIntrosAction(adminToken: string, mode: "all" | "ne
   back(adminToken, { done: summary });
 }
 
+/** Removes a guest, e.g. a duplicate or a test entry. Their hellos go with them. */
+export async function removeGuestAction(adminToken: string, number: number): Promise<void> {
+  const event = await getEventRowByAdminToken(adminToken);
+  if (!event) back(adminToken, { error: "notfound" });
+  if (event.plan === "demo") back(adminToken, { error: "demo" });
+  try {
+    await removeGuest(event.id, number);
+  } catch (error) {
+    console.error("removeGuest failed", error);
+    back(adminToken, { error: "remove" });
+  }
+  back(adminToken, { removed: String(number) });
+}
+
 /** Starts a Stripe Checkout for the €29 event upgrade. */
 export async function startCheckoutAction(adminToken: string): Promise<void> {
   const event = await getEventRowByAdminToken(adminToken);
   if (!event) back(adminToken, { error: "notfound" });
+  if (event.plan === "demo") back(adminToken, { error: "demo" });
   if (event.plan !== "free") back(adminToken, { error: "alreadypaid" });
 
   let url: string | null = null;

@@ -315,6 +315,12 @@ export async function saveMatches(
   if (evError) throw evError;
 }
 
+/** Removes one guest (and every hello that points to or from them). */
+export async function removeGuest(eventId: string, number: number): Promise<void> {
+  const { error } = await db().from("guests").delete().eq("event_id", eventId).eq("number", number);
+  if (error) throw error;
+}
+
 /** Records a completed payment and lifts the guest limit. Safe to call twice. */
 export async function markEventPaid(eventId: string, sessionId: string, amountCents: number): Promise<void> {
   const { error } = await db()
