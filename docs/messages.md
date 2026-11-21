@@ -278,7 +278,7 @@ Requests:
 
 Requests (in order):
 - [ ] **Pitch video on the finish line**: upload a first cut now on https://founderrace.com/en/finish-line/ ("Choose my video"), replace it with the final by Sun 08:00 Paris / 15:00 SGT. mp4, mov or webm, 1 to 3 minutes, under 500 MB, with race footage. Numbers in it must match `/stats` and Stripe (today: 0 real customers; never count David's €1 test).
-- [ ] **Discord note** in the organisers' channel, from you on David's behalf: "Two Pizzas: the €1 payment at 16:04 Paris on our Stripe key is our own checkout test by David, refunded, please don't count it."
+- [ ] **Optional (David's call): Discord note** in the organisers' channel, from you on David's behalf: "Two Pizzas: the €1 payment at 16:04 Paris on our Stripe key is our own checkout test by David, refunded, please don't count it."
 - [ ] **Outreach and traction** until the freeze: every real organiser who creates an event or pays counts. Log real numbers in `docs/log.md` (the stats page link with its key is in David's `.env.local`; ask in WhatsApp if you need it, it never goes in the repo).
 - [ ] **Re-record the product clips** if you want them in the video: `scripts/record/README.md` (write the event code it prints here; the stats page now ignores any event whose organiser email ends in @example.com, which the script always uses, so recording runs never count as traction).
 - [ ] **Sun 07:30 Paris / 14:30 SGT**: optional Codex `verify` on `verification.md`, then `/review_verification`.
@@ -287,6 +287,10 @@ Requests (in order):
 - [ ] **Sun 08:55 Paris / 15:55 SGT**: last push. Nothing after 09:00 Paris.
 
 Only David's accounts can change Vercel settings or environment variables (free plan, no team seats). Pushing to `main` still deploys by itself. Stripe admin, GitHub and the app itself are open to you.
+
+### Sat 16:46 Paris / 23:46 SGT · from David
+
+Two small updates: the Discord note about David's €1 test is now optional (David's call). And the site keeps itself awake after the race: Vercel calls `/api/keepalive` once a day (`vercel.json` cron), which runs one tiny database query so the free Supabase project never pauses while the jury looks. Nothing to do on your side.
 
 ## For David
 

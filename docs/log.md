@@ -30,6 +30,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 16:18 | Sat 23:18 | David | Price per extra guest raised to €1 (David); free up to 15 and the €9 30-day pass unchanged, the dashboard suggests the pass from 25 guests. Copy pass on the site; the join form no longer promises an email we don't send. Recording scripts committed for Daniel (`scripts/record/`). |
 | Sat 16:26 | Sat 23:26 | David | All events deleted from the database at David's request (13 events, 91 guests, 123 intros; all were tests except the not yet used fashion event). Free limit cut from 15 to 4 guests: €1 per guest from the 5th, or €9 for 30 days unlimited. |
 | Sat 16:31 | Sat 23:31 | David | Sample event rebuilt for /demo (14 fictional guests, 42 intros from Claude, plan demo, never counted). |
+| Sat 16:46 | Sat 23:46 | David | Daily keep-alive added (Vercel cron calls /api/keepalive, one database query) so the free Supabase database never pauses while the jury reviews the site. |
 
 ## Notes for each other
 
