@@ -33,14 +33,23 @@ Next.js and TypeScript on Vercel, Supabase Postgres, the Claude API (`claude-opu
 
 ## Run it locally
 
-Instructions follow once the app is scaffolded.
+Needs Node 20 or later.
+
+```bash
+npm install
+cp .env.example .env.local   # fill in the keys
+npm run dev                  # http://localhost:3000
+```
+
+The database schema is in `supabase/schema.sql`; run it once in the Supabase SQL editor. Until the Supabase keys are set, pages that read data use the sample data in `lib/mock.ts`.
 
 ## Boilerplates and templates
 
-None used so far. The race rules require every boilerplate or template to be public and generic, imported in a commit made after the start, and credited here with its link and the exact commit used.
+The race rules require every boilerplate or template to be public and generic, imported in a commit made after the start, and credited here with its link and the exact version or commit used.
 
-| Boilerplate | Link | Commit used | What we took from it |
+| Boilerplate | Link | Version used | What we took from it |
 |---|---|---|---|
+| create-next-app | [vercel/next.js, packages/create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) | `create-next-app@16.4.6`, generated on Sat 21 Nov 2026 at 18:28 SGT (race day) | The empty Next.js + TypeScript + Tailwind project setup: `package.json`, `tsconfig.json`, `eslint.config.mjs`, `next.config.ts`, the favicon and the starter layout, which we then replaced. |
 
 ## Built during the race
 
