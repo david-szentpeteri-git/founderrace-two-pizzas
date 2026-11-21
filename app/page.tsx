@@ -14,6 +14,7 @@ import m from "@/components/marketing/motion";
 import MobileCtaBar from "@/components/marketing/MobileCtaBar";
 import { HelloCard } from "@/components/guest/HelloCard";
 import { sampleGuest, sampleHellos } from "@/components/marketing/sampleHellos";
+import { Spotlight } from "@/components/ui/Spotlight";
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -41,22 +42,23 @@ const primaryButton = `inline-flex min-h-12 w-full items-center justify-center r
 const secondaryButton = `inline-flex min-h-12 w-full items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-center text-base font-medium text-zinc-900 hover:border-zinc-900 hover:shadow-sm sm:w-auto ${press} ${focus}`;
 const textLink = `group inline-flex min-h-12 items-center justify-center gap-1.5 rounded-full px-2 text-base font-medium text-zinc-900 underline-offset-4 hover:underline ${focus}`;
 
-const section = "mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24";
-const h2 = "font-display text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl";
+const section = "mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pb-28 sm:pt-24";
+const h2 = "font-display text-3xl font-semibold tracking-[-0.03em] text-zinc-900 sm:text-5xl sm:leading-[1.05]";
 const lift = "transition duration-150 motion-safe:hover:-translate-y-0.5 hover:shadow-md hover:shadow-zinc-900/5";
 const lead = "mt-4 max-w-[65ch] text-lg leading-relaxed text-zinc-500";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen text-zinc-900">
       <Header />
       <main>
         {/* Hero */}
-        <section id="hero" className="mx-auto max-w-6xl overflow-x-clip px-4 pb-20 pt-12 sm:px-6 sm:pt-20 lg:pb-24">
+        <section id="hero" className="relative isolate mx-auto max-w-6xl overflow-x-clip px-4 pb-20 pt-12 sm:px-6 sm:pt-20 lg:pb-28">
+          <div aria-hidden="true" className="th-dots pointer-events-none absolute inset-x-0 -top-10 -z-10 h-[34rem]" />
           <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
             <div>
               <p className="text-sm font-medium text-zinc-500">{hero.eyebrow}</p>
-              <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+              <h1 className="mt-5 font-display text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl lg:text-7xl lg:leading-[0.98]">
                 {markPhrase(hero.headline, "three people", true)}
               </h1>
               <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-zinc-500">{hero.problem}</p>
@@ -72,7 +74,8 @@ export default function HomePage() {
                 </Link>
               </div>
               <p className="mt-4 text-sm text-zinc-500">{hero.reassurance}</p>
-              <p className="mt-6 inline-flex rounded-full border border-zinc-200 px-3 py-1 text-xs font-medium text-zinc-600">
+              <p className="mt-7 inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-200 backdrop-blur">
+                <span aria-hidden="true" className="size-1.5 rounded-full bg-lime-500" />
                 Built in 24 hours at FounderRace, Edition 2
               </p>
             </div>
@@ -83,7 +86,7 @@ export default function HomePage() {
         </section>
 
         {/* Problem */}
-        <section className="bg-zinc-50">
+        <section className="bg-gradient-to-b from-zinc-50 to-white">
           <Reveal className={section}>
             <h2 className={h2}>{problem.heading}</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2 md:gap-12">
@@ -93,9 +96,14 @@ export default function HomePage() {
                 </p>
               ))}
             </div>
-            <p className="mt-10 max-w-[65ch] rounded-2xl border-l-4 border-zinc-900 bg-white px-6 py-5 text-lg leading-relaxed text-zinc-900 ring-1 ring-zinc-200">
-              {hero.solution}
-            </p>
+            <figure className="relative mt-14 max-w-3xl">
+              <span aria-hidden="true" className="absolute -left-1 -top-8 font-display text-8xl leading-none text-lime-400/80 sm:-left-10 sm:-top-6">
+                &ldquo;
+              </span>
+              <blockquote className="font-display text-2xl font-medium leading-snug tracking-[-0.02em] text-zinc-900 sm:text-3xl">
+                {hero.solution}
+              </blockquote>
+            </figure>
           </Reveal>
         </section>
 
@@ -103,7 +111,7 @@ export default function HomePage() {
         {mixerPhoto ? (
           <section className="mx-auto max-w-6xl px-4 pt-20 sm:px-6 sm:pt-24">
             <figure>
-              <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-zinc-100">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-zinc-100 shadow-2xl shadow-lime-900/10 ring-1 ring-zinc-900/5 sm:aspect-[16/9]">
                 <Image
                   src="/img/mixer.jpg"
                   alt="People talking in small groups at an evening social, each wearing a blank lime green name badge"
@@ -142,7 +150,7 @@ export default function HomePage() {
         </section>
 
         {/* Key feature preview */}
-        <section className="bg-zinc-50">
+        <section className="bg-gradient-to-b from-white via-zinc-50 to-white">
           <div className={section}>
             <h2 className={h2}>{demo.heading}</h2>
             <p className={lead}>{demo.body}</p>
@@ -155,14 +163,16 @@ export default function HomePage() {
                   {sampleGuest.name}, your <Marker>three hellos</Marker>
                 </p>
                 <p className="mt-1 text-base text-zinc-500">{sampleGuest.role}</p>
-                <Reveal
-                  stagger
-                  className="mt-8 grid gap-6 lg:grid-cols-3 [&>article]:h-full [&>article]:transition [&>article]:duration-150 motion-safe:[&>article:hover]:-translate-y-0.5 [&>article:hover]:shadow-md"
-                >
-                  {sampleHellos.map((h) => (
-                    <HelloCard key={h.rank} hello={h} />
-                  ))}
-                </Reveal>
+                <Spotlight>
+                  <Reveal
+                    stagger
+                    className="th-spot-children mt-8 grid gap-6 lg:grid-cols-3 [&>article]:h-full [&>article]:transition [&>article]:duration-200 motion-safe:[&>article:hover]:-translate-y-1 [&>article:hover]:shadow-xl [&>article:hover]:shadow-lime-900/10"
+                  >
+                    {sampleHellos.map((h) => (
+                      <HelloCard key={h.rank} hello={h} />
+                    ))}
+                  </Reveal>
+                </Spotlight>
               </div>
             ) : null}
             <p className="mt-6 max-w-[65ch] text-sm text-zinc-500">{demo.disclaimer}</p>
@@ -178,9 +188,13 @@ export default function HomePage() {
         <section className={section}>
           <h2 className={h2}>{audience.heading}</h2>
           <p className={lead}>{audience.intro}</p>
-          <Reveal as="ul" stagger className="mt-10 grid gap-4 sm:grid-cols-2">
+          <Reveal as="ul" stagger className="mt-10 grid gap-x-12 sm:grid-cols-2">
             {audience.groups.map((g) => (
-              <li key={g} className={`rounded-2xl border border-zinc-200 bg-white px-6 py-5 text-base leading-relaxed ${lift}`}>
+              <li key={g} className="flex gap-4 border-t border-zinc-200 py-5 text-lg leading-relaxed text-zinc-900">
+                <svg aria-hidden="true" viewBox="0 0 20 20" className="mt-1.5 size-5 shrink-0 text-lime-600" fill="none">
+                  <circle cx="10" cy="10" r="9" fill="currentColor" fillOpacity="0.15" />
+                  <path d="m6.5 10.2 2.3 2.3 4.7-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 {g}
               </li>
             ))}
@@ -189,18 +203,19 @@ export default function HomePage() {
         </section>
 
         {/* Pricing */}
-        <section id="pricing" className="scroll-mt-20 bg-zinc-50">
+        <section id="pricing" className="scroll-mt-20 bg-gradient-to-b from-zinc-50 to-white">
           <div className={section}>
             <h2 className={h2}>{pricing.heading}</h2>
             <p className={lead}>{pricing.intro}</p>
+            <Spotlight>
             <Reveal stagger className="mt-10 grid gap-6 lg:grid-cols-3">
               {pricing.plans.map((plan, i) => {
                 const recommended = i === 1;
                 return (
                   <div
                     key={plan.name}
-                    className={`relative flex flex-col rounded-2xl bg-white p-8 ${lift} ${
-                      recommended ? "border-2 border-zinc-900 shadow-lg shadow-zinc-900/5" : "border-2 border-zinc-200"
+                    className={`th-spot relative flex flex-col rounded-3xl bg-white p-8 ${lift} ${
+                      recommended ? "ring-2 ring-zinc-900 shadow-2xl shadow-lime-900/10" : "ring-1 ring-zinc-200"
                     }`}
                   >
                     <div className="flex items-center justify-between gap-3">
@@ -236,6 +251,7 @@ export default function HomePage() {
                 );
               })}
             </Reveal>
+            </Spotlight>
             <p className="mt-8 font-medium text-zinc-900">An event with 80 guests costs €1.30 in total.</p>
             <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-zinc-500">{pricing.footnote}</p>
           </div>
@@ -251,8 +267,10 @@ export default function HomePage() {
 
         {/* Final call to action */}
         <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-          <Reveal className="rounded-3xl bg-zinc-900 px-6 py-16 text-center text-white sm:px-12 sm:py-20">
-            <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-5xl">
+          <Reveal className="relative isolate overflow-hidden rounded-[2rem] bg-zinc-950 px-6 py-16 text-center text-white shadow-2xl shadow-zinc-900/20 sm:px-12 sm:py-24">
+            <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(40rem_20rem_at_50%_-4rem,rgb(190_242_100/0.28),transparent_70%)]" />
+            <div aria-hidden="true" className="th-dots-dark absolute inset-0 -z-10" />
+            <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold tracking-[-0.035em] sm:text-6xl sm:leading-[1.02]">
               {finalCta.heading}
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-zinc-300">{finalCta.body}</p>
