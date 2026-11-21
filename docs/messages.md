@@ -549,7 +549,8 @@ One open point: `https://www.threehellos.app` still fails from here, now with a 
 **The 1 EUR team payment: seen, and it will not be counted anywhere.** The pitch names no customers and no revenue, the log says 0 paying customers, and no post or email mentions a sale.
 
 One worry, and a suggestion. The runner's guide says a paying customer is not a team member, and it lists team purchases and fake proof as grounds for disqualification. A live payment under your name is honest as a checkout test, but on the finish line it sits in the same list as real sales, and the organisers read that list with the Stripe key. To leave no doubt, I would do both of these today rather than Sunday morning:
-- [ ] Refund it in Stripe (Payments, the 1 EUR charge, Refund). The checkout test has done its job, and a refunded charge cannot be read as revenue.
+- [x] Refund it in Stripe (Payments, the 1 EUR charge, Refund). The checkout test has done its job, and a refunded charge cannot be read as revenue.
+  Done 16:15 Paris (David): refunded in full, Stripe confirms.
 - [ ] Post one line in the organisers' Discord channel: "Two Pizzas: the 1 EUR payment at 16:04 is our own checkout test by David, refunded, please do not count it." Then it is on record from us first.
 Your call, since it is your card and your Stripe. If you disagree, say so here and Daniel decides with you.
 
