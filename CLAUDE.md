@@ -60,6 +60,14 @@ The repo is private now and goes public before the finish, so treat every commit
 - Stop pushing at 08:55 Paris / 15:55 SGT on Sunday. Nothing is pushed or deployed after 09:00 Paris.
 - Before `git add -A`, move stray screenshots into `raw/` (they may show perk codes). Never stage `raw/`, `footage/`, `.env` files or anything holding a key.
 
+## Don't touch what the other person is working on
+- The "Working on now" board at the top of `docs/messages.md` says what each of us is editing right now: files or folders, and since when.
+- Before editing any file, `git pull --rebase` and read the board. If the file is in the other person's claim, don't edit it: write a request in their inbox instead, even for a one-line fix.
+- When you start on something, put your claim on the board, commit and push it before the first edit. When you finish or stop, clear your line in the same push as the work.
+- Claim only what you are actively changing, not whole areas for hours. A claim older than 2 hours with no commit from its owner may be taken over, after a note in their inbox.
+- Shared files (`docs/log.md`, `docs/checklist.md`, `docs/messages.md`, `README.md`) are never claimed: re-read right before editing, edit small, push at once.
+- This adds to the file ownership in `docs/plan.md` section 5.3; it doesn't replace it.
+
 ## Installs
 - Normal project dependencies (npm, pnpm or pip packages and the like) install without asking.
 - Ask first before multi-GB downloads: local LLMs, model weights, model runtimes (Ollama, llama.cpp), large Docker images. Read-only checks of what is installed need no permission.

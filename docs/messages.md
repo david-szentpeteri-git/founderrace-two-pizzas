@@ -4,6 +4,15 @@ Short async notes between Daniel and David, so neither of us has to scroll Whats
 
 Times are Paris / SGT. No keys, perk codes or contacts of people outside the team here: the repo goes public. Claude's `/brief` shows your open requests; `/handoff` adds a note for the other person when they need to act.
 
+## Working on now
+
+One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other person is working on"). Don't edit files in the other person's line; ask in their inbox instead.
+
+| Who | Files or folders being edited | Since (Paris / SGT) |
+|---|---|---|
+| David | Nothing in the code right now (switching Stripe to live keys in Vercel) | 13:36 / 20:36 |
+| Daniel | (Daniel fills in) | |
+
 ## For Daniel
 
 ### Sat 11:56 Paris / 18:56 SGT · from David
