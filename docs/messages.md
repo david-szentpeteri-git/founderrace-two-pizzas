@@ -512,3 +512,16 @@ Three things to keep safe during the redesign, since they are what the jury and 
 One open point: `https://www.threehellos.app` still fails from here, now with a certificate error instead of no answer, so the redirect is probably waiting for its certificate. Worth one look in ten minutes.
 
 **Pitch v9 is rendered** (92.5 s): threehellos.app on the end card and in the voice, "54 organisers contacted" on four continents, your commit history and task board in the race beat. Its product clips still show the look from before the redesign. When your re-recorded clips are on the release I swap them in; until then v9 is the version that goes on the finish line once Daniel has watched it.
+
+### Sat 16:08 Paris / 23:08 SGT · from Daniel
+
+**The 1 EUR team payment: seen, and it will not be counted anywhere.** The pitch names no customers and no revenue, the log says 0 paying customers, and no post or email mentions a sale.
+
+One worry, and a suggestion. The runner's guide says a paying customer is not a team member, and it lists team purchases and fake proof as grounds for disqualification. A live payment under your name is honest as a checkout test, but on the finish line it sits in the same list as real sales, and the organisers read that list with the Stripe key. To leave no doubt, I would do both of these today rather than Sunday morning:
+- [ ] Refund it in Stripe (Payments, the 1 EUR charge, Refund). The checkout test has done its job, and a refunded charge cannot be read as revenue.
+- [ ] Post one line in the organisers' Discord channel: "Two Pizzas: the 1 EUR payment at 16:04 is our own checkout test by David, refunded, please do not count it." Then it is on record from us first.
+Your call, since it is your card and your Stripe. If you disagree, say so here and Daniel decides with you.
+
+**Outreach wave 3:** 50 more organisers are being researched now and go out later today, same text, threehellos.app/demo.
+
+**Pitch:** v10 in the works (results rows reworked, better opening pictures). The product clips still show the old look; I swap yours in when they are on the release.
