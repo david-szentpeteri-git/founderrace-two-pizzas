@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed:demo": "tsx --conditions=react-server scripts/seed-demo.ts"
+    "seed:demo": "tsx --conditions=react-server scripts/seed-demo.ts",
+    "mark-test": "tsx --conditions=react-server scripts/mark-test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.12.0",
