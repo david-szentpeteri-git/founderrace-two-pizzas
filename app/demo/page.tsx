@@ -219,7 +219,7 @@ export default async function DemoPage() {
               Try it with your own guests
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-zinc-300">
-              Free up to 15 guests, then €1 a guest. No account needed.
+              Free with up to 4 guests, then €1 a guest. No account needed.
             </p>
             <div className="mt-10 flex justify-center">
               <Link

@@ -6,7 +6,7 @@ import { CreateEventForm } from "./CreateEventForm";
 
 export const metadata: Metadata = {
   title: "Create your event",
-  description: "Set up Three Hellos for your event in a minute. Free up to 15 guests.",
+  description: "Set up Three Hellos for your event in a minute. Free with up to 4 guests.",
 };
 
 export default function NewEventPage() {

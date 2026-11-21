@@ -22,7 +22,7 @@ export function termsOfSale(s: CompleteSeller): LegalPage {
       {
         heading: "Plans and price",
         paragraphs: [
-          "An event with up to 15 guests is free.",
+          "An event with up to 4 guests is free.",
           `For a larger event you choose one of two paid plans on your dashboard. Pay per guest: €1 for each guest above the number already covered; each payment raises the guest limit of that one event by one guest for every €1 paid. Unlimited for 30 days: €9 paid once; for 30 days from the payment, every event with the same organiser email, including ones created before, can take any number of guests, up to 500 per event. There is no subscription and nothing renews. ${vatLine}`,
           "You pay through Stripe Checkout. Stripe processes your card and sends you a receipt by email. We never see your full card details.",
         ],

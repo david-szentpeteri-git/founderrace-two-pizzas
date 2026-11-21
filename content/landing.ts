@@ -34,7 +34,7 @@ export const routes = {
 export const meta = {
   title: "Three Hellos: the three people to meet at your event",
   description:
-    "Guests answer four short questions when they sign up. Each one gets the three people they should meet, why, and a first question to ask. Free up to 15 guests.",
+    "Guests answer four short questions when they sign up. Each one gets the three people they should meet, why, and a first question to ask. Try it free with up to 4 guests.",
 };
 
 export const cta = {
@@ -46,7 +46,7 @@ export const cta = {
 } satisfies Record<string, Cta>;
 
 export const hero = {
-  eyebrow: "For student clubs, meetups and community events, from 15 guests to a full room",
+  eyebrow: "For student clubs, meetups and community events, from a small dinner to a full room",
   headline: "Walk into any event knowing the three people you should say hello to.",
   problem:
     "You filled the room, and most guests still spend the evening with the friends they came with. Newcomers and quieter people go home without a single new contact.",
@@ -54,7 +54,7 @@ export const hero = {
     "With Three Hellos, guests answer four short questions when they sign up. On the night, each one gets three people to meet, the reason, and a first question to ask.",
   primaryCta: cta.primary,
   secondaryCta: cta.demo,
-  reassurance: "Free up to 15 guests. No account needed.",
+  reassurance: "Free with up to 4 guests. No account needed.",
 };
 
 export const problem = {
@@ -67,14 +67,14 @@ export const problem = {
 
 export const audience = {
   heading: "Who it is for",
-  intro: "Anyone who runs an event where guests are meant to meet each other, from a dinner of 15 to a full room.",
+  intro: "Anyone who runs an event where guests are meant to meet each other, from a small dinner to a full room.",
   groups: [
     "Student club and society committees running socials, mixers and welcome evenings",
     "Meetup hosts and community managers",
     "Founder, alumni and networking evenings",
     "Office social committees planning a team party",
   ],
-  note: "Guests never pay and never need an account. Organisers pay only when more than 15 guests sign up.",
+  note: "Guests never pay and never need an account. Organisers pay only when more than 4 guests sign up.",
 };
 
 export const howItWorks = {
@@ -116,12 +116,12 @@ export const demo = {
 
 export const pricing = {
   heading: "Pricing",
-  intro: "Free up to 15 guests. Above that, €1 a guest or €9 for a month of events. Nothing renews.",
+  intro: "Free with up to 4 guests. Above that, €1 a guest or €9 for a month of events. Nothing renews.",
   plans: [
     {
       name: "Free",
       price: "€0",
-      priceNote: "up to 15 guests",
+      priceNote: "up to 4 guests, to try it",
       points: [
         "Every guest gets three hellos",
         "Join link and QR code",
@@ -132,10 +132,10 @@ export const pricing = {
     {
       name: "Pay per guest",
       price: "€1",
-      priceNote: "for each guest above 15",
+      priceNote: "for each guest above 4",
       points: [
         "Everything in Free",
-        "20 guests cost €5, 24 guests €9",
+        "10 guests cost €6, 13 guests €9",
         "Paid once, for that event",
       ],
       cta: cta.paid,
@@ -147,13 +147,13 @@ export const pricing = {
       points: [
         "Every event under your email for 30 days, old or new",
         "Up to 500 guests per event",
-        "Cheaper than paying per guest above 24 guests",
+        "Cheaper than paying per guest above 13 guests",
       ],
       cta: cta.paid,
     },
   ] satisfies PricingPlan[],
   footnote:
-    "Guests can keep joining while you are on the free plan. You only pay if more than 15 have signed up when you generate the intros, and you pick the plan on your dashboard, which also tells you which one is cheaper for your room. Payment goes through Stripe Checkout.",
+    "Guests can keep joining while you are on the free plan. You only pay if more than 4 have signed up when you generate the intros, and you pick the plan on your dashboard, which also tells you which one is cheaper for your room. Payment goes through Stripe Checkout.",
 };
 
 export const faq = {
@@ -199,14 +199,14 @@ export const faq = {
     {
       question: "Is it free to try?",
       answer:
-        "Yes. Any event with up to 15 guests is free, with the same intros as a paid event. Above that it costs €1 per extra guest, or €9 once for 30 days of unlimited guests.",
+        "Yes. Any event with up to 4 guests is free, with the same intros as a paid event. Above that it costs €1 per extra guest, or €9 once for 30 days of unlimited guests.",
     },
   ] satisfies FaqItem[],
 };
 
 export const finalCta = {
   heading: "Give your guests a reason to meet someone new",
-  body: "Set up your next event in two minutes. Free up to 15 guests.",
+  body: "Set up your next event in two minutes. Free with up to 4 guests.",
   primary: cta.final,
   secondary: cta.demo,
 };

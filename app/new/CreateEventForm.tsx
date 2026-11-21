@@ -133,7 +133,7 @@ export function CreateEventForm() {
 
       <div className="space-y-3">
         <SubmitButton pendingLabel="Creating your event…">Create event</SubmitButton>
-        <p className="text-sm text-zinc-500">Free up to 15 guests. No account needed: you get a private link to manage it.</p>
+        <p className="text-sm text-zinc-500">Free with up to 4 guests, then €1 a guest or €9 for 30 days. No account needed: you get a private link to manage it.</p>
       </div>
     </form>
   );

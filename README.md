@@ -19,7 +19,7 @@ Student club committees and meetup hosts work hard to fill a room for a social, 
 
 Guests sign up through the event link and answer four short questions: what they do, what they're into, who they would love to meet, and what to ask them about. Claude picks the three people each guest should meet, explains why in one line, and suggests a first question. Guests see their three hellos on their phone, and the organiser can print name badges and intro cards for the room.
 
-Organisers pay, guests never do. Events of up to 15 guests are free. Above that, each extra guest costs €1, or €9 once covers 30 days of unlimited guests on all of an organiser's events. The dashboard shows which is cheaper for the room.
+Organisers pay, guests never do. Events of up to 4 guests are free. Above that, each extra guest costs €1, or €9 once covers 30 days of unlimited guests on all of an organiser's events. The dashboard shows which is cheaper for the room.
 
 ## How it works
 
@@ -28,7 +28,7 @@ Organisers pay, guests never do. Events of up to 15 guests are free. Above that,
 3. When the doors open, the organiser presses "Make intros". Claude reads the guest list and writes three matches per guest, each with a reason based on what both people wrote and a first question to ask. It prefers pairs who would also pick each other and spreads attention so nobody is everyone's pick. If the AI is unavailable, a simpler matcher based on shared interests takes over.
 4. Each guest opens their page and sees their three hellos, with badge numbers so they can find each other in the room, plus three conversation starters drawn from this week's news on the event's theme.
 5. Late arrivals can be matched without redoing everyone, guests can be removed, and the organiser can print name badges and intro cards.
-6. Above 15 guests, the dashboard shows the exact price for the waiting guests and a 30-day pass, both through Stripe Checkout. Each payment is recorded once, whether the success page or Stripe's webhook reports it first.
+6. Above 4 guests, the dashboard shows the exact price for the waiting guests and a 30-day pass, both through Stripe Checkout. Each payment is recorded once, whether the success page or Stripe's webhook reports it first.
 
 ## Stack
 
