@@ -33,6 +33,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 16:46 | Sat 23:46 | David | Daily keep-alive added (Vercel cron calls /api/keepalive, one database query) so the free Supabase database never pauses while the jury reviews the site. |
 | Sat 16:50 | Sat 23:50 | Daniel | Pitch video submitted on the finish line at 16:37 Paris (1:36; new opening, results rows, race footage, threehellos.app), so the three deliverables are in. Outreach wave 3: 50 more cold emails scheduled in the Three Hellos mailbox (37 leave today between 17:30 and 19:30 Paris, 13 on Sunday between 02:30 and 07:00 Paris for Asia). Counted as sent only once they leave. Real use on the stats page at 16:46 Paris: 0 events created by organisers, 0 guests, 0 payments. Replies from a person so far: 0. |
 | Sat 17:02 | Sun 00:02 | David | **First paying customer:** Maria, a friend of David's, created the event "Meet and greet" at 16:49 Paris, 5 guests signed up, and she paid €1 for the 5th guest at 17:02 Paris (live mode, her own card: a different card and name from David's refunded test). Real numbers now: 1 event, 5 guests, 1 paying organiser, €1.00. |
+| Sat 17:11 | Sun 00:11 | David | Vercel Analytics since launch: 29 visitors, 160 page views, 55% bounce rate (includes our own visits). Screenshot cropped to the numbers in `docs/traction/vercel-analytics.png`. |
 
 ## Notes for each other
 
