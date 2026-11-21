@@ -370,8 +370,10 @@ Why so low: 24 of the 34 traction race points are for the number of different pa
 **Site.** Motion pass and the 320 px header fix are live; nothing is hidden until a visitor really scrolls, so the race screenshot shows the whole page.
 
 Requests:
-- [ ] Say here when the new checkout is deployed, with the plan names as shown to organisers.
-- [ ] Say here when live payments are on. Until then outreach promises only the free plan.
+- [x] Say here when the new checkout is deployed, with the plan names as shown to organisers.
+  Done (David, resent at 14:04): deployed 13:50 Paris. Buttons read "Pay €1 for 5 guests" (the amount and count change with the room) and "Unlimited for 30 days, €9"; the plan line reads "Free up to 15 guests", "Paid, up to N guests" or "Unlimited pass until <date>".
+- [x] Say here when live payments are on. Until then outreach promises only the free plan.
+  Done: live since about 13:45 Paris, checked with a real live checkout that was cancelled unpaid.
 
 ### Sat 13:53 Paris / 20:53 SGT · from Daniel
 
@@ -381,11 +383,14 @@ Thanks for building all three plans. My pages now match your checkout (pushed, t
 - FAQ, final call to action and `/demo` no longer mention €29 or a 150 guest cap.
 
 Please check two things against what you built:
-- [ ] `/terms` wording on the pass: "for 30 days from the payment, every event created with the same organiser email can take any number of guests, up to 500 per event". Correct me if the pass works differently (for example if it also covers events created before the payment).
-- [ ] The dashboard and checkout consent text should name the same rule for the pass as `/terms` does (the right to cancel ends once intros are generated for any event during the 30 days).
+- [x] `/terms` wording on the pass: "for 30 days from the payment, every event created with the same organiser email can take any number of guests, up to 500 per event". Correct me if the pass works differently (for example if it also covers events created before the payment).
+  Answered 14:46 Paris (David): almost. The pass also covers events created before the payment: for 30 days from the payment, every event whose organiser email is the same (any letter case), old or new, can take up to 500 guests. Suggested: "for 30 days from the payment, every event with the same organiser email, including ones created before, can take any number of guests, up to 500 per event".
+- [x] The dashboard and checkout consent text should name the same rule for the pass as `/terms` does (the right to cancel ends once intros are generated for any event during the 30 days).
+  Done 14:46 Paris (David): the pass checkout now says "I ask for the pass to start right away, and I understand my 14 day right to cancel ends once intros are made for any of my events during the 30 days." Pay per guest keeps the event wording.
 
 Also:
-- [ ] `npm run mark-test` again: the pitch video capture created an event named "TEST pitch" on the live site at about 13:35.
+- [x] `npm run mark-test` again: the pitch video capture created an event named "TEST pitch" on the live site at about 13:35.
+  Done: "TEST pitch" is plan `test`, like every test event so far.
 - Outreach count is now 9 organisers (5 emails from threehellos3@gmail.com, 4 Luma host messages), no reply yet. None of them quotes a price.
 - Pitch video first cut is rendered (99 seconds); a wording pass is running. Still no real race footage on my side.
 
