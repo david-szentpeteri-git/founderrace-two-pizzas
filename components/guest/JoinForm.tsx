@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { Marker } from "./Marker";
 import { initialJoinState, JOIN_LIMITS, type JoinState } from "./joinState";
@@ -8,7 +8,7 @@ import { initialJoinState, JOIN_LIMITS, type JoinState } from "./joinState";
 type JoinAction = (prev: JoinState, formData: FormData) => Promise<JoinState>;
 
 const inputClass =
-  "mt-2 block w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 aria-[invalid=true]:border-red-500";
+  "mt-2 block w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 placeholder:text-zinc-500 focus:border-zinc-900 focus:outline-none focus:ring-2 focus:ring-zinc-900/10 aria-[invalid=true]:border-red-500";
 
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
@@ -35,6 +35,13 @@ function SubmitButton() {
 export function JoinForm({ slug, action }: { slug: string; action: JoinAction }) {
   const [state, formAction] = useActionState(action, initialJoinState);
   const { errors, values } = state;
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // After a failed submit, move focus to the first field with an error, so a
+  // guest on a phone sees it even when it is off screen.
+  useEffect(() => {
+    formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
+  }, [state]);
 
   if (state.done) {
     return (
@@ -46,7 +53,7 @@ export function JoinForm({ slug, action }: { slug: string; action: JoinAction })
   }
 
   return (
-    <form key={state.attempt} action={formAction} noValidate className="space-y-8">
+    <form ref={formRef} key={state.attempt} action={formAction} noValidate className="space-y-8">
       <input type="hidden" name="slug" value={slug} />
 
       {/* Honeypot: hidden from people, tempting for bots. */}
@@ -129,7 +136,7 @@ export function JoinForm({ slug, action }: { slug: string; action: JoinAction })
             type="text"
             maxLength={JOIN_LIMITS.interest}
             aria-label={`Interest ${i + 1}`}
-            placeholder={["Climbing", "Jazz", "Startups"][i]}
+            placeholder={["Climbing…", "Jazz…", "Startups…"][i]}
             defaultValue={values[key]}
             aria-invalid={!!errors.interests && i === 0}
             className={inputClass}
@@ -165,7 +172,7 @@ export function JoinForm({ slug, action }: { slug: string; action: JoinAction })
           name="askMeAbout"
           type="text"
           maxLength={JOIN_LIMITS.askMeAbout}
-          placeholder="My year in Japan"
+          placeholder="My year in Japan…"
           defaultValue={values.askMeAbout}
           aria-invalid={!!errors.askMeAbout}
           aria-describedby={errors.askMeAbout ? "askMeAbout-error" : undefined}
