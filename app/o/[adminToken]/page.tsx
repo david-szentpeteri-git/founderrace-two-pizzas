@@ -4,7 +4,7 @@ import QRCode from "qrcode";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import { AutoRefresh, ConfirmSubmit, CopyButton, SubmitButton } from "@/components/organiser/client";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink, buttonClass } from "@/components/ui/button";
 import { Card, Pill } from "@/components/ui/card";
 import { getAdminView } from "@/lib/data";
 import { hasDatabase } from "@/lib/db";
@@ -98,8 +98,7 @@ ${joinUrl}
       <AutoRefresh seconds={10} />
       <main className="mx-auto max-w-5xl space-y-8 px-4 pb-20 pt-10 sm:px-6">
         <div>
-          <p className="text-sm font-medium text-zinc-500">Organiser dashboard</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">{event.name}</h1>
+          <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">{event.name}</h1>
           <p className="mt-2 text-zinc-500">
             {[when, event.place].filter(Boolean).join(" · ") || "No date or place set"}
             {" · "}
@@ -124,9 +123,9 @@ ${joinUrl}
               yourself.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <code className="truncate rounded-xl bg-white px-3 py-2 text-sm ring-1 ring-zinc-200">{dashboardUrl}</code>
+              <code translate="no" className="truncate rounded-xl bg-white px-3 py-2 text-sm ring-1 ring-zinc-200">{dashboardUrl}</code>
               <CopyButton text={dashboardUrl} label="Copy organiser link" />
-              <a href={mailto} className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-900 hover:border-zinc-900">
+              <a href={mailto} className={buttonClass({ variant: "secondary" })}>
                 Email it to myself
               </a>
             </div>
@@ -140,17 +139,21 @@ ${joinUrl}
           </Card>
         ) : null}
 
-        {error ? <p className="rounded-2xl bg-red-50 p-4 text-base font-medium text-red-700">{error}</p> : null}
+        {error ? (
+          <p role="alert" className="rounded-2xl bg-red-50 p-4 text-base font-medium text-red-700">
+            {error}
+          </p>
+        ) : null}
         {removed ? (
-          <p className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">
-            Guest #{removed} removed.{matched ? " Anyone who had them in their three can get a new match with \"Update intros\"." : ""}
+          <p role="status" className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">
+            Guest #{removed} removed.{matched ? " Anyone who had them in their three can get a new match with “Update intros”." : ""}
           </p>
         ) : null}
         {checkoutNote ? (
-          <p className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">{checkoutNote}</p>
+          <p role="status" className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">{checkoutNote}</p>
         ) : null}
         {done !== null && !Number.isNaN(done) ? (
-          <p className="rounded-2xl bg-lime-50 p-4 text-base font-medium text-lime-950 ring-1 ring-lime-300">
+          <p role="status" className="rounded-2xl bg-lime-50 p-4 text-base font-medium text-lime-950 ring-1 ring-lime-300">
             {done === 0 ? "Everyone already has their three hellos." : `Done: ${done} guest${done === 1 ? "" : "s"} now ${done === 1 ? "has" : "have"} their three hellos.`}
           </p>
         ) : null}
@@ -166,16 +169,16 @@ ${joinUrl}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={qrDataUrl} alt={`QR code for ${joinUrl}`} width={200} height={200} className="mx-auto mt-5" />
             <div className="mt-4 flex flex-col gap-2">
-              <code className="truncate rounded-xl bg-zinc-50 px-3 py-2 text-sm ring-1 ring-zinc-200">{joinUrl}</code>
+              <code translate="no" className="truncate rounded-xl bg-zinc-50 px-3 py-2 text-sm ring-1 ring-zinc-200">{joinUrl}</code>
               <div className="flex flex-wrap gap-2">
                 <CopyButton text={joinUrl} label="Copy join link" />
-                <a href={qrDataUrl} download={`three-hellos-${event.slug}.svg`} className="inline-flex items-center rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium hover:border-zinc-900">
+                <a href={qrDataUrl} download={`three-hellos-${event.slug}.svg`} className={buttonClass({ variant: "secondary" })}>
                   Download QR
                 </a>
-                <Link href={`/o/${adminToken}/poster`} className="inline-flex items-center rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700">
+                <Link href={`/o/${adminToken}/poster`} className={buttonClass()}>
                   Print door poster
                 </Link>
-                <Link href={`/e/${event.slug}`} className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium underline-offset-4 hover:underline">
+                <Link href={`/e/${event.slug}`} className={buttonClass({ variant: "ghost" })}>
                   Open join page
                 </Link>
               </div>
@@ -191,7 +194,7 @@ ${joinUrl}
             </p>
 
             <div className="mt-5 flex items-baseline gap-2">
-              <span className="text-5xl font-semibold tracking-tight">{count}</span>
+              <span className="text-5xl font-semibold tabular-nums tracking-tight">{count}</span>
               <span className="text-zinc-500">
                 guest{count === 1 ? "" : "s"} joined{isFree ? ` · free up to ${view.guestLimit}` : ""}
               </span>
@@ -207,7 +210,7 @@ ${joinUrl}
                   subscription.
                 </p>
                 <form action={startCheckoutAction.bind(null, adminToken)} className="mt-4">
-                  <SubmitButton pendingLabel="Opening payment...">Upgrade for €29</SubmitButton>
+                  <SubmitButton pendingLabel="Opening payment…">Upgrade for €29</SubmitButton>
                 </form>
               </div>
             ) : count < MIN_GUESTS_TO_MATCH ? (
@@ -218,13 +221,13 @@ ${joinUrl}
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {!matched ? (
                   <form action={generateIntrosAction.bind(null, adminToken, "all")}>
-                    <SubmitButton pendingLabel="Making intros, about 30 seconds...">Make intros for {count} guests</SubmitButton>
+                    <SubmitButton pendingLabel="Making intros, about 30 seconds…">Make intros for {count} guests</SubmitButton>
                   </form>
                 ) : (
                   <>
                     {withoutHellos > 0 ? (
                       <form action={generateIntrosAction.bind(null, adminToken, "new")}>
-                        <SubmitButton pendingLabel="Matching new arrivals...">
+                        <SubmitButton pendingLabel="Matching new arrivals…">
                           {allNew
                             ? `Match ${withoutHellos} new arrival${withoutHellos === 1 ? "" : "s"}`
                             : `Update intros for ${withoutHellos} guest${withoutHellos === 1 ? "" : "s"}`}
@@ -232,7 +235,11 @@ ${joinUrl}
                       </form>
                     ) : null}
                     <form action={generateIntrosAction.bind(null, adminToken, "all")}>
-                      <SubmitButton variant="secondary" pendingLabel="Making intros again...">
+                      <SubmitButton
+                        variant="secondary"
+                        pendingLabel="Making intros again…"
+                        confirmText="Make new intros for everyone? Guests who already opened their page will see different names."
+                      >
                         Redo intros for everyone
                       </SubmitButton>
                     </form>
