@@ -27,7 +27,7 @@ function hello(rank: 1 | 2 | 3, name: string, reason: string, opener: string): H
     askMeAbout: found.guest.askMeAbout ?? null,
     reason,
     opener,
-    mutual: false,
+    mutual: rank === 1,
   };
 }
 
@@ -54,4 +54,14 @@ export const sampleHellos: Hello[] = me
         "How did you pick the open source project you maintain now?",
       ),
     ].filter((h): h is Hello => h !== null)
+  : [];
+
+// The four sign-up answers of the sample guest, shown beside the phone preview.
+export const sampleAnswers = me
+  ? [
+      { label: "What I do", value: me.guest.role },
+      { label: "Interests", value: me.guest.interests.join(", ") },
+      { label: "Would love to meet", value: me.guest.lookingFor },
+      { label: "Ask me about", value: me.guest.askMeAbout ?? "" },
+    ].filter((a) => a.value)
   : [];

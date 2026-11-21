@@ -1,11 +1,16 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { audience, demo, faq, finalCta, hero, howItWorks, meta, pricing, problem } from "@/content/landing";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import Marker from "@/components/marketing/Marker";
 import Faq from "@/components/marketing/Faq";
-import HelloPreviewCard from "@/components/marketing/HelloPreviewCard";
+import PhonePreview from "@/components/marketing/PhonePreview";
+import MobileCtaBar from "@/components/marketing/MobileCtaBar";
+import { HelloCard } from "@/components/guest/HelloCard";
 import { sampleGuest, sampleHellos } from "@/components/marketing/sampleHellos";
 
 export const metadata: Metadata = {
@@ -25,10 +30,17 @@ function markPhrase(text: string, phrase: string) {
   );
 }
 
-const primaryButton =
-  "inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-center text-base font-medium text-white hover:bg-zinc-700";
-const secondaryButton =
-  "inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-center text-base font-medium text-zinc-900 hover:border-zinc-900";
+// The photo band renders only when the file is present.
+const mixerPhoto = fs.existsSync(path.join(process.cwd(), "public", "img", "mixer.jpg"));
+
+const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900";
+const primaryButton = `inline-flex min-h-12 w-full items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-zinc-700 sm:w-auto ${focus}`;
+const secondaryButton = `inline-flex min-h-12 w-full items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-center text-base font-medium text-zinc-900 transition-colors hover:border-zinc-900 sm:w-auto ${focus}`;
+const textLink = `group inline-flex min-h-12 items-center justify-center gap-1.5 rounded-full px-2 text-base font-medium text-zinc-900 underline-offset-4 hover:underline ${focus}`;
+
+const section = "mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24";
+const h2 = "font-display text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl";
+const lead = "mt-4 max-w-[65ch] text-lg leading-relaxed text-zinc-500";
 
 export default function HomePage() {
   return (
@@ -36,49 +48,90 @@ export default function HomePage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="mx-auto max-w-5xl px-4 pb-16 pt-14 sm:px-6 sm:pt-24">
-          <p className="text-sm font-medium text-zinc-500">{hero.eyebrow}</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-            {markPhrase(hero.headline, "three people")}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-500">{hero.problem}</p>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-900">{hero.solution}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href={hero.primaryCta.href} className={primaryButton}>
-              {hero.primaryCta.label}
-            </Link>
-            <Link href={hero.secondaryCta.href} className={secondaryButton}>
-              {hero.secondaryCta.label}
-            </Link>
-          </div>
-          <p className="mt-4 text-sm text-zinc-500">{hero.reassurance}</p>
-        </section>
-
-        {/* Problem */}
-        <section className="bg-zinc-50">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{problem.heading}</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 sm:gap-8">
-              {problem.paragraphs.map((p) => (
-                <p key={p} className="text-base leading-relaxed text-zinc-500">
-                  {p}
-                </p>
-              ))}
+        <section id="hero" className="mx-auto max-w-6xl overflow-x-clip px-4 pb-20 pt-12 sm:px-6 sm:pt-20 lg:pb-24">
+          <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
+            <div>
+              <p className="text-sm font-medium text-zinc-500">{hero.eyebrow}</p>
+              <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+                {markPhrase(hero.headline, "three people")}
+              </h1>
+              <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-zinc-500">{hero.problem}</p>
+              <div className="mt-8 flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-4">
+                <Link href={hero.primaryCta.href} className={primaryButton}>
+                  {hero.primaryCta.label}
+                </Link>
+                <Link href={hero.secondaryCta.href} className={textLink}>
+                  {hero.secondaryCta.label}
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                    &rarr;
+                  </span>
+                </Link>
+              </div>
+              <p className="mt-4 text-sm text-zinc-500">{hero.reassurance}</p>
+              <p className="mt-6 inline-flex rounded-full border border-zinc-200 px-3 py-1 text-xs font-medium text-zinc-600">
+                Built in 24 hours at FounderRace, Edition 2
+              </p>
+            </div>
+            <div className="lg:justify-self-center xl:pl-32">
+              <PhonePreview />
             </div>
           </div>
         </section>
 
+        {/* Problem */}
+        <section className="bg-zinc-50">
+          <div className={section}>
+            <h2 className={h2}>{problem.heading}</h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2 md:gap-12">
+              {problem.paragraphs.map((p) => (
+                <p key={p} className="max-w-[65ch] text-lg leading-relaxed text-zinc-500">
+                  {p}
+                </p>
+              ))}
+            </div>
+            <p className="mt-10 max-w-[65ch] rounded-2xl border-l-4 border-zinc-900 bg-white px-6 py-5 text-lg leading-relaxed text-zinc-900 ring-1 ring-zinc-200">
+              {hero.solution}
+            </p>
+          </div>
+        </section>
+
+        {/* Photo band */}
+        {mixerPhoto ? (
+          <section className="mx-auto max-w-6xl px-4 pt-20 sm:px-6 sm:pt-24">
+            <figure>
+              <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-zinc-100">
+                <Image
+                  src="/img/mixer.jpg"
+                  alt="People talking in small groups at an evening social, each wearing a blank lime green name badge"
+                  fill
+                  sizes="(min-width: 1152px) 1104px, calc(100vw - 32px)"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-xs text-zinc-500">
+                Illustration generated for this page. Not a real event.
+              </figcaption>
+            </figure>
+          </section>
+        ) : null}
+
         {/* How it works */}
-        <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6" id="how-it-works">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{howItWorks.heading}</h2>
-          <ol className="mt-8 grid gap-6 sm:grid-cols-2">
+        <section className={`${section} scroll-mt-20`} id="how-it-works">
+          <h2 className={h2}>{howItWorks.heading}</h2>
+          <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {howItWorks.steps.map((step, i) => (
-              <li key={step.title} className="rounded-2xl border border-zinc-200 p-6">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-lime-300 text-sm font-semibold text-zinc-900">
-                  {i + 1}
+              <li key={step.title} className="border-t border-zinc-900 pt-6">
+                <span
+                  aria-hidden="true"
+                  className="block font-display text-6xl font-semibold leading-none tracking-tight text-transparent [-webkit-text-stroke:1.5px_#18181b]"
+                >
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-500">{step.body}</p>
+                <h3 className="mt-6 font-display text-xl font-semibold tracking-tight">
+                  <span className="sr-only">Step {i + 1}: </span>
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-zinc-500">{step.body}</p>
               </li>
             ))}
           </ol>
@@ -86,27 +139,27 @@ export default function HomePage() {
 
         {/* Key feature preview */}
         <section className="bg-zinc-50">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{demo.heading}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-500">{demo.body}</p>
+          <div className={section}>
+            <h2 className={h2}>{demo.heading}</h2>
+            <p className={lead}>{demo.body}</p>
             {sampleHellos.length > 0 ? (
-            <div className="mt-8 rounded-2xl bg-white p-5 ring-1 ring-zinc-200 sm:p-6">
-              <p className="text-sm text-zinc-500">
-                This is what guest #{sampleGuest.number} sees on their phone
-              </p>
-              <p className="mt-1 text-xl font-semibold">
-                {sampleGuest.name}, your <Marker>three hellos</Marker>
-              </p>
-              <p className="mt-1 text-sm text-zinc-500">{sampleGuest.role}</p>
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
-                {sampleHellos.map((h) => (
-                  <HelloPreviewCard key={h.rank} hello={h} />
-                ))}
+              <div className="mt-10">
+                <p className="text-sm font-medium text-zinc-500">
+                  This is what guest #{sampleGuest.number} sees on their phone
+                </p>
+                <p className="mt-2 font-display text-2xl font-semibold tracking-tight">
+                  {sampleGuest.name}, your <Marker>three hellos</Marker>
+                </p>
+                <p className="mt-1 text-base text-zinc-500">{sampleGuest.role}</p>
+                <div className="mt-8 grid gap-6 lg:grid-cols-3 [&>article]:h-full">
+                  {sampleHellos.map((h) => (
+                    <HelloCard key={h.rank} hello={h} />
+                  ))}
+                </div>
               </div>
-            </div>
             ) : null}
-            <p className="mt-4 text-xs text-zinc-500">{demo.disclaimer}</p>
-            <div className="mt-6">
+            <p className="mt-6 max-w-[65ch] text-sm text-zinc-500">{demo.disclaimer}</p>
+            <div className="mt-8">
               <Link href={demo.cta.href} className={secondaryButton}>
                 {demo.cta.label}
               </Link>
@@ -115,78 +168,97 @@ export default function HomePage() {
         </section>
 
         {/* Audience */}
-        <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{audience.heading}</h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-500">{audience.intro}</p>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+        <section className={section}>
+          <h2 className={h2}>{audience.heading}</h2>
+          <p className={lead}>{audience.intro}</p>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
             {audience.groups.map((g) => (
-              <li key={g} className="rounded-xl border border-zinc-200 px-5 py-4 text-base">
+              <li key={g} className="rounded-2xl border border-zinc-200 px-6 py-5 text-base leading-relaxed">
                 {g}
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-2xl text-sm text-zinc-500">{audience.note}</p>
+          <p className="mt-6 max-w-[65ch] text-base text-zinc-500">{audience.note}</p>
         </section>
 
         {/* Pricing */}
-        <section id="pricing" className="scroll-mt-8 bg-zinc-50">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{pricing.heading}</h2>
-            <p className="mt-4 text-base text-zinc-500">{pricing.intro}</p>
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {pricing.plans.map((plan, i) => (
-                <div
-                  key={plan.name}
-                  className={`flex flex-col rounded-2xl bg-white p-6 ${i === 1 ? "ring-2 ring-zinc-900" : "ring-1 ring-zinc-200"}`}
-                >
-                  <h3 className="text-lg font-semibold">{plan.name}</h3>
-                  <p className="mt-4">
-                    <span className="text-5xl font-semibold tracking-tight">{plan.price}</span>
-                  </p>
-                  <p className="mt-2 text-sm text-zinc-500">{plan.priceNote}</p>
-                  <ul className="mt-6 space-y-2 text-sm">
-                    {plan.points.map((pt) => (
-                      <li key={pt} className="flex gap-2">
-                        <span aria-hidden className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-lime-300 ring-1 ring-zinc-900" />
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-8 pt-2 md:mt-auto">
-                    <Link href={plan.cta.href} className={`${primaryButton} w-full`}>
-                      {plan.cta.label}
-                    </Link>
+        <section id="pricing" className="scroll-mt-20 bg-zinc-50">
+          <div className={section}>
+            <h2 className={h2}>{pricing.heading}</h2>
+            <p className={lead}>{pricing.intro}</p>
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {pricing.plans.map((plan, i) => {
+                const recommended = i === 1;
+                return (
+                  <div
+                    key={plan.name}
+                    className={`relative flex flex-col rounded-2xl bg-white p-8 ${
+                      recommended ? "border-2 border-zinc-900 shadow-lg shadow-zinc-900/5" : "border-2 border-zinc-200"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="font-display text-xl font-semibold tracking-tight">{plan.name}</h3>
+                      {recommended ? (
+                        <span className="rounded-full bg-lime-300 px-3 py-1 text-xs font-semibold text-zinc-900">
+                          Most events
+                        </span>
+                      ) : null}
+                    </div>
+                    <p className="mt-6 font-display text-6xl font-semibold tracking-tight">{plan.price}</p>
+                    <p className="mt-2 min-h-12 text-base text-zinc-500">{plan.priceNote}</p>
+                    <ul className="mt-6 space-y-3 text-base">
+                      {plan.points.map((pt) => (
+                        <li key={pt} className="flex gap-3">
+                          <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-900" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-10 md:mt-auto md:pt-10">
+                      <Link
+                        href={plan.cta.href}
+                        className={`${recommended ? primaryButton : secondaryButton} sm:w-full`}
+                      >
+                        {plan.cta.label}
+                      </Link>
+                      <p className="mt-3 min-h-5 text-center text-sm text-zinc-500">
+                        {recommended ? "" : "No card needed."}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
-            <p className="mt-6 max-w-2xl text-sm text-zinc-500">{pricing.footnote}</p>
+            <p className="mt-8 font-medium text-zinc-900">An event with 80 guests costs €29 in total.</p>
+            <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-zinc-500">{pricing.footnote}</p>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{faq.heading}</h2>
-          <div className="mt-8">
+        <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24">
+          <h2 className={h2}>{faq.heading}</h2>
+          <div className="mt-10">
             <Faq />
           </div>
         </section>
 
         {/* Final call to action */}
-        <section className="mx-auto max-w-5xl px-4 pb-20 sm:px-6">
-          <div className="rounded-3xl bg-zinc-900 px-6 py-12 text-center text-white sm:px-12">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{finalCta.heading}</h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-zinc-300">{finalCta.body}</p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+          <div className="rounded-3xl bg-zinc-900 px-6 py-16 text-center text-white sm:px-12 sm:py-20">
+            <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-5xl">
+              {finalCta.heading}
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-lg text-zinc-300">{finalCta.body}</p>
+            <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Link
                 href={finalCta.primary.href}
-                className="inline-flex items-center justify-center rounded-full bg-lime-300 px-6 py-3 text-center text-base font-medium text-zinc-900 hover:bg-lime-200"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-lime-300 px-7 py-3 text-center text-base font-semibold text-zinc-900 transition-colors hover:bg-lime-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300"
               >
                 {finalCta.primary.label}
               </Link>
               <Link
                 href={finalCta.secondary.href}
-                className="inline-flex items-center justify-center rounded-full border border-zinc-600 px-6 py-3 text-center text-base font-medium text-white hover:border-white"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-zinc-600 px-7 py-3 text-center text-base font-medium text-white transition-colors hover:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {finalCta.secondary.label}
               </Link>
@@ -195,6 +267,7 @@ export default function HomePage() {
         </section>
       </main>
       <Footer />
+      <MobileCtaBar href={hero.primaryCta.href} label={hero.primaryCta.label} heroId="hero" footerId="site-footer" />
     </div>
   );
 }
