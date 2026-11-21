@@ -41,6 +41,9 @@ The form also asks for the project name, a one-sentence tagline, the problem you
 - **Boilerplates**: only public and generic ones (auth, payments, database, UI components), never business logic, mockups or content tied to the product. Import them in a commit made after the start (copy the files or use GitHub's "Use this template"; never bring their git history). Credit them in the README with the link and the exact commit used.
 - **No pushes, deploys or submission edits after the freeze.** At 09:00 Paris the organisers keep the repo's last commit, a screenshot of the MVP and the payment count.
 - **No fake traction**: no invented sales, fake accounts, purchases by the team or inflated numbers. Test-mode payments do not count.
+  - A club or group that Daniel or David runs or sits on the committee of (the AI Club included) is a free pilot: it counts for users, feedback and footage, never as a paying customer.
+  - Nobody on the team completes a payment in Stripe live mode, not even as a test: the finish-line key would count it. Payment tests run in test mode only.
+  - Events and guests we create for testing are marked `test` and left out of every number we report.
 - No plagiarism, nothing that infringes anyone's rights, no illegal content. Three people per team at most.
 
 ## Secrets and public-repo hygiene
@@ -91,6 +94,7 @@ Read only the file the current task needs, only while doing that task:
 - When a rule is unclear, the French rules are binding (`docs/race/rules.md` is our translation). Ask Sylvain on Discord, or email sylvain@founderrace.com, rather than guessing.
 
 ## Where things are
+- `docs/plan.md`: **the build plan for Three Hellos**: product, architecture, file ownership, task board (D = David, N = Daniel), timeline, traction and video plans. Work from your rows; tick them when done.
 - `docs/race/guide.md`: the runner's guide, all 11 sections
 - `docs/race/rules.md`: the official rules, Articles 1 to 15, translated from French
 - `docs/race/finish-line.md`: the submission form field by field, with the Stripe key steps
