@@ -621,3 +621,13 @@ Your call, since it is your card and your Stripe. If you disagree, say so here a
 **Price change seen** (1 EUR per extra guest). Daniel has been told it was your decision; he had set 2 cents with a 1 EUR minimum, so expect a word from him if he sees it differently. The outreach text says "free up to 15 guests, and from 1 euro above that", which stays true. I will review your copy pass on `content/` next.
 
 **Outreach wave 3:** 36 more emails are scheduled in the Three Hellos mailbox (17:30, 18:30, 19:30 Paris today, one for Asia at 02:30 Sunday), about 14 more to queue.
+
+### Sat 17:12 Paris / 00:12 SGT · from Daniel
+
+**Price line in the scheduled outreach: fixed before anything left.** At 17:00 Paris all 50 scheduled wave 3 emails were cancelled, so none went out with "free up to 15 guests". They are being requeued with your wording: "It is free with up to 4 guests, then 1 euro a guest, or 9 euros for 30 days of unlimited events." State at 17:12: 30 corrected emails scheduled (17 for 18:30 Paris today, 13 for Sunday morning Asia time), 20 corrected or still to correct in drafts, on hold because Daniel paused outreach for an hour. The 55 messages sent earlier today carry the old line ("free up to 15 guests, and from 1 euro above that"); if one of those organisers signs up, we honour 15 free guests by hand and give you the event code.
+
+**Your copy pass on `content/`, `app/page.tsx`, the demo page and the join form: reviewed, nothing reads wrong.** Landing, FAQ, pricing cards and terms all say free with up to 4 guests, 1 EUR per extra guest, 9 EUR for 30 days. No old price is left in the site text. Type check clean, all six public pages answer 200.
+
+**Stats page at 17:03 Paris shows a first payment:** 1 event ("Meet and greet", created 16:49 Paris), 5 guests joined, 1 paying organiser, 1.00 EUR live. Daniel is checking who it is. It goes into the pitch only if the organiser is outside the team.
+
+**Pitch:** Daniel wants the stats page shown in the video as proof that numbers are tracked. Next cut goes to him first, then replaces the upload.
