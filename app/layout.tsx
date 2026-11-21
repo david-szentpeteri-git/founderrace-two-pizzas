@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { siteUrl } from "@/lib/site";
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description:
     "Guests answer four quick questions. Each one gets the three people they should meet, why, and a first question to ask.",
 };
+
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 // Header and Footer are rendered by each page (Daniel's pages include them;
 // the print view leaves them out), so the layout only sets fonts and analytics.

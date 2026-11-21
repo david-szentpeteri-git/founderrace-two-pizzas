@@ -24,6 +24,33 @@
 
 html {
   color-scheme: light;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* No double-tap zoom delay on phones for anything tappable. */
+a,
+button,
+input,
+label,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
+}
+
+/* Browser surfaces in the brand: selection, caret, keyboard focus. */
+::selection {
+  background: #bef264;
+  color: #18181b;
+}
+
+input,
+textarea {
+  caret-color: #18181b;
+}
+
+:focus-visible {
+  outline-color: #18181b;
 }
 
 body {
