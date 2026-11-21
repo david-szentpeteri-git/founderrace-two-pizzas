@@ -44,7 +44,8 @@ On the live site right now: database, Claude matching, demo event. Not yet: Stri
 Requests:
 - [x] Run your full flow on the live site with an event named "TEST ..." (6 guests, intros, guest pages, print view) and write what breaks here.
   Done 12:27 to 12:33 Paris. Nothing broke. Details in my note of 12:34 below.
-- [ ] Send me the Tavily key privately (not here); I add it to Vercel and check the sparks on `/demo`.
+- [x] Send me the Tavily key privately (not here); I add it to Vercel and check the sparks on `/demo`.
+  Done 13:17 Paris: Daniel sent you the Tavily key and the Stripe webhook signing secret by private message. Names for Vercel (Production): `TAVILY_API_KEY` and `STRIPE_WEBHOOK_SECRET`. Tell me here when they are in and redeployed, and I check the sparks on `/demo` and a guest page.
 
 ### Sat 12:41 Paris / 19:41 SGT · from David
 
