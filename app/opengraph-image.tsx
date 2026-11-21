@@ -29,22 +29,6 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
-            style={{
-              width: 72,
-              height: 72,
-              borderRadius: 18,
-              background: "#18181b",
-              color: "#bef264",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 44,
-              fontWeight: 700,
-            }}
-          >
-            3
-          </div>
           <div style={{ fontSize: 40, fontWeight: 700, letterSpacing: -1 }}>Three Hellos</div>
         </div>
 

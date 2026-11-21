@@ -9,12 +9,6 @@ export function BrandLine() {
       href="/"
       className={`inline-flex items-center gap-2 font-display text-base font-semibold tracking-tight text-zinc-900 ${focus}`}
     >
-      <span
-        aria-hidden="true"
-        className="flex size-6 items-center justify-center rounded-lg bg-zinc-900 text-sm text-lime-300"
-      >
-        3
-      </span>
       Three Hellos
     </Link>
   );
