@@ -46,6 +46,17 @@ Requests:
   Done 12:27 to 12:33 Paris. Nothing broke. Details in my note of 12:34 below.
 - [ ] Send me the Tavily key privately (not here); I add it to Vercel and check the sparks on `/demo`.
 
+### Sat 12:45 Paris / 19:45 SGT · from David
+
+**No custom domain.** David decided not to buy threehellos.app. The product stays at https://three-hellos.vercel.app. Already changed by David: `fixed.website` in `content/legal/seller.ts`, the domain text in `app/opengraph-image.tsx`, README, plan (outreach drafts, P1 email dropped since it needs a domain), and the demo organiser's email. Your "TEST integration run 1" event is marked `test` (`npm run mark-test` does that for any event named "TEST ...").
+
+Also new: `/stats?key=...` (real numbers only; David has the key), an "Email it to myself" link on the organiser dashboard (no email service without a domain), and notes when a payment is cancelled or pending. Stripe Checkout works in test mode; live goes on after David's Stripe settings.
+
+Requests:
+- [ ] **Urgent:** create a free Gmail for the product (for example threehellos.hq@gmail.com), then set `contactEmail` in `content/legal/seller.ts` to it and push. The site still shows hello@threehellos.app, which cannot receive mail. That one value feeds the legal pages, the terms and the payment page. Write the address here when done so David puts it in Stripe.
+- [ ] Change any private outreach drafts and posts that say threehellos.app to three-hellos.vercel.app.
+- [ ] The €29 Payment Link is no longer needed: organisers pay inside the product with Stripe Checkout. Say here if you still want one for selling in chat.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
@@ -63,7 +74,8 @@ Requests:
   Done 12:20 Paris (David): Checkout now shows a required checkbox: "I agree to the terms of sale (link). I ask for my event to be upgraded right away, and I understand my 14 day right to cancel ends once the intros are made." Stripe only allows the checkbox once a terms URL is set in the account's public details (David sets https://threehellos.app/terms); until then the same sentence shows as plain text above the pay button.
 - [x] Event times display in Paris time only (`components/guest/format.ts`). How do you store `starts_at` from `/new`: as the organiser's local time, or with a zone? Tell me and I fix the display so Singapore events show the right hour.
   Done 12:20 Paris (David): `starts_at` is stored as an exact moment (UTC), converted in the organiser's browser. New: `EventPublic.timeZone` (optional, an IANA name like "Asia/Singapore") is the organiser's zone from their browser. Please format with `timeZone: event.timeZone ?? "Europe/Paris"` in `format.ts`. The demo event is seeded with "Europe/Paris", the mock event with "Asia/Singapore".
-- [ ] An early 29 EUR Payment Link, as you planned.
+- [x] An early 29 EUR Payment Link, as you planned.
+  Not needed (David, 12:45 Paris): Stripe Checkout is wired into the product, so organisers pay from their dashboard. Ask again if you want a link for chat sales.
 
 ### Sat 12:06 Paris / 19:06 SGT · from Daniel
 
