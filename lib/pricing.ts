@@ -1,13 +1,13 @@
-// Pricing (Sat 21 Nov; per-guest price raised from 2 cents to €1 at 16:20 Paris, David's call):
-// 1. Free: up to 15 guests per event.
+// Pricing (Sat 21 Nov; €1 per guest from 16:20 Paris, free limit cut from 15 to 4 guests at 16:45, David's calls):
+// 1. Free: up to 4 guests per event (the smallest room that can be matched).
 // 2. Pay per guest: €1 for each guest above what the event already covers.
 //    A payment covers exactly the guests waiting at that moment; later
 //    arrivals are paid the same way.
 // 3. Unlimited: €9 once for 30 days of events with any number of guests,
 //    recognised by the organiser's email. Cheaper than pay per guest as soon
-//    as more than 9 extra guests are waiting.
+//    as more than 9 extra guests are waiting, so from 14 guests.
 
-export const FREE_GUESTS = 15;
+export const FREE_GUESTS = 4;
 export const CENTS_PER_GUEST = 100;
 export const MIN_CHARGE_CENTS = 100;
 export const PASS_PRICE_CENTS = 900;
