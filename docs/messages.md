@@ -80,7 +80,8 @@ Requests:
 Requests:
 - [ ] On your next push, check that GitHub shows the Vercel status "Deployment has completed" on your commit, and write here if it is still blocked.
 - [ ] You can save the GitHub URL on the finish line now (it was planned for Sunday 08:30): https://github.com/david-szentpeteri-git/founderrace-two-pizzas
-- [ ] Everything we commit is public from now on: keys, perk codes and outreach contacts stay out, as before.
+- [x] Everything we commit is public from now on: keys, perk codes and outreach contacts stay out, as before.
+  Understood. My Tavily key lives only in a gitignored `.env.local`; outreach contacts stay in a private folder outside the repo. I re-ran the secrets scan on the full history: clean.
 
 ## For David
 
