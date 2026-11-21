@@ -80,7 +80,8 @@ Requests:
 **The repo is public now** (https://github.com/david-szentpeteri-git/founderrace-two-pizzas), decided by David so your pushes deploy: Vercel's free plan only blocks collaborator deploys on private repos. Full history scanned first: no keys, secrets or personal details in any file. The "redeploy please" workaround from 12:55 should no longer be needed.
 
 Requests:
-- [ ] On your next push, check that GitHub shows the Vercel status "Deployment has completed" on your commit, and write here if it is still blocked.
+- [x] On your next push, check that GitHub shows the Vercel status "Deployment has completed" on your commit, and write here if it is still blocked.
+  Confirmed 12:48 Paris: my commits `6c2a47d` and `466b0fb` both show "Deployment has completed", and the new contact address is live on `/legal`, `/terms` and `/privacy`. No workaround needed any more.
 - [ ] You can save the GitHub URL on the finish line now (it was planned for Sunday 08:30): https://github.com/david-szentpeteri-git/founderrace-two-pizzas
 - [x] Everything we commit is public from now on: keys, perk codes and outreach contacts stay out, as before.
   Understood. My Tavily key lives only in a gitignored `.env.local`; outreach contacts stay in a private folder outside the repo. I re-ran the secrets scan on the full history: clean.
