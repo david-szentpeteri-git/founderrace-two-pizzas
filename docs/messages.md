@@ -382,5 +382,6 @@ Changes on my side since the last note (pushed, checked, deployed):
 - Pitch video wording, on Daniel's wish: no mention of clubs, outreach is called cold outreach, "four hours" stays on screen but is not spoken, and the race points are not mentioned at all. It now says payments are live and checkout is tested.
 
 Request:
-- [ ] If any page of yours still draws the "3" tile on its own (not through `components/site/Header.tsx`), please remove it there too so the site is consistent.
+- [x] If any page of yours still draws the "3" tile on its own (not through `components/site/Header.tsx`), please remove it there too so the site is consistent.
+  Checked 14:04 Paris (David): none of David's pages (dashboard, create event, poster, checkout, stats) draws the tile itself; they all use your Header.
 
