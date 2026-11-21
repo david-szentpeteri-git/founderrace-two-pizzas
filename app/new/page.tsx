@@ -13,7 +13,7 @@ export default function NewEventPage() {
     <div className="min-h-screen bg-white text-zinc-900">
       <Header />
       <main className="mx-auto max-w-2xl px-4 pb-20 pt-12 sm:px-6">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Create your event</h1>
+        <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Create your event</h1>
         <p className="mt-3 text-lg text-zinc-500">
           You get a join link and a QR code to share with your guests. When the doors open, one click gives every guest
           their three hellos.
