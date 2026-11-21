@@ -56,6 +56,7 @@ export function privacyPolicy(s: CompleteSeller, options: { emailsOn?: boolean }
         "Vercel hosts the site and counts visits.",
         "Anthropic runs the Claude model that writes the introductions.",
         "Stripe processes payments.",
+        "Tavily, a search service, finds recent news headlines for the conversation topics on guest pages. We send it only the event name and description. Guest names, emails and answers are never sent.",
         "Some of these providers are outside the European Union, in Singapore and the United States. Where data leaves the EU, we rely on the safeguards in each provider's data processing terms, such as the EU standard contractual clauses.",
       ],
     },

@@ -8,6 +8,8 @@ import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import Marker from "@/components/marketing/Marker";
 import { safeTimeZone } from "@/components/guest/format";
+import { DemoSparks } from "@/components/guest/Sparks";
+import { Suspense } from "react";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900";
 const h2 = "font-display text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl";
@@ -203,6 +205,10 @@ export default async function DemoPage() {
                 .
               </p>
             ) : null}
+
+            <Suspense fallback={null}>
+              <DemoSparks event={{ slug: event.slug, name: event.name, description: event.description }} />
+            </Suspense>
           </div>
         </section>
 

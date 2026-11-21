@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 // Data source for the guest route. Switch to "@/lib/data" at integration.
 import { getGuestView } from "@/lib/data";
 import { HelloCard } from "@/components/guest/HelloCard";
@@ -6,6 +7,7 @@ import { Marker } from "@/components/guest/Marker";
 import { GuestNotFound } from "@/components/guest/NotFound";
 import { formatEventTime } from "@/components/guest/format";
 import { BrandLine, MadeWith } from "@/components/guest/BrandLine";
+import { EventSparks } from "@/components/guest/Sparks";
 
 export const dynamic = "force-dynamic";
 
@@ -122,6 +124,14 @@ export default async function GuestPage({ params }: Props) {
           </p>
         </section>
       )}
+
+      {/* Topic sparks from this week's news (Tavily). Streams in after the page; renders nothing without a key or results. */}
+      <Suspense fallback={null}>
+        <EventSparks
+          event={{ slug: event.slug, name: event.name, description: event.description }}
+          className="mt-12"
+        />
+      </Suspense>
 
       {wantsToMeetYou.length > 0 && (
         <section className="mt-12">

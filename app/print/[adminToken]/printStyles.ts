@@ -86,6 +86,16 @@ export const printCss = `
   .pv-sheet { box-shadow: 0 0 0 1px #e4e4e7; }
 }
 
+.pv-sparks {
+  width: 190mm; max-width: 100%; margin: 0 auto 24px; padding: 4mm 5mm;
+  border: 0.3mm dashed #71717a; break-inside: avoid; page-break-inside: avoid;
+}
+.pv-sparks-title { font-size: 5mm; font-weight: 600; line-height: 1.2; margin-bottom: 2mm; }
+.pv-sparks-list { margin: 0; padding-left: 5mm; font-size: 3.6mm; line-height: 1.4; }
+.pv-sparks-list li { margin-bottom: 1.5mm; }
+.pv-sparks-source { color: #52525b; }
+.pv-sparks-note { font-size: 3mm; color: #52525b; margin-top: 1mm; }
+
 @media print {
   html, body { background: #fff !important; color: #000 !important; }
   .pv-no-print { display: none !important; }

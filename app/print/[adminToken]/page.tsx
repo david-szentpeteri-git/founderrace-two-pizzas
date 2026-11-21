@@ -7,6 +7,8 @@ import { GuestNotFound } from "@/components/guest/NotFound";
 import { formatEventTime } from "@/components/guest/format";
 import { PrintButton } from "./PrintButton";
 import { printCss } from "./printStyles";
+import { getSparks } from "@/lib/sparks";
+import type { Spark } from "@/lib/sparks/core";
 
 export const dynamic = "force-dynamic";
 
@@ -47,6 +49,8 @@ export default async function PrintPage({
   const when = formatEventTime(event.startsAt, event.timeZone);
   const badgeSheets = chunk(cards, BADGES_PER_PAGE);
   const cardSheets = chunk(cards, CARDS_PER_PAGE);
+  // Never throws; [] without a Tavily key or results, and then no extra card is printed.
+  const sparks = cards.length > 0 ? await getSparks({ slug: event.slug, name: event.name, description: event.description }) : [];
 
   return (
     <main className="pv-root mx-auto max-w-[210mm] px-4 py-6">
@@ -118,6 +122,8 @@ export default async function PrintPage({
               badges now and the cards later.
             </p>
           )}
+
+          {sparks.length > 0 ? <SparksCard sparks={sparks} /> : null}
         </>
       )}
     </main>
@@ -167,5 +173,22 @@ function IntroCard({ card, eventName }: { card: BadgeCard; eventName: string }) 
         </div>
       )}
     </article>
+  );
+}
+
+/** One compact card with the topic prompts, printed after everything else. */
+function SparksCard({ sparks }: { sparks: Spark[] }) {
+  return (
+    <section aria-label="Things to talk about this week" className="pv-sparks">
+      <div className="pv-sparks-title">Things to talk about this week</div>
+      <ol className="pv-sparks-list">
+        {sparks.slice(0, 3).map((s) => (
+          <li key={s.url}>
+            {s.prompt} <span className="pv-sparks-source">({s.source})</span>
+          </li>
+        ))}
+      </ol>
+      <div className="pv-sparks-note">Fresh this week, found with Tavily</div>
+    </section>
   );
 }
