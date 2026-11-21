@@ -35,8 +35,19 @@ export default async function StatsPage({ searchParams }: Props) {
     guestsWithHellos = new Set((m ?? []).map((r: { guest_id: string }) => r.guest_id)).size;
   }
 
-  const paid = events.filter((e) => e.plan === "paid");
-  const revenue = paid.reduce((sum, e) => sum + (e.amount_paid_cents ?? 0), 0) / 100;
+  // Money comes from the payments table: live-mode payments only, never on our test or demo events.
+  const realIds = new Set(ids);
+  const { data: payData, error: payError } = await db()
+    .from("payments")
+    .select("kind, event_id, email, amount_cents, livemode")
+    .eq("livemode", true);
+  if (payError) throw payError;
+  const payments = ((payData ?? []) as Array<{ kind: string; event_id: string | null; email: string | null; amount_cents: number }>).filter(
+    (p) => !p.event_id || realIds.has(p.event_id),
+  );
+  const revenue = payments.reduce((sum, p) => sum + p.amount_cents, 0) / 100;
+  const payers = new Set(payments.map((p) => (p.email ?? "").toLowerCase()).filter(Boolean)).size;
+  const passes = payments.filter((p) => p.kind === "pass").length;
   const generatedAt = new Date().toISOString();
 
   const rows: Array<[string, string | number]> = [
@@ -44,8 +55,9 @@ export default async function StatsPage({ searchParams }: Props) {
     ["Events with intros made", events.filter((e) => e.status === "matched").length],
     ["Guests joined", guests],
     ["Guests with three hellos", guestsWithHellos],
-    ["Paying organisers", paid.length],
-    ["Revenue (database, check in Stripe)", `€${revenue.toFixed(2)}`],
+    ["Paying organisers (distinct emails)", payers],
+    ["Payments (of which 30-day passes)", `${payments.length} (${passes})`],
+    ["Revenue, live mode (check in Stripe)", `€${revenue.toFixed(2)}`],
     ["Pilot events (free, ours)", events.filter((e) => e.plan === "pilot").length],
   ];
 
