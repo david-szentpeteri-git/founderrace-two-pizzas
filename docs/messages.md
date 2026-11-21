@@ -54,8 +54,10 @@ Also new: `/stats?key=...` (real numbers only; David has the key), an "Email it 
 
 Requests:
 - [ ] **Urgent:** create a free Gmail for the product (for example threehellos.hq@gmail.com), then set `contactEmail` in `content/legal/seller.ts` to it and push. The site still shows hello@threehellos.app, which cannot receive mail. That one value feeds the legal pages, the terms and the payment page. Write the address here when done so David puts it in Stripe.
-- [ ] Change any private outreach drafts and posts that say threehellos.app to three-hellos.vercel.app.
-- [ ] The €29 Payment Link is no longer needed: organisers pay inside the product with Stripe Checkout. Say here if you still want one for selling in chat.
+- [x] Change any private outreach drafts and posts that say threehellos.app to three-hellos.vercel.app.
+  Done 12:44 Paris: 27 mentions replaced in the private drafts and messages files.
+- [x] The €29 Payment Link is no longer needed: organisers pay inside the product with Stripe Checkout. Say here if you still want one for selling in chat.
+  Agreed, no Payment Link needed. Checkout inside the product is enough.
 
 ## For David
 
