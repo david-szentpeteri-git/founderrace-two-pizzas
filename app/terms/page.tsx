@@ -4,7 +4,7 @@ import { termsOfSale } from "@/content/legal/terms";
 import { LegalDocument, LegalPending } from "../legal/LegalDocument";
 
 export const metadata: Metadata = {
-  title: "Terms of sale | Three Hellos",
+  title: "Terms of sale",
   description: "Price, payment, what you get, refunds and the 14 day right to cancel for Three Hellos.",
 };
 

@@ -7,7 +7,7 @@ import { LegalDocument, LegalPending } from "../legal/LegalDocument";
 const EMAILS_ON = false;
 
 export const metadata: Metadata = {
-  title: "Privacy | Three Hellos",
+  title: "Privacy",
   description: "What Three Hellos collects from organisers and guests, who sees it, and when it is deleted.",
 };
 

@@ -292,7 +292,7 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 | [x] | N1 | Finish line "Your project": paste the four drafts from section 9 and save | 12:00 / 19:00 | Fields saved; Problem and Key feature checkpoints move |
 | [x] | N2 | Content, following `task_rules/writing.md`: landing copy, legal page texts, `content/demo-guests.json` (14 fictional guests, marked as sample data, varied roles and interests) | 13:00 / 20:00 | Files committed; no dashes, no stock AI words |
 | [ ] | N3 | Outreach list in a private sheet (never in the repo): 40 organisers with an event in the next 3 weeks, with event date, channel, warm or cold | 13:00 / 20:00 | Sheet shared with David |
-| [ ] | N4 | Landing page, header, footer, pricing section, `/demo` page | 15:00 / 22:00 | States the problem, target and price; 3+ pages linked from home; fine on a phone |
+| [x] | N4 | Landing page, header, footer, pricing section, `/demo` page | 15:00 / 22:00 | States the problem, target and price; 3+ pages linked from home; fine on a phone |
 | [ ] | N5 | Guest pages: `/e/[slug]` join form (mobile first, consent, honeypot) and `/g/[token]` (waiting state, three cards, "save this link" hint) | 15:30 / 22:30 | Works on a phone against real data after B1 |
 | [ ] | N6 | `/legal`, `/terms`, `/privacy` pages | 16:00 / 23:00 | Linked from the footer; David approved the legal notice details |
 | [ ] | N7 | P1 print view `/print/[adminToken]`: A4 badges and intro cards | 18:00 / 01:00 | Prints cleanly from Chrome |

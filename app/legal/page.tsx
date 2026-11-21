@@ -7,7 +7,7 @@ import { LegalDocument, LegalPending } from "./LegalDocument";
 // this page shows a short pending note instead of blanks.
 
 export const metadata: Metadata = {
-  title: "Legal notice | Three Hellos",
+  title: "Legal notice",
   description: "Who runs Three Hellos, where it is hosted and how to contact us.",
 };
 

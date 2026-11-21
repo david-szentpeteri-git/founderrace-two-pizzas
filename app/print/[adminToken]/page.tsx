@@ -10,7 +10,7 @@ import { printCss } from "./printStyles";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Print badges and intro cards | Three Hellos",
+  title: "Print badges and intro cards",
   robots: { index: false, follow: false },
 };
 

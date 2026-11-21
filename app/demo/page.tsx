@@ -9,7 +9,7 @@ import Footer from "@/components/site/Footer";
 import Marker from "@/components/marketing/Marker";
 
 export const metadata: Metadata = {
-  title: "Sample event | Three Hellos",
+  title: "Sample event",
   description:
     "A finished sample event on Three Hellos: the organiser's guest list and every guest's three hellos. All names are fictional.",
 };

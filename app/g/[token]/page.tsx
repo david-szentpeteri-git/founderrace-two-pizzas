@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 type Props = { params: Promise<{ token: string }> };
 
 export const metadata: Metadata = {
-  title: "Your three hellos | Three Hellos",
+  title: "Your three hellos",
   robots: { index: false, follow: false },
   referrer: "no-referrer",
 };

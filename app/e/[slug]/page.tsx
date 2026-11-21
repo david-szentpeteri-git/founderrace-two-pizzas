@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const event = await getEventBySlug(slug);
   return {
-    title: event ? `Join ${event.name} | Three Hellos` : "Event not found | Three Hellos",
+    title: event ? `Join ${event.name}` : "Event not found",
     robots: { index: false },
   };
 }
