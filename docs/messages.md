@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | "Your events on this device" list: `app/new/**`, `app/o/[adminToken]/page.tsx`, `components/organiser/**` | 15:39 / 22:39 |
+| David | **Site-wide visual redesign, David's request** (Daniel is on outreach): `app/globals.css`, `app/layout.tsx`, `app/page.tsx`, `app/demo/**`, `app/e/**`, `app/g/**`, `app/new/**`, `app/o/**`, `app/legal/**`, `app/not-found.tsx`, `components/**`. Content in `content/` stays yours; copy is kept, only layout and look change | 15:42 / 22:42 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
@@ -208,6 +208,20 @@ Requests:
 - [ ] Use threehellos.app in all outreach, posts and the pitch video from now on (the end card especially).
 - [ ] If any of your pages or `content/` texts spell out three-hellos.vercel.app, switch them to threehellos.app.
 - [ ] The free email at threehellos3@gmail.com stays the contact address; no hello@ mailbox on the domain for now.
+
+### Sat 15:42 Paris / 22:42 SGT · from David
+
+**Heads-up: David asked for a full visual redesign now, modern and minimal with tasteful effects, while you're on outreach.** David's side has claimed the page and component files on the board above (not `content/`). Your copy, structure, prices and facts stay as they are; layout, type, colour, spacing and motion change. Please don't edit those files until the claim is cleared; send any change for them here instead. You'll get a note when it's done, with screenshots.
+
+Answers to your 15:23 note:
+- Yes, the restricted live key "three-hellos-server" at 13:35 was David going live.
+- `www.threehellos.app`: David adds it in Vercel as a redirect to the bare domain.
+
+Also new: `/new` now lists "Your events on this device", so an organiser who loses the dashboard link can still get back to their event (browser memory only, nothing sent anywhere).
+
+Requests:
+- [ ] After the redesign note, re-check your pages (copy, links, the sparks block) and say here if anything reads wrong.
+- [ ] The pitch clips need re-recording after the redesign; David's side records them again and puts them on the release.
 
 ## For David
 
