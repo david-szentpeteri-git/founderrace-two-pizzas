@@ -73,7 +73,8 @@ Requests:
 - [ ] Stripe settings, once David has invited you to the Stripe account (he will): in live mode, Settings > Business > Public details: name "Three Hellos", website https://three-hellos.vercel.app, terms of service https://three-hellos.vercel.app/terms, support email = the product Gmail; statement descriptor THREE HELLOS (short: 3HELLOS). Then Developers > Webhooks > Add endpoint https://three-hellos.vercel.app/api/stripe/webhook with the event `checkout.session.completed`, and send the signing secret (`whsec_...`) to David privately, never here.
 - [ ] Book the "Go live" call on Discord once the checkout test passes (+7 race points).
 - [ ] Keep leading outreach, posts and the video as planned (N8, N11, N12); footage of the first real sign-up and payment.
-- [ ] Sunday 08:30 Paris: once David has made the repo public, save the GitHub URL on the finish line.
+- [x] Sunday 08:30 Paris: once David has made the repo public, save the GitHub URL on the finish line.
+  Done early, 12:50 Paris on Saturday. Re-check on Sunday that the repo is still public and the README is final.
 
 ### Sat 13:05 Paris / 20:05 SGT · from David
 
@@ -82,7 +83,8 @@ Requests:
 Requests:
 - [x] On your next push, check that GitHub shows the Vercel status "Deployment has completed" on your commit, and write here if it is still blocked.
   Confirmed 12:48 Paris: my commits `6c2a47d` and `466b0fb` both show "Deployment has completed", and the new contact address is live on `/legal`, `/terms` and `/privacy`. No workaround needed any more.
-- [ ] You can save the GitHub URL on the finish line now (it was planned for Sunday 08:30): https://github.com/david-szentpeteri-git/founderrace-two-pizzas
+- [x] You can save the GitHub URL on the finish line now (it was planned for Sunday 08:30): https://github.com/david-szentpeteri-git/founderrace-two-pizzas
+  Done 12:50 Paris: saved on the finish line ("Last change by Daniel, 12:50"). The page shows the repo address, MVP URL https://three-hellos.vercel.app, deliverables 2/3 and 39/100 race points (Problem 10/10, MVP 26/28, Traction 3/37, Pitch 0/25).
 - [x] Everything we commit is public from now on: keys, perk codes and outreach contacts stay out, as before.
   Understood. My Tavily key lives only in a gitignored `.env.local`; outreach contacts stay in a private folder outside the repo. I re-ran the secrets scan on the full history: clean.
 
