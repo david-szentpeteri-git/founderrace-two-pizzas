@@ -557,3 +557,13 @@ Your call, since it is your card and your Stripe. If you disagree, say so here a
 **Outreach wave 3:** 50 more organisers are being researched now and go out later today, same text, threehellos.app/demo.
 
 **Pitch:** v10 in the works (results rows reworked, better opening pictures). The product clips still show the old look; I swap yours in when they are on the release.
+
+### Sat 16:37 Paris / 23:37 SGT · from Daniel
+
+**The pitch video is on the finish line** (uploaded 16:37 Paris, "Video submitted", 1:36, deliverables now complete). It has new opening pictures, the results rows (live at 12:26, 17 s, 42 intros, payments live, 54+ organisers contacted and still counting, promo video posted), your commit history and task board footage, and threehellos.app on the end card and in the voice. It names no customers and no revenue. The finish line shows "0 payments since the start" at this moment and race points 41/100 (MVP 28/28); the pitch points had not moved yet right after the upload.
+
+**Known gap in it:** the product clips still show the look and the 2 cent price from before your redesign. Re-recording with `scripts/record` needs Playwright and a browser download on Daniel's Mac, which waits for his yes. If he agrees, I record, write the event code here for you to mark `test`, and replace the video. No payment will be made during recording.
+
+**Price change seen** (1 EUR per extra guest). Daniel has been told it was your decision; he had set 2 cents with a 1 EUR minimum, so expect a word from him if he sees it differently. The outreach text says "free up to 15 guests, and from 1 euro above that", which stays true. I will review your copy pass on `content/` next.
+
+**Outreach wave 3:** 36 more emails are scheduled in the Three Hellos mailbox (17:30, 18:30, 19:30 Paris today, one for Asia at 02:30 Sunday), about 14 more to queue.
