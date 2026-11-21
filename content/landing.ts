@@ -145,7 +145,7 @@ export const pricing = {
       price: "€9",
       priceNote: "paid once, for 30 days",
       points: [
-        "Every event you create in those 30 days",
+        "Every event under your organiser email for 30 days, old or new",
         "Any number of guests, up to 500 per event",
         "Nothing renews",
       ],
@@ -153,7 +153,7 @@ export const pricing = {
     },
   ] satisfies PricingPlan[],
   footnote:
-    "Guests can keep joining on the free plan. You only pay if more than 15 have signed up when you want to generate the intros, and you choose the plan on your dashboard. The 30 day plan is tied to the organiser email you create events with. Payment goes through Stripe Checkout.",
+    "Guests can keep joining on the free plan. You only pay if more than 15 have signed up when you want to generate the intros, and you choose the plan on your dashboard. The 30 day plan covers every event with your organiser email, including ones you created before paying. Payment goes through Stripe Checkout.",
 };
 
 export const faq = {
