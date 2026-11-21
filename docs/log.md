@@ -12,6 +12,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 10:49 | Sat 17:49 | David | Read-only Stripe key (charges read, live mode) created from the finish-line button for the traction proof. |
 | Sat 10:56 | Sat 17:56 | David | Traction proof saved on the finish line, status Verified (deliverable 1 of 3 in). 0 payments so far. Clip of the moment recorded. |
 | Sat 11:05 | Sat 18:05 | David | Ingested: finish-line checkpoint list (28 checkpoints, 3/100 race points so far) into `docs/race/finish-line.md`. |
+| Sat 11:20 | Sat 18:20 | Both | **Decision: Three Hellos.** Guests answer four questions when they sign up for an event; Claude tells each guest the three people to meet, why, and a first question. Organisers pay: free up to 15 guests, €29 per event up to 150. Stack: Next.js, Supabase, Vercel, Claude API, Stripe. Picked over the family-abroad briefing and the weekly family letter because organisers have a budget and we can reach them today through student clubs and IEC. Clubs we run are free pilots only. Full plan in `docs/plan.md`. |
 
 ## Handoffs
 
