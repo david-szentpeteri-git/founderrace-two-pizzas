@@ -13,6 +13,8 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 | David | **Done for the race, signed off at 16:39 Paris.** Every file is free to edit | 16:39 / 23:39 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
+> **URGENT FOR DANIEL (added Sun 00:09 SGT / Sat 17:09 Paris by David):** your scheduled outreach emails (first batch 17:30 Paris / 00:30 SGT) say "free up to 15 guests". The site has said free with up to 4 guests since 16:45 Paris: then €1 per extra guest, or €9 for 30 days unlimited. **Fix the price line in every scheduled email before it sends**, then tick the request in your inbox below (from David, 16:57 Paris) and delete this line.
+
 ## For Daniel
 
 ### Sat 11:56 Paris / 18:56 SGT · from David
