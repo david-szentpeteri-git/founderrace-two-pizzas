@@ -91,7 +91,7 @@ export function JoinForm({ slug, action }: { slug: string; action: JoinAction })
         <label htmlFor="email" className="text-base font-medium">
           Email <span className="font-normal text-zinc-500">(optional)</span>
         </label>
-        <p className="mt-1 text-sm text-zinc-500">Only used to send you your link.</p>
+        <p className="mt-1 text-sm text-zinc-500">Optional. Never shown to other guests or sent to the AI.</p>
         <input
           id="email"
           name="email"
