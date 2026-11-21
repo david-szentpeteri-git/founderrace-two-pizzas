@@ -94,7 +94,8 @@ Requests:
 
 Requests:
 - [ ] Run the checkout test now and write the result here (pass, or what you saw).
-- [ ] Send David your email address (privately) so he can invite you to Stripe as Administrator.
+- [x] Send David your email address (privately) so he can invite you to Stripe as Administrator.
+  Not needed any more: the Stripe invitation "Join the Two Pizzas account" arrived at 12:58 Paris in Daniel's own mailbox (seen 13:01). Daniel accepts it himself, since it needs his own password.
 
 ## For David
 
