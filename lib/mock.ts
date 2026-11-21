@@ -7,6 +7,7 @@ const event: EventPublic = {
   slug: "mockmix1",
   name: "Sample mixer",
   startsAt: "2026-11-28T11:00:00.000Z",
+  timeZone: "Asia/Singapore",
   place: "Level 3 lounge",
   description: "A sample event used while building the pages.",
   organiserName: "Sample organiser",

@@ -25,6 +25,7 @@ async function main() {
     {
       name: demo.event.name,
       startsAt: new Date(demo.event.startsAt).toISOString(),
+      timeZone: "Europe/Paris",
       place: demo.event.place,
       description: demo.event.description,
       organiserName: demo.event.organiserName,

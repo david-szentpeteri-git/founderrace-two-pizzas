@@ -7,6 +7,7 @@ export type EventPublic = {
   slug: string;
   name: string;
   startsAt: string | null; // ISO date
+  timeZone?: string | null; // organiser's IANA zone, e.g. "Asia/Singapore"; format startsAt in it
   place: string | null;
   description: string | null;
   organiserName: string;
@@ -64,6 +65,7 @@ export type DemoData = {
 export type CreateEventInput = {
   name: string;
   startsAt: string | null; // ISO date
+  timeZone: string | null;
   place: string | null;
   description: string | null;
   organiserName: string;

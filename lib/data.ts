@@ -28,6 +28,7 @@ export type EventRow = {
   admin_token: string;
   name: string;
   starts_at: string | null;
+  time_zone: string | null;
   place: string | null;
   description: string | null;
   organiser_name: string;
@@ -74,6 +75,7 @@ function toEventPublic(row: EventRow, guestCount: number): EventPublic {
     slug: row.slug,
     name: row.name,
     startsAt: row.starts_at,
+    timeZone: row.time_zone,
     place: row.place,
     description: row.description,
     organiserName: row.organiser_name,
@@ -244,6 +246,7 @@ export async function createEvent(input: CreateEventInput, plan: Plan = "free"):
       admin_token: adminToken,
       name: input.name,
       starts_at: input.startsAt,
+      time_zone: input.timeZone,
       place: input.place,
       description: input.description,
       organiser_name: input.organiserName,

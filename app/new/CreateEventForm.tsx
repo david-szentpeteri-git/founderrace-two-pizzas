@@ -38,6 +38,15 @@ export function CreateEventForm() {
             onChange={(e) => setLocal(e.target.value)}
           />
           <input type="hidden" name="startsAtIso" value={iso} />
+          {/* Filled in the browser after mount, where the organiser's time zone is known. */}
+          <input
+            type="hidden"
+            name="timeZone"
+            defaultValue=""
+            ref={(el) => {
+              if (el && !el.value) el.value = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
+            }}
+          />
         </Field>
         <Field label="Place" htmlFor="place" hint="Optional">
           <Input id="place" name="place" maxLength={160} defaultValue={state.values.place} placeholder="Student union, room 2" />

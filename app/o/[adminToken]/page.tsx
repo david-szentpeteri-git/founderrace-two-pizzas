@@ -69,7 +69,7 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
   const withoutHellos = guests.filter((g) => g.helloCount === 0).length;
   const matched = event.status === "matched";
   const isFree = view.plan === "free";
-  const when = formatEventDate(event.startsAt);
+  const when = formatEventDate(event.startsAt, event.timeZone);
   const error = typeof query.error === "string" ? ERRORS[query.error] : undefined;
   const done = typeof query.done === "string" ? Number(query.done) : null;
 

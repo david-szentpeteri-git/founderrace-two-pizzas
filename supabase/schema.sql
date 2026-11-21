@@ -9,6 +9,7 @@ create table if not exists events (
   admin_token text unique not null,
   name text not null,
   starts_at timestamptz,
+  time_zone text, -- organiser's IANA zone, e.g. Asia/Singapore
   place text,
   description text,
   organiser_name text not null,
@@ -50,6 +51,9 @@ create table if not exists matches (
   created_at timestamptz not null default now(),
   unique (guest_id, rank)
 );
+
+-- Added after the first version of this file; harmless if the column exists.
+alter table events add column if not exists time_zone text;
 
 create index if not exists guests_event_id_idx on guests (event_id);
 create index if not exists matches_event_id_idx on matches (event_id);

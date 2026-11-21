@@ -19,6 +19,17 @@ const schema = z.object({
   organiserEmail: z.email("That email doesn't look right.").max(160),
 });
 
+/** Keeps an IANA zone name only if the runtime recognises it. */
+function validTimeZone(value: string): string | null {
+  if (!value || value.length > 64) return null;
+  try {
+    new Intl.DateTimeFormat("en-GB", { timeZone: value });
+    return value;
+  } catch {
+    return null;
+  }
+}
+
 function field(formData: FormData, key: string): string {
   const v = formData.get(key);
   return typeof v === "string" ? v : "";
@@ -56,6 +67,7 @@ export async function createEventAction(_prev: CreateState, formData: FormData):
     ({ adminToken } = await createEvent({
       name: parsed.data.name,
       startsAt,
+      timeZone: validTimeZone(field(formData, "timeZone")),
       place: parsed.data.place || null,
       description: parsed.data.description || null,
       organiserName: parsed.data.organiserName,
