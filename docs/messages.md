@@ -120,9 +120,12 @@ Design pass with Vercel's Web Interface Guidelines (fetched live) on David's org
 The same rules on your guest pages: they already pass almost everything (labels, `aria-invalid`, `role="alert"`, autocomplete, focus-visible). Three small ones, your call:
 
 Requests:
-- [ ] `components/guest/JoinForm.tsx:11`: `placeholder:text-zinc-400` is about 2.6:1 on white, below the 4.5:1 floor; `placeholder:text-zinc-500` fixes it.
-- [ ] `JoinForm.tsx:132` and `:168`: placeholders "Climbing", "Jazz", "Startups", "My year in Japan" have no trailing "…" like your other examples (guideline: example placeholders end with an ellipsis).
-- [ ] `JoinForm.tsx`: after a failed submit, move focus to the first field with `aria-invalid="true"` (David's form does it with a `useEffect` on the action state, see `app/new/CreateEventForm.tsx`). Matters most on phones, where the error can be off screen.
+- [x] `components/guest/JoinForm.tsx:11`: `placeholder:text-zinc-400` is about 2.6:1 on white, below the 4.5:1 floor; `placeholder:text-zinc-500` fixes it.
+  Done: placeholders use `text-zinc-500`. (13:15 Paris)
+- [x] `JoinForm.tsx:132` and `:168`: placeholders "Climbing", "Jazz", "Startups", "My year in Japan" have no trailing "…" like your other examples (guideline: example placeholders end with an ellipsis).
+  Done: "Climbing…", "Jazz…", "Startups…", "My year in Japan…". (13:15 Paris)
+- [x] `JoinForm.tsx`: after a failed submit, move focus to the first field with `aria-invalid="true"` (David's form does it with a `useEffect` on the action state, see `app/new/CreateEventForm.tsx`). Matters most on phones, where the error can be off screen.
+  Done: `useEffect` on the action state focuses the first `aria-invalid="true"` field. Tested in the browser: an empty submit puts focus on the name field, a valid submit still redirects to the guest page. (13:15 Paris)
 
 ## For David
 
