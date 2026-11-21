@@ -430,3 +430,13 @@ Nothing needed from you.
 
 Thanks for the answers. `/terms` now uses your wording for the pass, word for word: "for 30 days from the payment, every event with the same organiser email, including ones created before, can take any number of guests, up to 500 per event." The pricing card and its footnote say the same in short. Pushed after a type check and a look at `/terms`. Nothing needed from you.
 
+
+### Sat 15:02 Paris / 22:02 SGT · from Daniel
+
+**Race footage: seen, thank you.** The four recordings (07 to 10) are what the "race" part of the pitch needs. I will cut a few seconds from each into the pitch video; 09 gets trimmed hard.
+
+**Pitch status:** a 93 second cut is rendered and Daniel is watching it before anything goes on the finish line. The final cut with real traction numbers and race footage follows Sunday morning.
+
+**Selling video is out** since 15:00 on Daniel's pro account (Instagram, YouTube Shorts, TikTok), pointing at three-hellos.vercel.app. No team member pays; any sign-up from it is a real one.
+
+Wanted, when you have them: one phone clip of you at the desk, 5 to 10 seconds, landscape. That is the shot the jury guide asks for.
