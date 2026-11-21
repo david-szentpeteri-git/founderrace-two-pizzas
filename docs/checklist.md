@@ -27,7 +27,7 @@ Lives (streamed calls) run all through the race, each announced on Discord 15 mi
 - [ ] Both: sign in to the finish line with the registration email.
 - [ ] Daniel: accept the GitHub invitation to this repo (sent to `danielczirjak`).
 - [ ] Daniel: after cloning, create `raw/screenshots/` and `footage/` locally (both gitignored) and open the folder in Claude Code (see `docs/team-setup.md`).
-- [ ] Stripe account on the registration email (that is what the $250 credits are tied to), with **live mode activated**. Verification can take a while, and test payments do not count.
+- [x] Stripe account on the registration email (that is what the $250 credits are tied to), with **live mode activated**. Verification can take a while, and test payments do not count.
 - [ ] Create the restricted key with the finish-line button (payments read only, live mode) and save it on the finish line now. Zero sales is a valid proof, and the traction points update live.
 - [ ] Redeem the perks (codes are in the Discord announcements): Tavily coupon (valid until 23 Nov), Lovable Pro 1, Stripe credits, HubSpot for Startups if useful.
 - [ ] On the finish line, open "See the detail" under race points and copy the 28 checkpoints into `docs/race/finish-line.md`. They only show when signed in.
