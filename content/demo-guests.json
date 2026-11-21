@@ -1,0 +1,125 @@
+{
+  "sample": true,
+  "note": "Sample data for the Three Hellos demo. The event, the organiser and all 14 guests are fictional and made up for this demo. Any likeness to real people is accidental.",
+  "event": {
+    "name": "Founders and Students Mixer (sample event)",
+    "startsAt": "2026-12-03T19:00:00+01:00",
+    "place": "The Long Room, Harbour Street Campus (fictional)",
+    "description": "An evening for students thinking about starting something and the founders, engineers and investors who have done it. Drinks, snacks and no speeches.",
+    "organiserName": "Mira Calloway"
+  },
+  "guests": [
+    {
+      "name": "Ines Valcourt",
+      "role": "MBA student, three years in strategy consulting before that",
+      "interests": ["climate tech", "early stage investing", "running"],
+      "lookingFor": "A climate founder who needs a business cofounder",
+      "askMeAbout": "Leaving consulting to work on startups",
+      "consent": true
+    },
+    {
+      "name": "Tomasz Brecki",
+      "role": "Founder of a startup that recycles electric bike batteries",
+      "interests": ["climate tech", "robotics", "bouldering"],
+      "lookingFor": "A business person who could join as cofounder, and students for a spring internship",
+      "askMeAbout": "What is inside a dead battery and why it is worth money",
+      "consent": true
+    },
+    {
+      "name": "Amara Nwosu",
+      "role": "Final year medical student building a symptom checker for students",
+      "interests": ["AI in healthcare", "running", "podcasts"],
+      "lookingFor": "A developer who wants to build something in health",
+      "askMeAbout": "Night shifts in the emergency department",
+      "consent": true
+    },
+    {
+      "name": "Kenji Ostrander",
+      "role": "Backend engineer at a payments company, open source maintainer at weekends",
+      "interests": ["fintech", "open source", "board games"],
+      "lookingFor": "A founder with a real problem who needs a technical partner",
+      "askMeAbout": "What happens in the two seconds after you tap your card",
+      "consent": true
+    },
+    {
+      "name": "Leonie Haverkamp",
+      "role": "Angel investor, ran operations at a fintech for six years",
+      "interests": ["early stage investing", "fintech", "food and restaurants"],
+      "lookingFor": "First time founders, ideally before they raise any money",
+      "askMeAbout": "What makes her answer a cold email from a founder",
+      "consent": true
+    },
+    {
+      "name": "Rafael Quintero",
+      "role": "Interaction design student",
+      "interests": ["product design", "board games", "education"],
+      "lookingFor": "An early startup that needs a designer for a side project",
+      "askMeAbout": "Why most app onboarding screens lose people",
+      "consent": true
+    },
+    {
+      "name": "Saoirse Lindqvist",
+      "role": "Head of growth at a language learning app",
+      "interests": ["education", "marketing and growth", "podcasts"],
+      "lookingFor": "Student founders in education she could mentor",
+      "askMeAbout": "Getting the first thousand users with no budget",
+      "consent": true
+    },
+    {
+      "name": "Dev Malhotra",
+      "role": "Computer science undergraduate, leads the robotics society",
+      "interests": ["robotics", "open source", "bouldering"],
+      "lookingFor": "An internship at a hardware startup",
+      "askMeAbout": "The robot arm his team built that flips pancakes",
+      "consent": true
+    },
+    {
+      "name": "Nadia Ferreira",
+      "role": "Founder of a meal kit company for student flats",
+      "interests": ["food and restaurants", "marketing and growth", "running"],
+      "lookingFor": "An investor who understands food businesses",
+      "askMeAbout": "Cooking for 200 people on a student budget",
+      "consent": true
+    },
+    {
+      "name": "Oskar Vennholm",
+      "role": "PhD researcher training AI models on medical scans",
+      "interests": ["AI in healthcare", "open source", "robotics"],
+      "lookingFor": "Doctors or medical students who would test a research tool",
+      "askMeAbout": "Why a model can be right for the wrong reason",
+      "consent": true
+    },
+    {
+      "name": "Priya Sundaram",
+      "role": "Product manager at a health insurer",
+      "interests": ["AI in healthcare", "product design", "fintech"],
+      "lookingFor": "People who think about how patients actually use health apps",
+      "askMeAbout": "Why insurance claim forms are so long",
+      "consent": true
+    },
+    {
+      "name": "Felix Adeyemi",
+      "role": "Secondary school maths teacher, building a tutoring tool at weekends",
+      "interests": ["education", "board games", "product design"],
+      "lookingFor": "A designer or developer to help with his tutoring tool",
+      "askMeAbout": "What fourteen year olds ask an AI when the teacher is not looking",
+      "consent": true
+    },
+    {
+      "name": "Elodie Marchetti",
+      "role": "Master's student in climate policy",
+      "interests": ["climate tech", "food and restaurants", "podcasts"],
+      "lookingFor": "Founders who have had to deal with regulators",
+      "askMeAbout": "How carbon rules actually get written",
+      "consent": true
+    },
+    {
+      "name": "Jonas Weatherby",
+      "role": "Second time founder, sold his first company, a small marketing agency",
+      "interests": ["marketing and growth", "early stage investing", "bouldering"],
+      "lookingFor": "Students with an idea who want someone to test it against",
+      "askMeAbout": "The mistakes he would not repeat in his first company",
+      "consent": true
+    }
+  ]
+}
