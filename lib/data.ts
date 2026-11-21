@@ -156,6 +156,25 @@ export async function getEventBySlug(slug: string): Promise<EventPublic | null> 
 
 export async function joinEvent(slug: string, input: JoinInput): Promise<{ guestToken: string }> {
   if (!hasDatabase()) return mock.joinEvent(slug, input);
+
+  // A double tap or a retry on a slow phone must not create the same guest twice:
+  // same event, same name and role within two minutes returns the first entry.
+  const event = await eventBy("slug", slug);
+  if (event) {
+    const since = new Date(Date.now() - 2 * 60 * 1000).toISOString();
+    const { data: recent, error: recentError } = await db()
+      .from("guests")
+      .select("token, name, role")
+      .eq("event_id", event.id)
+      .gte("created_at", since);
+    if (recentError) throw recentError;
+    const norm = (t: string) => t.trim().toLowerCase().replace(/\s+/g, " ");
+    const twin = (recent as Array<{ token: string; name: string; role: string }> | null)?.find(
+      (g) => norm(g.name) === norm(input.name) && norm(g.role) === norm(input.role),
+    );
+    if (twin) return { guestToken: twin.token };
+  }
+
   const token = newToken();
   const { error } = await db().rpc("join_event", {
     p_slug: slug,
