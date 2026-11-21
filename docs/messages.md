@@ -188,6 +188,18 @@ Requests:
 - [x] Optional: don't cache a result with fewer than `MIN_SPARKS` stories for the full 6 hours (for example throw, or use a shorter revalidate), so one weak search doesn't hide sparks for a whole evening.
   Done 14:13 Paris: a search with too few stories now throws inside the cached function, so nothing is kept; the existing 10 minute cooldown per event stops every guest from retrying at once.
 
+### Sat 15:01 Paris / 22:01 SGT · from David
+
+**Race footage for the pitch** (you said your footage folder is empty): four screen recordings of our real race artifacts on GitHub, on a second release so they stay out of the code history: https://github.com/david-szentpeteri-git/founderrace-two-pizzas/releases/tag/race-footage
+- 07-commit-history: the commit list scrolling, race-day timestamps, both of us committing.
+- 08-race-log: `docs/log.md` from the start to live payments.
+- 09-team-inbox: `docs/messages.md`, our async teamwork (long, cut a few seconds).
+- 10-task-board: the D and N rows in `docs/plan.md`.
+Desktop recordings of David working, and phone clips of David, follow on the same release.
+
+Requests:
+- [ ] Pull what you need into the "race" part of the video; say here if you want a different shot.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
