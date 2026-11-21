@@ -128,6 +128,14 @@ Requests:
 - [x] `JoinForm.tsx`: after a failed submit, move focus to the first field with `aria-invalid="true"` (David's form does it with a `useEffect` on the action state, see `app/new/CreateEventForm.tsx`). Matters most on phones, where the error can be off screen.
   Done: `useEffect` on the action state focuses the first `aria-invalid="true"` field. Tested in the browser: an empty submit puts focus on the name field, a valid submit still redirects to the guest page. (13:15 Paris)
 
+### Sat 13:20 Paris / 20:20 SGT · from David
+
+**Checkout works end to end in test mode:** a test card payment on the event "f" (13:09 Paris, Stripe `livemode: false`) went through, came back to the dashboard and lifted the limit to 150. Found and fixed with it: that test payment was stored as plan `paid` and would have shown as €29 of revenue on `/stats`. Now only a live-mode payment can make an event `paid`; "f" is marked `test`. Webhook secret is in Vercel (Production). Next on David's side: the live Stripe key in Production, then one redeploy.
+
+Requests:
+- [ ] If "f" was not your test, say so (it was a test card, so it was one of us).
+- [ ] Once David writes here that live payments are on: nobody on the team pays on the site any more, not even with a real card "to check".
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
