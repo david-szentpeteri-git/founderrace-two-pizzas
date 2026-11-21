@@ -34,6 +34,16 @@ Requests:
 - [x] Use `event.timeZone ?? "Europe/Paris"` in `components/guest/format.ts` (and anywhere else you format `startsAt`).
   Done 12:06 Paris: `formatEventTime(iso, timeZone)` in `components/guest/format.ts`, used by `/e`, `/g`, `/print` and `/demo`. An invalid or missing zone falls back to Paris.
 
+### Sat 12:26 Paris / 19:26 SGT · from David
+
+**Live: https://three-hellos.vercel.app** (deployed from `main`; every push to `main` redeploys in about a minute). All pages return 200; `/demo` shows the seeded sample event with Claude's 42 intros from the database.
+
+On the live site right now: database, Claude matching, demo event. Not yet: Stripe (test key comes next, so "Upgrade for €29" shows an error until then), your Tavily key (send it to me privately), the threehellos.app domain.
+
+Requests:
+- [ ] Run your full flow on the live site with an event named "TEST ..." (6 guests, intros, guest pages, print view) and write what breaks here.
+- [ ] Send me the Tavily key privately (not here); I add it to Vercel and check the sparks on `/demo`.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
@@ -45,7 +55,8 @@ Done on my side (all pushed, type check clean, all nine routes respond locally):
 - My earlier notes are in `docs/log.md` under "Notes for each other"; from now on I write here.
 
 Requests:
-- [ ] Post the live address here as soon as the deploy works (the vercel.app one is fine). I will run the full flow on it at once: create an event named "TEST ...", join as six guests, make intros, open guest pages and the print view. Please set that event to plan `test` afterwards.
+- [x] Post the live address here as soon as the deploy works (the vercel.app one is fine). I will run the full flow on it at once: create an event named "TEST ...", join as six guests, make intros, open guest pages and the print view. Please set that event to plan `test` afterwards.
+  Done 12:26 Paris (David): live at https://three-hellos.vercel.app (threehellos.app follows once the domain is bought). Name test events "TEST ..." and David marks every one as plan `test`.
 - [x] Checkout should collect the buyer's consent that delivery starts at once and the 14 day right to cancel ends when intros are generated. `/terms` promises this. If Checkout cannot do it, tell me and I change the terms.
   Done 12:20 Paris (David): Checkout now shows a required checkbox: "I agree to the terms of sale (link). I ask for my event to be upgraded right away, and I understand my 14 day right to cancel ends once the intros are made." Stripe only allows the checkbox once a terms URL is set in the account's public details (David sets https://threehellos.app/terms); until then the same sentence shows as plain text above the pay button.
 - [x] Event times display in Paris time only (`components/guest/format.ts`). How do you store `starts_at` from `/new`: as the organiser's local time, or with a zone? Tell me and I fix the display so Singapore events show the right hour.
@@ -62,7 +73,8 @@ Done (pushed, type check clean):
 - Private drafts ready on my side: LinkedIn posts for both of us, WhatsApp messages, the pitch video script and a 60 second Go live pitch. I will send you yours.
 
 Requests:
-- [ ] Still the main one: the live address, so I can run the full flow and we can start outreach.
+- [x] Still the main one: the live address, so I can run the full flow and we can start outreach.
+  Done: https://three-hellos.vercel.app
 
 ### Sat 12:19 Paris / 19:19 SGT · from Daniel
 
@@ -78,5 +90,6 @@ Not tested: the live Tavily call (no key on my Mac).
 Requests:
 - [ ] Add `TAVILY_API_KEY` to Vercel (Production). Daniel will send you his key privately, never here.
 - [ ] After that, open `/demo`: three sparks should show under the guest list. If none show, the demo event description is not topical enough for a news search; tell me and I will change it in `content/`.
-- [ ] Still the main one: the live address.
+- [x] Still the main one: the live address.
+  Done: https://three-hellos.vercel.app
 
