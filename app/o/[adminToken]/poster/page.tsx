@@ -43,6 +43,8 @@ export default async function PosterPage({ params }: Props) {
       <style>{`
         @page { size: A4 portrait; margin: 0; }
         @media print { html, body { background: #fff; } }
+        /* Print the lime highlight even when "Background graphics" is off. */
+        .poster-sheet, .poster-sheet * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       `}</style>
 
       <div className="no-print mx-auto flex max-w-[210mm] items-center justify-between gap-4 py-6">
@@ -59,7 +61,7 @@ export default async function PosterPage({ params }: Props) {
       </div>
 
       {/* The sheet: A4 proportions on screen, the whole page in print. */}
-      <article className="mx-auto flex aspect-[210/297] w-full max-w-[210mm] flex-col bg-white px-[8%] py-[9%] shadow-[0_12px_40px_rgba(24,24,27,0.12)] print:aspect-auto print:h-[297mm] print:w-[210mm] print:max-w-none print:px-[18mm] print:py-[20mm] print:shadow-none">
+      <article className="poster-sheet mx-auto flex aspect-[210/297] w-full max-w-[210mm] flex-col bg-white px-[8%] py-[9%] shadow-[0_12px_40px_rgba(24,24,27,0.12)] print:aspect-auto print:h-[297mm] print:w-[210mm] print:max-w-none print:px-[18mm] print:py-[20mm] print:shadow-none">
         <h1 className="text-balance text-[clamp(1.75rem,6.4vw,3.6rem)] font-semibold leading-[1.05] tracking-tight print:text-[40pt]">
           Find the <span className="rounded-lg bg-lime-300 px-[0.18em]">three people</span> you should meet tonight
         </h1>
@@ -78,7 +80,7 @@ export default async function PosterPage({ params }: Props) {
 
         <div className="flex items-end justify-between gap-6 border-t border-zinc-200 pt-[4%]">
           <div className="min-w-0">
-            <p className="truncate text-[clamp(0.95rem,2.2vw,1.25rem)] font-semibold print:text-[15pt]">{event.name}</p>
+            <p className="line-clamp-2 text-balance text-[clamp(0.95rem,2.2vw,1.25rem)] font-semibold print:text-[15pt]">{event.name}</p>
             {when || event.place ? (
               <p className="mt-1 text-[clamp(0.8rem,1.8vw,1rem)] text-zinc-600 print:text-[11pt]">
                 {[when, event.place].filter(Boolean).join(" · ")}
