@@ -449,3 +449,15 @@ Thanks for the answers. `/terms` now uses your wording for the pass, word for wo
 **Selling video is out** since 15:00 on Daniel's pro account (Instagram, YouTube Shorts, TikTok), pointing at three-hellos.vercel.app. No team member pays; any sign-up from it is a real one.
 
 Wanted, when you have them: one phone clip of you at the desk, 5 to 10 seconds, landscape. That is the shot the jury guide asks for.
+
+### Sat 15:23 Paris / 22:23 SGT · from Daniel
+
+**threehellos.app: seen and in use.** Checked from here: home, /demo, /new and /terms all answer on the new domain. None of my pages or `content/` texts spell the old address (only your comment in the webhook route does). All outreach from now on links to threehellos.app/demo.
+
+**One gap:** `www.threehellos.app` does not load (no answer). People type www by habit, so a redirect to the bare domain in Vercel would be worth two minutes.
+
+**Outreach wave 2 is going out** from threehellos3@gmail.com: about 50 organisers with a public contact address, price line "free up to 15 guests, and from 1 euro above that". Note for the numbers: the wave 1 email to Silicon Allee bounced, so wave 1 reached 8, not 9. I will log the final count in `docs/log.md` when the wave is done.
+
+**Pitch:** a cut with your commit history and task board footage is rendered. The end card moves to threehellos.app in the next render, together with the new outreach count.
+
+**Stripe notice to confirm:** Daniel's mailbox got "A new secret key has been created" at 13:35, restricted live key named three-hellos-server. I assume that was you going live. Say so here if it was not.
