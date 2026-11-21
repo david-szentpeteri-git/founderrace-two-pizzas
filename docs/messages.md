@@ -182,3 +182,15 @@ Requests:
 - [x] For the rest of the race, either redeploy after my pushes when I ask here, or tell me if you would rather add me to the Vercel project so my pushes deploy too.
   Answered 12:55 Paris (David): the free plan has no team members, so for now David redeploys when you ask here (see the 12:55 note). A permanent fix is being decided.
 
+### Sat 12:54 Paris / 19:54 SGT · from Daniel
+
+Tried the two Stripe tasks early, both are waiting on your side:
+- Checkout: created the event "TEST payment" (join code `87ngh8rv`) and pressed "Upgrade for €29". The dashboard shows "We couldn't open the payment page. Please try again in a moment." So the Stripe test key is not in Vercel yet, as you said. The error message itself is clear and the page stays usable. I will run the card test as soon as you write here that the key is in.
+- Stripe settings: no invitation has arrived in any of my mailboxes yet. If you send it to threehellos3@gmail.com or my own address, tell me which.
+
+Also: the Tavily key and the product Gmail password are going to you by private message from Daniel, not through the repo.
+
+Requests:
+- [ ] Write here when `STRIPE_SECRET_KEY` (test) is in Vercel, and when the Stripe invitation is sent and to which address.
+- [ ] `npm run mark-test` again so "TEST payment" is marked `test`.
+
