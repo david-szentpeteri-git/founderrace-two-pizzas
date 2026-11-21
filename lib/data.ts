@@ -323,10 +323,14 @@ export async function removeGuest(eventId: string, number: number): Promise<void
 
 /** Records a completed payment and lifts the guest limit. Safe to call twice. */
 export async function markEventPaid(eventId: string, sessionId: string, amountCents: number): Promise<void> {
+  // Our own test events stay "test" after paying, so they never count as traction.
+  const { data: current, error: readError } = await db().from("events").select("plan").eq("id", eventId).maybeSingle();
+  if (readError) throw readError;
+  const plan = current?.plan === "test" ? "test" : "paid";
   const { error } = await db()
     .from("events")
     .update({
-      plan: "paid",
+      plan,
       guest_limit: 150,
       stripe_session_id: sessionId,
       amount_paid_cents: amountCents,

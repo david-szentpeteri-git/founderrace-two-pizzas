@@ -72,7 +72,8 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
   const allNew = guests.filter((g) => g.helloCount < 3).every((g) => g.helloCount === 0);
   const removed = typeof query.removed === "string" ? query.removed : null;
   const matched = event.status === "matched";
-  const isFree = view.plan === "free";
+  // Test events (ours) follow the free plan rules so the whole flow can be rehearsed.
+  const isFree = view.plan === "free" || (view.plan === "test" && !view.paidAt);
   const when = formatEventDate(event.startsAt, event.timeZone);
   const error = typeof query.error === "string" ? ERRORS[query.error] : undefined;
   const done = typeof query.done === "string" ? Number(query.done) : null;
@@ -102,7 +103,7 @@ ${joinUrl}
           <p className="mt-2 text-zinc-500">
             {[when, event.place].filter(Boolean).join(" · ") || "No date or place set"}
             {" · "}
-            {view.plan === "paid" ? "Paid, up to 150 guests" : view.plan === "pilot" ? "Pilot event" : view.plan === "demo" ? "Sample event" : `Free plan, up to ${FREE_GUEST_LIMIT} guests`}
+            {view.plan === "paid" ? "Paid, up to 150 guests" : view.plan === "pilot" ? "Pilot event" : view.plan === "demo" ? "Sample event" : view.plan === "test" ? (view.paidAt ? "Test event, test payment done" : "Test event, free plan rules") : `Free plan, up to ${FREE_GUEST_LIMIT} guests`}
           </p>
           {query.new !== "1" ? (
             <p className="mt-2 text-sm text-zinc-500">

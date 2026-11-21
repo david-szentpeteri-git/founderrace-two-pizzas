@@ -50,7 +50,8 @@ export async function startCheckoutAction(adminToken: string): Promise<void> {
   const event = await getEventRowByAdminToken(adminToken);
   if (!event) back(adminToken, { error: "notfound" });
   if (event.plan === "demo") back(adminToken, { error: "demo" });
-  if (event.plan !== "free") back(adminToken, { error: "alreadypaid" });
+  // Test events behave like free ones so we can rehearse the payment in test mode.
+  if (event.plan !== "free" && event.plan !== "test") back(adminToken, { error: "alreadypaid" });
 
   let url: string | null = null;
   const base = siteUrl();
