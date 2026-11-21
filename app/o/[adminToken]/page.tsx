@@ -44,7 +44,7 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
 
   if (!view) {
     return (
-      <div className="min-h-screen bg-white text-zinc-900">
+      <div className="min-h-screen text-zinc-900">
         <Header />
         <main className="mx-auto max-w-2xl px-4 py-20 sm:px-6">
           <h1 className="text-3xl font-semibold tracking-tight">We can&apos;t find this event</h1>
@@ -108,7 +108,7 @@ ${joinUrl}
   )}`;
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen text-zinc-900">
       <Header />
       <AutoRefresh seconds={10} />
       {view.plan !== "demo" ? <RememberEvent token={adminToken} name={event.name} /> : null}

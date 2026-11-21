@@ -3,7 +3,7 @@ import { BrandLine } from "./BrandLine";
 
 export function GuestNotFound({ title, body }: { title: string; body: string }) {
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center bg-white px-6 py-16 text-zinc-900">
+    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center px-6 py-16 text-zinc-900">
       <div>
         <BrandLine />
       </div>

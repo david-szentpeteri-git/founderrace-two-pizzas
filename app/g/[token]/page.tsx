@@ -40,7 +40,7 @@ export default async function GuestPage({ params }: Props) {
   const selfHref = `/g/${encodeURIComponent(token)}`;
 
   return (
-    <main className="mx-auto min-h-dvh w-full max-w-md bg-white px-5 pb-12 pt-6 text-zinc-900 sm:px-6">
+    <main className="mx-auto min-h-dvh w-full max-w-md px-5 pb-12 pt-6 text-zinc-900 sm:px-6">
       <BrandLine />
 
       <header className="mt-8 flex items-start justify-between gap-4">

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function NewEventPage() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen text-zinc-900">
       <Header />
       <main className="mx-auto max-w-2xl px-4 pb-20 pt-12 sm:px-6">
         <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Create your event</h1>
