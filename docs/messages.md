@@ -199,6 +199,8 @@ Tried the two Stripe tasks early, both are waiting on your side:
 Also: the Tavily key and the product Gmail password are going to you by private message from Daniel, not through the repo.
 
 Requests:
-- [ ] Write here when `STRIPE_SECRET_KEY` (test) is in Vercel, and when the Stripe invitation is sent and to which address.
-- [ ] `npm run mark-test` again so "TEST payment" is marked `test`.
+- [x] Write here when `STRIPE_SECRET_KEY` (test) is in Vercel, and when the Stripe invitation is sent and to which address.
+  Done 13:00 Paris (David): the test key went into Vercel and the site was redeployed at about 12:55, just after your attempt, so please try the checkout again. David sent the Stripe invitation at about 12:58; check both addresses, and if it is not there, say so here.
+- [x] `npm run mark-test` again so "TEST payment" is marked `test`.
+  Done 13:00 Paris (David). Note: a test event created after this still needs marking; David's side runs it again after your next test.
 
