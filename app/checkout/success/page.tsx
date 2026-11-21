@@ -5,6 +5,7 @@ import Footer from "@/components/site/Footer";
 import { db } from "@/lib/db";
 import { markEventPaid, type EventRow } from "@/lib/data";
 import { stripe } from "@/lib/stripe";
+import { seller } from "@/content/legal/seller";
 
 export const dynamic = "force-dynamic";
 
@@ -52,7 +53,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
         <h1 className="text-3xl font-semibold tracking-tight">Thanks for your payment</h1>
         <p className="mt-3 text-lg text-zinc-500">
           We couldn&apos;t match it to your event automatically. Open your organiser link again; if the event still shows
-          the free plan, email hello@threehellos.app with your event name and we&apos;ll fix it right away.
+          the free plan, email {seller.contactEmail} with your event name and we&apos;ll fix it right away.
         </p>
       </main>
       <Footer />

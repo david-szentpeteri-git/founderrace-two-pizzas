@@ -4,7 +4,7 @@ import { stripe } from "@/lib/stripe";
 
 // Backup path for payments (plan D8): if the organiser closes the tab before
 // /checkout/success loads, Stripe still tells us here. Idempotent with that page.
-// Stripe dashboard: Developers > Webhooks > endpoint https://threehellos.app/api/stripe/webhook,
+// Stripe dashboard: Developers > Webhooks > endpoint https://three-hellos.vercel.app/api/stripe/webhook,
 // event checkout.session.completed; its signing secret goes in STRIPE_WEBHOOK_SECRET.
 
 export async function POST(request: Request) {

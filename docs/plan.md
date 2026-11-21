@@ -9,7 +9,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 | | |
 |---|---|
 | Name | Three Hellos |
-| Domain | threehellos.app (unregistered when checked at 11:15 Paris; David buys it in D0) |
+| Address | https://three-hellos.vercel.app (no custom domain: decided Sat 12:40 Paris, see section 2) |
 | Tagline (draft) | Walk into any event knowing the three people you should say hello to. |
 | Who pays | The organiser of a community event of 15 to 150 people: student club and society committees, meetup hosts, community managers, office social committees. Guests never pay. |
 | Problem | At club socials, mixers and meetups, most guests spend the evening with the people they arrived with. Newcomers and quieter people leave without a single new contact, icebreaker games feel forced, and name tags say nothing about who is worth talking to. The organiser put in the work to fill the room and the room never mixes. |
@@ -22,7 +22,8 @@ How to use it: find your rows in the task board (section 6), work in the files y
 | Decision | Choice | Why |
 |---|---|---|
 | Idea | Event icebreaker (Daniel's idea 1, merged with the seating-plan idea) | Highest amount per sale, buyers we can reach today, instant result for the demo |
-| Name | Three Hellos, threehellos.app | Says the promise; domain was free |
+| Name | Three Hellos | Says the promise |
+| Domain | None: the product runs on three-hellos.vercel.app (David, Sat 12:40 Paris) | Saves the purchase. Costs the "own domain" checkpoint (+2, show points only) and rules out email from our own domain, so the contact address is a free product Gmail (Daniel creates it) and sending email (Resend) is dropped |
 | Pricing | Free up to 15 guests, €29 per event up to 150 | One price, easy for a club to approve; the free tier brings sign-ups |
 | Stack | Next.js + Supabase + Vercel + Claude API + Stripe | One TypeScript repo, both of us building in parallel with Claude Code |
 | AI model | `claude-opus-5-5` through the Anthropic TypeScript SDK | Current default model; structured output for the matches |
@@ -42,11 +43,11 @@ How to use it: find your rows in the task board (section 6), work in the files y
 7. Stripe Checkout for €29 (test mode first, then live).
 8. Demo event with sample guests, clearly labelled as sample data.
 9. Legal notice, terms of sale and privacy pages, linked from the footer.
-10. Deployed on threehellos.app, readable on a phone, Vercel Web Analytics on.
+10. Deployed on three-hellos.vercel.app, readable on a phone, Vercel Web Analytics on.
 
 ### P1: by Sat 19:00 Paris / Sun 02:00 SGT
 1. Print view: name badges ("Ask me about...") and one intro card per guest, A4.
-2. Email with Resend: organiser gets the dashboard link, guests get their page link and an "intros are ready" note.
+2. ~~Email with Resend~~ dropped: it needs our own domain. Instead the dashboard offers "Email this link to myself" (a mailto link) and guest pages ask guests to save their link.
 3. "Who wants to meet you" on the guest page, and a mutual-match mark.
 4. Late arrivals: generate intros for new guests only, without redoing everyone.
 5. Stripe webhook as a backup to the success-page check.
@@ -79,7 +80,7 @@ Accounts and passwords, several organisers per event, chat between guests, nativ
 | Database | Supabase Postgres, region Singapore (`ap-southeast-1`). Accessed only from the server with the service role key; row level security on, no public policies. |
 | AI | `@anthropic-ai/sdk`, model `claude-opus-5-5`, structured output with `client.messages.parse` and `zodOutputFormat`, roster block cached with `cache_control`, effort `low` (raise to `medium` if the reasons read generic). |
 | Payments | `stripe` npm package, Checkout Session, EUR, one-time. |
-| Hosting | Vercel, function region `sin1` (next to the database), Web Analytics, domain threehellos.app. Production deployment protection off. |
+| Hosting | Vercel, function region `sin1` (next to the database), Web Analytics, address three-hellos.vercel.app. Production deployment protection off. |
 | Other | `zod` (validation), `nanoid` (tokens), `qrcode` (QR codes). P1 `resend`. P2 `@tavily/core` or the Tavily REST API. |
 
 ### 5.2 Environment variables (`.env.example` lists names only)
@@ -271,15 +272,15 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 
 | | ID | Task | Due (Paris / SGT) | Done when |
 |---|---|---|---|---|
-| [ ] | D0 | Accounts and keys: Vercel (GitHub login), Supabase project in Singapore, Anthropic API key with credit, buy threehellos.app on Vercel, Stripe test keys | 12:00 / 19:00 | All keys in `.env.local` and Vercel; domain bought |
-| [ ] | D1 | Skeleton: create-next-app, Tailwind, design tokens, layout, `components/ui` basics, `lib/types.ts`, `lib/mock.ts`, `lib/data.ts` stubs, schema applied, `.env.example`, first deploy on the domain, README stack and boilerplate credit | 12:15 / 19:15 | Pushed; threehellos.app shows a placeholder; Daniel can pull and run it |
+| [ ] | D0 | Accounts and keys: Vercel (GitHub login), Supabase project in Singapore, Anthropic API key with credit, Stripe test keys (no custom domain) | 12:00 / 19:00 | All keys in `.env.local` and Vercel; domain bought |
+| [ ] | D1 | Skeleton: create-next-app, Tailwind, design tokens, layout, `components/ui` basics, `lib/types.ts`, `lib/mock.ts`, `lib/data.ts` stubs, schema applied, `.env.example`, first deploy on Vercel, README stack and boilerplate credit | 12:15 / 19:15 | Pushed; the vercel.app address shows a placeholder; Daniel can pull and run it |
 | [x] | D2 | Data layer: `lib/db.ts`, real `lib/data.ts`, `join_event` function, create-event action | 13:30 / 20:30 | Join and guest view work against the database |
 | [x] | D3 | Matching engine: heuristic first, then Claude (5.7), `generateIntros(adminToken)` action, tested on 14 sample guests | 14:30 / 21:30 | Every guest gets 3 valid hellos in under 60 s; fallback proven by unsetting the key |
 | [ ] | D4 | Organiser flow: `/new`, `/o/[adminToken]` with join link, QR, live guest list, generate button, upgrade card, status | 15:00 / 22:00 | An organiser can run an event end to end without help |
 | [ ] | D5 | Payments: Checkout, `/checkout/success`, plan upgrade; full test-mode run; live keys in Production | 16:00 / 23:00 (live by 17:30 / 00:30) | Test payment upgrades an event; live Checkout page opens with the right price |
 | [x] | D6 | Demo seed: `scripts/seed-demo.ts` from Daniel's `content/demo-guests.json`, plan `demo`, intros pre-generated | 16:30 / 23:30 | `/demo` shows a finished event |
-| [ ] | D7 | Production check: env vars, protection off, analytics on, phone check, MVP URL saved on the finish line, "What the jury will see" screenshot checked, Stripe name and descriptor updated, hello@threehellos.app forwarding set up (ImprovMX) and tested | 17:00 / 00:00 | Finish line shows the MVP URL with a good screenshot |
-| [ ] | D8 | P1: Resend email (domain DNS), webhook, late arrivals, `/stats` | 19:00 / 02:00 | Each works on production |
+| [ ] | D7 | Production check: env vars, protection off, analytics on, phone check, MVP URL saved on the finish line, "What the jury will see" screenshot checked, Stripe name and descriptor updated, Stripe public details point at the vercel.app address | 17:00 / 00:00 | Finish line shows the MVP URL with a good screenshot |
+| [ ] | D8 | P1: webhook, late arrivals, `/stats` (Resend email dropped, no domain) | 19:00 / 02:00 | Each works on production |
 | [ ] | D9 | Sunday morning: fixes from organiser feedback, concierge setups, traction numbers in `docs/log.md` every 2 hours | 07:00 / 14:00 rolling | Log has real numbers |
 | [ ] | D10 | Screen-record the full product flow for the video (create, join on phone, generate, guest page, print) | 05:30 / 12:30 | Clean 2-minute capture in `footage/` |
 | [ ] | D11 | README final, `/preflight`, repo public (owner only), GitHub URL saved on the finish line | 08:30 / 15:30 | Preflight clean on the public repo |
@@ -306,7 +307,7 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 
 | | ID | Task | When (Paris / SGT) | Done when |
 |---|---|---|---|---|
-| [ ] | B1 | Integration sync: Daniel's pages switch from mock to real data; full run on production with a `test` event and 6 test guests | 15:00 / 22:00 | Whole flow works on threehellos.app |
+| [ ] | B1 | Integration sync: Daniel's pages switch from mock to real data; full run on three-hellos.vercel.app with a `test` event and 6 test guests | 15:00 / 22:00 | Whole flow works on three-hellos.vercel.app |
 | [ ] | B2 | Race footage all day: decision call, first deploy, first sign-up, first payment, the clock, both of us working | rolling | 10+ clips in `footage/` |
 | [ ] | B3 | `/handoff` before each sleep or break | before sleep | Log has the next step |
 | [ ] | B4 | AI Club pilot (free, plan `pilot`): use it at the next club event, or run a short online mixer with members before the freeze | Sunday morning SGT | Real guests used it; one quote with permission |
@@ -357,9 +358,9 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 
 **Message drafts** (adapt to each person; plain and short):
 
-> Hi [name], I saw you're running [event] on [date]. We built Three Hellos this weekend: guests answer four quick questions when they sign up, and each one gets the three people they should meet that night, with a reason and a first question. It's free up to 15 guests and €29 for bigger events. Want me to set it up for [event]? Here's a sample event: threehellos.app/demo
+> Hi [name], I saw you're running [event] on [date]. We built Three Hellos this weekend: guests answer four quick questions when they sign up, and each one gets the three people they should meet that night, with a reason and a first question. It's free up to 15 guests and €29 for bigger events. Want me to set it up for [event]? Here's a sample event: three-hellos.vercel.app/demo
 
-> Hey [name], quick one: does [club] have a social or mixer coming up? We made a small tool so people actually meet each other instead of staying with their friends. I can set it up for you in five minutes if you want to try it: threehellos.app
+> Hey [name], quick one: does [club] have a social or mixer coming up? We made a small tool so people actually meet each other instead of staying with their friends. I can set it up for you in five minutes if you want to try it: three-hellos.vercel.app
 
 **Tracking.** Every 2 hours from Sunday 07:00 SGT, one line in `docs/log.md`: visitors, organisers, guests, paying organisers, euros collected. Ask happy organisers and guests for one sentence we can quote with their first name, with their permission.
 
@@ -381,7 +382,7 @@ Written to `task_rules/writing.md`. Update them when the product changes.
 
 ## 11. Submission and the freeze
 
-- MVP URL: https://threehellos.app (save it as soon as D7 passes; the vercel.app URL is the fallback while DNS settles).
+- MVP URL: https://three-hellos.vercel.app (saved on the finish line Sat 12:31 Paris).
 - Video: first cut at 07:00 / 14:00, final at 08:00 / 15:00.
 - Traction proof: already saved and verified.
 - GitHub: public at 08:30 / 15:30 by David, URL saved on the finish line.

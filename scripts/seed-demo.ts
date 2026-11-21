@@ -29,7 +29,7 @@ async function main() {
       place: demo.event.place,
       description: demo.event.description,
       organiserName: demo.event.organiserName,
-      organiserEmail: "hello@threehellos.app",
+      organiserEmail: "demo@example.com", // fictional organiser of the sample event
     },
     "demo",
   );

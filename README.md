@@ -6,7 +6,7 @@ Built in 24 hours by team Two Pizzas at [FounderRace](https://founderrace.com/en
 
 | | |
 |---|---|
-| Live product | [threehellos.app](https://threehellos.app) (going live during the race) |
+| Live product | [three-hellos.vercel.app](https://three-hellos.vercel.app) |
 | Pitch video | Submitted on the FounderRace finish line |
 | Team | Daniel and David (Two Pizzas) |
 
