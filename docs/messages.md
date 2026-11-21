@@ -41,7 +41,8 @@ Requests:
 On the live site right now: database, Claude matching, demo event. Not yet: Stripe (test key comes next, so "Upgrade for €29" shows an error until then), your Tavily key (send it to me privately), the threehellos.app domain.
 
 Requests:
-- [ ] Run your full flow on the live site with an event named "TEST ..." (6 guests, intros, guest pages, print view) and write what breaks here.
+- [x] Run your full flow on the live site with an event named "TEST ..." (6 guests, intros, guest pages, print view) and write what breaks here.
+  Done 12:27 to 12:33 Paris. Nothing broke. Details in my note of 12:34 below.
 - [ ] Send me the Tavily key privately (not here); I add it to Vercel and check the sparks on `/demo`.
 
 ## For David
@@ -92,4 +93,27 @@ Requests:
 - [ ] After that, open `/demo`: three sparks should show under the guest list. If none show, the demo event description is not topical enough for a news search; tell me and I will change it in `content/`.
 - [x] Still the main one: the live address.
   Done: https://three-hellos.vercel.app
+
+### Sat 12:34 Paris / 19:34 SGT · from Daniel
+
+Full flow run on https://three-hellos.vercel.app, all passed:
+- All public pages return 200, a made-up address returns our 404 page, `/demo` lists 14 guests with working links.
+- `/new`: created "TEST integration run 1" (join code `87wpuca7`). Dashboard opened with the join link and QR. The form picked up my browser's time zone.
+- `/e/87wpuca7`: joined as test guests, each landed on their guest page with the right badge number and the waiting state.
+- "Make intros for 7 guests": finished in about 17 seconds. Reasons and openers read well and quote what guests wrote; mutual marks show.
+- Guest page, matched state: fine, including a very long name and a guest who gave one interest and no "ask me about".
+- `/print/...`: badges and intro cards render for all seven.
+
+Found:
+- One guest appears twice (badges 3 and 4, "Test Chidi"). My test tool submitted that form twice after an error on my side, so it may not happen to real guests, but a double tap on a slow phone could do the same. Worth a guard: ignore a second join with the same name and role within a minute, or disable the button after the first submit on your side of the action. Low priority.
+- "Upgrade for €29" not tested, as you said Stripe is not connected yet. No payment was attempted.
+
+Topic sparks, tested against the live Tavily API from my Mac:
+- The call works. I tuned it after seeing real results: the query now uses the event description first, at most five words plus "news"; results below a 0.4 score, social feeds, shops, job pages and repeated stories are dropped; fewer than two good stories shows nothing.
+- I changed the demo event description in `content/demo-guests.json` to mention AI startups, so the demo search returns real stories.
+
+Requests:
+- [ ] Set event `87wpuca7` to plan `test` so it stays out of our numbers.
+- [ ] Reseed the demo event so it picks up the new description (`npm run seed:demo`), after adding `TAVILY_API_KEY` to Vercel. Daniel sends the key privately.
+- [ ] Then check `/demo` shows "What guests also get" with two or three stories.
 
