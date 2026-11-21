@@ -15,7 +15,7 @@ export type SellerDetails = {
   registrationNumber: string | null;
   // Hungarian tax number. Required for a sole trader.
   taxNumber: string | null;
-  // "registered" means the €29 price includes VAT. "exempt" means no VAT is charged.
+  // "registered" means the prices include VAT. "exempt" means no VAT is charged.
   vatStatus: VatStatus | null;
   // EU VAT number, only when vatStatus is "registered".
   vatNumber: string | null;

@@ -35,6 +35,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 17:02 | Sun 00:02 | David | **First paying customer:** Maria, a friend of David's, created the event "Meet and greet" at 16:49 Paris, 5 guests signed up, and she paid €1 for the 5th guest at 17:02 Paris (live mode, her own card: a different card and name from David's refunded test). Real numbers now: 1 event, 5 guests, 1 paying organiser, €1.00. |
 | Sat 17:11 | Sun 00:11 | David | Vercel Analytics since launch: 29 visitors, 160 page views, 55% bounce rate (includes our own visits). Screenshot cropped to the numbers in `docs/traction/vercel-analytics.png`. |
 | Sat 17:14 | Sat 00:14 | Daniel | First real payment. Stats page at 17:14 Paris: 1 event created by an organiser (16:49 Paris), 5 guests joined, 1 paying organiser, 1 payment, 1.00 EUR in live mode. Daniel confirms the organiser is outside the team. Intros not made yet on that event. Outreach wave 3: all 50 scheduled emails were cancelled at 17:00 before any left, because the free limit changed to 4 guests; 30 are rescheduled with the new price line (17 today at 18:30 Paris, 13 Sunday morning), 20 on hold. Emails sent so far stay at 55. Pitch v12 in work: shows the stats page and the first paying organiser. |
+| Sat 17:42 | Sat 00:42 | Daniel | Final pitch video (v12, 1:48) replaced on the finish line at 17:41 Paris: problem, product demo, results rows, first paying organiser (one euro, from our own network, outside the team), the live stats page with its real numbers, race footage, threehellos.app. Finish line: 3 of 3 deliverables, MVP URL threehellos.app, 1 payment, 1.00 EUR, race points 60 of 100 before the new cut is scored. Outreach: 55 emails and messages sent so far (51 delivered), 50 more scheduled in the Three Hellos mailbox from 00:05 Paris on Sunday with the current price line. Repo: secret scan clean, type check and lint clean. |
 
 ## Notes for each other
 
@@ -70,3 +71,12 @@ Written by `/handoff` at the end of each session, newest at the bottom. The late
 - Next step: Daniel uploads the pitch video on https://founderrace.com/en/finish-line/ (first cut now, final by Sun 08:00 Paris / 15:00 SGT), then posts the Discord note about the refunded €1 test.
 - Blockers: Vercel settings and environment variables need David's account (free plan, no team seats); everything else (Stripe admin, GitHub, Supabase data through the app) is open to Daniel.
 - Review points open: none recorded; all four `verification.md` sections are still unreviewed stubs.
+
+### Sat 17:42 Paris / 00:42 SGT · Daniel
+- Done: pitch video v12 is on the finish line (first paying organiser, live stats page, race footage, new domain). Landing sample intros match the rebuilt sample event. Site text, terms and README carry the current prices (free with up to 4 guests, 1 EUR per extra guest, 9 EUR for 30 days). Outreach waves 1 and 2 sent (55, of which 51 delivered); wave 3 (50 emails, corrected price line) is scheduled from Sun 00:05 Paris.
+- Live: https://threehellos.app works end to end. Sample event at /demo. All public pages answer 200.
+- Traction (stats page, Sat 17:14 Paris): 1 event from a real organiser, 5 guests, 1 paying organiser, 1.00 EUR live. The organiser is a friend of David's running her own event with her own card; David's earlier 1 EUR test is refunded and never counted. Replies to outreach from a person: 0.
+- Next step: nothing in the code. Daniel may book the Go live call on Discord. Sunday 07:30 to 08:55 Paris: read the stats page and the two mailboxes, add the final numbers to this log if they changed, last push by 08:55.
+- Blockers: none. Vercel settings need David's account.
+- Frozen: no feature or copy changes are planned after this commit. Only a log update with final numbers may follow before Sun 08:55 Paris.
+

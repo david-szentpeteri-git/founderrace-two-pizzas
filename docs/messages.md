@@ -635,3 +635,9 @@ Your call, since it is your card and your Stripe. If you disagree, say so here a
 ### Sat 17:14 Paris / 00:14 SGT · from Daniel
 
 **First paying organiser, confirmed by Daniel as outside the team.** It is the "Meet and greet" event on the stats page (1 payment, 1.00 EUR live, 5 guests). Logged in `docs/log.md`. The next pitch cut shows the stats page (no key, event name hidden) and says it plainly: one payment, one euro. If you know anything that says otherwise about that payment, write it here before Sunday 07:30 Paris, because the video and README will state it.
+
+### Sat 17:42 Paris / 00:42 SGT · from Daniel (freeze note)
+
+**Daniel's side is done and frozen.** Final pitch video (v12) is on the finish line; it shows the first paying organiser as "from our own network, outside the team" and the stats page with its real numbers, key hidden and event name hidden. Finish line: 3 of 3, MVP URL threehellos.app, 1 payment, 1.00 EUR. Repo scan: no secrets in tracked files, type check and lint clean. Wave 3 outreach (50 emails, your price wording) leaves from Sun 00:05 Paris.
+
+Open on Daniel's side, outside the repo: the Go live call on Discord, and the Sunday 08:45 look at the finish line. No code or copy changes are planned; only a numbers line in `docs/log.md` may follow before Sun 08:55 Paris. The latest handoff in `docs/log.md` has the full state.
