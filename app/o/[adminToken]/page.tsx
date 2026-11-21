@@ -9,7 +9,7 @@ import { ButtonLink, buttonClass } from "@/components/ui/button";
 import { Card, Pill } from "@/components/ui/card";
 import { getAdminView } from "@/lib/data";
 import { hasDatabase } from "@/lib/db";
-import { FREE_GUESTS, PASS_DAYS, PASS_PRICE_CENTS, euros, guestTopUp } from "@/lib/pricing";
+import { FREE_GUESTS, PASS_DAYS, PASS_PRICE_CENTS, euros, guestTopUp, passIsCheaper } from "@/lib/pricing";
 import { MIN_GUESTS_TO_MATCH, siteUrl } from "@/lib/site";
 import { formatEventDate } from "@/lib/utils";
 import { generateIntrosAction, removeGuestAction, startCheckoutAction } from "./actions";
@@ -78,7 +78,7 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
   const canPay = view.plan === "free" || view.plan === "paid" || view.plan === "test";
   const hasPass = Boolean(view.passUntil);
   const passEnds = view.passUntil ? formatEventDate(view.passUntil, event.timeZone) : null;
-  // What paying for the waiting guests costs now (2 cents each above what is covered, at least €1).
+  // What paying for the waiting guests costs now (€1 each above what is covered).
   const topUp = guestTopUp(count, view.coveredLimit);
   const planLabel = hasPass
     ? `Unlimited pass until ${passEnds}`
@@ -227,19 +227,23 @@ ${joinUrl}
                   {count} guests are waiting for their intros. This event covers {view.guestLimit}.
                 </p>
                 <p className="mt-1 text-sm text-zinc-500">
-                  {topUp.extraGuests} more guest{topUp.extraGuests === 1 ? "" : "s"} at 2 cents each, at least €1, covers
-                  up to {topUp.newLimit}. Or {euros(PASS_PRICE_CENTS)} once for {PASS_DAYS} days of unlimited events.
-                  No subscription.
+                  Each extra guest is €1. Or pay {euros(PASS_PRICE_CENTS)} once for {PASS_DAYS} days of unlimited guests on
+                  all your events. One-time payments, no subscription.
+                  {passIsCheaper(topUp.cents) ? " For this room the pass is the cheaper option." : ""}
                 </p>
                 <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <form action={startCheckoutAction.bind(null, adminToken, "guests")}>
+                  <form action={startCheckoutAction.bind(null, adminToken, passIsCheaper(topUp.cents) ? "pass" : "guests")}>
                     <SubmitButton pendingLabel="Opening payment…">
-                      Pay {euros(topUp.cents)} for {topUp.extraGuests} guest{topUp.extraGuests === 1 ? "" : "s"}
+                      {passIsCheaper(topUp.cents)
+                        ? `Unlimited for ${PASS_DAYS} days, ${euros(PASS_PRICE_CENTS)}`
+                        : `Pay ${euros(topUp.cents)} for ${topUp.extraGuests} guest${topUp.extraGuests === 1 ? "" : "s"}`}
                     </SubmitButton>
                   </form>
-                  <form action={startCheckoutAction.bind(null, adminToken, "pass")}>
+                  <form action={startCheckoutAction.bind(null, adminToken, passIsCheaper(topUp.cents) ? "guests" : "pass")}>
                     <SubmitButton variant="secondary" pendingLabel="Opening payment…">
-                      Unlimited for {PASS_DAYS} days, {euros(PASS_PRICE_CENTS)}
+                      {passIsCheaper(topUp.cents)
+                        ? `Pay ${euros(topUp.cents)} for ${topUp.extraGuests} guests`
+                        : `Unlimited for ${PASS_DAYS} days, ${euros(PASS_PRICE_CENTS)}`}
                     </SubmitButton>
                   </form>
                 </div>
@@ -284,9 +288,9 @@ ${joinUrl}
 
             {canPay && !hasPass && !overLimit ? (
               <form action={startCheckoutAction.bind(null, adminToken, "pass")} className="mt-4 text-sm text-zinc-500">
-                Free up to {FREE_GUESTS} guests. Above that, 2 cents a guest (at least €1), or{" "}
+                Free up to {FREE_GUESTS} guests. Above that, €1 per extra guest, or{" "}
                 <button type="submit" className="font-medium text-zinc-900 underline underline-offset-4">
-                  {euros(PASS_PRICE_CENTS)} for {PASS_DAYS} days of unlimited events
+                  {euros(PASS_PRICE_CENTS)} for {PASS_DAYS} days of unlimited guests
                 </button>
                 .
               </form>

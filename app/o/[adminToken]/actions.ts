@@ -47,8 +47,8 @@ export async function removeGuestAction(adminToken: string, number: number): Pro
 }
 
 /**
- * Starts a Stripe Checkout. "guests" pays 2 cents for each guest above what the
- * event already covers (at least 1 EUR); "pass" is 9 EUR for 30 days of unlimited
+ * Starts a Stripe Checkout. "guests" pays €1 for each guest above what the
+ * event already covers; "pass" is 9 EUR for 30 days of unlimited
  * events for this organiser's email.
  */
 export async function startCheckoutAction(adminToken: string, kind: "guests" | "pass"): Promise<void> {
@@ -68,12 +68,12 @@ export async function startCheckoutAction(adminToken: string, kind: "guests" | "
     const { cents, newLimit, extraGuests } = guestTopUp(Math.max(count, covered + 1), covered);
     unitAmount = cents;
     productName = `Three Hellos: intros for up to ${newLimit} guests`;
-    description = `${event.name.slice(0, 120)}. ${extraGuests > 0 ? `${extraGuests} guests above ${covered}` : `Places above ${covered}`}, 2 cents each, at least €1.`;
+    description = `${event.name.slice(0, 120)}. ${extraGuests} guest${extraGuests === 1 ? "" : "s"} above ${covered}, €1 each.`;
     metadata.guest_limit_after = String(newLimit);
   } else {
     unitAmount = PASS_PRICE_CENTS;
     productName = `Three Hellos: ${PASS_DAYS} days of unlimited events`;
-    description = `Every event created with ${event.organiser_email} for ${PASS_DAYS} days, any number of guests. One payment, no subscription.`;
+    description = `Every event with ${event.organiser_email}, including earlier ones, for ${PASS_DAYS} days, up to 500 guests each. One payment, no subscription.`;
   }
 
   // The buyer agrees to the terms and to delivery starting at once, which ends
