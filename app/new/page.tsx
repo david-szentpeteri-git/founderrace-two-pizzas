@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import { SavedEvents } from "@/components/organiser/saved-events";
 import { CreateEventForm } from "./CreateEventForm";
 
 export const metadata: Metadata = {
@@ -18,6 +19,9 @@ export default function NewEventPage() {
           You get a join link and a QR code to share with your guests. When the doors open, one click gives every guest
           their three hellos.
         </p>
+        <div className="mt-8">
+          <SavedEvents />
+        </div>
         <div className="mt-10">
           <CreateEventForm />
         </div>

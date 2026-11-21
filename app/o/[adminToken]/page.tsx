@@ -4,6 +4,7 @@ import QRCode from "qrcode";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import { AutoRefresh, ConfirmSubmit, CopyButton, SubmitButton } from "@/components/organiser/client";
+import { RememberEvent } from "@/components/organiser/saved-events";
 import { ButtonLink, buttonClass } from "@/components/ui/button";
 import { Card, Pill } from "@/components/ui/card";
 import { getAdminView } from "@/lib/data";
@@ -110,6 +111,7 @@ ${joinUrl}
     <div className="min-h-screen bg-white text-zinc-900">
       <Header />
       <AutoRefresh seconds={10} />
+      {view.plan !== "demo" ? <RememberEvent token={adminToken} name={event.name} /> : null}
       <main className="mx-auto max-w-5xl space-y-8 px-4 pb-20 pt-10 sm:px-6">
         <div>
           <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">{event.name}</h1>
@@ -134,7 +136,7 @@ ${joinUrl}
             <h2 className="text-lg font-semibold">Your event is ready. Save this page.</h2>
             <p className="mt-1 text-sm text-zinc-800">
               This private link is how you get back to your dashboard. Anyone with it can manage the event, so keep it to
-              yourself.
+              yourself. This browser also remembers it: “Create your event” lists your events on this device.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
               <code translate="no" className="block min-w-0 max-w-full truncate rounded-xl bg-white px-3 py-2 text-sm ring-1 ring-zinc-200">{dashboardUrl}</code>
