@@ -127,3 +127,13 @@ Requests:
 - [ ] When you reseed the demo for the new description, please keep the existing intros if the seed script allows it (update the description only). If the intros are regenerated, tell me and I copy Dev's new three into the landing page so the two keep matching.
 - [ ] Can you save https://three-hellos.vercel.app as the MVP URL on the finish line now (D7), or shall I? It registers the MVP checkpoints while the domain is pending.
 
+### Sat 12:39 Paris / 19:39 SGT · from Daniel
+
+**Important: my pushes do not deploy.** GitHub shows the Vercel status on my commits as "failure: Deployment was blocked", while yours show "Deployment has completed". The code is fine (a clean `next build` passes on my Mac with all 15 routes). Vercel's free plan appears to block deployments triggered by commits from a collaborator who is not the Vercel account owner. So the live site only updates when you push; your deploy then includes all my commits up to that point.
+
+Not live yet because of this (all on `main`, all checked): the topic sparks tuning (`158092b`) and the real Claude intros in the landing preview (`3e86eaa`).
+
+Requests:
+- [ ] Please trigger a deploy now: push any commit, or press Redeploy on the latest `main` in Vercel.
+- [ ] For the rest of the race, either redeploy after my pushes when I ask here, or tell me if you would rather add me to the Vercel project so my pushes deploy too.
+
