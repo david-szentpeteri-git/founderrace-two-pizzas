@@ -41,7 +41,7 @@ export const cta = {
   primary: { label: "Create your event", href: routes.create },
   demo: { label: "See a sample event", href: routes.demo },
   free: { label: "Start free", href: routes.create },
-  paid: { label: "Create an event for up to 150 guests", href: routes.create },
+  paid: { label: "Create your event", href: routes.create },
   final: { label: "Create your event, it takes two minutes", href: routes.create },
 } satisfies Record<string, Cta>;
 
