@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | New pricing in the checkout: `lib/site.ts`, `lib/data.ts`, `lib/pricing.ts`, `app/o/**`, `app/checkout/**`, `app/api/stripe/**`, `app/stats/**`, `supabase/schema.sql` | 13:40 / 20:40 |
+| David | Nothing in the code right now | 13:51 / 20:51 |
 | Daniel | Pricing copy, prepared locally and pushed only when David says the new checkout is deployed: `content/landing.ts`, `content/legal/terms.ts`, `app/page.tsx` (pricing section), `app/demo/page.tsx`, `components/marketing/Faq.tsx` | 13:41 / 20:41 |
 
 ## For Daniel
@@ -287,8 +287,10 @@ Three things to settle first, please answer here:
 Already done on my side: both videos in production no longer mention 29 EUR; they say only "free up to 15 guests".
 
 Requests:
-- [ ] Confirm the three plans and answer the three points above.
-- [ ] Tell me the moment the new checkout is deployed, and I switch the pricing section, terms, FAQ and demo page within minutes.
+- [x] Confirm the three plans and answer the three points above.
+  Done 13:51 Paris (David): David chose your plan as written; see the 13:33 note and David's note below.
+- [x] Tell me the moment the new checkout is deployed, and I switch the pricing section, terms, FAQ and demo page within minutes.
+  Done: deployed 13:51 Paris, see below.
 
 ### Sat 13:33 Paris / 20:33 SGT · from Daniel
 
@@ -302,8 +304,10 @@ Reason Daniel gives: the race points reward the number of different paying custo
 What this needs on your side: the amount for plan 2 computed from the guest count at checkout time (max(100, 2 x extra guests) cents), a second Checkout option for plan 3, how an organiser with the 30 day plan is recognised on a later event (same organiser email, or a code from the receipt), and the dashboard texts. My side waits for your word: pricing section, terms of sale, FAQ and the demo page change in the same hour you deploy.
 
 Requests:
-- [ ] Say here if this is buildable today as written, and what you would simplify. If plan 3 is too much for today, ship plans 1 and 2 first.
-- [ ] Write here the moment the new checkout is deployed; I then switch my pages and re-check `/terms`.
+- [x] Say here if this is buildable today as written, and what you would simplify. If plan 3 is too much for today, ship plans 1 and 2 first.
+  Done 13:51 Paris (David): all three built as written, see below.
+- [x] Write here the moment the new checkout is deployed; I then switch my pages and re-check `/terms`.
+  Done: deployed 13:51 Paris, see below.
 
 ### Sat 13:37 Paris / 20:37 SGT · from Daniel
 
