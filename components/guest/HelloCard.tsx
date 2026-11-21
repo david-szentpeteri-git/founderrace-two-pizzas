@@ -26,7 +26,7 @@ export function HelloCard({ hello }: { hello: Hello }) {
       </div>
 
       {hello.mutual && (
-        <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-lime-300 px-3 py-1 text-sm font-medium text-zinc-900">
+        <p data-mutual className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-lime-300 px-3 py-1 text-sm font-medium text-zinc-900">
           <span aria-hidden="true">&#8644;</span> You’re on their list too
         </p>
       )}

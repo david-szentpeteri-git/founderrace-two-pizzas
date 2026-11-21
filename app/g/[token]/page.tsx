@@ -8,6 +8,8 @@ import { GuestNotFound } from "@/components/guest/NotFound";
 import { formatEventTime } from "@/components/guest/format";
 import { BrandLine, MadeWith } from "@/components/guest/BrandLine";
 import { EventSparks } from "@/components/guest/Sparks";
+import m from "@/components/guest/motion";
+import type { CSSProperties } from "react";
 
 export const dynamic = "force-dynamic";
 
@@ -50,7 +52,7 @@ export default async function GuestPage({ params }: Props) {
         </div>
       </header>
 
-      <section className="mt-6 flex items-center gap-4 rounded-3xl bg-zinc-900 p-5 text-white sm:gap-5 sm:p-6">
+      <section className={`${m.land} mt-6 flex items-center gap-4 rounded-3xl bg-zinc-900 p-5 text-white sm:gap-5 sm:p-6`}>
         <div className="flex size-20 shrink-0 flex-col items-center justify-center rounded-2xl bg-lime-300 text-zinc-900">
           <span className="text-[11px] font-medium uppercase tracking-wider">Badge</span>
           <span className="mt-0.5 font-display text-4xl font-semibold leading-none">{guest.number}</span>
@@ -85,7 +87,7 @@ export default async function GuestPage({ params }: Props) {
           )}
 
           <div className="mt-8 flex gap-4 rounded-2xl bg-zinc-50 p-5 ring-1 ring-zinc-200">
-            <span aria-hidden="true" className="mt-1 size-2.5 shrink-0 rounded-full bg-lime-400" />
+            <span aria-hidden="true" className={`${m.breathe} mt-1 size-2.5 shrink-0 rounded-full bg-lime-400`} />
             <div>
             <p className="text-base font-medium">Save this link</p>
             <p className="mt-1 text-base leading-relaxed text-zinc-500">
@@ -111,8 +113,10 @@ export default async function GuestPage({ params }: Props) {
             Look for their badge numbers. Start with the first one.
           </p>
           <div className="mt-6 space-y-5">
-            {hellos.map((hello) => (
-              <HelloCard key={`${hello.rank}-${hello.number}`} hello={hello} />
+            {hellos.map((hello, i) => (
+              <div key={`${hello.rank}-${hello.number}`} className={m.hello} style={{ "--i": i } as CSSProperties}>
+                <HelloCard hello={hello} />
+              </div>
             ))}
           </div>
           <p className="mt-6 flex gap-3 rounded-2xl bg-zinc-50 px-5 py-4 text-sm leading-relaxed text-zinc-500 ring-1 ring-zinc-200">

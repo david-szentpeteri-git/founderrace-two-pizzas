@@ -9,6 +9,8 @@ import Footer from "@/components/site/Footer";
 import Marker from "@/components/marketing/Marker";
 import Faq from "@/components/marketing/Faq";
 import PhonePreview from "@/components/marketing/PhonePreview";
+import { Reveal } from "@/components/marketing/Reveal";
+import m from "@/components/marketing/motion";
 import MobileCtaBar from "@/components/marketing/MobileCtaBar";
 import { HelloCard } from "@/components/guest/HelloCard";
 import { sampleGuest, sampleHellos } from "@/components/marketing/sampleHellos";
@@ -18,13 +20,13 @@ export const metadata: Metadata = {
   description: meta.description,
 };
 
-function markPhrase(text: string, phrase: string) {
+function markPhrase(text: string, phrase: string, draw = false) {
   const at = text.indexOf(phrase);
   if (at < 0) return text;
   return (
     <>
       {text.slice(0, at)}
-      <Marker>{phrase}</Marker>
+      <Marker draw={draw}>{phrase}</Marker>
       {text.slice(at + phrase.length)}
     </>
   );
@@ -34,12 +36,14 @@ function markPhrase(text: string, phrase: string) {
 const mixerPhoto = fs.existsSync(path.join(process.cwd(), "public", "img", "mixer.jpg"));
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900";
-const primaryButton = `inline-flex min-h-12 w-full items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-zinc-700 sm:w-auto ${focus}`;
-const secondaryButton = `inline-flex min-h-12 w-full items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-center text-base font-medium text-zinc-900 transition-colors hover:border-zinc-900 sm:w-auto ${focus}`;
+const press = "transition duration-150 motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 motion-safe:active:scale-[0.98]";
+const primaryButton = `inline-flex min-h-12 w-full items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-center text-base font-medium text-white shadow-sm shadow-zinc-900/10 hover:bg-zinc-700 hover:shadow-md hover:shadow-zinc-900/15 sm:w-auto ${press} ${focus}`;
+const secondaryButton = `inline-flex min-h-12 w-full items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-center text-base font-medium text-zinc-900 hover:border-zinc-900 hover:shadow-sm sm:w-auto ${press} ${focus}`;
 const textLink = `group inline-flex min-h-12 items-center justify-center gap-1.5 rounded-full px-2 text-base font-medium text-zinc-900 underline-offset-4 hover:underline ${focus}`;
 
 const section = "mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24";
 const h2 = "font-display text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl";
+const lift = "transition duration-150 motion-safe:hover:-translate-y-0.5 hover:shadow-md hover:shadow-zinc-900/5";
 const lead = "mt-4 max-w-[65ch] text-lg leading-relaxed text-zinc-500";
 
 export default function HomePage() {
@@ -53,7 +57,7 @@ export default function HomePage() {
             <div>
               <p className="text-sm font-medium text-zinc-500">{hero.eyebrow}</p>
               <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-                {markPhrase(hero.headline, "three people")}
+                {markPhrase(hero.headline, "three people", true)}
               </h1>
               <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-zinc-500">{hero.problem}</p>
               <div className="mt-8 flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-4">
@@ -80,7 +84,7 @@ export default function HomePage() {
 
         {/* Problem */}
         <section className="bg-zinc-50">
-          <div className={section}>
+          <Reveal className={section}>
             <h2 className={h2}>{problem.heading}</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2 md:gap-12">
               {problem.paragraphs.map((p) => (
@@ -92,7 +96,7 @@ export default function HomePage() {
             <p className="mt-10 max-w-[65ch] rounded-2xl border-l-4 border-zinc-900 bg-white px-6 py-5 text-lg leading-relaxed text-zinc-900 ring-1 ring-zinc-200">
               {hero.solution}
             </p>
-          </div>
+          </Reveal>
         </section>
 
         {/* Photo band */}
@@ -118,14 +122,14 @@ export default function HomePage() {
         {/* How it works */}
         <section className={`${section} scroll-mt-20`} id="how-it-works">
           <h2 className={h2}>{howItWorks.heading}</h2>
-          <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <Reveal as="ol" stagger className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {howItWorks.steps.map((step, i) => (
               <li key={step.title} className="border-t border-zinc-900 pt-6">
                 <span
                   aria-hidden="true"
-                  className="block font-display text-6xl font-semibold leading-none tracking-tight text-transparent [-webkit-text-stroke:1.5px_#18181b]"
+                  className={`${m.num} font-display text-6xl font-semibold leading-none tracking-tight text-transparent [-webkit-text-stroke:1.5px_#18181b]`}
                 >
-                  {String(i + 1).padStart(2, "0")}
+                  <span>{String(i + 1).padStart(2, "0")}</span>
                 </span>
                 <h3 className="mt-6 font-display text-xl font-semibold tracking-tight">
                   <span className="sr-only">Step {i + 1}: </span>
@@ -134,7 +138,7 @@ export default function HomePage() {
                 <p className="mt-3 text-base leading-relaxed text-zinc-500">{step.body}</p>
               </li>
             ))}
-          </ol>
+          </Reveal>
         </section>
 
         {/* Key feature preview */}
@@ -151,11 +155,14 @@ export default function HomePage() {
                   {sampleGuest.name}, your <Marker>three hellos</Marker>
                 </p>
                 <p className="mt-1 text-base text-zinc-500">{sampleGuest.role}</p>
-                <div className="mt-8 grid gap-6 lg:grid-cols-3 [&>article]:h-full">
+                <Reveal
+                  stagger
+                  className="mt-8 grid gap-6 lg:grid-cols-3 [&>article]:h-full [&>article]:transition [&>article]:duration-150 motion-safe:[&>article:hover]:-translate-y-0.5 [&>article:hover]:shadow-md"
+                >
                   {sampleHellos.map((h) => (
                     <HelloCard key={h.rank} hello={h} />
                   ))}
-                </div>
+                </Reveal>
               </div>
             ) : null}
             <p className="mt-6 max-w-[65ch] text-sm text-zinc-500">{demo.disclaimer}</p>
@@ -171,13 +178,13 @@ export default function HomePage() {
         <section className={section}>
           <h2 className={h2}>{audience.heading}</h2>
           <p className={lead}>{audience.intro}</p>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+          <Reveal as="ul" stagger className="mt-10 grid gap-4 sm:grid-cols-2">
             {audience.groups.map((g) => (
-              <li key={g} className="rounded-2xl border border-zinc-200 px-6 py-5 text-base leading-relaxed">
+              <li key={g} className={`rounded-2xl border border-zinc-200 bg-white px-6 py-5 text-base leading-relaxed ${lift}`}>
                 {g}
               </li>
             ))}
-          </ul>
+          </Reveal>
           <p className="mt-6 max-w-[65ch] text-base text-zinc-500">{audience.note}</p>
         </section>
 
@@ -186,13 +193,13 @@ export default function HomePage() {
           <div className={section}>
             <h2 className={h2}>{pricing.heading}</h2>
             <p className={lead}>{pricing.intro}</p>
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <Reveal stagger className="mt-10 grid gap-6 md:grid-cols-2">
               {pricing.plans.map((plan, i) => {
                 const recommended = i === 1;
                 return (
                   <div
                     key={plan.name}
-                    className={`relative flex flex-col rounded-2xl bg-white p-8 ${
+                    className={`relative flex flex-col rounded-2xl bg-white p-8 ${lift} ${
                       recommended ? "border-2 border-zinc-900 shadow-lg shadow-zinc-900/5" : "border-2 border-zinc-200"
                     }`}
                   >
@@ -228,7 +235,7 @@ export default function HomePage() {
                   </div>
                 );
               })}
-            </div>
+            </Reveal>
             <p className="mt-8 font-medium text-zinc-900">An event with 80 guests costs €29 in total.</p>
             <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-zinc-500">{pricing.footnote}</p>
           </div>
@@ -244,7 +251,7 @@ export default function HomePage() {
 
         {/* Final call to action */}
         <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-          <div className="rounded-3xl bg-zinc-900 px-6 py-16 text-center text-white sm:px-12 sm:py-20">
+          <Reveal className="rounded-3xl bg-zinc-900 px-6 py-16 text-center text-white sm:px-12 sm:py-20">
             <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-5xl">
               {finalCta.heading}
             </h2>
@@ -252,18 +259,18 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Link
                 href={finalCta.primary.href}
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-lime-300 px-7 py-3 text-center text-base font-semibold text-zinc-900 transition-colors hover:bg-lime-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300"
+                className={`inline-flex min-h-12 items-center justify-center rounded-full bg-lime-300 px-7 py-3 text-center text-base font-semibold text-zinc-900 hover:bg-lime-200 ${press} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300`}
               >
                 {finalCta.primary.label}
               </Link>
               <Link
                 href={finalCta.secondary.href}
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-zinc-600 px-7 py-3 text-center text-base font-medium text-white transition-colors hover:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className={`inline-flex min-h-12 items-center justify-center rounded-full border border-zinc-600 px-7 py-3 text-center text-base font-medium text-white hover:border-white ${press} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
               >
                 {finalCta.secondary.label}
               </Link>
             </div>
-          </div>
+          </Reveal>
         </section>
       </main>
       <Footer />

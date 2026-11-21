@@ -6,6 +6,7 @@ import { GuestNotFound } from "@/components/guest/NotFound";
 import { formatEventTime } from "@/components/guest/format";
 import { joinAction } from "./actions";
 import { BrandLine, MadeWith } from "@/components/guest/BrandLine";
+import m from "@/components/guest/motion";
 
 export const dynamic = "force-dynamic";
 
@@ -39,7 +40,7 @@ export default async function JoinPage({ params }: Props) {
     <main className="mx-auto min-h-dvh w-full max-w-md bg-white px-5 pb-12 pt-6 text-zinc-900 sm:px-6">
       <BrandLine />
 
-      <header className="mt-8">
+      <header className={`${m.enter} mt-8`}>
         <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">{event.name}</h1>
         <dl className="mt-4 space-y-1 text-base text-zinc-500">
           {when && (
@@ -62,7 +63,7 @@ export default async function JoinPage({ params }: Props) {
         {event.description && <p className="mt-4 text-base leading-relaxed">{event.description}</p>}
       </header>
 
-      <section className="mt-8 rounded-3xl bg-zinc-50 p-6 ring-1 ring-zinc-200">
+      <section className={`${m.enterLate} mt-8 rounded-3xl bg-zinc-50 p-6 ring-1 ring-zinc-200`}>
         <p className="text-lg leading-relaxed">
           Answer a few short questions and we’ll suggest the <Marker>three people</Marker> you should say
           hello to at this event, with a first question for each.

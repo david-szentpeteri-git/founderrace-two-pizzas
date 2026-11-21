@@ -25,7 +25,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="flex min-h-14 w-full items-center justify-center rounded-full bg-zinc-900 px-6 text-lg font-medium text-white transition-colors hover:bg-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 disabled:cursor-not-allowed disabled:opacity-60"
+      className="flex min-h-14 w-full items-center justify-center rounded-full bg-zinc-900 px-6 text-lg font-medium text-white shadow-sm shadow-zinc-900/10 transition duration-150 hover:bg-zinc-700 hover:shadow-md enabled:active:bg-zinc-800 enabled:active:shadow-none motion-safe:enabled:active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? "Saving your answers…" : "Join and get my three hellos"}
     </button>

@@ -10,6 +10,7 @@ import Marker from "@/components/marketing/Marker";
 import { safeTimeZone } from "@/components/guest/format";
 import { DemoSparks } from "@/components/guest/Sparks";
 import { Suspense } from "react";
+import { Reveal } from "@/components/marketing/Reveal";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900";
 const h2 = "font-display text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl";
@@ -161,7 +162,7 @@ export default async function DemoPage() {
               their page exactly as they would on their phone.
             </p>
 
-            <ul className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-3 md:grid-cols-2">
+            <Reveal as="ul" stagger className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-3 md:grid-cols-2">
               {rows.map((row) => (
                 <li key={row.href} className="min-w-0">
                   <Link
@@ -192,7 +193,7 @@ export default async function DemoPage() {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </Reveal>
             {firstGuest ? (
               <p className="mt-6 text-sm text-zinc-500">
                 Not sure where to start? Open{" "}

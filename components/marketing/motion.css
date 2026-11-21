@@ -1,0 +1,205 @@
+/*
+  Motion for the landing page. Only opacity and transform move, so nothing
+  shifts layout. Every animation uses `both` fill and starts from the visible
+  natural state, so with no animation (reduced motion, old browsers) the
+  content is simply there.
+*/
+
+@keyframes thm-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thm-riseSmall {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thm-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thm-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes thm-glow {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thm-draw {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+/* Hero phone */
+.thm-phone-in {
+  animation: thm-rise 560ms cubic-bezier(0.2, 0.7, 0.2, 1) 120ms both;
+}
+
+.thm-drift {
+  animation: thm-drift 5s ease-in-out 1.4s infinite alternate;
+}
+
+.thm-drift-slow {
+  animation: thm-drift 6.5s ease-in-out 1.8s infinite alternate-reverse;
+}
+
+.thm-answers-in {
+  animation: thm-riseSmall 500ms ease-out 700ms both;
+}
+
+.thm-card-in {
+  animation: thm-riseSmall 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(480ms + var(--i, 0) * 140ms);
+}
+
+.thm-pill-pop {
+  animation: thm-pop 320ms cubic-bezier(0.3, 0.8, 0.3, 1.2) both;
+  animation-delay: calc(820ms + var(--i, 0) * 140ms);
+}
+
+.thm-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: -18% -30%;
+  background: radial-gradient(closest-side, rgb(190 242 100 / 0.6), rgb(190 242 100 / 0.22) 55%, transparent 75%);
+  animation: thm-glow 900ms ease-out both;
+}
+
+/* Lime marker that draws in once, left to right. The resting state is full. */
+.thm-marker-draw {
+  background-image: linear-gradient(#bef264, #bef264);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  animation: thm-draw 650ms cubic-bezier(0.6, 0, 0.2, 1) 250ms both;
+}
+
+/* Scroll reveal: the hidden state exists only once the client adds .thm-pending. */
+.thm-pending {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.thm-pending-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.thm-in {
+  animation: thm-rise 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.thm-in-stagger > * {
+  animation: thm-rise 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.thm-in-stagger > :nth-child(2) {
+  animation-delay: 90ms;
+}
+.thm-in-stagger > :nth-child(3) {
+  animation-delay: 180ms;
+}
+.thm-in-stagger > :nth-child(4) {
+  animation-delay: 270ms;
+}
+.thm-in-stagger > :nth-child(5) {
+  animation-delay: 340ms;
+}
+.thm-in-stagger > :nth-child(n + 6) {
+  animation-delay: 400ms;
+}
+
+/* Step numbers slide up inside their own line as the step arrives. */
+.thm-num {
+  display: block;
+  overflow: hidden;
+}
+
+.thm-in-stagger .thm-num > span {
+  display: block;
+  animation: thm-rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: inherit;
+}
+
+.thm-in-stagger > :nth-child(1) .thm-num > span {
+  animation-delay: 120ms;
+}
+.thm-in-stagger > :nth-child(2) .thm-num > span {
+  animation-delay: 210ms;
+}
+.thm-in-stagger > :nth-child(3) .thm-num > span {
+  animation-delay: 300ms;
+}
+.thm-in-stagger > :nth-child(4) .thm-num > span {
+  animation-delay: 390ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thm-phone-in,
+  .thm-drift,
+  .thm-drift-slow,
+  .thm-answers-in,
+  .thm-card-in,
+  .thm-pill-pop,
+  .thm-glow,
+  .thm-marker-draw,
+  .thm-in,
+  .thm-in-stagger > *,
+  .thm-in-stagger .thm-num > span {
+    animation: none;
+  }
+  .thm-pending,
+  .thm-pending-stagger > * {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  .thm-pending,
+  .thm-pending-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

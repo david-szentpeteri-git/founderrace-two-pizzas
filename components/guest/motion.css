@@ -1,0 +1,134 @@
+/*
+  Motion for the guest pages. CSS only, opacity and transform only, `both`
+  fill from a visible resting state. The whole guest reveal ends by about
+  0.95 s so nobody waits to read.
+*/
+
+@keyframes thg-land {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thg-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thg-arriveFirst {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thg-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes thg-breathe {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}
+
+@keyframes thg-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The badge block lands first. */
+.thg-land {
+  animation: thg-land 360ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Hellos arrive one by one; the first a little bigger. */
+.thg-hello {
+  animation: thg-arrive 400ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(200ms + var(--i, 0) * 120ms);
+}
+
+.thg-hello:first-child {
+  animation-name: thg-arriveFirst;
+  animation-duration: 460ms;
+}
+
+.thg-hello [data-mutual] {
+  transform-origin: left center;
+  animation: thg-pop 300ms cubic-bezier(0.3, 0.8, 0.3, 1.2) both;
+  animation-delay: calc(460ms + var(--i, 0) * 120ms);
+}
+
+/* Calm dot while the guest waits for the doors to open. */
+.thg-breathe {
+  animation: thg-breathe 2.8s ease-in-out infinite;
+}
+
+/* Soft entrance for the join page and anything that should just settle in. */
+.thg-enter {
+  animation: thg-arrive 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.thg-enter-late {
+  animation: thg-arrive 420ms cubic-bezier(0.2, 0.7, 0.2, 1) 120ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thg-land,
+  .thg-hello,
+  .thg-enter,
+  .thg-enter-late {
+    animation: thg-fade 200ms ease-out both;
+  }
+  .thg-hello [data-mutual],
+  .thg-breathe {
+    animation: none;
+  }
+}
+
+@media print {
+  .thg-land,
+  .thg-hello,
+  .thg-hello [data-mutual],
+  .thg-enter,
+  .thg-enter-late,
+  .thg-breathe {
+    animation: none;
+  }
+}

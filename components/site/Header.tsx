@@ -20,12 +20,12 @@ export default function Header() {
           <Link href={routes.demo} className={`hidden text-zinc-500 hover:text-zinc-900 sm:inline ${focus}`}>
             Sample event
           </Link>
-          <Link href="/#pricing" className={`text-zinc-500 hover:text-zinc-900 ${focus}`}>
+          <Link href="/#pricing" className={`text-zinc-500 hover:text-zinc-900 max-[359px]:hidden ${focus}`}>
             Pricing
           </Link>
           <Link
             href={cta.primary.href}
-            className={`whitespace-nowrap bg-zinc-900 px-3.5 py-2 sm:px-4 font-medium text-white transition-colors hover:bg-zinc-700 ${focus}`}
+            className={`whitespace-nowrap bg-zinc-900 px-3.5 py-2 sm:px-4 font-medium text-white shadow-sm shadow-zinc-900/10 transition duration-150 hover:bg-zinc-700 hover:shadow-md motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 motion-safe:active:scale-[0.97] ${focus}`}
           >
             {cta.primary.label}
           </Link>
