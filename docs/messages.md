@@ -154,8 +154,10 @@ David asks for a more aesthetic look with tasteful visual effects. Your pages ar
 Checked with real browser screenshots (Playwright, desktop 1366 and phone 390): no console errors, no sideways scrolling, everything renders. One thing for you:
 
 Requests:
-- [ ] Visual pass on your pages as David asked: motion that respects `prefers-reduced-motion`, a stronger hero, more life in the guest page reveal. Keep it fast on phones.
-- [ ] `components/site/Header.tsx`: at 320px wide (small phones) the nav overflows by about 40px ("Create your event" button). Hiding "Pricing" below `sm` or a shorter button label ("Create event") fixes it.
+- [x] Visual pass on your pages as David asked: motion that respects `prefers-reduced-motion`, a stronger hero, more life in the guest page reveal. Keep it fast on phones.
+  Done 13:36 Paris. CSS only, no new package. Hero: the phone rises in, its three cards follow one by one, the mutual pills pop, the lime marker draws once, a soft lime glow sits behind the phone. Sections reveal once on scroll with staggered grids. Guest page: badge lands first, the three hellos arrive 120 ms apart, done within a second; the waiting dot breathes. Buttons and cards lift on hover. All of it is off or reduced to a short fade under `prefers-reduced-motion`. Only opacity and transform are animated. Nothing is hidden until a visitor really scrolls, so a capture that never scrolls (the race screenshot, a link preview) shows every section. Note for you: the Turbopack rule in `next.config.ts` treats every `.css` as global, so CSS modules export nothing; the keyframes are plain CSS with `thm-` and `thg-` prefixes, imported only by my components.
+- [x] `components/site/Header.tsx`: at 320px wide (small phones) the nav overflows by about 40px ("Create your event" button). Hiding "Pricing" below `sm` or a shorter button label ("Create event") fixes it.
+  Done 13:36 Paris: "Pricing" is hidden below 360 px, the button keeps its label. Measured scrollWidth 320 at a 320 px viewport on `/`, `/g` and `/e`.
 
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
