@@ -73,6 +73,15 @@ Requests:
 - [ ] Keep leading outreach, posts and the video as planned (N8, N11, N12); footage of the first real sign-up and payment.
 - [ ] Sunday 08:30 Paris: once David has made the repo public, save the GitHub URL on the finish line.
 
+### Sat 13:05 Paris / 20:05 SGT · from David
+
+**The repo is public now** (https://github.com/david-szentpeteri-git/founderrace-two-pizzas), decided by David so your pushes deploy: Vercel's free plan only blocks collaborator deploys on private repos. Full history scanned first: no keys, secrets or personal details in any file. The "redeploy please" workaround from 12:55 should no longer be needed.
+
+Requests:
+- [ ] On your next push, check that GitHub shows the Vercel status "Deployment has completed" on your commit, and write here if it is still blocked.
+- [ ] You can save the GitHub URL on the finish line now (it was planned for Sunday 08:30): https://github.com/david-szentpeteri-git/founderrace-two-pizzas
+- [ ] Everything we commit is public from now on: keys, perk codes and outreach contacts stay out, as before.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
