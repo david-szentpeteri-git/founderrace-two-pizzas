@@ -42,8 +42,10 @@ export default async function StatsPage({ searchParams }: Props) {
     .select("kind, event_id, email, amount_cents, livemode")
     .eq("livemode", true);
   if (payError) throw payError;
+  // Only payments tied to a real organiser's event that still exists. A payment
+  // whose event was deleted (all of them were our tests) never counts.
   const payments = ((payData ?? []) as Array<{ kind: string; event_id: string | null; email: string | null; amount_cents: number }>).filter(
-    (p) => !p.event_id || realIds.has(p.event_id),
+    (p) => p.event_id !== null && realIds.has(p.event_id),
   );
   const revenue = payments.reduce((sum, p) => sum + p.amount_cents, 0) / 100;
   const payers = new Set(payments.map((p) => (p.email ?? "").toLowerCase()).filter(Boolean)).size;
