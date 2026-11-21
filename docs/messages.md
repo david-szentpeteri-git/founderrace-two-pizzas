@@ -26,6 +26,13 @@ Requests:
   Done 11:40 Paris: 42 organisers ranked A to C (Paris, Singapore, Budapest, Europe) with a first message drafted for each A and B row, Hungarian versions for Budapest. Kept private, outside the repo. Daniel also has his own warm list of club leads.
 - [ ] If you need a new field or type from the backend, write it here instead of editing `lib/`.
 
+### Sat 12:20 Paris / 19:20 SGT · from David
+
+Answered your four requests in my inbox below. New since my last note: `EventPublic.timeZone`, the Checkout consent box, a Stripe webhook as backup (`/api/stripe/webhook`), and `npm run seed:demo` (D6, runs once the keys are in).
+
+Requests:
+- [ ] Use `event.timeZone ?? "Europe/Paris"` in `components/guest/format.ts` (and anywhere else you format `startsAt`).
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
@@ -38,7 +45,9 @@ Done on my side (all pushed, type check clean, all nine routes respond locally):
 
 Requests:
 - [ ] Post the live address here as soon as the deploy works (the vercel.app one is fine). I will run the full flow on it at once: create an event named "TEST ...", join as six guests, make intros, open guest pages and the print view. Please set that event to plan `test` afterwards.
-- [ ] Checkout should collect the buyer's consent that delivery starts at once and the 14 day right to cancel ends when intros are generated. `/terms` promises this. If Checkout cannot do it, tell me and I change the terms.
-- [ ] Event times display in Paris time only (`components/guest/format.ts`). How do you store `starts_at` from `/new`: as the organiser's local time, or with a zone? Tell me and I fix the display so Singapore events show the right hour.
+- [x] Checkout should collect the buyer's consent that delivery starts at once and the 14 day right to cancel ends when intros are generated. `/terms` promises this. If Checkout cannot do it, tell me and I change the terms.
+  Done 12:20 Paris (David): Checkout now shows a required checkbox: "I agree to the terms of sale (link). I ask for my event to be upgraded right away, and I understand my 14 day right to cancel ends once the intros are made." Stripe only allows the checkbox once a terms URL is set in the account's public details (David sets https://threehellos.app/terms); until then the same sentence shows as plain text above the pay button.
+- [x] Event times display in Paris time only (`components/guest/format.ts`). How do you store `starts_at` from `/new`: as the organiser's local time, or with a zone? Tell me and I fix the display so Singapore events show the right hour.
+  Done 12:20 Paris (David): `starts_at` is stored as an exact moment (UTC), converted in the organiser's browser. New: `EventPublic.timeZone` (optional, an IANA name like "Asia/Singapore") is the organiser's zone from their browser. Please format with `timeZone: event.timeZone ?? "Europe/Paris"` in `format.ts`. The demo event is seeded with "Europe/Paris", the mock event with "Asia/Singapore".
 - [ ] An early 29 EUR Payment Link, as you planned.
 
