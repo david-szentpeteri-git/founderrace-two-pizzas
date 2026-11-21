@@ -3,7 +3,8 @@ import { redirect } from "next/navigation";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import { db } from "@/lib/db";
-import { markEventPaid, type EventRow } from "@/lib/data";
+import type { EventRow } from "@/lib/data";
+import { applyCheckoutSession } from "@/lib/payments";
 import { stripe } from "@/lib/stripe";
 import { seller } from "@/content/legal/seller";
 
@@ -34,7 +35,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
         if (event) {
           adminToken = event.admin_token;
           if (session.payment_status === "paid") {
-            await markEventPaid(event.id, session.id, session.amount_total ?? 0, session.livemode);
+            await applyCheckoutSession(session);
             paid = true;
           }
         }

@@ -1,5 +1,5 @@
 import type Stripe from "stripe";
-import { markEventPaid } from "@/lib/data";
+import { applyCheckoutSession } from "@/lib/payments";
 import { stripe } from "@/lib/stripe";
 
 // Backup path for payments (plan D8): if the organiser closes the tab before
@@ -20,15 +20,11 @@ export async function POST(request: Request) {
   }
 
   if (event.type === "checkout.session.completed") {
-    const session = event.data.object;
-    const eventId = session.metadata?.event_id ?? session.client_reference_id;
-    if (eventId && session.payment_status === "paid") {
-      try {
-        await markEventPaid(eventId, session.id, session.amount_total ?? 0, session.livemode);
-      } catch (error) {
-        console.error("Webhook could not mark event paid", error);
-        return new Response("Retry later", { status: 500 });
-      }
+    try {
+      await applyCheckoutSession(event.data.object);
+    } catch (error) {
+      console.error("Webhook could not record the payment", error);
+      return new Response("Retry later", { status: 500 });
     }
   }
 
