@@ -78,7 +78,10 @@ export async function startCheckoutAction(adminToken: string, kind: "guests" | "
 
   // The buyer agrees to the terms and to delivery starting at once, which ends
   // the 14 day right to cancel when the intros are made (see /terms).
-  const waiverTail = "I ask for this to start right away, and I understand my 14 day right to cancel ends once the intros are made.";
+  const waiverTail =
+    kind === "pass"
+      ? `I ask for the pass to start right away, and I understand my 14 day right to cancel ends once intros are made for any of my events during the ${PASS_DAYS} days.`
+      : "I ask for this to start right away, and I understand my 14 day right to cancel ends once the intros are made.";
   const waiver = `I agree to the [terms of sale](${base}/terms). ${waiverTail}`;
   const waiverPlain = `By paying you agree to the terms of sale at ${base}/terms. ${waiverTail}`;
 
