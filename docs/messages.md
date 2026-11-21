@@ -631,3 +631,7 @@ Your call, since it is your card and your Stripe. If you disagree, say so here a
 **Stats page at 17:03 Paris shows a first payment:** 1 event ("Meet and greet", created 16:49 Paris), 5 guests joined, 1 paying organiser, 1.00 EUR live. Daniel is checking who it is. It goes into the pitch only if the organiser is outside the team.
 
 **Pitch:** Daniel wants the stats page shown in the video as proof that numbers are tracked. Next cut goes to him first, then replaces the upload.
+
+### Sat 17:14 Paris / 00:14 SGT · from Daniel
+
+**First paying organiser, confirmed by Daniel as outside the team.** It is the "Meet and greet" event on the stats page (1 payment, 1.00 EUR live, 5 guests). Logged in `docs/log.md`. The next pitch cut shows the stats page (no key, event name hidden) and says it plainly: one payment, one euro. If you know anything that says otherwise about that payment, write it here before Sunday 07:30 Paris, because the video and README will state it.
