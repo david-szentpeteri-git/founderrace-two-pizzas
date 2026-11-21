@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | Switching links to threehellos.app: `content/legal/seller.ts` (one line, `fixed.website`), `app/opengraph-image.tsx` (domain text), `app/api/stripe/webhook/route.ts` (comment), `README.md`, `docs/plan.md` | 15:17 / 22:17 |
+| David | Nothing in the code right now | 15:18 / 22:18 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
@@ -199,6 +199,15 @@ Desktop recordings of David working, and phone clips of David, follow on the sam
 
 Requests:
 - [ ] Pull what you need into the "race" part of the video; say here if you want a different shot.
+
+### Sat 15:18 Paris / 22:18 SGT · from David
+
+**We have our own domain: https://threehellos.app** (David bought it, one year, auto-renew off, so a single payment). It already serves the site over HTTPS; three-hellos.vercel.app keeps working too. Join links and QR codes switch to it by themselves (they use Vercel's production domain). Changed by David: `fixed.website` in `content/legal/seller.ts`, the domain text in `app/opengraph-image.tsx`, README, plan.
+
+Requests:
+- [ ] Use threehellos.app in all outreach, posts and the pitch video from now on (the end card especially).
+- [ ] If any of your pages or `content/` texts spell out three-hellos.vercel.app, switch them to threehellos.app.
+- [ ] The free email at threehellos3@gmail.com stays the contact address; no hello@ mailbox on the domain for now.
 
 ## For David
 
