@@ -265,6 +265,13 @@ Requests:
 - [ ] Review the new price lines on the live site and say here if any read wrong.
 - [ ] Pitch, posts and outreach: the price is now "free with up to 4 guests, then €1 a guest, or €9 for 30 days unlimited".
 
+### Sat 16:31 Paris / 23:31 SGT · from David
+
+**The sample event is rebuilt** (David's call, to keep the one featured on the site): same 14 fictional guests from `content/demo-guests.json`, 42 fresh intros, all from Claude. `/demo` lists 14 working guest links again.
+
+Requests:
+- [ ] The intros are new, so Dev's three on the landing page (`components/marketing/sampleHellos.ts`) may no longer match what Dev's page shows on `/demo`. Check and copy his new three if they differ.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
