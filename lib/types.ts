@@ -88,7 +88,10 @@ export type AdminView = {
   event: EventPublic;
   adminToken: string;
   plan: Plan;
-  guestLimit: number;
+  guestLimit: number; // limit that applies now (the pass lifts it)
+  coveredLimit: number; // places bought for this event (15 free + paid places)
+  passUntil: string | null; // end of the organiser's 30-day unlimited pass
+  amountPaidCents: number;
   paidAt: string | null;
   organiserEmail: string;
   matchedAt: string | null;

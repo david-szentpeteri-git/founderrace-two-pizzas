@@ -1,7 +1,7 @@
 import "server-only";
 import { db, hasDatabase } from "./db";
 import * as mock from "./mock";
-import { FREE_GUEST_LIMIT } from "./site";
+import { FREE_GUESTS, MAX_GUESTS_PER_EVENT, PASS_DAYS } from "./pricing";
 import { newSlug, newToken } from "./tokens";
 import type {
   AdminView,
@@ -271,7 +271,7 @@ export async function createEvent(input: CreateEventInput, plan: Plan = "free"):
       organiser_name: input.organiserName,
       organiser_email: input.organiserEmail,
       plan,
-      guest_limit: plan === "free" ? FREE_GUEST_LIMIT : 150,
+      guest_limit: plan === "free" || plan === "test" ? FREE_GUESTS : MAX_GUESTS_PER_EVENT,
     });
     if (!error) return { adminToken, slug };
     if (error.code !== "23505") throw error; // unique violation: try another slug
@@ -283,17 +283,44 @@ export async function getEventRowByAdminToken(adminToken: string): Promise<Event
   return eventBy("admin_token", adminToken);
 }
 
+/** End of the organiser's 30-day unlimited pass, if one is active for this email. */
+export async function activePassUntil(email: string): Promise<string | null> {
+  if (!email) return null;
+  const { data, error } = await db()
+    .from("payments")
+    .select("pass_expires_at")
+    .eq("kind", "pass")
+    .ilike("email", email.trim())
+    .gt("pass_expires_at", new Date().toISOString())
+    .order("pass_expires_at", { ascending: false })
+    .limit(1);
+  if (error) throw error;
+  return (data?.[0]?.pass_expires_at as string | undefined) ?? null;
+}
+
+/** Guest limit that applies right now: the pass lifts it to the safety cap. */
+export async function effectiveGuestLimit(event: EventRow): Promise<number> {
+  return (await activePassUntil(event.organiser_email)) ? MAX_GUESTS_PER_EVENT : event.guest_limit;
+}
+
 export async function getAdminView(adminToken: string): Promise<AdminView | null> {
   const event = await eventBy("admin_token", adminToken);
   if (!event) return null;
-  const [guests, matches] = await Promise.all([eventGuests(event.id), eventMatches(event.id)]);
+  const [guests, matches, passUntil] = await Promise.all([
+    eventGuests(event.id),
+    eventMatches(event.id),
+    activePassUntil(event.organiser_email),
+  ]);
   const helloCounts = new Map<string, number>();
   for (const m of matches) helloCounts.set(m.guest_id, (helloCounts.get(m.guest_id) ?? 0) + 1);
   return {
     event: toEventPublic(event, guests.length),
     adminToken: event.admin_token,
     plan: event.plan,
-    guestLimit: event.guest_limit,
+    guestLimit: passUntil ? MAX_GUESTS_PER_EVENT : event.guest_limit,
+    coveredLimit: event.guest_limit,
+    passUntil,
+    amountPaidCents: event.amount_paid_cents ?? 0,
     paidAt: event.paid_at,
     organiserEmail: event.organiser_email,
     matchedAt: event.matched_at,
@@ -340,25 +367,61 @@ export async function removeGuest(eventId: string, number: number): Promise<void
   if (error) throw error;
 }
 
+export type CompletedPayment = {
+  sessionId: string;
+  kind: "guests" | "pass";
+  eventId: string | null;
+  email: string | null;
+  amountCents: number;
+  livemode: boolean;
+  guestLimitAfter: number | null;
+};
+
 /**
- * Records a completed payment and lifts the guest limit. Safe to call twice.
+ * Applies a completed Stripe payment exactly once (the success page and the
+ * webhook both report it; the unique session id makes the second report a no-op).
  * Only a live-mode payment makes an event "paid"; a test-mode payment (test card)
  * or one on our own test event keeps the plan "test", so it never counts as traction.
  */
-export async function markEventPaid(eventId: string, sessionId: string, amountCents: number, livemode: boolean): Promise<void> {
-  const { data: current, error: readError } = await db().from("events").select("plan").eq("id", eventId).maybeSingle();
+export async function recordPayment(p: CompletedPayment): Promise<void> {
+  const passExpires = p.kind === "pass" ? new Date(Date.now() + PASS_DAYS * 24 * 3600 * 1000).toISOString() : null;
+  const { data: inserted, error: insertError } = await db()
+    .from("payments")
+    .upsert(
+      {
+        stripe_session_id: p.sessionId,
+        kind: p.kind,
+        event_id: p.eventId,
+        email: p.email?.trim().toLowerCase() ?? null,
+        amount_cents: p.amountCents,
+        livemode: p.livemode,
+        guest_limit_after: p.guestLimitAfter,
+        pass_expires_at: passExpires,
+      },
+      { onConflict: "stripe_session_id", ignoreDuplicates: true },
+    )
+    .select("id");
+  if (insertError) throw insertError;
+  if (!inserted || inserted.length === 0) return; // already applied
+
+  if (!p.eventId) return;
+  const { data: current, error: readError } = await db()
+    .from("events")
+    .select("plan, guest_limit, amount_paid_cents")
+    .eq("id", p.eventId)
+    .maybeSingle();
   if (readError) throw readError;
-  const plan = livemode && current?.plan !== "test" ? "paid" : "test";
+  if (!current) return;
+  const plan = p.livemode && current.plan !== "test" ? "paid" : "test";
   const { error } = await db()
     .from("events")
     .update({
       plan,
-      guest_limit: 150,
-      stripe_session_id: sessionId,
-      amount_paid_cents: amountCents,
+      guest_limit: Math.max(current.guest_limit ?? FREE_GUESTS, p.guestLimitAfter ?? 0),
+      stripe_session_id: p.sessionId,
+      amount_paid_cents: (current.amount_paid_cents ?? 0) + p.amountCents,
       paid_at: new Date().toISOString(),
     })
-    .eq("id", eventId)
-    .is("paid_at", null);
+    .eq("id", p.eventId);
   if (error) throw error;
 }

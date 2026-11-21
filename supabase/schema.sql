@@ -99,3 +99,21 @@ end;
 $$;
 
 revoke execute on function join_event(text, text, text, text, text, text[], text, text) from public, anon, authenticated;
+
+-- Every completed payment, once (the success page and the webhook both report it;
+-- the unique session id makes the second report a no-op). kind "guests" buys guest
+-- places for one event; kind "pass" is 30 days of unlimited events for an email.
+create table if not exists payments (
+  id uuid primary key default gen_random_uuid(),
+  stripe_session_id text unique not null,
+  kind text not null check (kind in ('guests', 'pass')),
+  event_id uuid references events(id) on delete set null,
+  email text,
+  amount_cents int not null,
+  livemode boolean not null,
+  guest_limit_after int,
+  pass_expires_at timestamptz,
+  created_at timestamptz not null default now()
+);
+create index if not exists payments_email_idx on payments (lower(email));
+alter table payments enable row level security;
