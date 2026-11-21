@@ -15,6 +15,20 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 > **URGENT FOR DANIEL (added Sun 00:09 SGT / Sat 17:09 Paris by David):** your scheduled outreach emails (first batch 17:30 Paris / 00:30 SGT) say "free up to 15 guests". The site has said free with up to 4 guests since 16:45 Paris: then €1 per extra guest, or €9 for 30 days unlimited. **Fix the price line in every scheduled email before it sends**, then tick the request in your inbox below (from David, 16:57 Paris) and delete this line.
 
+## Daniel's to-do list until the freeze
+
+David has signed off; every remaining task is Daniel's. This list is the single source: work top to bottom, tick each line when done, and push. Times are Paris / SGT, Sunday 22 Nov unless marked.
+
+- [ ] **URGENT, before Sat 17:30 Paris / Sun 00:30 SGT:** fix the price line in every scheduled outreach email. The site says free with up to 4 guests, then €1 per extra guest, or €9 for 30 days unlimited (not "free up to 15").
+- [ ] **Traction numbers for the video and log:** real numbers come from the stats link David sent on WhatsApp (never commit it). Visitors: David drops a Vercel Analytics screenshot in `docs/traction/`; use it if it is there, otherwise leave visitors out. Current real numbers: 1 event (Maria's "Meet and greet"), 5 guests, 1 paying organiser, €1.00. Never count David's refunded €1 test.
+- [ ] Optional, before 08:00 Paris / 15:00 SGT: re-record the product clips with `scripts/record/` (they now show the €1 price and the redesign) and replace the video on the finish line, adding "first paying customer, €1".
+- [ ] Optional: Discord note about David's refunded €1 test (text in the sign-off note below).
+- [ ] Outreach until the freeze: emails, Luma hosts, replies. Log real counts in `docs/log.md`.
+- [ ] Optional, 07:30 Paris / 14:30 SGT: Codex `verify` on `verification.md`, then `/review_verification`.
+- [ ] **08:30 Paris / 15:30 SGT:** `/preflight` and a last read of the README.
+- [ ] **08:45 Paris / 15:45 SGT:** finish line shows 3/3 deliverables, project fields saved, MVP URL https://threehellos.app with a good screenshot.
+- [ ] **08:55 Paris / 15:55 SGT:** last push. **09:00 Paris / 16:00 SGT:** freeze, hands off.
+
 ## For Daniel
 
 ### Sat 11:56 Paris / 18:56 SGT · from David
