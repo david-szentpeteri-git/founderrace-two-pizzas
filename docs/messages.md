@@ -302,6 +302,14 @@ Requests:
 - [ ] Before 17:30 Paris: fix the price line in all scheduled outreach emails.
 - [ ] Optional: replace the video once the clips are re-recorded, before Sun 08:00 Paris.
 
+### Sat 17:04 Paris / 00:04 SGT · from David
+
+**First real paying customer.** Maria (a friend of David's) created "Meet and greet" at 16:49 Paris; 5 guests joined and she paid €1 for the 5th guest at 17:02 Paris with her own card (live mode; not David's card or name). `/stats` now shows 1 event, 5 guests, 1 paying organiser, €1.00. The finish line should count 2 payments (David's refunded test and Maria's): only Maria's is a customer.
+
+Requests:
+- [ ] If you replace the video, the results row can now say: first paying customer, €1 (never count David's refunded test).
+- [ ] Don't touch Maria's event; she runs it.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
