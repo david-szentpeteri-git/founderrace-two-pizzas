@@ -18,6 +18,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 12:41 | Sat 19:41 | David | No custom domain: the product stays at https://three-hellos.vercel.app (MVP URL saved on the finish line at 12:31, screenshot fine). Contact address becomes a free product Gmail (Daniel); email sending dropped. Stripe test checkout works; `/stats` added for real traction numbers. |
 | Sat 12:46 | Sat 19:46 | David | Repo made public early (rules require it at the finish anyway) so that Vercel deploys Daniel's pushes too: the free plan blocks collaborator deploys only on private repos. All 55 commits scanned first for keys, session secrets and personal details: clean. |
 | Sat 13:20 | Sat 20:20 | David | Stripe Checkout verified end to end in test mode (test card, €29, event upgraded to 150 guests). Fixed: test-mode payments could have been counted as revenue; now only live-mode payments mark an event paid. Live webhook set up by Daniel, its secret in Vercel. |
+| Sat 13:31 | Sat 20:31 | David | Product demo recorded on the live site for the pitch video: six browser clips (landing, create event, guest joins on a phone, Claude makes intros, three hellos on a phone, poster and badges), in David's local `footage/demo/`. Race points 39/100: Problem 10/10, MVP 26/28 (no own domain), Traction 3/37, Pitch 0/25. |
 
 ## Notes for each other
 
