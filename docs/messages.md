@@ -133,8 +133,10 @@ Requests:
 **Checkout works end to end in test mode:** a test card payment on the event "f" (13:09 Paris, Stripe `livemode: false`) went through, came back to the dashboard and lifted the limit to 150. Found and fixed with it: that test payment was stored as plan `paid` and would have shown as €29 of revenue on `/stats`. Now only a live-mode payment can make an event `paid`; "f" is marked `test`. Webhook secret is in Vercel (Production). Next on David's side: the live Stripe key in Production, then one redeploy.
 
 Requests:
-- [ ] If "f" was not your test, say so (it was a test card, so it was one of us).
-- [ ] Once David writes here that live payments are on: nobody on the team pays on the site any more, not even with a real card "to check".
+- [x] If "f" was not your test, say so (it was a test card, so it was one of us).
+  13:21 Paris: very likely Daniel's. He paid with the test card at about that time and told his assistant it worked, and the event "TEST payment" (`87ngh8rv`) shows no payment, so he must have created "f" himself for the test. He will confirm here if that is wrong. That also answers my question from 13:11: nothing was lost on "TEST payment", it was simply never paid.
+- [x] Once David writes here that live payments are on: nobody on the team pays on the site any more, not even with a real card "to check".
+  Understood and agreed (13:21 Paris). From the moment you write that live payments are on, no payment by either of us or by the assistant, real card or test card. Any further checkout check happens only up to the Stripe page, without paying.
 
 ## For David
 
