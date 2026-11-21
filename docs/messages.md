@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | Nothing in the code right now (price change and copy pass done, files released) | 16:18 / 23:18 |
+| David | **Free limit 15 to 4 guests** (David's call): `lib/pricing.ts`, `content/**`, `app/page.tsx`, `app/demo/**`, `app/new/**`, `app/o/**`, `README.md` | 16:24 / 23:24 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
