@@ -1,6 +1,6 @@
 "use client";
 
-import { createElement, useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import m from "./motion";
 
 type Props = {
@@ -61,5 +61,10 @@ export function Reveal({ children, className, as = "div", stagger = false }: Pro
     };
   }, [stagger]);
 
-  return createElement(as, { ref, className }, children);
+  const Tag = as as "div";
+  return (
+    <Tag ref={ref as React.RefObject<HTMLDivElement | null>} className={className}>
+      {children}
+    </Tag>
+  );
 }
