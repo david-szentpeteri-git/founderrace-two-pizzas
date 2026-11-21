@@ -273,11 +273,11 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 |---|---|---|---|---|
 | [ ] | D0 | Accounts and keys: Vercel (GitHub login), Supabase project in Singapore, Anthropic API key with credit, buy threehellos.app on Vercel, Stripe test keys | 12:00 / 19:00 | All keys in `.env.local` and Vercel; domain bought |
 | [ ] | D1 | Skeleton: create-next-app, Tailwind, design tokens, layout, `components/ui` basics, `lib/types.ts`, `lib/mock.ts`, `lib/data.ts` stubs, schema applied, `.env.example`, first deploy on the domain, README stack and boilerplate credit | 12:15 / 19:15 | Pushed; threehellos.app shows a placeholder; Daniel can pull and run it |
-| [ ] | D2 | Data layer: `lib/db.ts`, real `lib/data.ts`, `join_event` function, create-event action | 13:30 / 20:30 | Join and guest view work against the database |
-| [ ] | D3 | Matching engine: heuristic first, then Claude (5.7), `generateIntros(adminToken)` action, tested on 14 sample guests | 14:30 / 21:30 | Every guest gets 3 valid hellos in under 60 s; fallback proven by unsetting the key |
+| [x] | D2 | Data layer: `lib/db.ts`, real `lib/data.ts`, `join_event` function, create-event action | 13:30 / 20:30 | Join and guest view work against the database |
+| [x] | D3 | Matching engine: heuristic first, then Claude (5.7), `generateIntros(adminToken)` action, tested on 14 sample guests | 14:30 / 21:30 | Every guest gets 3 valid hellos in under 60 s; fallback proven by unsetting the key |
 | [ ] | D4 | Organiser flow: `/new`, `/o/[adminToken]` with join link, QR, live guest list, generate button, upgrade card, status | 15:00 / 22:00 | An organiser can run an event end to end without help |
 | [ ] | D5 | Payments: Checkout, `/checkout/success`, plan upgrade; full test-mode run; live keys in Production | 16:00 / 23:00 (live by 17:30 / 00:30) | Test payment upgrades an event; live Checkout page opens with the right price |
-| [ ] | D6 | Demo seed: `scripts/seed-demo.ts` from Daniel's `content/demo-guests.json`, plan `demo`, intros pre-generated | 16:30 / 23:30 | `/demo` shows a finished event |
+| [x] | D6 | Demo seed: `scripts/seed-demo.ts` from Daniel's `content/demo-guests.json`, plan `demo`, intros pre-generated | 16:30 / 23:30 | `/demo` shows a finished event |
 | [ ] | D7 | Production check: env vars, protection off, analytics on, phone check, MVP URL saved on the finish line, "What the jury will see" screenshot checked, Stripe name and descriptor updated, hello@threehellos.app forwarding set up (ImprovMX) and tested | 17:00 / 00:00 | Finish line shows the MVP URL with a good screenshot |
 | [ ] | D8 | P1: Resend email (domain DNS), webhook, late arrivals, `/stats` | 19:00 / 02:00 | Each works on production |
 | [ ] | D9 | Sunday morning: fixes from organiser feedback, concierge setups, traction numbers in `docs/log.md` every 2 hours | 07:00 / 14:00 rolling | Log has real numbers |

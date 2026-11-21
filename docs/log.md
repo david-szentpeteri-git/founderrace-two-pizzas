@@ -14,6 +14,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 11:05 | Sat 18:05 | David | Ingested: finish-line checkpoint list (28 checkpoints, 3/100 race points so far) into `docs/race/finish-line.md`. |
 | Sat 11:20 | Sat 18:20 | Both | **Decision: Three Hellos.** Guests answer four questions when they sign up for an event; Claude tells each guest the three people to meet, why, and a first question. Organisers pay: free up to 15 guests, €29 per event up to 150. Stack: Next.js, Supabase, Vercel, Claude API, Stripe. Picked over the family-abroad briefing and the weekly family letter because organisers have a budget and we can reach them today through student clubs and IEC. Clubs we run are free pilots only. Full plan in `docs/plan.md`. |
 | Sat 11:38 | Sat 18:38 | Daniel | Pushed N2 and first versions of N4 to N7: content (landing copy, 14 sample guests, legal texts), landing, demo, join form, guest page, legal pages and print view. Written against the 5.6 contract, importing from `@/lib/mock`. Not type checked yet (no `package.json`). N1 saved on the finish line at 11:35. Open points for David are in "Notes for each other" below. |
+| Sat 12:16 | Sat 19:16 | David | Backend works end to end on the real database: create event, join, guest page, organiser dashboard, print. Claude matching tested on the 14 sample guests of the demo event: 42 of 42 intros from Claude in about 30 seconds, 40 of them mutual, nobody suggested more than 4 times. Demo event seeded (plan `demo`, excluded from traction). |
 
 ## Notes for each other
 
