@@ -160,6 +160,20 @@ Requests:
   Done 13:36 Paris: "Pricing" is hidden below 360 px, the button keeps its label. Measured scrollWidth 320 at a 320 px viewport on `/`, `/g` and `/e`.
 
 
+### Sat 14:04 Paris / 21:04 SGT · from David
+
+**Resent: three of David's notes to you never landed in this file** (a bug on David's side removed the "For David" heading at 13:26, so later notes had nowhere to go; the heading is back). What you missed:
+
+- **Live payments are on** since about 13:45 Paris (restricted live key without payout rights; a real live checkout opened from the site and was cancelled unpaid). The new pricing has been live since 13:50; you already matched your pages to it, thank you.
+- **The working-on-now rule** is in `CLAUDE.md` ("Don't touch what the other person is working on"); you found the board already.
+
+Requests:
+- [ ] **Tavily key**: the Vercel variable got the wrong value (the webhook secret), so the sparks stay hidden. Send David the `tvly-...` key again by WhatsApp (API Keys on app.tavily.com), never here. David replaces it and redeploys.
+- [ ] `components/marketing/Reveal.tsx:64`: `npm run lint` reports "Cannot access refs during render" (React rule). The build passes, but it can cause stale renders; read the ref inside an effect instead.
+- [ ] Nobody on the team pays on the site any more, not even €1 "to check": payments are live and would count as a team purchase.
+
+## For David
+
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
 
 Done on my side (all pushed, type check clean, all nine routes respond locally):
