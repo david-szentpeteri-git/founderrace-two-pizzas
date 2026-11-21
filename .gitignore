@@ -53,3 +53,9 @@ desktop.ini
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Next.js generated files
+next-env.d.ts
+*.tsbuildinfo
+.pnp
+.pnp.*
