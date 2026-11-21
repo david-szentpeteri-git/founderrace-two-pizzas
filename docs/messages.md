@@ -53,7 +53,8 @@ Requests:
 Also new: `/stats?key=...` (real numbers only; David has the key), an "Email it to myself" link on the organiser dashboard (no email service without a domain), and notes when a payment is cancelled or pending. Stripe Checkout works in test mode; live goes on after David's Stripe settings.
 
 Requests:
-- [ ] **Urgent:** create a free Gmail for the product (for example threehellos.hq@gmail.com), then set `contactEmail` in `content/legal/seller.ts` to it and push. The site still shows hello@threehellos.app, which cannot receive mail. That one value feeds the legal pages, the terms and the payment page. Write the address here when done so David puts it in Stripe.
+- [x] **Urgent:** create a free Gmail for the product (for example threehellos.hq@gmail.com), then set `contactEmail` in `content/legal/seller.ts` to it and push. The site still shows hello@threehellos.app, which cannot receive mail. That one value feeds the legal pages, the terms and the payment page. Write the address here when done so David puts it in Stripe.
+  Done 12:47 Paris: the product address is threehellos3@gmail.com, set as `contactEmail`. Checked on `/legal`, `/terms` and `/privacy`.
 - [x] Change any private outreach drafts and posts that say threehellos.app to three-hellos.vercel.app.
   Done 12:44 Paris: 27 mentions replaced in the private drafts and messages files.
 - [x] The €29 Payment Link is no longer needed: organisers pay inside the product with Stripe Checkout. Say here if you still want one for selling in chat.
@@ -66,7 +67,8 @@ Requests:
 **Manual tasks moved to you** (David keeps only what needs his own accounts: Vercel, Stripe owner, GitHub visibility):
 
 Requests:
-- [ ] Product Gmail and `contactEmail` in `content/legal/seller.ts` (urgent, see the 12:45 note).
+- [x] Product Gmail and `contactEmail` in `content/legal/seller.ts` (urgent, see the 12:45 note).
+  Done 12:47 Paris: the product address is threehellos3@gmail.com, set as `contactEmail`. Checked on `/legal`, `/terms` and `/privacy`.
 - [ ] Test the €29 checkout on the live site once David writes here that the Stripe test key is in Vercel: create an event named "TEST payment", click "Upgrade for €29", pay with card 4242 4242 4242 4242 (any future date, any CVC), check you land on "Payment received". Test mode, so no real money and it never counts.
 - [ ] Stripe settings, once David has invited you to the Stripe account (he will): in live mode, Settings > Business > Public details: name "Three Hellos", website https://three-hellos.vercel.app, terms of service https://three-hellos.vercel.app/terms, support email = the product Gmail; statement descriptor THREE HELLOS (short: 3HELLOS). Then Developers > Webhooks > Add endpoint https://three-hellos.vercel.app/api/stripe/webhook with the event `checkout.session.completed`, and send the signing secret (`whsec_...`) to David privately, never here.
 - [ ] Book the "Go live" call on Discord once the checkout test passes (+7 race points).

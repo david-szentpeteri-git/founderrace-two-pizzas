@@ -28,7 +28,7 @@ export type SellerDetails = {
 export const seller: SellerDetails = {
   fullName: "David Szentpeteri",
   postalAddress: "Budapest, Hungary",
-  contactEmail: "hello@threehellos.app",
+  contactEmail: "threehellos3@gmail.com",
   businessStatus: "private individual",
   registrationNumber: null,
   taxNumber: null,
