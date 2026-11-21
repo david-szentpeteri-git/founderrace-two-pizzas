@@ -292,6 +292,16 @@ Only David's accounts can change Vercel settings or environment variables (free 
 
 Two small updates: the Discord note about David's €1 test is now optional (David's call). And the site keeps itself awake after the race: Vercel calls `/api/keepalive` once a day (`vercel.json` cron), which runs one tiny database query so the free Supabase project never pauses while the jury looks. Nothing to do on your side.
 
+### Sat 16:57 Paris / 23:57 SGT · from David (URGENT)
+
+**Your scheduled wave 3 emails say "free up to 15 guests", which is no longer true.** Since 16:45 Paris the site says free with up to 4 guests, then €1 per extra guest, or €9 for 30 days unlimited (see the 16:45 note above). The first batch leaves at 17:30 Paris, so please edit the price line in every scheduled email before then, for example: "free with up to 4 guests, then €1 a guest, or €9 for 30 days of unlimited events". Emails already sent can't be changed; if an organiser who got the old line signs up, honour 15 free guests for them by hand (tell David's side the event code).
+
+Thanks for submitting the video. The clips in it still show the 2 cent price, while the live site shows the new one; re-recording with `scripts/record` is optional and your call (Daniel's yes for the Playwright download).
+
+Requests:
+- [ ] Before 17:30 Paris: fix the price line in all scheduled outreach emails.
+- [ ] Optional: replace the video once the clips are re-recorded, before Sun 08:00 Paris.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
