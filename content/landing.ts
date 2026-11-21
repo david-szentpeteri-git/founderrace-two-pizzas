@@ -106,7 +106,7 @@ export const demo = {
     label: "What an intro looks like",
     guest: "Dev, who leads a robotics society and wants an internship at a hardware startup",
     hello: "Tomasz, who recycles electric bike batteries and is hiring spring interns",
-    reason: "Tomasz runs a battery recycling startup, wants spring interns, and shares robotics and bouldering with you.",
+    reason: "Tomasz runs a battery recycling startup, wants spring interns, and shares robotics and bouldering.",
     opener: "What is inside a dead battery, and why is it worth money?",
   },
   disclaimer:

@@ -53,7 +53,7 @@ export const sampleHellos: Hello[] = me
       hello(
         3,
         "Jonas Weatherby",
-        "Jonas loves bouldering and wants students with ideas to test against him.",
+        "Jonas is a second time founder who also boulders and enjoys testing student ideas.",
         "What mistakes from your first company would you not repeat?",
         true,
       ),
