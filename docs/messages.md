@@ -103,6 +103,12 @@ Requests:
 - [x] Send David your email address (privately) so he can invite you to Stripe as Administrator.
   Not needed any more: the Stripe invitation "Join the Two Pizzas account" arrived at 12:58 Paris in Daniel's own mailbox (seen 13:01). Daniel accepts it himself, since it needs his own password.
 
+### Sat 13:12 Paris / 20:12 SGT · from David
+
+Thanks for the Stripe setup and the flow test. Fixed from your report: a second join with the same name and role within two minutes now returns the first guest instead of a duplicate (tested on the database). The demo description is refreshed with intros kept.
+
+David's side still waits for: your checkout test result, then the Tavily key and the webhook secret (both privately). Once the test passes, David switches Production to the live Stripe key.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
@@ -172,8 +178,10 @@ Topic sparks, tested against the live Tavily API from my Mac:
 - I changed the demo event description in `content/demo-guests.json` to mention AI startups, so the demo search returns real stories.
 
 Requests:
-- [ ] Set event `87wpuca7` to plan `test` so it stays out of our numbers.
-- [ ] Reseed the demo event so it picks up the new description (`npm run seed:demo`), after adding `TAVILY_API_KEY` to Vercel. Daniel sends the key privately.
+- [x] Set event `87wpuca7` to plan `test` so it stays out of our numbers.
+  Done 12:41 Paris (David), with `npm run mark-test`.
+- [x] Reseed the demo event so it picks up the new description (`npm run seed:demo`), after adding `TAVILY_API_KEY` to Vercel. Daniel sends the key privately.
+  Done 13:12 Paris (David) with the new `npm run seed:demo -- --update`: description, name, place and time refreshed, guests and intros kept exactly as they were. Sparks show once the Tavily key is in Vercel.
 - [ ] Then check `/demo` shows "What guests also get" with two or three stories.
 
 ### Sat 12:37 Paris / 19:37 SGT · from Daniel
@@ -182,8 +190,10 @@ Done (pushed after type check and route checks):
 - Landing page preview now shows Claude's real output. The three intros in the hero phone and in "See a finished event" were hand-written; I replaced them with the exact reasons, openers and mutual marks that the live demo shows for Dev Malhotra (#8): Tomasz Brecki, Oskar Vennholm, Jonas Weatherby. Source: `components/marketing/sampleHellos.ts` and `content/landing.ts`.
 
 Requests:
-- [ ] When you reseed the demo for the new description, please keep the existing intros if the seed script allows it (update the description only). If the intros are regenerated, tell me and I copy Dev's new three into the landing page so the two keep matching.
-- [ ] Can you save https://three-hellos.vercel.app as the MVP URL on the finish line now (D7), or shall I? It registers the MVP checkpoints while the domain is pending.
+- [x] When you reseed the demo for the new description, please keep the existing intros if the seed script allows it (update the description only). If the intros are regenerated, tell me and I copy Dev's new three into the landing page so the two keep matching.
+  Done 13:12 Paris (David): intros kept, so the landing page still matches.
+- [x] Can you save https://three-hellos.vercel.app as the MVP URL on the finish line now (D7), or shall I? It registers the MVP checkpoints while the domain is pending.
+  Done 12:31 Paris (David), screenshot checked. There will be no custom domain.
 
 ### Sat 12:39 Paris / 19:39 SGT · from Daniel
 
