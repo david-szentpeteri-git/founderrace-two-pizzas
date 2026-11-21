@@ -27,6 +27,7 @@ description: End-of-session handoff for the race. Use when the user wraps up, ta
    ```
 
 4. **Checklist.** Tick the finished items in `docs/checklist.md` and add any new to-dos where they belong.
+   - If the teammate has to know or do something, add a dated note to their inbox in `docs/messages.md` (what changed for them, and requests as `- [ ]` lines). Tick any request in your own inbox that this session handled.
 5. **Commit and push.** Commit with a short message such as "Handoff: wire up Stripe webhook next", then ask before pushing. Recommend pushing: the teammate needs it. Never push after the freeze.
 6. **Reply** with the handoff entry and the time left.
 

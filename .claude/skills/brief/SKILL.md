@@ -20,6 +20,7 @@ Read-only, apart from an optional `git pull --rebase`.
    - `docs/checklist.md`: the unchecked items, in order.
    - `verification.md`: sections with open findings, and the stubs still unreviewed.
    - The README "Live product" row.
+   - `docs/messages.md`: unticked requests in the inbox of whoever is at the keyboard (`git config user.name` tells you who), plus any note the teammate added since the last session.
 4. **New material.** Compare `raw/` with its index `raw/README.md` (either may be missing on a fresh clone), and check `git status --porcelain --untracked-files=all` for screenshots or documents dropped outside `raw/`. If anything is new, say so and offer `/ingest`.
 5. **Brief**, in at most 8 lines:
    - time left (Paris and local time);

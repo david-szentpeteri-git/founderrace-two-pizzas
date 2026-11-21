@@ -95,6 +95,7 @@ Read only the file the current task needs, only while doing that task:
 
 ## Where things are
 - `docs/plan.md`: **the build plan for Three Hellos**: product, architecture, file ownership, task board (D = David, N = Daniel), timeline, traction and video plans. Work from your rows; tick them when done.
+- `docs/messages.md`: async notes between Daniel and David, one inbox each. Read your inbox at session start; write in the other's inbox when they need to know or do something.
 - `docs/race/guide.md`: the runner's guide, all 11 sections
 - `docs/race/rules.md`: the official rules, Articles 1 to 15, translated from French
 - `docs/race/finish-line.md`: the submission form field by field, with the Stripe key steps
