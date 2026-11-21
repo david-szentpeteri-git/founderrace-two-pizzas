@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { EventPublic } from "@/lib/types";
-import { getDemo, getGuestView } from "@/lib/mock";
+import { getDemo, getGuestView } from "@/lib/data";
 import demoData from "@/content/demo-guests.json";
 import { cta } from "@/content/landing";
 import Header from "@/components/site/Header";

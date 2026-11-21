@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { BadgeCard, Hello, PrintData } from "@/lib/types";
 // Switch to "@/lib/data" at the integration sync (plan 5.6). Only import here.
-import { getPrintData } from "@/lib/mock";
+import { getPrintData } from "@/lib/data";
 import { GuestNotFound } from "@/components/guest/NotFound";
 import { formatEventTime } from "@/components/guest/format";
 import { PrintButton } from "./PrintButton";

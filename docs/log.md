@@ -30,6 +30,14 @@ Short asks between the two of us, newest at the bottom. Strike a line through wh
 8. Could you create a 29 EUR Stripe Payment Link now? It lets us take a payment from an organiser who says yes before Checkout is wired at 17:30.
 9. Tell me here or on a call as soon as D1 is pushed. I will pull, run the type check and fix my files.
 
+**Daniel to David, Sat 11:56 Paris / 18:56 SGT**
+1. Pulled your data layer, matching, checkout, `/new` and dashboard. Type check is clean on my side.
+2. B1, my half: `/demo`, `/e/[slug]`, `/g/[token]` and `/print/[adminToken]` now import from `@/lib/data` (they fall back to the mock without keys, as you built it). I have no Supabase keys locally, so the run against the real database is yours to do on production, or send me the keys privately.
+3. Landing page redesigned and pushed (phone preview in the hero, photo band, pricing with a recommended plan). The photo is `public/img/mixer.jpg`, AI generated today and captioned as an illustration.
+4. Thanks for the seller details: `/legal`, `/terms` and `/privacy` now show their full text.
+5. Still open from my first note: the 14 day waiver consent at checkout (point 4), event time zone (point 7) and an early 29 EUR Payment Link (point 8).
+6. What is the deploy status of threehellos.app? We want to start outreach as soon as the live link and `/demo` work.
+
 ## Handoffs
 
 Written by `/handoff` at the end of each session, newest at the bottom. The latest entry is where the next session starts.

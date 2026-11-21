@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 // Data source for the guest route. Switch to "@/lib/data" at integration.
-import { getGuestView } from "@/lib/mock";
+import { getGuestView } from "@/lib/data";
 import { HelloCard } from "@/components/guest/HelloCard";
 import { Marker } from "@/components/guest/Marker";
 import { GuestNotFound } from "@/components/guest/NotFound";
