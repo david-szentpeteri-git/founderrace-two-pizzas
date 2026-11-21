@@ -278,7 +278,7 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 | [ ] | D4 | Organiser flow: `/new`, `/o/[adminToken]` with join link, QR, live guest list, generate button, upgrade card, status | 15:00 / 22:00 | An organiser can run an event end to end without help |
 | [ ] | D5 | Payments: Checkout, `/checkout/success`, plan upgrade; full test-mode run; live keys in Production | 16:00 / 23:00 (live by 17:30 / 00:30) | Test payment upgrades an event; live Checkout page opens with the right price |
 | [ ] | D6 | Demo seed: `scripts/seed-demo.ts` from Daniel's `content/demo-guests.json`, plan `demo`, intros pre-generated | 16:30 / 23:30 | `/demo` shows a finished event |
-| [ ] | D7 | Production check: env vars, protection off, analytics on, phone check, MVP URL saved on the finish line, "What the jury will see" screenshot checked, Stripe name and descriptor updated | 17:00 / 00:00 | Finish line shows the MVP URL with a good screenshot |
+| [ ] | D7 | Production check: env vars, protection off, analytics on, phone check, MVP URL saved on the finish line, "What the jury will see" screenshot checked, Stripe name and descriptor updated, hello@threehellos.app forwarding set up (ImprovMX) and tested | 17:00 / 00:00 | Finish line shows the MVP URL with a good screenshot |
 | [ ] | D8 | P1: Resend email (domain DNS), webhook, late arrivals, `/stats` | 19:00 / 02:00 | Each works on production |
 | [ ] | D9 | Sunday morning: fixes from organiser feedback, concierge setups, traction numbers in `docs/log.md` every 2 hours | 07:00 / 14:00 rolling | Log has real numbers |
 | [ ] | D10 | Screen-record the full product flow for the video (create, join on phone, generate, guest page, print) | 05:30 / 12:30 | Clean 2-minute capture in `footage/` |

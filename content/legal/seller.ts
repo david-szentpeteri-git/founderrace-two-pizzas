@@ -23,16 +23,19 @@ export type SellerDetails = {
   hostingAddress: string | null;
 };
 
+// Checked by David on Sat 21 Nov 2026 (19:00 SGT): city-only address by choice,
+// product email instead of a personal one, private individual without a tax number.
 export const seller: SellerDetails = {
-  fullName: null,
-  postalAddress: null,
-  contactEmail: null,
-  businessStatus: null,
+  fullName: "David Szentpeteri",
+  postalAddress: "Budapest, Hungary",
+  contactEmail: "hello@threehellos.app",
+  businessStatus: "private individual",
   registrationNumber: null,
   taxNumber: null,
-  vatStatus: null,
+  vatStatus: "exempt",
   vatNumber: null,
-  hostingAddress: null,
+  // As given in Vercel's terms of service (https://vercel.com/legal/terms).
+  hostingAddress: "440 N Barranca Ave #4133, Covina, CA 91723, United States",
 };
 
 // Facts the plan already fixes.
