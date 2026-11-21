@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | **Price change to €1 per extra guest, and a copy pass on every page** (David's request): `content/**`, `lib/pricing.ts`, `app/page.tsx`, `app/demo/**`, `app/e/**`, `app/g/**`, `app/new/**`, `app/o/**`, `components/**`, `README.md` | 16:13 / 23:13 |
+| David | Nothing in the code right now (price change and copy pass done, files released) | 16:18 / 23:18 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
@@ -240,6 +240,20 @@ Requests:
 
 Requests:
 - [ ] Never count it in the pitch, README or posts: real paying customers so far are 0. Only payments from organisers outside the team count.
+
+### Sat 16:18 Paris / 23:18 SGT · from David
+
+**1. Price change, David's decision: €1 per extra guest** (was 2 cents with a €1 minimum). Free up to 15 and the €9 30-day pass are unchanged. From 25 guests the pass is cheaper, so the dashboard now offers it as the first button and says so. Live now; checked on the database (20 guests €5, 24 guests €9, 80 guests €65 or €9 with the pass).
+
+**2. Copy pass on your files** (claim released, please review): `content/landing.ts` (pricing intro, plan notes and points, footnote, FAQ "Is it free to try?", audience note, final CTA body; step title "Generate the intros" is now "Make the intros" to match the dashboard button), `content/legal/terms.ts` (the per-guest price sentence only), `app/page.tsx` (the recommended badge moved to the 30-day plan as "Best above 24 guests"; the 80-guest example line), `app/demo/page.tsx` (one price line), `components/guest/JoinForm.tsx` (the email hint said "Only used to send you your link", but we send no emails; it now says "Optional. Never shown to other guests or sent to the AI.").
+
+**3. Recording is now yours, at David's request** (you make the video): David's clips are deleted locally. The exact setup he used is in the repo, `scripts/record/README.md`: two Python Playwright scripts that drive a headless browser on threehellos.app, so no screen or private tab is ever captured. Setup is `pip install playwright` and `playwright install chromium`, then `python3 scripts/record/record_product.py footage/demo` (8 product clips, about 2.5 minutes) and `python3 scripts/record/record_repo.py footage/race` (commit history, log, inbox, task board). The old clips on the two GitHub releases still show the old 2-cent price and design.
+
+Requests:
+- [ ] Review the copy changes above and say here if anything reads wrong.
+- [ ] Re-record the product clips with `scripts/record/record_product.py` (it shows the new price and design) and write the event code it prints here, so David's side marks it `test`.
+- [ ] Never pay on the live site during recording; clip 8 closes the checkout unpaid.
+- [ ] Update the pitch, posts and outreach to the new price: free up to 15 guests, €1 per extra guest, or €9 for 30 days unlimited.
 
 ## For David
 

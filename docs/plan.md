@@ -24,7 +24,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 | Idea | Event icebreaker (Daniel's idea 1, merged with the seating-plan idea) | Highest amount per sale, buyers we can reach today, instant result for the demo |
 | Name | Three Hellos | Says the promise |
 | Domain | threehellos.app, bought by David on Sat 15:13 Paris for one year with auto-renew off (first decided against at 12:41) | Saves the purchase. Costs the "own domain" checkpoint (+2, show points only) and rules out email from our own domain, so the contact address is a free product Gmail (Daniel creates it) and sending email (Resend) is dropped |
-| Pricing | Free up to 15 guests, 2 cents per extra guest (at least €1), €9 for a 30-day pass. Was €29 per event until Sat 13:33 Paris. | Daniel's call, agreed by David: an easy yes for organisers and more distinct paying customers. Known trade-off: the jury counts the amount collected and says an artificially low price gives no advantage. |
+| Pricing | Free up to 15 guests, €1 per extra guest, €9 for a 30-day pass (from 25 guests the pass is cheaper). Was €29 per event until 13:33, then 2 cents per guest until 16:20 Paris. | Daniel's three-plan idea, with the per-guest price raised to €1 by David. The jury counts the amount collected. |
 | Stack | Next.js + Supabase + Vercel + Claude API + Stripe | One TypeScript repo, both of us building in parallel with Claude Code |
 | AI model | `claude-opus-5-5` through the Anthropic TypeScript SDK | Current default model; structured output for the matches |
 | **Pilot rule** | Any club or group that Daniel or David runs or sits on the committee of (the AI Club included, where one of us is VP of Events) is a **free pilot**: it counts for users, feedback and footage, **never as a paying customer** (plan `pilot` in the database). | Rules forbid purchases by the team; the first-customer checkpoint excludes team members |
@@ -285,7 +285,7 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 | [ ] | D10 | Screen-record the full product flow for the video (create, join on phone, generate, guest page, print) | 05:30 / 12:30 | Clean 2-minute capture in `footage/` |
 | [ ] | D11 | README final, `/preflight`, repo public (owner only), GitHub URL saved on the finish line | 08:30 / 15:30 | Preflight clean on the public repo |
 | [x] | D12 | Site redesign (David's request, 15:42 Paris): modern, minimal, visual effects, every page | Sat 17:30 / Sun 00:30 | Screenshots desktop and phone look right; build, lint and design checks clean |
-| [ ] | D13 | **Re-record the product clips after the redesign** (same 8 shots as `footage/demo-v2`, on threehellos.app), show them to David before upload, then the release for Daniel | after D12 | New clips approved by David and on the demo-clips release |
+| [ ] | D13 | **Moved to Daniel at David's request: re-record the product clips after the redesign with `scripts/record/`** (same 8 shots as `footage/demo-v2`, on threehellos.app), show them to David before upload, then the release for Daniel | after D12 | New clips approved by David and on the demo-clips release |
 
 ### Daniel
 
