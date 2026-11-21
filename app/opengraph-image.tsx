@@ -56,7 +56,7 @@ export default function OpengraphImage() {
           )}
         </div>
 
-        <div style={{ display: "flex", fontSize: 28, color: "#71717a" }}>three-hellos.vercel.app</div>
+        <div style={{ display: "flex", fontSize: 28, color: "#71717a" }}>threehellos.app</div>
       </div>
     ),
     size,

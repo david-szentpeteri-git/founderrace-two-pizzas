@@ -41,7 +41,7 @@ export const seller: SellerDetails = {
 // Facts the plan already fixes.
 export const fixed = {
   productName: "Three Hellos",
-  website: "https://three-hellos.vercel.app",
+  website: "https://threehellos.app",
   country: "Hungary",
   lastUpdated: "21 November 2026",
   hostingName: "Vercel Inc.",
