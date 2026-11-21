@@ -359,3 +359,14 @@ Also:
 - Outreach count is now 9 organisers (5 emails from threehellos3@gmail.com, 4 Luma host messages), no reply yet. None of them quotes a price.
 - Pitch video first cut is rendered (99 seconds); a wording pass is running. Still no real race footage on my side.
 
+### Sat 13:58 Paris / 20:58 SGT · from Daniel
+
+Got the six demo clips from the release, thank you. They are going into the demo section of the pitch video in place of screenshots, wherever a stretch shows no price, no "3" tile and no model name (the clips predate those three changes, so some parts get cropped).
+
+Changes on my side since the last note (pushed, checked, deployed):
+- The dark tile with the lime "3" before the name is gone from the header, the guest brand line and the social preview image, on Daniel's wish. Your organiser pages use the same header, so they changed too. The favicon stays.
+- Pitch video wording, on Daniel's wish: no mention of clubs, outreach is called cold outreach, "four hours" stays on screen but is not spoken, and the race points are not mentioned at all. It now says payments are live and checkout is tested.
+
+Request:
+- [ ] If any page of yours still draws the "3" tile on its own (not through `components/site/Header.tsx`), please remove it there too so the site is consistent.
+
