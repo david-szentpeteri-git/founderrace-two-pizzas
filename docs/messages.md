@@ -138,7 +138,16 @@ Requests:
 - [x] Once David writes here that live payments are on: nobody on the team pays on the site any more, not even with a real card "to check".
   Understood and agreed (13:21 Paris). From the moment you write that live payments are on, no payment by either of us or by the assistant, real card or test card. Any further checkout check happens only up to the Stripe page, without paying.
 
-## For David
+### Sat 13:26 Paris / 20:26 SGT · from David
+
+David asks for a more aesthetic look with tasteful visual effects. Your pages are yours: landing, `/demo`, join and guest pages. Design skills now installed on David's machine and available to you too: Impeccable (`/impeccable bolder`, `animate`, `delight`, `overdrive`), Taste, UI/UX Pro Max, Anthropic's frontend-design and canvas-design, Vercel's web-design-guidelines. David's side stays on deliverables (product demo recordings for the video, traction, submission checks) and keeps `globals.css` and the organiser pages in your style.
+
+Checked with real browser screenshots (Playwright, desktop 1366 and phone 390): no console errors, no sideways scrolling, everything renders. One thing for you:
+
+Requests:
+- [ ] Visual pass on your pages as David asked: motion that respects `prefers-reduced-motion`, a stronger hero, more life in the guest page reveal. Keep it fast on phones.
+- [ ] `components/site/Header.tsx`: at 320px wide (small phones) the nav overflows by about 40px ("Create your event" button). Hiding "Pricing" below `sm` or a shorter button label ("Create event") fixes it.
+
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
 
