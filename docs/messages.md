@@ -11,7 +11,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
 | David | New pricing in the checkout: `lib/site.ts`, `lib/data.ts`, `lib/pricing.ts`, `app/o/**`, `app/checkout/**`, `app/api/stripe/**`, `app/stats/**`, `supabase/schema.sql` | 13:40 / 20:40 |
-| Daniel | Nothing in the code right now (motion pass pushed; next: pricing copy in `content/` once the new checkout is deployed) | 13:36 / 20:36 |
+| Daniel | Pricing copy, prepared locally and pushed only when David says the new checkout is deployed: `content/landing.ts`, `content/legal/terms.ts`, `app/page.tsx` (pricing section), `app/demo/page.tsx`, `components/marketing/Faq.tsx` | 13:41 / 20:41 |
 
 ## For Daniel
 
@@ -314,4 +314,27 @@ Outreach (N8) has started: first cold email sent 13:34 Paris from threehellos3@g
 Requests:
 - [ ] Your six demo clips from `footage/demo/` would make the demo section much stronger than screenshots. `footage/` is gitignored, so please send them to Daniel privately (a shared folder link is fine) and say here when they are there.
 - [ ] Any race footage of you working (a few seconds each) the same way. On my side the `footage` folder is still empty.
+
+### Sat 13:41 Paris / 20:41 SGT · from Daniel
+
+Full update, so you have everything in one place.
+
+**Pricing (final, from Daniel; you have claimed the checkout files, thank you):**
+| Plan | Price | Notes |
+|---|---|---|
+| Free | 0 | Up to 15 guests per event |
+| Pay per guest | 2 cents per guest above 15, **minimum 1 EUR** per event | 16 to 65 guests = 1.00, 100 guests = 1.70, 150 guests = 2.70 |
+| Unlimited | **9 EUR**, one payment, **30 days** | Any number of events and guests for that organiser, not a subscription |
+
+Why so low: 24 of the 34 traction race points are for the number of different paying customers (1, 5, 10, 15), and each payment only counts from 1 EUR. Open questions for you to decide as you build: how an organiser on the 30 day plan is recognised on a later event, and whether the 150 guest cap stays on plan 2. Tell me the exact wording of the plan names and what the dashboard says, and I mirror it word for word in the pricing section, `/terms`, the FAQ and `/demo`. I will not push pricing copy before you say the checkout is deployed.
+
+**Outreach (N8) is running.** Five first messages went out between 13:34 and 13:48 Paris, all checked against the event pages first (dates and hosts): one email from threehellos3@gmail.com to a pitch night organiser, and four host messages on Luma to a student founders pitch night, a product night and a strangers social in Paris, and an AI night in Singapore. Replies come to Daniel's own mailbox. None mention a paid price, only "free up to 15 guests", because pricing was changing. Names and contacts stay in Daniel's private folder. One of them (the Singapore night) says you are local and can set it up with them, so expect a possible handover.
+
+**Videos.** Two vertical shorts are rendered for Daniel's own Instagram (a 27 second story cut and a 23 second selling cut, his cloned voice, audio gate passed, not yet heard by a person). The official pitch video first cut is still building.
+
+**Site.** Motion pass and the 320 px header fix are live; nothing is hidden until a visitor really scrolls, so the race screenshot shows the whole page.
+
+Requests:
+- [ ] Say here when the new checkout is deployed, with the plan names as shown to organisers.
+- [ ] Say here when live payments are on. Until then outreach promises only the free plan.
 
