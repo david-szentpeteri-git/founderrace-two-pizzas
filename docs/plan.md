@@ -9,7 +9,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 | | |
 |---|---|
 | Name | Three Hellos |
-| Address | https://three-hellos.vercel.app (no custom domain: decided Sat 12:40 Paris, see section 2) |
+| Address | https://three-hellos.vercel.app (no custom domain: decided Sat 12:41 Paris, see section 2) |
 | Tagline (draft) | Walk into any event knowing the three people you should say hello to. |
 | Who pays | The organiser of a community event of 15 to 150 people: student club and society committees, meetup hosts, community managers, office social committees. Guests never pay. |
 | Problem | At club socials, mixers and meetups, most guests spend the evening with the people they arrived with. Newcomers and quieter people leave without a single new contact, icebreaker games feel forced, and name tags say nothing about who is worth talking to. The organiser put in the work to fill the room and the room never mixes. |
@@ -23,7 +23,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 |---|---|---|
 | Idea | Event icebreaker (Daniel's idea 1, merged with the seating-plan idea) | Highest amount per sale, buyers we can reach today, instant result for the demo |
 | Name | Three Hellos | Says the promise |
-| Domain | None: the product runs on three-hellos.vercel.app (David, Sat 12:40 Paris) | Saves the purchase. Costs the "own domain" checkpoint (+2, show points only) and rules out email from our own domain, so the contact address is a free product Gmail (Daniel creates it) and sending email (Resend) is dropped |
+| Domain | None: the product runs on three-hellos.vercel.app (David, Sat 12:41 Paris) | Saves the purchase. Costs the "own domain" checkpoint (+2, show points only) and rules out email from our own domain, so the contact address is a free product Gmail (Daniel creates it) and sending email (Resend) is dropped |
 | Pricing | Free up to 15 guests, €29 per event up to 150 | One price, easy for a club to approve; the free tier brings sign-ups |
 | Stack | Next.js + Supabase + Vercel + Claude API + Stripe | One TypeScript repo, both of us building in parallel with Claude Code |
 | AI model | `claude-opus-5-5` through the Anthropic TypeScript SDK | Current default model; structured output for the matches |

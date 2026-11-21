@@ -27,7 +27,7 @@ Requests:
   Done 11:40 Paris: 42 organisers ranked A to C (Paris, Singapore, Budapest, Europe) with a first message drafted for each A and B row, Hungarian versions for Budapest. Kept private, outside the repo. Daniel also has his own warm list of club leads.
 - [ ] If you need a new field or type from the backend, write it here instead of editing `lib/`.
 
-### Sat 12:20 Paris / 19:20 SGT · from David
+### Sat 12:02 Paris / 19:02 SGT · from David
 
 Answered your four requests in my inbox below. New since my last note: `EventPublic.timeZone`, the Checkout consent box, a Stripe webhook as backup (`/api/stripe/webhook`), and `npm run seed:demo` (D6, runs once the keys are in).
 
@@ -46,7 +46,7 @@ Requests:
   Done 12:27 to 12:33 Paris. Nothing broke. Details in my note of 12:34 below.
 - [ ] Send me the Tavily key privately (not here); I add it to Vercel and check the sparks on `/demo`.
 
-### Sat 12:45 Paris / 19:45 SGT · from David
+### Sat 12:41 Paris / 19:41 SGT · from David
 
 **No custom domain.** David decided not to buy threehellos.app. The product stays at https://three-hellos.vercel.app. Already changed by David: `fixed.website` in `content/legal/seller.ts`, the domain text in `app/opengraph-image.tsx`, README, plan (outreach drafts, P1 email dropped since it needs a domain), and the demo organiser's email. Your "TEST integration run 1" event is marked `test` (`npm run mark-test` does that for any event named "TEST ...").
 
@@ -60,14 +60,14 @@ Requests:
 - [x] The €29 Payment Link is no longer needed: organisers pay inside the product with Stripe Checkout. Say here if you still want one for selling in chat.
   Agreed, no Payment Link needed. Checkout inside the product is enough.
 
-### Sat 12:55 Paris / 19:55 SGT · from David
+### Sat 12:44 Paris / 19:44 SGT · from David
 
-**Deploys:** your two blocked commits went live with David's push at 12:50 (`9754798`, "Deployment has completed"); a deploy always takes all of `main`. Until we have a permanent fix, write "redeploy please" here after you push something that must go live, and David's side pushes or redeploys. David's Claude now pushes automatically after every commit, so this happens often anyway.
+**Deploys:** your two blocked commits went live with David's push at 12:41 (`9754798`, "Deployment has completed"); a deploy always takes all of `main`. Until we have a permanent fix, write "redeploy please" here after you push something that must go live, and David's side pushes or redeploys. David's Claude now pushes automatically after every commit, so this happens often anyway.
 
 **Manual tasks moved to you** (David keeps only what needs his own accounts: Vercel, Stripe owner, GitHub visibility):
 
 Requests:
-- [x] Product Gmail and `contactEmail` in `content/legal/seller.ts` (urgent, see the 12:45 note).
+- [x] Product Gmail and `contactEmail` in `content/legal/seller.ts` (urgent, see the 12:41 note).
   Done 12:47 Paris: the product address is threehellos3@gmail.com, set as `contactEmail`. Checked on `/legal`, `/terms` and `/privacy`.
 - [ ] Test the €29 checkout on the live site once David writes here that the Stripe test key is in Vercel: create an event named "TEST payment", click "Upgrade for €29", pay with card 4242 4242 4242 4242 (any future date, any CVC), check you land on "Payment received". Test mode, so no real money and it never counts.
 - [ ] Stripe settings, once David has invited you to the Stripe account (he will): in live mode, Settings > Business > Public details: name "Three Hellos", website https://three-hellos.vercel.app, terms of service https://three-hellos.vercel.app/terms, support email = the product Gmail; statement descriptor THREE HELLOS (short: 3HELLOS). Then Developers > Webhooks > Add endpoint https://three-hellos.vercel.app/api/stripe/webhook with the event `checkout.session.completed`, and send the signing secret (`whsec_...`) to David privately, never here.
@@ -76,9 +76,9 @@ Requests:
 - [x] Sunday 08:30 Paris: once David has made the repo public, save the GitHub URL on the finish line.
   Done early, 12:50 Paris on Saturday. Re-check on Sunday that the repo is still public and the README is final.
 
-### Sat 13:05 Paris / 20:05 SGT · from David
+### Sat 12:46 Paris / 19:46 SGT · from David
 
-**The repo is public now** (https://github.com/david-szentpeteri-git/founderrace-two-pizzas), decided by David so your pushes deploy: Vercel's free plan only blocks collaborator deploys on private repos. Full history scanned first: no keys, secrets or personal details in any file. The "redeploy please" workaround from 12:55 should no longer be needed.
+**The repo is public now** (https://github.com/david-szentpeteri-git/founderrace-two-pizzas), decided by David so your pushes deploy: Vercel's free plan only blocks collaborator deploys on private repos. Full history scanned first: no keys, secrets or personal details in any file. The "redeploy please" workaround from 12:44 should no longer be needed.
 
 Requests:
 - [x] On your next push, check that GitHub shows the Vercel status "Deployment has completed" on your commit, and write here if it is still blocked.
@@ -88,9 +88,9 @@ Requests:
 - [x] Everything we commit is public from now on: keys, perk codes and outreach contacts stay out, as before.
   Understood. My Tavily key lives only in a gitignored `.env.local`; outreach contacts stay in a private folder outside the repo. I re-ran the secrets scan on the full history: clean.
 
-### Sat 12:55 Paris / 19:55 SGT · from David (update 13:20)
+### Sat 12:55 Paris / 19:55 SGT · from David
 
-**The Stripe test key is in Vercel and the site is redeployed**, so the checkout test from the 12:55 note can run now: event named "TEST payment", "Upgrade for €29", card 4242 4242 4242 4242, any future date, any CVC. Vercel Web Analytics is on as well (visitors are counted from now).
+**The Stripe test key is in Vercel and the site is redeployed**, so the checkout test from the 12:44 note can run now: event named "TEST payment", "Upgrade for €29", card 4242 4242 4242 4242, any future date, any CVC. Vercel Web Analytics is on as well (visitors are counted from now).
 
 Requests:
 - [ ] Run the checkout test now and write the result here (pass, or what you saw).
@@ -110,11 +110,11 @@ Requests:
 - [x] Post the live address here as soon as the deploy works (the vercel.app one is fine). I will run the full flow on it at once: create an event named "TEST ...", join as six guests, make intros, open guest pages and the print view. Please set that event to plan `test` afterwards.
   Done 12:26 Paris (David): live at https://three-hellos.vercel.app (threehellos.app follows once the domain is bought). Name test events "TEST ..." and David marks every one as plan `test`.
 - [x] Checkout should collect the buyer's consent that delivery starts at once and the 14 day right to cancel ends when intros are generated. `/terms` promises this. If Checkout cannot do it, tell me and I change the terms.
-  Done 12:20 Paris (David): Checkout now shows a required checkbox: "I agree to the terms of sale (link). I ask for my event to be upgraded right away, and I understand my 14 day right to cancel ends once the intros are made." Stripe only allows the checkbox once a terms URL is set in the account's public details (David sets https://threehellos.app/terms); until then the same sentence shows as plain text above the pay button.
+  Done 12:02 Paris (David): Checkout now shows a required checkbox: "I agree to the terms of sale (link). I ask for my event to be upgraded right away, and I understand my 14 day right to cancel ends once the intros are made." Stripe only allows the checkbox once a terms URL is set in the account's public details (David sets https://threehellos.app/terms); until then the same sentence shows as plain text above the pay button.
 - [x] Event times display in Paris time only (`components/guest/format.ts`). How do you store `starts_at` from `/new`: as the organiser's local time, or with a zone? Tell me and I fix the display so Singapore events show the right hour.
-  Done 12:20 Paris (David): `starts_at` is stored as an exact moment (UTC), converted in the organiser's browser. New: `EventPublic.timeZone` (optional, an IANA name like "Asia/Singapore") is the organiser's zone from their browser. Please format with `timeZone: event.timeZone ?? "Europe/Paris"` in `format.ts`. The demo event is seeded with "Europe/Paris", the mock event with "Asia/Singapore".
+  Done 12:02 Paris (David): `starts_at` is stored as an exact moment (UTC), converted in the organiser's browser. New: `EventPublic.timeZone` (optional, an IANA name like "Asia/Singapore") is the organiser's zone from their browser. Please format with `timeZone: event.timeZone ?? "Europe/Paris"` in `format.ts`. The demo event is seeded with "Europe/Paris", the mock event with "Asia/Singapore".
 - [x] An early 29 EUR Payment Link, as you planned.
-  Not needed (David, 12:45 Paris): Stripe Checkout is wired into the product, so organisers pay from their dashboard. Ask again if you want a link for chat sales.
+  Not needed (David, 12:41 Paris): Stripe Checkout is wired into the product, so organisers pay from their dashboard. Ask again if you want a link for chat sales.
 
 ### Sat 12:06 Paris / 19:06 SGT · from Daniel
 
@@ -186,9 +186,9 @@ Not live yet because of this (all on `main`, all checked): the topic sparks tuni
 
 Requests:
 - [x] Please trigger a deploy now: push any commit, or press Redeploy on the latest `main` in Vercel.
-  Done 12:50 Paris (David): `9754798` deployed with your commits included.
+  Done 12:41 Paris (David): `9754798` deployed with your commits included.
 - [x] For the rest of the race, either redeploy after my pushes when I ask here, or tell me if you would rather add me to the Vercel project so my pushes deploy too.
-  Answered 12:55 Paris (David): the free plan has no team members, so for now David redeploys when you ask here (see the 12:55 note). A permanent fix is being decided.
+  Answered 12:44 Paris (David): the free plan has no team members, so for now David redeploys when you ask here (see the 12:44 note). A permanent fix is being decided.
 
 ### Sat 12:54 Paris / 19:54 SGT · from Daniel
 
