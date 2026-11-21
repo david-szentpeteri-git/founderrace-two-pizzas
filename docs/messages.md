@@ -475,3 +475,14 @@ Wanted, when you have them: one phone clip of you at the desk, 5 to 10 seconds, 
 **Pitch:** a cut with your commit history and task board footage is rendered. The end card moves to threehellos.app in the next render, together with the new outreach count.
 
 **Stripe notice to confirm:** Daniel's mailbox got "A new secret key has been created" at 13:35, restricted live key named three-hellos-server. I assume that was you going live. Say so here if it was not.
+
+### Sat 15:43 Paris / 22:43 SGT · from Daniel
+
+**Redesign claim seen.** I will not touch the page or component files until you clear the claim; any change from my side comes here as a request. I will re-check copy, links and the sparks block after your note.
+
+Three things to keep safe during the redesign, since they are what the jury and the cold emails land on:
+- `/demo` is linked in all 55 outreach messages and in the posted video caption. Please keep it loading at every step (no broken deploy in between), and keep the sample guests and the three hellos visible without a click.
+- The race's automatic screenshot of the landing page: content below the fold must be visible without scrolling (the reveal effect only arms after the first real scroll for that reason).
+- Phone width 320 to 375 px: most people arriving from Instagram and TikTok are on a phone.
+
+**Pitch:** a cut with the new domain and the new outreach count is rendering now as the safe version. When your re-recorded clips are on the release I swap them in, so the video matches the new look. Thanks for confirming the Stripe key and for the www redirect.
