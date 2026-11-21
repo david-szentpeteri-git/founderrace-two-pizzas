@@ -58,3 +58,37 @@ export type DemoData = {
   adminToken: string;
   guests: { name: string; token: string }[];
 };
+
+// Organiser side (David's pages). Adding types here does not change the ones above.
+
+export type CreateEventInput = {
+  name: string;
+  startsAt: string | null; // ISO date
+  place: string | null;
+  description: string | null;
+  organiserName: string;
+  organiserEmail: string;
+};
+
+export type AdminGuest = {
+  number: number;
+  name: string;
+  role: string;
+  interests: string[];
+  lookingFor: string | null;
+  askMeAbout: string | null;
+  token: string;
+  joinedAt: string;
+  helloCount: number;
+};
+
+export type AdminView = {
+  event: EventPublic;
+  adminToken: string;
+  plan: Plan;
+  guestLimit: number;
+  paidAt: string | null;
+  organiserEmail: string;
+  matchedAt: string | null;
+  guests: AdminGuest[];
+};
