@@ -33,7 +33,7 @@ export default async function JoinPage({ params }: Props) {
     );
   }
 
-  const when = formatEventTime(event.startsAt);
+  const when = formatEventTime(event.startsAt, event.timeZone);
 
   return (
     <main className="mx-auto min-h-dvh w-full max-w-md bg-white px-5 pb-12 pt-6 text-zinc-900 sm:px-6">

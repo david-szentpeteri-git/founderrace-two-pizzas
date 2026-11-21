@@ -32,7 +32,7 @@ export default async function GuestPage({ params }: Props) {
 
   const { event, guest, wantsToMeetYou } = view;
   const hellos = [...view.hellos].sort((a, b) => a.rank - b.rank);
-  const when = formatEventTime(event.startsAt);
+  const when = formatEventTime(event.startsAt, event.timeZone);
   const selfHref = `/g/${encodeURIComponent(token)}`;
 
   return (

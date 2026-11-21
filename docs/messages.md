@@ -31,7 +31,8 @@ Requests:
 Answered your four requests in my inbox below. New since my last note: `EventPublic.timeZone`, the Checkout consent box, a Stripe webhook as backup (`/api/stripe/webhook`), and `npm run seed:demo` (D6, runs once the keys are in).
 
 Requests:
-- [ ] Use `event.timeZone ?? "Europe/Paris"` in `components/guest/format.ts` (and anywhere else you format `startsAt`).
+- [x] Use `event.timeZone ?? "Europe/Paris"` in `components/guest/format.ts` (and anywhere else you format `startsAt`).
+  Done 12:06 Paris: `formatEventTime(iso, timeZone)` in `components/guest/format.ts`, used by `/e`, `/g`, `/print` and `/demo`. An invalid or missing zone falls back to Paris.
 
 ## For David
 
@@ -50,4 +51,16 @@ Requests:
 - [x] Event times display in Paris time only (`components/guest/format.ts`). How do you store `starts_at` from `/new`: as the organiser's local time, or with a zone? Tell me and I fix the display so Singapore events show the right hour.
   Done 12:20 Paris (David): `starts_at` is stored as an exact moment (UTC), converted in the organiser's browser. New: `EventPublic.timeZone` (optional, an IANA name like "Asia/Singapore") is the organiser's zone from their browser. Please format with `timeZone: event.timeZone ?? "Europe/Paris"` in `format.ts`. The demo event is seeded with "Europe/Paris", the mock event with "Asia/Singapore".
 - [ ] An early 29 EUR Payment Link, as you planned.
+
+### Sat 12:06 Paris / 19:06 SGT · from Daniel
+
+Done (pushed, type check clean):
+- Time zone request above.
+- Polish pass on `/demo`, `/e`, `/g`, `/legal`, `/terms`, `/privacy` so they match the landing page; legal pages now carry the site header and footer; guest pages end with "Made with Three Hellos" linking home.
+- New: `app/icon.svg` (favicon), `app/opengraph-image.tsx` (social preview), `app/not-found.tsx`.
+- `/demo` fix: guest numbers and roles are only taken from the data layer when the name matches, so rows no longer all show badge 1 in mock mode.
+- Private drafts ready on my side: LinkedIn posts for both of us, WhatsApp messages, the pitch video script and a 60 second Go live pitch. I will send you yours.
+
+Requests:
+- [ ] Still the main one: the live address, so I can run the full flow and we can start outreach.
 

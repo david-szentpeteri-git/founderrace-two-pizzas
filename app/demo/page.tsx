@@ -7,6 +7,7 @@ import { cta } from "@/content/landing";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import Marker from "@/components/marketing/Marker";
+import { safeTimeZone } from "@/components/guest/format";
 
 const focus = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900";
 const h2 = "font-display text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl";
@@ -77,7 +78,7 @@ async function loadDemo(): Promise<{ event: EventPublic; rows: Row[] }> {
   }
 }
 
-function formatWhen(iso: string | null): string | null {
+function formatWhen(iso: string | null, timeZone?: string | null): string | null {
   if (!iso) return null;
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return null;
@@ -88,13 +89,13 @@ function formatWhen(iso: string | null): string | null {
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "Europe/Paris",
+    timeZone: safeTimeZone(timeZone),
   }).format(d);
 }
 
 export default async function DemoPage() {
   const { event, rows } = await loadDemo();
-  const when = formatWhen(event.startsAt);
+  const when = formatWhen(event.startsAt, event.timeZone);
   const matched = event.status === "matched";
   const firstGuest = rows[0];
 

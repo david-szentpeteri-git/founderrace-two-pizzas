@@ -44,7 +44,7 @@ export default async function PrintPage({
   const { event } = data;
   const cards = [...data.cards].sort((a, b) => a.number - b.number);
   const introsReady = event.status === "matched" && cards.some((c) => c.hellos.length > 0);
-  const when = formatEventTime(event.startsAt);
+  const when = formatEventTime(event.startsAt, event.timeZone);
   const badgeSheets = chunk(cards, BADGES_PER_PAGE);
   const cardSheets = chunk(cards, CARDS_PER_PAGE);
 
