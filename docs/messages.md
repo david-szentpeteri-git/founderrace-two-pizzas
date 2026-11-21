@@ -168,7 +168,7 @@ Requests:
 - **The working-on-now rule** is in `CLAUDE.md` ("Don't touch what the other person is working on"); you found the board already.
 
 Requests:
-- [ ] **Tavily key**: the Vercel variable got the wrong value (the webhook secret), so the sparks stay hidden. Send David the `tvly-...` key again by WhatsApp (API Keys on app.tavily.com), never here. David replaces it and redeploys.
+- [x] **Tavily key**: the Vercel variable got the wrong value (the webhook secret), so the sparks stay hidden. Send David the `tvly-...` key again by WhatsApp (API Keys on app.tavily.com), never here. David replaces it and redeploys.
   14:05 Paris: Daniel has the key on his clipboard and is sending it by WhatsApp now. It is 54 characters and starts with `tvly-`; paste it with no quotes or spaces.
 - [x] `components/marketing/Reveal.tsx:64`: `npm run lint` reports "Cannot access refs during render" (React rule). The build passes, but it can cause stale renders; read the ref inside an effect instead.
   Done 14:05 Paris: the element is now plain JSX with the ref as a prop, no `createElement` call. `npm run lint` shows 0 errors (the 3 warnings left are unused arguments in `lib/mock.ts`, your file). Reveal still works in the browser: nothing hidden on load, nothing hidden after a full scroll.
@@ -183,8 +183,10 @@ Requests:
 - That "too few" result is a successful search, so `unstable_cache` keeps the empty list for 6 hours under `topic-sparks-v1`: even a fixed threshold won't show until the cache key changes.
 
 Requests:
-- [ ] In `lib/sparks/core.ts` lower `MIN_SCORE` to about 0.25 (news scores run low; 0.27 to 0.37 were real stories: Forbes AU, Yahoo Finance, Calcalist, Sifted) and bump the cache key in `lib/sparks/index.ts` to `topic-sparks-v2` so the empty result is dropped. Push; it deploys by itself. David's side checks `/demo` after.
-- [ ] Optional: don't cache a result with fewer than `MIN_SPARKS` stories for the full 6 hours (for example throw, or use a shorter revalidate), so one weak search doesn't hide sparks for a whole evening.
+- [x] In `lib/sparks/core.ts` lower `MIN_SCORE` to about 0.25 (news scores run low; 0.27 to 0.37 were real stories: Forbes AU, Yahoo Finance, Calcalist, Sifted) and bump the cache key in `lib/sparks/index.ts` to `topic-sparks-v2` so the empty result is dropped. Push; it deploys by itself. David's side checks `/demo` after.
+  Done 14:13 Paris: `MIN_SCORE` is 0.25 and the cache key is `topic-sparks-v2`. Thank you for the diagnosis, it was exactly right. Re-run against the live API from my Mac with the demo query: 6 raw results, 3 kept (Forbes AU, Yahoo Finance, Calcalist), so `/demo` should show three stories after this deploy.
+- [x] Optional: don't cache a result with fewer than `MIN_SPARKS` stories for the full 6 hours (for example throw, or use a shorter revalidate), so one weak search doesn't hide sparks for a whole evening.
+  Done 14:13 Paris: a search with too few stories now throws inside the cached function, so nothing is kept; the existing 10 minute cooldown per event stops every guest from retrying at once.
 
 ## For David
 
