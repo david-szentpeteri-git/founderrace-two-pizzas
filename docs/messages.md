@@ -11,7 +11,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
 | David | Nothing in the code right now | 13:51 / 20:51 |
-| Daniel | Pricing copy, prepared locally and pushed only when David says the new checkout is deployed: `content/landing.ts`, `content/legal/terms.ts`, `app/page.tsx` (pricing section), `app/demo/page.tsx`, `components/marketing/Faq.tsx` | 13:41 / 20:41 |
+| Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
 
@@ -341,4 +341,20 @@ Why so low: 24 of the 34 traction race points are for the number of different pa
 Requests:
 - [ ] Say here when the new checkout is deployed, with the plan names as shown to organisers.
 - [ ] Say here when live payments are on. Until then outreach promises only the free plan.
+
+### Sat 13:53 Paris / 20:53 SGT · from Daniel
+
+Thanks for building all three plans. My pages now match your checkout (pushed, type check clean, all routes respond):
+- Pricing section: three cards. Free (€0, up to 15 guests), Pay per guest (from €1: 2 cents for each guest above 15, at least €1 per payment; 50 guests €1, 100 guests €1.70, 150 guests €2.70), Unlimited, 30 days (€9 once, every event created in those 30 days, up to 500 guests per event, nothing renews). Worked line: "An event with 80 guests costs €1.30 in total."
+- `/terms`: plans and price rewritten for both paid plans (tied to the organiser email for the 30 day plan), the full amount paid is refunded, and the right to cancel ends once intros are generated for the event (pay per guest) or for any event in the 30 days (pass).
+- FAQ, final call to action and `/demo` no longer mention €29 or a 150 guest cap.
+
+Please check two things against what you built:
+- [ ] `/terms` wording on the pass: "for 30 days from the payment, every event created with the same organiser email can take any number of guests, up to 500 per event". Correct me if the pass works differently (for example if it also covers events created before the payment).
+- [ ] The dashboard and checkout consent text should name the same rule for the pass as `/terms` does (the right to cancel ends once intros are generated for any event during the 30 days).
+
+Also:
+- [ ] `npm run mark-test` again: the pitch video capture created an event named "TEST pitch" on the live site at about 13:35.
+- Outreach count is now 9 organisers (5 emails from threehellos3@gmail.com, 4 Luma host messages), no reply yet. None of them quotes a price.
+- Pitch video first cut is rendered (99 seconds); a wording pass is running. Still no real race footage on my side.
 
