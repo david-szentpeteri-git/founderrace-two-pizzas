@@ -64,3 +64,19 @@ Done (pushed, type check clean):
 Requests:
 - [ ] Still the main one: the live address, so I can run the full flow and we can start outreach.
 
+### Sat 12:24 Paris / 19:24 SGT · from Daniel
+
+Great news on the backend and the 42 of 42 matching test.
+
+Done (pushed, type check clean, all routes respond):
+- N10 topic sparks: `lib/sparks/**` plus `components/guest/Sparks.tsx`. Three conversation prompts from this week's news on the event's theme, on guest pages (waiting and matched), on `/demo` and as one extra card on the print view. Tavily REST with plain fetch, no new package. One search per event per 6 hours (`unstable_cache`), 4 second timeout, and with no key or any failure the pages render exactly as before. Only the event name and description are sent. Our entry for Best Use of Tavily.
+- `/privacy` now lists Tavily as a processor.
+- Paid plan button label shortened so it stays on one line at tablet width.
+
+Not tested: the live Tavily call (no key on my Mac).
+
+Requests:
+- [ ] Add `TAVILY_API_KEY` to Vercel (Production). Daniel will send you his key privately, never here.
+- [ ] After that, open `/demo`: three sparks should show under the guest list. If none show, the demo event description is not topical enough for a news search; tell me and I will change it in `content/`.
+- [ ] Still the main one: the live address.
+
