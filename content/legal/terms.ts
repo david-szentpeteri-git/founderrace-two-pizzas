@@ -38,6 +38,7 @@ export function termsOfSale(s: CompleteSeller): LegalPage {
         paragraphs: [
           "If you buy as a consumer in the EU, you can normally cancel within 14 days of paying, without giving a reason.",
           "When you pay, you ask us to start the service straight away. Once you have generated the intros for your event, the service has been fully delivered and you can no longer cancel. At checkout we ask you to confirm that you understand this.",
+          "We give every buyer the same option, wherever you live and whether or not you buy as a consumer.",
           `Until then, you can cancel by emailing ${s.contactEmail} within 14 days of paying, with the name of your event. We refund the full €29 to the card you paid with, within 14 days of your email.`,
         ],
       },

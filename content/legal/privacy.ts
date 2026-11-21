@@ -31,8 +31,8 @@ export function privacyPolicy(s: CompleteSeller, options: { emailsOn?: boolean }
       heading: "Why we use it",
       paragraphs: [
         "To run the event you created or joined: show the guest list to the organiser, write the introductions and show each guest their page. For organisers this is needed to provide the service you asked for. For guests, it is based on the consent you give on the join form.",
-        "To take payments and keep the records that tax law requires.",
-        "To understand how many people visit the site, so we can improve it.",
+        "To take payments and keep the records that tax law requires. This is a legal obligation.",
+        "To understand how many people visit the site, so we can improve it. This is our legitimate interest in running a working service.",
       ],
     },
     {
@@ -46,7 +46,7 @@ export function privacyPolicy(s: CompleteSeller, options: { emailsOn?: boolean }
     {
       heading: "How the AI matching uses your data",
       paragraphs: [
-        "To suggest introductions, we send the names and answers of the guests of one event to Claude, an AI model run by Anthropic, through its API. Emails are never sent to the model. The model only receives what guests wrote on the join form, and is told not to add facts about anyone.",
+        "To suggest introductions, we send the names and answers of the guests of one event to Claude, an AI model run by Anthropic, through its API. Along with them we send the event name and description. Emails are never sent to the model. The model only receives what guests wrote on the join form and the event details, and is told not to add facts about anyone.",
       ],
     },
     {

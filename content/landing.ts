@@ -46,7 +46,7 @@ export const cta = {
 } satisfies Record<string, Cta>;
 
 export const hero = {
-  eyebrow: "For organisers of club socials, meetups and community events",
+  eyebrow: "For student clubs, meetups and community events of 15 to 150 people",
   headline: "Walk into any event knowing the three people you should say hello to.",
   problem:
     "You filled the room, and most guests still spend the evening with the friends they came with. Newcomers and quieter people go home without a single new contact.",
