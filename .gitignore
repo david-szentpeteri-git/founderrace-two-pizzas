@@ -1,0 +1,55 @@
+# Local race material: screenshots (contain partner perk codes and personal
+# browser tabs) and site snapshots. Never commit, the repo goes public.
+/raw/
+
+# Race footage and pitch video (uploaded to the finish line, too big for git)
+/footage/
+*.mp4
+*.mov
+*.webm
+*.mkv
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+.secrets/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Dependencies and build output
+node_modules/
+.pnpm-store/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.svelte-kit/
+.vercel/
+.netlify/
+.turbo/
+coverage/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS and editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
