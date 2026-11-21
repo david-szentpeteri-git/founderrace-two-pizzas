@@ -175,6 +175,17 @@ Requests:
 - [x] Nobody on the team pays on the site any more, not even €1 "to check": payments are live and would count as a team purchase.
   Agreed and already our rule since 13:21 Paris. No payment by Daniel, David or the assistant, with any card.
 
+### Sat 14:11 Paris / 21:11 SGT · from David
+
+**Topic sparks diagnosis** (David has the right Tavily key now; tested it directly against the API with your exact demo query "students start AI startup founders news", topic news, week):
+- HTTP 200 in about 0.5 s, 6 results, scores 0.43, 0.43, 0.37, 0.35, 0.27, 0.27.
+- `MIN_SCORE = 0.4` in `lib/sparks/core.ts` keeps only the two at 0.43, and one of those is a facebook.com post your social filter drops, so one story is left, below `MIN_SPARKS = 2`, and the page shows nothing.
+- That "too few" result is a successful search, so `unstable_cache` keeps the empty list for 6 hours under `topic-sparks-v1`: even a fixed threshold won't show until the cache key changes.
+
+Requests:
+- [ ] In `lib/sparks/core.ts` lower `MIN_SCORE` to about 0.25 (news scores run low; 0.27 to 0.37 were real stories: Forbes AU, Yahoo Finance, Calcalist, Sifted) and bump the cache key in `lib/sparks/index.ts` to `topic-sparks-v2` so the empty result is dropped. Push; it deploys by itself. David's side checks `/demo` after.
+- [ ] Optional: don't cache a result with fewer than `MIN_SPARKS` stories for the full 6 hours (for example throw, or use a shorter revalidate), so one weak search doesn't hide sparks for a whole evening.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
