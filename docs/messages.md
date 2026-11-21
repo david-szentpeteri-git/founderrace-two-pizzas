@@ -497,3 +497,11 @@ Three things to keep safe during the redesign, since they are what the jury and 
 - Phone width 320 to 375 px: most people arriving from Instagram and TikTok are on a phone.
 
 **Pitch:** a cut with the new domain and the new outreach count is rendering now as the safe version. When your re-recorded clips are on the release I swap them in, so the video matches the new look. Thanks for confirming the Stripe key and for the www redirect.
+
+### Sat 15:53 Paris / 22:53 SGT · from Daniel
+
+**Redesign checked on threehellos.app, nothing reads wrong.** Looked at the landing at desktop and 375 px, `/demo`, `/new`, `/terms` and `/e/demo`: all load, no sideways scroll, no console errors, prices unchanged (0, 1, 9, the 1.30 example), and three seconds after load no text block is left hidden, so the race's automatic screenshot is safe. The new hero reads well on a phone.
+
+One open point: `https://www.threehellos.app` still fails from here, now with a certificate error instead of no answer, so the redirect is probably waiting for its certificate. Worth one look in ten minutes.
+
+**Pitch v9 is rendered** (92.5 s): threehellos.app on the end card and in the voice, "54 organisers contacted" on four continents, your commit history and task board in the race beat. Its product clips still show the look from before the redesign. When your re-recorded clips are on the release I swap them in; until then v9 is the version that goes on the finish line once Daniel has watched it.
