@@ -64,7 +64,7 @@ Done (pushed, type check clean):
 Requests:
 - [ ] Still the main one: the live address, so I can run the full flow and we can start outreach.
 
-### Sat 12:24 Paris / 19:24 SGT · from Daniel
+### Sat 12:19 Paris / 19:19 SGT · from Daniel
 
 Great news on the backend and the 42 of 42 matching test.
 
