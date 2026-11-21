@@ -140,7 +140,10 @@ const BLOCKED_SOURCES = [
   "facebook.com", "instagram.com", "youtube.com", "youtu.be", "x.com", "twitter.com",
   "tiktok.com", "reddit.com", "pinterest.com", "linkedin.com", "ebay.com", "amazon.com",
 ];
-const MIN_SCORE = 0.4;
+// News results score low even when they are on topic (real stories came back at
+// 0.27 to 0.37 in the live test of 21 Nov), so the floor only removes clear misses.
+// The best three by score are kept, and social feeds, shops and job pages are dropped.
+const MIN_SCORE = 0.25;
 const JUNK_TITLE = /\bfor sale\b|contact us|^events\b|^schedule\b|\bhiring\b|\bjobs\b|\bcoupon\b|\bprice\b|\bbuy now\b/i;
 
 function isBlockedSource(source: string): boolean {

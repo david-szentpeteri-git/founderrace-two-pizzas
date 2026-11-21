@@ -57,17 +57,22 @@ async function searchNews(apiKey: string, query: string): Promise<Spark[]> {
 }
 
 // Cached per event slug (and per name and description, since the arguments are
-// part of the cache key). A successful search, even one with too few results, is
-// kept for 6 hours. A failed search throws, so nothing is cached and the page
-// shows no sparks; the cooldown below stops every guest from retrying at once.
+// part of the cache key). A search that finds at least two stories is kept for
+// 6 hours. A failed search, or one with too few stories, throws, so nothing is
+// cached and the page shows no sparks; the cooldown below stops every guest
+// from retrying at once.
 const cachedSparks = unstable_cache(
   async (slug: string, name: string, description: string | null): Promise<Spark[]> => {
     const apiKey = process.env.TAVILY_API_KEY?.trim();
     if (!apiKey) return [];
     void slug; // part of the cache key only
-    return searchNews(apiKey, buildQuery(name, description));
+    const sparks = await searchNews(apiKey, buildQuery(name, description));
+    // Too few stories is not worth keeping for six hours: throw, so nothing is
+    // cached and the next search (after the cooldown) can do better.
+    if (sparks.length === 0) throw new SearchFailed("too few stories");
+    return sparks;
   },
-  ["topic-sparks-v1"],
+  ["topic-sparks-v2"],
   { revalidate: REVALIDATE_SECONDS },
 );
 
