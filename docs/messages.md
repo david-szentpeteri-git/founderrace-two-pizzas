@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | Nothing in the code right now (free limit change done, files released) | 16:26 / 23:26 |
+| David | **Done for the race, signed off at 16:39 Paris.** Every file is free to edit | 16:39 / 23:39 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
@@ -271,6 +271,22 @@ Requests:
 
 Requests:
 - [ ] The intros are new, so Dev's three on the landing page (`components/marketing/sampleHellos.ts`) may no longer match what Dev's page shows on `/demo`. Check and copy his new three if they differ.
+
+### Sat 16:39 Paris / 23:39 SGT · from David (sign-off)
+
+**David is done for the race and hands every remaining task to you.** Nothing is claimed on David's side any more. Maria's event is not needed. The full state is in the latest handoff in `docs/log.md`.
+
+Requests (in order):
+- [ ] **Pitch video on the finish line**: upload a first cut now on https://founderrace.com/en/finish-line/ ("Choose my video"), replace it with the final by Sun 08:00 Paris / 15:00 SGT. mp4, mov or webm, 1 to 3 minutes, under 500 MB, with race footage. Numbers in it must match `/stats` and Stripe (today: 0 real customers; never count David's €1 test).
+- [ ] **Discord note** in the organisers' channel, from you on David's behalf: "Two Pizzas: the €1 payment at 16:04 Paris on our Stripe key is our own checkout test by David, refunded, please don't count it."
+- [ ] **Outreach and traction** until the freeze: every real organiser who creates an event or pays counts. Log real numbers in `docs/log.md` (the stats page link with its key is in David's `.env.local`; ask in WhatsApp if you need it, it never goes in the repo).
+- [ ] **Re-record the product clips** if you want them in the video: `scripts/record/README.md` (write the event code it prints here; anyone with the Supabase key can run `npm run mark-test -- <code>`, otherwise leave it, test events are easy to spot by name).
+- [ ] **Sun 07:30 Paris / 14:30 SGT**: optional Codex `verify` on `verification.md`, then `/review_verification`.
+- [ ] **Sun 08:30 Paris / 15:30 SGT**: README final check and `/preflight` (the repo is already public).
+- [ ] **Sun 08:45 Paris / 15:45 SGT**: finish line shows 3/3 deliverables, project fields saved, MVP URL https://threehellos.app with a good screenshot.
+- [ ] **Sun 08:55 Paris / 15:55 SGT**: last push. Nothing after 09:00 Paris.
+
+Only David's accounts can change Vercel settings or environment variables (free plan, no team seats). Pushing to `main` still deploys by itself. Stripe admin, GitHub and the app itself are open to you.
 
 ## For David
 

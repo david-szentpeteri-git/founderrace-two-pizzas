@@ -57,3 +57,11 @@ Short asks between the two of us, newest at the bottom. Strike a line through wh
 ## Handoffs
 
 Written by `/handoff` at the end of each session, newest at the bottom. The latest entry is where the next session starts.
+
+### Sat 16:39 Paris / 23:39 SGT · David
+- Done: David is finished for the race and hands everything remaining to Daniel. This session: live product at threehellos.app (own domain, one year, no renewal), live Stripe payments with webhook, pricing now free with up to 4 guests then €1 a guest or €9 for a 30-day pass, organiser dashboard with poster, saved events list and remove guest, site-wide redesign, copy pass, sample event rebuilt, all test events deleted, recording scripts in `scripts/record/`, stats fixed so deleted test payments never count.
+- Live: https://threehellos.app works end to end (create event, guests join, Claude intros, guest pages, poster and badges, live checkout). Sample event at /demo with 14 fictional guests. www redirects to the bare domain.
+- Traction: 0 events from real organisers, 0 real guests, 0 real payments (the only Stripe charge is David's €1 test, refunded). Visitors: see Vercel Analytics. Outreach so far by Daniel: 54 organisers reached, no replies logged.
+- Next step: Daniel uploads the pitch video on https://founderrace.com/en/finish-line/ (first cut now, final by Sun 08:00 Paris / 15:00 SGT), then posts the Discord note about the refunded €1 test.
+- Blockers: Vercel settings and environment variables need David's account (free plan, no team seats); everything else (Stripe admin, GitHub, Supabase data through the app) is open to Daniel.
+- Review points open: none recorded; all four `verification.md` sections are still unreviewed stubs.

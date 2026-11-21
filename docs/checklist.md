@@ -24,7 +24,7 @@ Lives (streamed calls) run all through the race, each announced on Discord 15 mi
 
 ## Set-up (do first)
 
-- [ ] Both: sign in to the finish line with the registration email.
+- [x] Both: sign in to the finish line with the registration email. Done Saturday.
 - [x] Daniel: accept the GitHub invitation to this repo (sent to `danielczirjak`).
 - [x] Daniel: after cloning, create `raw/screenshots/` and `footage/` locally (both gitignored) and open the folder in Claude Code (see `docs/team-setup.md`).
 - [x] Stripe account on the registration email (that is what the $250 credits are tied to), with **live mode activated**. Verification can take a while, and test payments do not count.
@@ -42,7 +42,7 @@ Product: Three Hellos. The detailed task board, owners and timeline are in [`doc
 - [x] H+3 (12:00 Paris / 19:00 SGT): problem and target user chosen; README and the "Your project" fields filled in. Done 11:35 Paris (Daniel saved the fields).
 - [x] H+8 (17:00 Paris / 00:00 SGT): first version live and its URL saved on the finish line; "What the jury will see" screenshot checked. Done early: live at 12:26 Paris, MVP URL saved 12:31, screenshot checked.
 - [x] H+12 (21:00 Paris / 04:00 SGT): payment path live in Stripe live mode; sign-up flow and visitor analytics on. Done early (13:51 Paris): live checkout verified, join flow and Vercel Analytics on.
-- [ ] Outreach running: real users, real feedback, first payments. Numbers logged in `docs/log.md`.
+- [x] Outreach running: real users, real feedback, first payments. Numbers logged in `docs/log.md`. Running since 13:34 Paris (Daniel): 54 organisers reached, no replies yet.
 - [x] At least one partner tool in use: Lovable, Stripe or Tavily. Stripe (Checkout, webhook, traction key) and Tavily (conversation starters).
 - [ ] Optional: book a "Go live" call on Discord (+7 race points): https://discord.gg/YC9Va27QPu
 - [ ] Before every sleep, break or handover: `/handoff`.
