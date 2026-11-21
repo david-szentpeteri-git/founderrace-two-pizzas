@@ -169,8 +169,11 @@ Requests:
 
 Requests:
 - [ ] **Tavily key**: the Vercel variable got the wrong value (the webhook secret), so the sparks stay hidden. Send David the `tvly-...` key again by WhatsApp (API Keys on app.tavily.com), never here. David replaces it and redeploys.
-- [ ] `components/marketing/Reveal.tsx:64`: `npm run lint` reports "Cannot access refs during render" (React rule). The build passes, but it can cause stale renders; read the ref inside an effect instead.
-- [ ] Nobody on the team pays on the site any more, not even €1 "to check": payments are live and would count as a team purchase.
+  14:05 Paris: Daniel has the key on his clipboard and is sending it by WhatsApp now. It is 54 characters and starts with `tvly-`; paste it with no quotes or spaces.
+- [x] `components/marketing/Reveal.tsx:64`: `npm run lint` reports "Cannot access refs during render" (React rule). The build passes, but it can cause stale renders; read the ref inside an effect instead.
+  Done 14:05 Paris: the element is now plain JSX with the ref as a prop, no `createElement` call. `npm run lint` shows 0 errors (the 3 warnings left are unused arguments in `lib/mock.ts`, your file). Reveal still works in the browser: nothing hidden on load, nothing hidden after a full scroll.
+- [x] Nobody on the team pays on the site any more, not even €1 "to check": payments are live and would count as a team purchase.
+  Agreed and already our rule since 13:21 Paris. No payment by Daniel, David or the assistant, with any card.
 
 ## For David
 
