@@ -193,7 +193,7 @@ export default function HomePage() {
           <div className={section}>
             <h2 className={h2}>{pricing.heading}</h2>
             <p className={lead}>{pricing.intro}</p>
-            <Reveal stagger className="mt-10 grid gap-6 md:grid-cols-2">
+            <Reveal stagger className="mt-10 grid gap-6 lg:grid-cols-3">
               {pricing.plans.map((plan, i) => {
                 const recommended = i === 1;
                 return (
@@ -229,14 +229,14 @@ export default function HomePage() {
                         {plan.cta.label}
                       </Link>
                       <p className="mt-3 min-h-5 text-center text-sm text-zinc-500">
-                        {recommended ? "" : "No card needed."}
+                        {i === 0 ? "No card needed." : ""}
                       </p>
                     </div>
                   </div>
                 );
               })}
             </Reveal>
-            <p className="mt-8 font-medium text-zinc-900">An event with 80 guests costs €29 in total.</p>
+            <p className="mt-8 font-medium text-zinc-900">An event with 80 guests costs €1.30 in total.</p>
             <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-zinc-500">{pricing.footnote}</p>
           </div>
         </section>

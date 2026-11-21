@@ -23,23 +23,23 @@ export function termsOfSale(s: CompleteSeller): LegalPage {
         heading: "Plans and price",
         paragraphs: [
           "An event with up to 15 guests is free.",
-          `For a larger event, you pay €29 once for that one event. It raises the limit to 150 guests for that event only. There is no subscription and nothing renews. ${vatLine}`,
+          `For a larger event you choose one of two paid plans on your dashboard. Pay per guest: 2 cents for each guest above the number already covered, with a minimum of €1 per payment; each payment raises the guest limit of that one event by one guest for every 2 cents paid. Unlimited for 30 days: €9 paid once; for 30 days from the payment, every event created with the same organiser email can take any number of guests, up to 500 per event. There is no subscription and nothing renews. ${vatLine}`,
           "You pay through Stripe Checkout. Stripe processes your card and sends you a receipt by email. We never see your full card details.",
         ],
       },
       {
         heading: "When the service starts",
         paragraphs: [
-          "The upgrade starts as soon as your payment is confirmed: your event can then take up to 150 guests and you can generate the intros straight away.",
+          "The upgrade starts as soon as your payment is confirmed: the new guest limit applies at once and you can generate the intros straight away.",
         ],
       },
       {
         heading: "Your right to cancel within 14 days",
         paragraphs: [
           "If you buy as a consumer in the EU, you can normally cancel within 14 days of paying, without giving a reason.",
-          "When you pay, you ask us to start the service straight away. Once you have generated the intros for your event, the service has been fully delivered and you can no longer cancel. At checkout we ask you to confirm that you understand this.",
+          "When you pay, you ask us to start the service straight away. With pay per guest, once you have generated the intros for your event, the service has been fully delivered and you can no longer cancel. With the 30 day plan, you can no longer cancel once you have generated the intros for any event during those 30 days. At checkout we ask you to confirm that you understand this.",
           "We give every buyer the same option, wherever you live and whether or not you buy as a consumer.",
-          `Until then, you can cancel by emailing ${s.contactEmail} within 14 days of paying, with the name of your event. We refund the full €29 to the card you paid with, within 14 days of your email.`,
+          `Until then, you can cancel by emailing ${s.contactEmail} within 14 days of paying, with the name of your event. We refund the full amount you paid to the card you paid with, within 14 days of your email.`,
         ],
       },
       {

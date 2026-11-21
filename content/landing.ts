@@ -46,7 +46,7 @@ export const cta = {
 } satisfies Record<string, Cta>;
 
 export const hero = {
-  eyebrow: "For student clubs, meetups and community events of 15 to 150 people",
+  eyebrow: "For student clubs, meetups and community events, from 15 guests to a full room",
   headline: "Walk into any event knowing the three people you should say hello to.",
   problem:
     "You filled the room, and most guests still spend the evening with the friends they came with. Newcomers and quieter people go home without a single new contact.",
@@ -67,14 +67,14 @@ export const problem = {
 
 export const audience = {
   heading: "Who it is for",
-  intro: "Anyone who runs an event for 15 to 150 people where guests are meant to meet each other.",
+  intro: "Anyone who runs an event where guests are meant to meet each other, from a dinner of 15 to a full room.",
   groups: [
     "Student club and society committees running socials, mixers and welcome evenings",
     "Meetup hosts and community managers",
     "Founder, alumni and networking evenings",
     "Office social committees planning a team party",
   ],
-  note: "Guests never pay and never need an account. The organiser pays once per event, only when it has more than 15 guests.",
+  note: "Guests never pay and never need an account. The organiser pays only when an event has more than 15 guests, from €1.",
 };
 
 export const howItWorks = {
@@ -116,7 +116,7 @@ export const demo = {
 
 export const pricing = {
   heading: "Pricing",
-  intro: "One price per event. No subscription.",
+  intro: "Free for small events. From €1 for bigger ones. No subscription.",
   plans: [
     {
       name: "Free",
@@ -130,19 +130,30 @@ export const pricing = {
       cta: cta.free,
     },
     {
-      name: "One event",
-      price: "€29",
-      priceNote: "per event, up to 150 guests, paid once",
+      name: "Pay per guest",
+      price: "€1",
+      priceNote: "or more: 2 cents for each guest above 15, at least €1 per payment",
       points: [
         "Everything in Free",
-        "Up to 150 guests",
-        "The same intros for a bigger room",
+        "50 guests cost €1, 100 guests €1.70, 150 guests €2.70",
+        "Paid once, for that event",
+      ],
+      cta: cta.paid,
+    },
+    {
+      name: "Unlimited, 30 days",
+      price: "€9",
+      priceNote: "paid once, for 30 days",
+      points: [
+        "Every event you create in those 30 days",
+        "Any number of guests, up to 500 per event",
+        "Nothing renews",
       ],
       cta: cta.paid,
     },
   ] satisfies PricingPlan[],
   footnote:
-    "Guests can keep joining on the free plan. You only pay if more than 15 have signed up when you want to generate the intros. Payment goes through Stripe Checkout.",
+    "Guests can keep joining on the free plan. You only pay if more than 15 have signed up when you want to generate the intros, and you choose the plan on your dashboard. The 30 day plan is tied to the organiser email you create events with. Payment goes through Stripe Checkout.",
 };
 
 export const faq = {
@@ -179,7 +190,7 @@ export const faq = {
     {
       question: "Can I get a refund?",
       answer:
-        "If you paid and have not generated the intros yet, email us within 14 days and we refund you in full. Once the intros are generated, the service has been delivered and the payment is final, unless something on our side stopped it from working, in which case we refund you.",
+        "If you paid for an event and have not generated the intros yet, email us within 14 days and we refund you in full. Once the intros are generated, the service has been delivered and the payment is final, unless something on our side stopped it from working, in which case we refund you.",
     },
     {
       question: "Do guests need to download anything or make an account?",
@@ -188,14 +199,14 @@ export const faq = {
     {
       question: "Is it free to try?",
       answer:
-        "Yes. Any event with up to 15 guests is free, with the same intros as a paid event. Try it with your committee before the real night.",
+        "Yes. Any event with up to 15 guests is free, with the same intros as a paid event. Above that it costs 2 cents a guest, at least €1, or €9 for 30 days of unlimited events.",
     },
   ] satisfies FaqItem[],
 };
 
 export const finalCta = {
   heading: "Give your guests a reason to meet someone new",
-  body: "Set up your next event in two minutes. Free up to 15 guests, €29 for up to 150.",
+  body: "Set up your next event in two minutes. Free up to 15 guests, from €1 for a bigger room.",
   primary: cta.final,
   secondary: cta.demo,
 };
