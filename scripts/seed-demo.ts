@@ -1,5 +1,7 @@
 // Seeds the sample event shown on /demo from content/demo-guests.json (plan D6).
-// Run: npm run seed:demo   (reads .env.local; replaces any earlier demo event)
+// Run: npm run seed:demo             rebuilds it (new guests, new Claude intros)
+//      npm run seed:demo -- --update  only refreshes the event's name, description,
+//                                     place and time; guests and intros stay as they are
 // The guests are fictional and the event has plan "demo", so it is excluded
 // from every traction number.
 
@@ -17,7 +19,24 @@ type DemoGuest = {
   askMeAbout?: string;
 };
 
+async function updateOnly() {
+  const { data, error } = await db()
+    .from("events")
+    .update({
+      name: demo.event.name,
+      description: demo.event.description,
+      place: demo.event.place,
+      starts_at: new Date(demo.event.startsAt).toISOString(),
+    })
+    .eq("plan", "demo")
+    .select("slug");
+  if (error) throw error;
+  if (!data || data.length === 0) throw new Error("No demo event yet: run npm run seed:demo first.");
+  console.log(`Demo event updated in place: ${data.map((e) => `/e/${e.slug}`).join(", ")}. Guests and intros unchanged.`);
+}
+
 async function main() {
+  if (process.argv.includes("--update")) return updateOnly();
   const { error: delError } = await db().from("events").delete().eq("plan", "demo");
   if (delError) throw delError;
 
