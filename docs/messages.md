@@ -280,7 +280,7 @@ Requests (in order):
 - [ ] **Pitch video on the finish line**: upload a first cut now on https://founderrace.com/en/finish-line/ ("Choose my video"), replace it with the final by Sun 08:00 Paris / 15:00 SGT. mp4, mov or webm, 1 to 3 minutes, under 500 MB, with race footage. Numbers in it must match `/stats` and Stripe (today: 0 real customers; never count David's €1 test).
 - [ ] **Discord note** in the organisers' channel, from you on David's behalf: "Two Pizzas: the €1 payment at 16:04 Paris on our Stripe key is our own checkout test by David, refunded, please don't count it."
 - [ ] **Outreach and traction** until the freeze: every real organiser who creates an event or pays counts. Log real numbers in `docs/log.md` (the stats page link with its key is in David's `.env.local`; ask in WhatsApp if you need it, it never goes in the repo).
-- [ ] **Re-record the product clips** if you want them in the video: `scripts/record/README.md` (write the event code it prints here; anyone with the Supabase key can run `npm run mark-test -- <code>`, otherwise leave it, test events are easy to spot by name).
+- [ ] **Re-record the product clips** if you want them in the video: `scripts/record/README.md` (write the event code it prints here; the stats page now ignores any event whose organiser email ends in @example.com, which the script always uses, so recording runs never count as traction).
 - [ ] **Sun 07:30 Paris / 14:30 SGT**: optional Codex `verify` on `verification.md`, then `/review_verification`.
 - [ ] **Sun 08:30 Paris / 15:30 SGT**: README final check and `/preflight` (the repo is already public).
 - [ ] **Sun 08:45 Paris / 15:45 SGT**: finish line shows 3/3 deliverables, project fields saved, MVP URL https://threehellos.app with a good screenshot.
