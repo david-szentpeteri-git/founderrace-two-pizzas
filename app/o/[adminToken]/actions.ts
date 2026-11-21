@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getEventRowByAdminToken, eventGuests } from "@/lib/data";
 import { generateIntros } from "@/lib/matching";
 import { EVENT_PRICE_EUR_CENTS, siteUrl } from "@/lib/site";
+import type Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
 
 function back(adminToken: string, params: Record<string, string>): never {
@@ -36,9 +37,14 @@ export async function startCheckoutAction(adminToken: string): Promise<void> {
   if (event.plan !== "free") back(adminToken, { error: "alreadypaid" });
 
   let url: string | null = null;
+  const base = siteUrl();
+  // The buyer agrees to the terms and to delivery starting at once, which ends
+  // the 14 day right to cancel when the intros are made (see /terms).
+  const waiverTail = "I ask for my event to be upgraded right away, and I understand my 14 day right to cancel ends once the intros are made.";
+  const waiver = `I agree to the [terms of sale](${base}/terms). ${waiverTail}`;
+  const waiverPlain = `By paying you agree to the terms of sale at ${base}/terms. ${waiverTail}`;
   try {
-    const base = siteUrl();
-    const session = await stripe().checkout.sessions.create({
+    const params: Stripe.Checkout.SessionCreateParams = {
       mode: "payment",
       line_items: [
         {
@@ -59,8 +65,24 @@ export async function startCheckoutAction(adminToken: string): Promise<void> {
       customer_creation: "always",
       success_url: `${base}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${base}/o/${encodeURIComponent(adminToken)}?checkout=cancelled`,
-    });
-    url = session.url;
+      consent_collection: { terms_of_service: "required" },
+      custom_text: { terms_of_service_acceptance: { message: waiver } },
+    };
+    try {
+      url = (await stripe().checkout.sessions.create(params)).url;
+    } catch (consentError) {
+      // Stripe refuses the consent box until a terms URL is set in the account's
+      // public details. Keep selling meanwhile, with the waiver as plain text.
+      console.error("Checkout with consent box failed, retrying without it", consentError);
+      const { consent_collection: _omit, ...rest } = params;
+      void _omit;
+      url = (
+        await stripe().checkout.sessions.create({
+          ...rest,
+          custom_text: { submit: { message: waiverPlain } },
+        })
+      ).url;
+    }
   } catch (error) {
     console.error("Stripe checkout failed", error);
   }
