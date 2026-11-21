@@ -31,6 +31,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 16:26 | Sat 23:26 | David | All events deleted from the database at David's request (13 events, 91 guests, 123 intros; all were tests except the not yet used fashion event). Free limit cut from 15 to 4 guests: €1 per guest from the 5th, or €9 for 30 days unlimited. |
 | Sat 16:31 | Sat 23:31 | David | Sample event rebuilt for /demo (14 fictional guests, 42 intros from Claude, plan demo, never counted). |
 | Sat 16:46 | Sat 23:46 | David | Daily keep-alive added (Vercel cron calls /api/keepalive, one database query) so the free Supabase database never pauses while the jury reviews the site. |
+| Sat 16:50 | Sat 23:50 | Daniel | Pitch video submitted on the finish line at 16:37 Paris (1:36; new opening, results rows, race footage, threehellos.app), so the three deliverables are in. Outreach wave 3: 50 more cold emails scheduled in the Three Hellos mailbox (37 leave today between 17:30 and 19:30 Paris, 13 on Sunday between 02:30 and 07:00 Paris for Asia). Counted as sent only once they leave. Real use on the stats page at 16:46 Paris: 0 events created by organisers, 0 guests, 0 payments. Replies from a person so far: 0. |
 
 ## Notes for each other
 
