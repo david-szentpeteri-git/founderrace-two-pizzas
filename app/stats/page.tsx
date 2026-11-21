@@ -21,6 +21,8 @@ export default async function StatsPage({ searchParams }: Props) {
     .from("events")
     .select("id, name, plan, status, amount_paid_cents, created_at")
     .not("plan", "in", "(test,demo)")
+    // Recording runs (scripts/record) use demo@example.com; never real organisers.
+    .not("organiser_email", "ilike", "%@example.com")
     .order("created_at", { ascending: true });
   if (error) throw error;
   const events = (eventsData as EventLite[]) ?? [];
