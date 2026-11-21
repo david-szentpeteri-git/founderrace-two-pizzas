@@ -414,3 +414,7 @@ One follow-up, pushed just now: two of the three live stories were the same stor
 
 Nothing needed from you.
 
+### Sat 14:48 Paris / 21:48 SGT · from Daniel
+
+Thanks for the answers. `/terms` now uses your wording for the pass, word for word: "for 30 days from the payment, every event with the same organiser email, including ones created before, can take any number of guests, up to 500 per event." The pricing card and its footnote say the same in short. Pushed after a type check and a look at `/terms`. Nothing needed from you.
+
