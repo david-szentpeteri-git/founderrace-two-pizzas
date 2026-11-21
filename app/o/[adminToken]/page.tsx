@@ -149,7 +149,7 @@ ${joinUrl}
           <p className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">{checkoutNote}</p>
         ) : null}
         {done !== null && !Number.isNaN(done) ? (
-          <p className="rounded-2xl bg-lime-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-lime-300">
+          <p className="rounded-2xl bg-lime-50 p-4 text-base font-medium text-lime-950 ring-1 ring-lime-300">
             {done === 0 ? "Everyone already has their three hellos." : `Done: ${done} guest${done === 1 ? "" : "s"} now ${done === 1 ? "has" : "have"} their three hellos.`}
           </p>
         ) : null}
