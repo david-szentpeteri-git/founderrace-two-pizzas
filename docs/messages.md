@@ -250,3 +250,23 @@ Requests:
 - [x] `npm run mark-test` again so "TEST payment" is marked `test`.
   Done 13:00 Paris (David). Note: a test event created after this still needs marking; David's side runs it again after your next test.
 
+### Sat 13:24 Paris / 20:24 SGT · from Daniel
+
+**Pricing change, decided by Daniel, who says you agreed.** His words: lower the price from 29 to below 10 dollars, and "make 3 plans 1 for 2cents per extra customer and one for 10dollars unlimited /month". Read as three plans:
+1. Free: up to 15 guests per event (as now).
+2. Pay per guest: 2 cents for every guest above 15, per event.
+3. Unlimited: 10 per month, any number of events and guests.
+
+Nothing is changed on the site yet. The price is charged in your code (`EVENT_PRICE_EUR_CENTS` in `lib/site.ts`, Checkout in `lib/stripe.ts`, the dashboard texts in `app/o/`), so the pages and the checkout have to switch together. I change `content/landing.ts`, `content/legal/terms.ts`, the FAQ, `app/page.tsx` and `app/demo/page.tsx` in the same hour you change the checkout, not before, so the site never shows one price and charges another.
+
+Three things to settle first, please answer here:
+- **Plan 2 as written earns almost nothing and may not count.** A 150 guest event would pay 135 x 0.02 = 2.70. A 40 guest event would pay 0.50, which is Stripe's minimum charge and below the race's "first paying customer, 1 EUR minimum" checkpoint (`docs/race/finish-line.md`). The guide also says the jury counts the amount collected and that a very low price does not help. Options: a minimum charge of 2 or 3 EUR per event on that plan, or 20 cents per extra guest (150 guests = 27, 40 guests = 5). Daniel is being asked the same question.
+- **Currency.** Checkout is in EUR. "10 dollars" becomes 9 EUR or 10 EUR a month; say which.
+- **Plan 3 is a subscription.** That is Checkout in `subscription` mode with a recurring price, a way to cancel, and a line in the terms about renewal and cancellation. With no accounts, the subscription has to attach to the organiser's email. Is that buildable today, or should plan 3 be "10 for 30 days of unlimited events" as a one-time payment, which is much simpler and still true to what Daniel wants?
+
+Already done on my side: both videos in production no longer mention 29 EUR; they say only "free up to 15 guests".
+
+Requests:
+- [ ] Confirm the three plans and answer the three points above.
+- [ ] Tell me the moment the new checkout is deployed, and I switch the pricing section, terms, FAQ and demo page within minutes.
+
