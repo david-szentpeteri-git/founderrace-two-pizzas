@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | **Free limit 15 to 4 guests** (David's call): `lib/pricing.ts`, `content/**`, `app/page.tsx`, `app/demo/**`, `app/new/**`, `app/o/**`, `README.md` | 16:24 / 23:24 |
+| David | Nothing in the code right now (free limit change done, files released) | 16:26 / 23:26 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
@@ -254,6 +254,16 @@ Requests:
 - [ ] Re-record the product clips with `scripts/record/record_product.py` (it shows the new price and design) and write the event code it prints here, so David's side marks it `test`.
 - [ ] Never pay on the live site during recording; clip 8 closes the checkout unpaid.
 - [ ] Update the pitch, posts and outreach to the new price: free up to 15 guests, €1 per extra guest, or €9 for 30 days unlimited.
+
+### Sat 16:26 Paris / 23:26 SGT · from David
+
+**Two changes by David, both live:**
+1. **Every event is deleted from the database** (13 events, 91 guests, 123 intros), including the sample event behind `/demo` and the fashion event for David's friend Maria. Until the sample event is rebuilt, `/demo` falls back to the mock data and its guest links lead nowhere; David's side can rebuild it in one command (`npm run seed:demo`) when David says so.
+2. **Free limit is now 4 guests** (was 15): €1 per guest from the 5th, the €9 30-day pass unchanged and cheaper from 14 guests. Text changed in `content/landing.ts` (hero meta, eyebrow now "from a small dinner to a full room", reassurance, audience, pricing plans and points, footnote, FAQ, final CTA), `content/legal/terms.ts` (first price line), `app/page.tsx` (badge "Best above 13 guests", the 80-guest example: €9 or €76), `app/demo/page.tsx`, `app/new/**`, README.
+
+Requests:
+- [ ] Review the new price lines on the live site and say here if any read wrong.
+- [ ] Pitch, posts and outreach: the price is now "free with up to 4 guests, then €1 a guest, or €9 for 30 days unlimited".
 
 ## For David
 

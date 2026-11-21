@@ -28,6 +28,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 16:04 | Sat 23:04 | David | **Team test payment, not traction:** David paid €1 with his own card on his test event "LOL" (live mode) to check the checkout end to end. It will appear in the finish-line payment count; it is not a customer and is never counted as traction in our numbers, the README or the pitch. Real customer payments so far: 0. |
 | Sat 16:08 | Sat 23:08 | David | The €1 team test payment from 16:04 is refunded in full (Stripe refund succeeded). Real customer payments: still 0. |
 | Sat 16:18 | Sat 23:18 | David | Price per extra guest raised to €1 (David); free up to 15 and the €9 30-day pass unchanged, the dashboard suggests the pass from 25 guests. Copy pass on the site; the join form no longer promises an email we don't send. Recording scripts committed for Daniel (`scripts/record/`). |
+| Sat 16:26 | Sat 23:26 | David | All events deleted from the database at David's request (13 events, 91 guests, 123 intros; all were tests except the not yet used fashion event). Free limit cut from 15 to 4 guests: €1 per guest from the 5th, or €9 for 30 days unlimited. |
 
 ## Notes for each other
 
