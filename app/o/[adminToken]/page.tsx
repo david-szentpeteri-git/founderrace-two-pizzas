@@ -72,6 +72,20 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
   const when = formatEventDate(event.startsAt, event.timeZone);
   const error = typeof query.error === "string" ? ERRORS[query.error] : undefined;
   const done = typeof query.done === "string" ? Number(query.done) : null;
+  const checkoutNote =
+    query.checkout === "cancelled"
+      ? "Payment cancelled. Your event is still on the free plan, nothing was charged."
+      : query.checkout === "pending"
+        ? "Your payment is still being confirmed. Refresh this page in a minute."
+        : undefined;
+  const mailto = `mailto:${view.organiserEmail}?subject=${encodeURIComponent(`Your Three Hellos links for ${event.name}`)}&body=${encodeURIComponent(
+    `Your private organiser dashboard (keep it to yourself):
+${dashboardUrl}
+
+Join link to share with guests:
+${joinUrl}
+`,
+  )}`;
 
   return (
     <div className="min-h-screen bg-white text-zinc-900">
@@ -86,6 +100,15 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
             {" · "}
             {view.plan === "paid" ? "Paid, up to 150 guests" : view.plan === "pilot" ? "Pilot event" : view.plan === "demo" ? "Sample event" : `Free plan, up to ${FREE_GUEST_LIMIT} guests`}
           </p>
+          {query.new !== "1" ? (
+            <p className="mt-2 text-sm text-zinc-500">
+              This page is your private organiser link. Bookmark it or{" "}
+              <a href={mailto} className="font-medium text-zinc-900 underline underline-offset-4">
+                email it to yourself
+              </a>
+              .
+            </p>
+          ) : null}
         </div>
 
         {query.new === "1" ? (
@@ -98,6 +121,9 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
               <code className="truncate rounded-xl bg-white px-3 py-2 text-sm ring-1 ring-zinc-200">{dashboardUrl}</code>
               <CopyButton text={dashboardUrl} label="Copy organiser link" />
+              <a href={mailto} className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-900 hover:border-zinc-900">
+                Email it to myself
+              </a>
             </div>
           </Card>
         ) : null}
@@ -110,6 +136,9 @@ export default async function OrganiserPage({ params, searchParams }: Props) {
         ) : null}
 
         {error ? <p className="rounded-2xl bg-red-50 p-4 text-base font-medium text-red-700">{error}</p> : null}
+        {checkoutNote ? (
+          <p className="rounded-2xl bg-zinc-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-zinc-200">{checkoutNote}</p>
+        ) : null}
         {done !== null && !Number.isNaN(done) ? (
           <p className="rounded-2xl bg-lime-50 p-4 text-base font-medium text-zinc-900 ring-1 ring-lime-300">
             {done === 0 ? "Everyone already has their three hellos." : `Done: ${done} guest${done === 1 ? "" : "s"} now ${done === 1 ? "has" : "have"} their three hellos.`}
