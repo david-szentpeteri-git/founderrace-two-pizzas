@@ -210,7 +210,7 @@ export default function HomePage() {
             <Spotlight>
             <Reveal stagger className="mt-10 grid gap-6 lg:grid-cols-3">
               {pricing.plans.map((plan, i) => {
-                const recommended = i === 1;
+                const recommended = i === 2;
                 return (
                   <div
                     key={plan.name}
@@ -222,7 +222,7 @@ export default function HomePage() {
                       <h3 className="font-display text-xl font-semibold tracking-tight">{plan.name}</h3>
                       {recommended ? (
                         <span className="rounded-full bg-lime-300 px-3 py-1 text-xs font-semibold text-zinc-900">
-                          Most events
+                          Best above 24 guests
                         </span>
                       ) : null}
                     </div>
@@ -252,7 +252,7 @@ export default function HomePage() {
               })}
             </Reveal>
             </Spotlight>
-            <p className="mt-8 font-medium text-zinc-900">An event with 80 guests costs €1.30 in total.</p>
+            <p className="mt-8 font-medium text-zinc-900">An event with 80 guests costs €9 with the 30 day pass, or €65 paying per guest.</p>
             <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-zinc-500">{pricing.footnote}</p>
           </div>
         </section>

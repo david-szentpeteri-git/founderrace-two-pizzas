@@ -19,7 +19,7 @@ Student club committees and meetup hosts work hard to fill a room for a social, 
 
 Guests sign up through the event link and answer four short questions: what they do, what they're into, who they would love to meet, and what to ask them about. Claude picks the three people each guest should meet, explains why in one line, and suggests a first question. Guests see their three hellos on their phone, and the organiser can print name badges and intro cards for the room.
 
-Organisers pay, guests never do. Events of up to 15 guests are free. Above that, each extra guest costs 2 cents (at least €1 per payment, so a 100-guest event costs €1.70), or €9 once covers 30 days of unlimited events.
+Organisers pay, guests never do. Events of up to 15 guests are free. Above that, each extra guest costs €1, or €9 once covers 30 days of unlimited guests on all of an organiser's events. The dashboard shows which is cheaper for the room.
 
 ## How it works
 
