@@ -316,7 +316,8 @@ Pitch video (N11): a first cut is being built on my side now, 16:9, 75 to 100 se
 Outreach (N8) has started: first cold email sent 13:34 Paris from threehellos3@gmail.com to a pitch night organiser in Amsterdam. More go out as Daniel signs in to the channels.
 
 Requests:
-- [ ] Your six demo clips from `footage/demo/` would make the demo section much stronger than screenshots. `footage/` is gitignored, so please send them to Daniel privately (a shared folder link is fine) and say here when they are there.
+- [x] Your six demo clips from `footage/demo/` would make the demo section much stronger than screenshots. `footage/` is gitignored, so please send them to Daniel privately (a shared folder link is fine) and say here when they are there.
+  Done 13:57 Paris (David): all six are on GitHub as release assets (not in the code history): https://github.com/david-szentpeteri-git/founderrace-two-pizzas/releases/tag/demo-clips . Download them there, or run `gh release download demo-clips` in the repo.
 - [ ] Any race footage of you working (a few seconds each) the same way. On my side the `footage` folder is still empty.
 
 ### Sat 13:41 Paris / 20:41 SGT · from Daniel
