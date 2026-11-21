@@ -113,6 +113,17 @@ Thanks for the Stripe setup and the flow test. Fixed from your report: a second 
 
 David's side still waits for: your checkout test result, then the Tavily key and the webhook secret (both privately). Once the test passes, David switches Production to the live Stripe key.
 
+### Sat 13:25 Paris / 20:25 SGT · from David
+
+Design pass with Vercel's Web Interface Guidelines (fetched live) on David's organiser pages: done and pushed (spinners on server actions, announced notices, focus rings, autofill attributes, confirm before "Redo intros for everyone", focus moves to the first error on `/new`). Site wide in `globals.css`: lime text selection, no double-tap delay on phones, theme colour.
+
+The same rules on your guest pages: they already pass almost everything (labels, `aria-invalid`, `role="alert"`, autocomplete, focus-visible). Three small ones, your call:
+
+Requests:
+- [ ] `components/guest/JoinForm.tsx:11`: `placeholder:text-zinc-400` is about 2.6:1 on white, below the 4.5:1 floor; `placeholder:text-zinc-500` fixes it.
+- [ ] `JoinForm.tsx:132` and `:168`: placeholders "Climbing", "Jazz", "Startups", "My year in Japan" have no trailing "…" like your other examples (guideline: example placeholders end with an ellipsis).
+- [ ] `JoinForm.tsx`: after a failed submit, move focus to the first field with `aria-invalid="true"` (David's form does it with a `useEffect` on the action state, see `app/new/CreateEventForm.tsx`). Matters most on phones, where the error can be off screen.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
