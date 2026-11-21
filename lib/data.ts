@@ -16,8 +16,8 @@ import type {
   PrintData,
 } from "./types";
 
-// Server-only data functions (docs/plan.md 5.6). Daniel's pages use the first
-// five; the organiser pages use the rest. Without Supabase keys the page
+// Server-only data functions. The guest-facing pages use the first five; the
+// organiser pages use the rest. Without Supabase keys the page
 // functions fall back to lib/mock.ts so the site still renders in development.
 
 // ---------- Row shapes (snake_case, as stored) ----------
@@ -145,7 +145,7 @@ function hellosFor(guestId: string, matches: MatchRow[], byId: Map<string, Guest
     });
 }
 
-// ---------- Guest-facing (Daniel's pages) ----------
+// ---------- Guest-facing pages ----------
 
 export async function getEventBySlug(slug: string): Promise<EventPublic | null> {
   if (!hasDatabase()) return mock.getEventBySlug(slug);
@@ -253,7 +253,7 @@ export async function getDemo(): Promise<DemoData> {
   };
 }
 
-// ---------- Organiser side (David's pages) ----------
+// ---------- Organiser side ----------
 
 export async function createEvent(input: CreateEventInput, plan: Plan = "free"): Promise<{ adminToken: string; slug: string }> {
   const adminToken = newToken();

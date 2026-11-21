@@ -4,7 +4,7 @@ import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod";
 import type { MatchGuest } from "./types";
 
-// Claude matcher (docs/plan.md 5.7). One call per batch of guests; the roster
+// Claude matcher. One call per batch of guests; the roster
 // sits in a cached system block so every batch reuses it.
 
 export const MODEL = "claude-opus-5-5";

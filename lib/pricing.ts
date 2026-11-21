@@ -1,4 +1,4 @@
-// Pricing (Sat 21 Nov; €1 per guest from 16:20 Paris, free limit cut from 15 to 4 guests at 16:45, David's calls):
+// Pricing (set during the race on Sat 21 Nov 2026):
 // 1. Free: up to 4 guests per event (the smallest room that can be matched).
 // 2. Pay per guest: €1 for each guest above what the event already covers.
 //    A payment covers exactly the guests waiting at that moment; later

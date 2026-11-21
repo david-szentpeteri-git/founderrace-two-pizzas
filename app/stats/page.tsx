@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
 
-// Internal traction numbers (plan D8). Needs ?key=STATS_KEY. Counts real use
+// Internal traction numbers. Needs ?key=STATS_KEY. Counts real use
 // only: events with plan "test" or "demo" and their guests are left out.
 // Visitors come from Vercel Analytics, payments are cross-checked in Stripe.
 

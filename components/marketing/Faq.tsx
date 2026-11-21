@@ -4,8 +4,8 @@ const items: FaqItem[] = faq.items;
 
 // Features listed here are live, so their full FAQ answer shows.
 // Anything else with dependsOn shows answerUntilLive instead.
-// "D8 late arrivals": live since 21 Nov, the dashboard has "Match new arrivals".
-const liveFeatures = new Set<string>(["D8 late arrivals"]);
+// "late arrivals": live since 21 Nov, the dashboard has "Match new arrivals".
+const liveFeatures = new Set<string>(["late arrivals"]);
 
 export default function Faq() {
   return (

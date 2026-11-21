@@ -1,8 +1,8 @@
 // Privacy page for /privacy. Build it with completeSeller(); render nothing if that returns null.
-// Facts here come from docs/plan.md sections 5 and 5.9. If the product changes, update this file.
+// Facts here describe how the product handles data. If the product changes, update this file.
 import { fixed, type CompleteSeller, type LegalPage, type LegalSection } from "./seller";
 
-// Add this section to the page only once guest and organiser emails are switched on (plan P1, Resend).
+// Add this section to the page only once guest and organiser emails are switched on (for example with Resend).
 export const emailSection: LegalSection = {
   heading: "Emails we send",
   paragraphs: [

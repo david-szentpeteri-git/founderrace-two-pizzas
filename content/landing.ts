@@ -1,6 +1,5 @@
 // Landing page copy for Three Hellos (route "/").
-// Written for task N2 under task_rules/writing.md: plain words, no dashes,
-// sentence case headings. Prices and claims here must match /terms and the product.
+// Plain words, no dashes, sentence case headings. Prices and claims here must match /terms and the product.
 
 export type Cta = { label: string; href: string };
 
@@ -178,7 +177,7 @@ export const faq = {
       question: "What if someone arrives after the intros are out?",
       answer:
         "They can still join with the same link. The organiser presses the button again and only the new arrivals get their intros, without changing anyone else's.",
-      dependsOn: "D8 late arrivals",
+      dependsOn: "late arrivals",
       answerUntilLive:
         "They can still join with the same link and appear on your guest list. For now, matching runs for the whole room at once, so the best moment to press the button is once most guests have signed up.",
     },

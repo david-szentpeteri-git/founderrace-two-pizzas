@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  Three Hellos visual language (set by Daniel's landing page): white
+  Three Hellos visual language: white
   background, zinc text, zinc-900 buttons, lime-300 highlights, rounded-2xl
   cards. Prefer the Tailwind zinc and lime classes; the tokens below are
   shortcuts for the same values.

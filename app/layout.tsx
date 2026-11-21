@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: "#ffffff" };
 
-// Header and Footer are rendered by each page (Daniel's pages include them;
-// the print view leaves them out), so the layout only sets fonts and analytics.
+// Header and Footer are rendered by each page (the print and poster views
+// leave them out), so the layout only sets fonts and analytics.
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html

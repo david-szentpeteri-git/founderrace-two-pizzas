@@ -1,5 +1,4 @@
-// The contract between David's backend and Daniel's pages (docs/plan.md 5.6).
-// Change a type only after telling the other person.
+// Shared types between the data layer (lib/data.ts) and the pages.
 
 export type Plan = "free" | "paid" | "pilot" | "demo" | "test";
 
@@ -60,7 +59,7 @@ export type DemoData = {
   guests: { name: string; token: string }[];
 };
 
-// Organiser side (David's pages). Adding types here does not change the ones above.
+// Organiser side.
 
 export type CreateEventInput = {
   name: string;

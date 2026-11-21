@@ -1,4 +1,4 @@
-// Seeds the sample event shown on /demo from content/demo-guests.json (plan D6).
+// Seeds the sample event shown on /demo from content/demo-guests.json.
 // Run: npm run seed:demo             rebuilds it (new guests, new Claude intros)
 //      npm run seed:demo -- --update  only refreshes the event's name, description,
 //                                     place and time; guests and intros stay as they are

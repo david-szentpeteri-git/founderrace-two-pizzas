@@ -1,4 +1,4 @@
--- Three Hellos database schema (docs/plan.md 5.4).
+-- Three Hellos database schema.
 -- Run once in the Supabase SQL editor. Safe to re-run: objects are created only if missing.
 -- Access is server-side only, with the service role key. Row level security is on
 -- and there are no policies, so the public anon key can read or write nothing.

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
-// Same look as the landing page buttons (Daniel's app/page.tsx).
+// Same look as the landing page buttons (app/page.tsx).
 type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg";
 
