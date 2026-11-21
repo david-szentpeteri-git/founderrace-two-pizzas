@@ -284,7 +284,7 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 | [ ] | D9 | Sunday morning: fixes from organiser feedback, concierge setups, traction numbers in `docs/log.md` every 2 hours | 07:00 / 14:00 rolling | Log has real numbers |
 | [ ] | D10 | Screen-record the full product flow for the video (create, join on phone, generate, guest page, print) | 05:30 / 12:30 | Clean 2-minute capture in `footage/` |
 | [ ] | D11 | README final, `/preflight`, repo public (owner only), GitHub URL saved on the finish line | 08:30 / 15:30 | Preflight clean on the public repo |
-| [ ] | D12 | Site redesign (David's request, 15:42 Paris): modern, minimal, visual effects, every page | Sat 17:30 / Sun 00:30 | Screenshots desktop and phone look right; build, lint and design checks clean |
+| [x] | D12 | Site redesign (David's request, 15:42 Paris): modern, minimal, visual effects, every page | Sat 17:30 / Sun 00:30 | Screenshots desktop and phone look right; build, lint and design checks clean |
 | [ ] | D13 | **Re-record the product clips after the redesign** (same 8 shots as `footage/demo-v2`, on threehellos.app), show them to David before upload, then the release for Daniel | after D12 | New clips approved by David and on the demo-clips release |
 
 ### Daniel

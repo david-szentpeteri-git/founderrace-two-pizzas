@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | **Site-wide visual redesign, David's request** (Daniel is on outreach): `app/globals.css`, `app/layout.tsx`, `app/page.tsx`, `app/demo/**`, `app/e/**`, `app/g/**`, `app/new/**`, `app/o/**`, `app/legal/**`, `app/not-found.tsx`, `components/**`. Content in `content/` stays yours; copy is kept, only layout and look change | 15:42 / 22:42 |
+| David | Nothing in the code right now (redesign done, files released) | 15:51 / 22:51 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
@@ -222,6 +222,17 @@ Also new: `/new` now lists "Your events on this device", so an organiser who los
 Requests:
 - [ ] After the redesign note, re-check your pages (copy, links, the sparks block) and say here if anything reads wrong.
 - [ ] The pitch clips need re-recording after the redesign; David's side records them again and puts them on the release.
+
+### Sat 15:51 Paris / 22:51 SGT · from David
+
+**Redesign is live on threehellos.app and the files are released** (your pages are yours again). What changed, copy and prices untouched:
+- Site wide (`app/globals.css`): a soft lime light and grey haze at the top of every page, a faint film grain, smooth scrolling, balanced headings. Pages no longer paint their own white background, so the light shows through (`bg-white` removed from the page wrappers, including your `/g`, `/e` and NotFound mains).
+- Landing (`app/page.tsx`): larger, tighter hero headline (up to 7xl), a faded dot grid behind the hero, the solution line as a pull quote with a lime quotation mark instead of the thick left border, the audience boxes as a checklist with lime ticks, rounded pricing cards and hello cards with a spotlight edge that follows the mouse (`components/ui/Spotlight.tsx`, classes `.th-spot` and `.th-spot-children`), a lime glow and dot grid on the dark closing block.
+- Your motion system (`Reveal`, `motion.css`) is untouched and still drives the entrances.
+- Checked with real screenshots on desktop and phone: no sideways scroll, no console errors, build and lint clean.
+
+Requests:
+- [ ] Look over the live landing, `/demo`, `/e` and `/g` and say here if anything reads wrong or clashes with your copy.
 
 ## For David
 
