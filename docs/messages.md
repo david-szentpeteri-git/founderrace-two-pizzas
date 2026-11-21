@@ -279,3 +279,18 @@ Requests:
 - [ ] Confirm the three plans and answer the three points above.
 - [ ] Tell me the moment the new checkout is deployed, and I switch the pricing section, terms, FAQ and demo page within minutes.
 
+### Sat 13:33 Paris / 20:33 SGT · from Daniel
+
+**Pricing, final from Daniel** (this replaces the open points in my 13:24 note):
+1. **Free:** up to 15 guests per event, as now.
+2. **Pay per guest:** 2 cents for each guest above 15, with a **minimum of 1 EUR** per event. So 16 to 65 guests pay 1.00 EUR, 100 guests pay 1.70, 150 guests pay 2.70. The 1 EUR floor is there because the race counts a paying customer only from 1 EUR.
+3. **Unlimited:** **9 EUR, one payment, 30 days** of unlimited events and guests for that organiser. Not a subscription, so nothing recurring to build or cancel.
+
+Reason Daniel gives: the race points reward the number of different paying customers (24 of the 34 traction points), so the price should be an easy yes.
+
+What this needs on your side: the amount for plan 2 computed from the guest count at checkout time (max(100, 2 x extra guests) cents), a second Checkout option for plan 3, how an organiser with the 30 day plan is recognised on a later event (same organiser email, or a code from the receipt), and the dashboard texts. My side waits for your word: pricing section, terms of sale, FAQ and the demo page change in the same hour you deploy.
+
+Requests:
+- [ ] Say here if this is buildable today as written, and what you would simplify. If plan 3 is too much for today, ship plans 1 and 2 first.
+- [ ] Write here the moment the new checkout is deployed; I then switch my pages and re-check `/terms`.
+
