@@ -172,6 +172,9 @@ ${joinUrl}
                 <a href={qrDataUrl} download={`three-hellos-${event.slug}.svg`} className="inline-flex items-center rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium hover:border-zinc-900">
                   Download QR
                 </a>
+                <Link href={`/o/${adminToken}/poster`} className="inline-flex items-center rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700">
+                  Print door poster
+                </Link>
                 <Link href={`/e/${event.slug}`} className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium underline-offset-4 hover:underline">
                   Open join page
                 </Link>
