@@ -69,7 +69,9 @@ Requests:
 Requests:
 - [x] Product Gmail and `contactEmail` in `content/legal/seller.ts` (urgent, see the 12:41 note).
   Done 12:47 Paris: the product address is threehellos3@gmail.com, set as `contactEmail`. Checked on `/legal`, `/terms` and `/privacy`.
-- [ ] Test the €29 checkout on the live site once David writes here that the Stripe test key is in Vercel: create an event named "TEST payment", click "Upgrade for €29", pay with card 4242 4242 4242 4242 (any future date, any CVC), check you land on "Payment received". Test mode, so no real money and it never counts.
+- [x] Test the €29 checkout on the live site once David writes here that the Stripe test key is in Vercel: create an event named "TEST payment", click "Upgrade for €29", pay with card 4242 4242 4242 4242 (any future date, any CVC), check you land on "Payment received". Test mode, so no real money and it never counts.
+  13:11 Paris: Daniel completed the payment himself on the Stripe sandbox page (card 4242, consent box ticked) for the event "TEST payment" (join code `87ngh8rv`) and reports that it worked. Before that, the checkout page was checked: Sandbox label, €29.00, product "Three Hellos: one event, up to 150 guests", email prefilled, consent text present.
+  One thing to confirm on your side: when the dashboard was read a minute later it showed "Test event, free plan rules" and the upgrade link was still there. That fits `mark-test` having set the plan back to `test` after the payment, but it could also mean the upgrade did not stick. Please check the row in the database: `stripe_session_id`, `amount_paid_cents` and `paid_at` should be filled for this event.
 - [x] Stripe settings, once David has invited you to the Stripe account (he will): in live mode, Settings > Business > Public details: name "Three Hellos", website https://three-hellos.vercel.app, terms of service https://three-hellos.vercel.app/terms, support email = the product Gmail; statement descriptor THREE HELLOS (short: 3HELLOS). Then Developers > Webhooks > Add endpoint https://three-hellos.vercel.app/api/stripe/webhook with the event `checkout.session.completed`, and send the signing secret (`whsec_...`) to David privately, never here.
   Done 13:06 Paris, in the live Two Pizzas account (Daniel signed in after accepting the invitation):
   - Public details: trading name "Three Hellos", business website https://three-hellos.vercel.app, support email threehellos3@gmail.com, terms https://three-hellos.vercel.app/terms, privacy https://three-hellos.vercel.app/privacy. Legal business name, phone and address were left exactly as they were.
@@ -99,7 +101,9 @@ Requests:
 **The Stripe test key is in Vercel and the site is redeployed**, so the checkout test from the 12:44 note can run now: event named "TEST payment", "Upgrade for €29", card 4242 4242 4242 4242, any future date, any CVC. Vercel Web Analytics is on as well (visitors are counted from now).
 
 Requests:
-- [ ] Run the checkout test now and write the result here (pass, or what you saw).
+- [x] Run the checkout test now and write the result here (pass, or what you saw).
+  13:11 Paris: Daniel completed the payment himself on the Stripe sandbox page (card 4242, consent box ticked) for the event "TEST payment" (join code `87ngh8rv`) and reports that it worked. Before that, the checkout page was checked: Sandbox label, €29.00, product "Three Hellos: one event, up to 150 guests", email prefilled, consent text present.
+  One thing to confirm on your side: when the dashboard was read a minute later it showed "Test event, free plan rules" and the upgrade link was still there. That fits `mark-test` having set the plan back to `test` after the payment, but it could also mean the upgrade did not stick. Please check the row in the database: `stripe_session_id`, `amount_paid_cents` and `paid_at` should be filled for this event.
 - [x] Send David your email address (privately) so he can invite you to Stripe as Administrator.
   Not needed any more: the Stripe invitation "Join the Two Pizzas account" arrived at 12:58 Paris in Daniel's own mailbox (seen 13:01). Daniel accepts it himself, since it needs his own password.
 
