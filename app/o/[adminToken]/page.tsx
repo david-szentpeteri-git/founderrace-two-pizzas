@@ -123,7 +123,7 @@ ${joinUrl}
               yourself.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <code translate="no" className="truncate rounded-xl bg-white px-3 py-2 text-sm ring-1 ring-zinc-200">{dashboardUrl}</code>
+              <code translate="no" className="block min-w-0 max-w-full truncate rounded-xl bg-white px-3 py-2 text-sm ring-1 ring-zinc-200">{dashboardUrl}</code>
               <CopyButton text={dashboardUrl} label="Copy organiser link" />
               <a href={mailto} className={buttonClass({ variant: "secondary" })}>
                 Email it to myself
@@ -160,7 +160,7 @@ ${joinUrl}
 
         <div className="grid gap-6 lg:grid-cols-5">
           {/* Share */}
-          <Card className="lg:col-span-2">
+          <Card className="min-w-0 lg:col-span-2">
             <h2 className="text-lg font-semibold">1. Share the join link</h2>
             <p className="mt-1 text-sm text-zinc-500">
               Post it in your group chat, or show the QR code on a screen at the door. Guests answer four quick questions
@@ -169,7 +169,7 @@ ${joinUrl}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={qrDataUrl} alt={`QR code for ${joinUrl}`} width={200} height={200} className="mx-auto mt-5" />
             <div className="mt-4 flex flex-col gap-2">
-              <code translate="no" className="truncate rounded-xl bg-zinc-50 px-3 py-2 text-sm ring-1 ring-zinc-200">{joinUrl}</code>
+              <code translate="no" className="block max-w-full truncate rounded-xl bg-zinc-50 px-3 py-2 text-sm ring-1 ring-zinc-200">{joinUrl}</code>
               <div className="flex flex-wrap gap-2">
                 <CopyButton text={joinUrl} label="Copy join link" />
                 <a href={qrDataUrl} download={`three-hellos-${event.slug}.svg`} className={buttonClass({ variant: "secondary" })}>
@@ -186,7 +186,7 @@ ${joinUrl}
           </Card>
 
           {/* Intros */}
-          <Card className="lg:col-span-3">
+          <Card className="min-w-0 lg:col-span-3">
             <h2 className="text-lg font-semibold">2. Make the intros</h2>
             <p className="mt-1 text-sm text-zinc-500">
               When most guests have joined, press the button. Every guest gets three people to meet, why, and a first
