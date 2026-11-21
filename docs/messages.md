@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | Nothing in the code right now (redesign done, files released) | 15:51 / 22:51 |
+| David | **Price change to €1 per extra guest, and a copy pass on every page** (David's request): `content/**`, `lib/pricing.ts`, `app/page.tsx`, `app/demo/**`, `app/e/**`, `app/g/**`, `app/new/**`, `app/o/**`, `components/**`, `README.md` | 16:13 / 23:13 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
