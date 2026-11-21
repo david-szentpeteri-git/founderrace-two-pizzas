@@ -26,6 +26,7 @@ Lives (streamed calls) run all through the race, each announced on Discord 15 mi
 
 - [ ] Both: sign in to the finish line with the registration email.
 - [ ] Daniel: accept the GitHub invitation to this repo (sent to `danielczirjak`).
+- [ ] Daniel: after cloning, create `raw/screenshots/` and `footage/` locally (both gitignored) and open the folder in Claude Code (see `docs/team-setup.md`).
 - [ ] Stripe account on the registration email (that is what the $250 credits are tied to), with **live mode activated**. Verification can take a while, and test payments do not count.
 - [ ] Create the restricted key with the finish-line button (payments read only, live mode) and save it on the finish line now. Zero sales is a valid proof, and the traction points update live.
 - [ ] Redeem the perks (codes are in the Discord announcements): Tavily coupon (valid until 23 Nov), Lovable Pro 1, Stripe credits, HubSpot for Startups if useful.
@@ -40,13 +41,17 @@ Lives (streamed calls) run all through the race, each announced on Discord 15 mi
 - [ ] Outreach running: real users, real feedback, first payments. Numbers logged in `docs/log.md`.
 - [ ] At least one partner tool in use: Lovable, Stripe or Tavily.
 - [ ] Optional: book a "Go live" call on Discord (+7 race points): https://discord.gg/YC9Va27QPu
+- [ ] Before every sleep, break or handover: `/handoff`.
 
 ## Finish (Sunday)
 
 - [ ] 07:00 Paris / 14:00 SGT: pitch video recorded. 1 to 3 minutes, English or French, mp4/mov/webm, max 500 MB. Problem, solution, traction, demo, race footage.
+- [ ] 07:30 Paris / 14:30 SGT: Codex `verify` on each `verification.md` section, then `/review_verification` to resolve what it finds.
 - [ ] 08:00 Paris / 15:00 SGT: video uploaded. Big uploads are slow: upload a first cut early and replace it later.
-- [ ] 08:30 Paris / 15:30 SGT: README final (product, live URL, stack, boilerplate credits), secrets check passed, repo made public by David (owner only), GitHub URL saved on the finish line.
+- [ ] 08:30 Paris / 15:30 SGT: README final (product, live URL, stack, boilerplate credits), `/preflight` clean, secrets check passed, repo made public by David (owner only), GitHub URL saved on the finish line.
+- [ ] 08:40 Paris / 15:40 SGT: second `/preflight`, now on the public repo.
 - [ ] 08:45 Paris / 15:45 SGT: the finish line shows 3/3 deliverables, the project fields are saved, the MVP screenshot looks right, bot protection is off.
+- [ ] 08:55 Paris / 15:55 SGT: last push.
 - [ ] 09:00 Paris / 16:00 SGT: hands off. No pushes, no deploys, no edits. Leave the MVP running for the jury.
 
 ## Commands

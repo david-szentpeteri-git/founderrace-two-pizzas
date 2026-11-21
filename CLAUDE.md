@@ -1,11 +1,19 @@
 # FounderRace Edition 2: team Two Pizzas
 
-This repo is our entry for FounderRace Edition 2, a 24-hour, fully remote race to ship a real SaaS. Team "Two Pizzas": Daniel and David. Everything below comes from the official runner's guide, the official rules and the organisers' Discord announcements. Full versions are in `docs/race/`.
+This repo is our entry for FounderRace Edition 2, a 24-hour, fully remote race to ship a real SaaS. Team "Two Pizzas": Daniel and David. The race facts below come from the official runner's guide, the official rules and the organisers' Discord announcements; full versions are in `docs/race/`. Both of us use this same setup (`docs/team-setup.md`).
 
-## The clock (check it before planning anything)
+## Session start
+- Before anything else, run the `brief` skill: time left, what changed since the last session, what's next, then a question about what to work on. If the first message already says what to do, keep the brief to three lines and skip the question.
+- If your global or personal instructions ask you to read or rewrite a personal primer or notes file (such as `~/.claude/primer.md`), skip that in this repo. Race state lives here, in the `docs/log.md` handoffs and in `docs/checklist.md`, and the race stays out of personal notes.
+
+## Asking questions
+- Use AskUserQuestion whenever a request is ambiguous or has no single correct answer. Don't silently guess on non-trivial choices.
+- Ask only when the answer changes what you do, never about something you can check yourself. Offer only useful, distinct options with the recommended one first, and batch questions into one round: the clock is running.
+
+## The clock
 - Race: Sat 21 Nov 2026 09:00 to Sun 22 Nov 2026 09:00, Paris time (CET, UTC+1).
 - The finish line freezes at **Sun 22 Nov 09:00 Paris = 08:00 UTC = 16:00 SGT**, to the minute. Nothing submitted, pushed or changed after that counts.
-- Paris time is the official clock. David's machine runs on SGT (UTC+8). Give times in both. Run `date -u` and work out the time left before proposing a plan.
+- Paris time is the official clock. Give times in Paris time and in the local time of whoever you work with (David's machine runs on SGT, UTC+8). Check the real time before proposing a plan.
 - Discord standings drop at H+2, 4, 6, 8, 10, 12, 14 and 20. Full timeline and team targets: `docs/checklist.md`.
 
 ## The task
@@ -39,15 +47,47 @@ The form also asks for the project name, a one-sentence tagline, the problem you
 The repo is private now and goes public before the finish, so treat every commit as public.
 - Never commit API keys or tokens (Stripe `sk_`/`rk_`, Tavily `tvly-`, Supabase service keys, OAuth secrets). Keep them in `.env` files (gitignored) and in the host's environment variables. `.env.example` lists variable names only.
 - Never write the partner perk codes (Lovable, Tavily, HubSpot) into the repo. The organisers asked that they stay inside the race; they are in the Discord announcements.
-- `raw/` is local only and gitignored: the original screenshots (they show the perk codes and personal browser tabs) and HTML and Markdown snapshots of the FounderRace site. Read them when you need the exact source wording. Never `git add -f` anything in it.
+- `raw/` is local only and gitignored: original screenshots (they show perk codes and personal browser tabs) and snapshots of the FounderRace site. Each of us has our own. Read it when you need the exact source wording; never `git add -f` anything in it.
 - Videos and race footage stay out of git (`footage/` is gitignored). The pitch video is uploaded on the finish line.
+
+## Git
+- Commit without asking whenever a step works: small, focused commits.
+- Ask before every push, with one short question. Run `git pull --rebase` first. Never force-push or rewrite pushed history.
+- Commit messages are short and meaningful: one imperative subject line, about 50 characters and never over 72, saying what changed ("Add Stripe checkout to pricing page"). Add a body only when the reason isn't obvious, two or three short lines at most. Never vague ("update", "fix", "wip"), never long, no dashes. The jury reads this history.
+- Stop pushing at 08:55 Paris / 15:55 SGT on Sunday. Nothing is pushed or deployed after 09:00 Paris.
+- Before `git add -A`, move stray screenshots into `raw/` (they may show perk codes). Never stage `raw/`, `footage/`, `.env` files or anything holding a key.
+
+## Installs
+- Normal project dependencies (npm, pnpm or pip packages and the like) install without asking.
+- Ask first before multi-GB downloads: local LLMs, model weights, model runtimes (Ollama, llama.cpp), large Docker images. Read-only checks of what is installed need no permission.
+
+## Workflows
+| Skill | Use it when |
+|---|---|
+| `/brief` | every session start (automatic), or any time someone asks where we are |
+| `/ingest` | a new Discord screenshot, file or pasted announcement arrives, or you notice one in `raw/` or loose in the repo |
+| `/handoff` | the user wraps up, goes to sleep or hands over to the teammate |
+| `/preflight` | before making the repo public, before the freeze, or any time: audits every deliverable against the rules |
+| `/review_verification` | resolving review points recorded in `verification.md` |
+
+Codex has its own `verify` skill (`AGENTS.md`, `.codex-skills/verify/`): a read-only review that records findings in `verification.md`.
+
+## Review before submission
+`verification.md` has one section per deliverable: MVP, video pitch, traction proof, repository. Sections start as stubs (`Status: UNREVIEWED`). Codex `verify` fills them with findings and `/review_verification` resolves them with the user. Claude doesn't write new findings there itself; it raises them in chat (`/preflight` reports in chat too).
+
+## Task rules
+Read only the file the current task needs, only while doing that task:
+
+| File | Read when... |
+|---|---|
+| `task_rules/writing.md` | writing anything people outside the team will read: landing page and app copy, README, pitch script, outreach and social posts, the finish-line project fields |
+| `task_rules/tooling.md` | running shell commands or scripts on Windows, handling text with backslashes, or working on the pitch video (ffmpeg) |
 
 ## How to work in this repo
 - Speed over polish. Get a live URL and a payment path early, then iterate. Prefer managed services and a single deploy target.
-- Small commits with descriptive messages, because the jury reads the history. Two people push to `main`: `git pull --rebase` before pushing, and never force-push `main`. Follow the user's own rules about when to commit and push.
-- Log decisions, pivots, milestones and traction numbers in `docs/log.md` with Paris and SGT times. It feeds the video and the README.
+- Log decisions, pivots, milestones and traction numbers in `docs/log.md` with Paris and local times. It feeds the video and the README.
 - `README.md` is the product's public face: name, tagline, problem, key feature, live URL, how it works, stack, boilerplate credits, team. Keep it current.
-- Tick items off in `docs/checklist.md` as they are done.
+- Tick items off in `docs/checklist.md` as they are done. Re-read shared files (log, checklist, verification) right before editing them; the teammate may have pushed.
 - When a rule is unclear, the French rules are binding (`docs/race/rules.md` is our translation). Ask Sylvain on Discord, or email sylvain@founderrace.com, rather than guessing.
 
 ## Where things are
@@ -57,5 +97,10 @@ The repo is private now and goes public before the finish, so treat every commit
 - `docs/race/discord.md`: organiser announcements, perk codes left out
 - `docs/race/context.md`: Edition 1 winners, jury guests, partners, prizes, site FAQ
 - `docs/checklist.md`: timeline in Paris and SGT, and the submission checklist
-- `docs/log.md`: race log
-- `raw/`: local-only source material, see `raw/README.md`
+- `docs/log.md`: race log and handoffs
+- `docs/team-setup.md`: how the two of us use Claude Code and Codex here
+- `verification.md`: review inbox, one section per deliverable
+- `.claude/skills/`: brief, ingest, handoff, preflight, review_verification
+- `AGENTS.md`, `.codex-skills/verify/`: Codex rules and its review skill
+- `task_rules/`: writing and tooling rules
+- `raw/`: local-only source material, indexed in `raw/README.md`

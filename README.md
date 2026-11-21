@@ -39,4 +39,4 @@ None used so far. The race rules require every boilerplate or template to be pub
 
 ## Built during the race
 
-This repository was created on race day, after the 09:00 Paris start. Race notes: [`docs/log.md`](docs/log.md). Race rules and logistics: [`docs/race/`](docs/race/).
+This repository was created on race day, after the 09:00 Paris start. Race notes: [`docs/log.md`](docs/log.md). Race rules and logistics: [`docs/race/`](docs/race/). How we worked with Claude Code and Codex: [`docs/team-setup.md`](docs/team-setup.md).
