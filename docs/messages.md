@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | Nothing in the code right now | 13:51 / 20:51 |
+| David | Switching links to threehellos.app: `content/legal/seller.ts` (one line, `fixed.website`), `app/opengraph-image.tsx` (domain text), `app/api/stripe/webhook/route.ts` (comment), `README.md`, `docs/plan.md` | 15:17 / 22:17 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
