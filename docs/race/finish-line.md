@@ -19,18 +19,61 @@ URL: https://founderrace.com/en/finish-line/ . Captured Sat 21 Nov 2026 from the
 - "Your race points", out of 100: Problem 10, MVP 28, Traction 37, Pitch 25. "0 / 28 checkpoints won". "See the detail" opens the checkpoint list ("Checkpoints to win in any order you like").
 - "For entertainment only. Points and rankings during the race do not replace the jury's final marking."
 - The points are computed on the server from Stripe, the site and the organisers, and the page refreshes them every 20 seconds while it is open.
-- **The checkpoint list only shows when signed in.** To do: open "See the detail" and copy the 28 checkpoints into this table.
+- **The checkpoint list only shows when signed in.** Copied from David's screenshots of "See the detail", Sat 21 Nov 18:04 SGT (11:04 Paris). Header: "Checkpoints to win in any order you like." Footer: "For entertainment only. Points and rankings during the race do not replace the jury's final marking."
 
-| Family | Max | Checkpoints |
+### Problem (10)
+
+| Checkpoint | Points | What it asks |
 |---|---|---|
-| Problem | 10 | to fill in |
-| MVP | 28 | to fill in |
-| Traction | 37 | to fill in |
-| Pitch | 25 | to fill in |
+| Problem described | +2 | Describe the problem you solve in a few sentences, in the "Your project" section. |
+| Precise target | +3 | Say exactly who has this problem: a job, a situation, not "everyone". |
+| Concrete problem | +3 | Make the problem concrete: a real situation, a cost, time lost. |
+| The site states the problem | +2 | Show the problem right on your site's home page. |
+
+### MVP (28)
+
+| Checkpoint | Points | What it asks |
+|---|---|---|
+| Key feature described | +2 | Describe your product's key feature, in the "Your project" section. |
+| MVP URL submitted | +2 | Submit your MVP's address. |
+| MVP online | +4 | Your MVP must load at its address, with no error and no bot protection. |
+| Own domain name | +2 | Connect a real domain name instead of a free hosting address. |
+| Several pages | +2 | Add at least three pages linked from your home page with real links. |
+| Feature visible | +5 | Show your key feature on the site: we should see it, not just read about it. |
+| Perceived quality | +4 | Polish it: nothing broken, no placeholder text, a consistent design. |
+| Readable on mobile | +3 | Check your site on a phone: readable text, nothing overflowing. |
+| Path to payment | +2 | Show a price and a button that leads to payment. |
+| Legal pages | +2 | Add your legal notice and terms of sale, linked from your site. |
+
+### Traction (37)
+
+| Checkpoint | Points | What it asks |
+|---|---|---|
+| Payment key verified | +3 | (Won Sat 21 Nov, 17:57 SGT / 10:57 Paris.) |
+| First paying customer | +6 | Land your first paying customer (not a team member, €1 minimum). |
+| 5 paying customers | +6 | Reach 5 different paying customers. |
+| 10 paying customers | +6 | Reach 10 different paying customers. |
+| 15 paying customers | +6 | Reach 15 different paying customers. |
+| €50 in revenue | +3 | Reach €50 collected since the start. |
+| €200 in revenue | +3 | Reach €200 collected since the start. |
+| €500 in revenue | +4 | Reach €500 collected since the start. |
+
+### Pitch (25)
+
+| Checkpoint | Points | What it asks |
+|---|---|---|
+| Pitch submitted | +3 | Submit your pitch video. |
+| Pitch of 1 to 3 minutes | +2 | Aim for a pitch between 1 and 3 minutes. |
+| Problem and solution presented | +5 | In your pitch, present the problem, then your solution. |
+| Results and proof presented | +5 | In your pitch, show your results and your traction proof. |
+| MVP demo | +3 | In your pitch, show your product working. |
+| Live call | +7 | Join a call on the live: book it on Discord, the control room gives you the points. |
+
+Our read: the race points count distinct paying customers, while the jury weighs the total amount collected, not the number of sales (Art. 8). Set the price for the jury; the customer count only moves the show points.
 
 ## Go live (+7)
 
-"Come and show your product in a call on the race live. Book it on Discord: the control room gives you the points." The "Book a call" button links to https://discord.gg/YC9Va27QPu .
+"Come and show your product in a call on the race live. Book it on Discord: the control room gives you the points." The "Book a call" button links to https://discord.gg/YC9Va27QPu . In the checkpoint list this is "Live call", counted in the Pitch family.
 
 ## MVP URL (required)
 
