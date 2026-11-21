@@ -20,6 +20,7 @@ Times are Paris / SGT, newest at the bottom. Note decisions, pivots, milestones,
 | Sat 13:20 | Sat 20:20 | David | Stripe Checkout verified end to end in test mode (test card, €29, event upgraded to 150 guests). Fixed: test-mode payments could have been counted as revenue; now only live-mode payments mark an event paid. Live webhook set up by Daniel, its secret in Vercel. |
 | Sat 13:31 | Sat 20:31 | David | Product demo recorded on the live site for the pitch video: six browser clips (landing, create event, guest joins on a phone, Claude makes intros, three hellos on a phone, poster and badges), in David's local `footage/demo/`. Race points 39/100: Problem 10/10, MVP 26/28 (no own domain), Traction 3/37, Pitch 0/25. |
 | Sat 13:41 | Sat 20:41 | Daniel | Outreach wave 1 started: 5 first messages to event organisers (1 email, 4 Luma host messages; Paris, Amsterdam, Singapore), each checked against the event page. Traction at this moment: 0 payments, 0 replies yet. Pricing decided by Daniel: free up to 15 guests, 2 cents per extra guest with a 1 EUR minimum, 9 EUR for 30 days unlimited; David is building it in the checkout. Motion pass and header fix live. Race points 39/100. |
+| Sat 13:51 | Sat 20:51 | David | **Live payments on.** Stripe live key in Production (restricted key without payout rights); a real live checkout opened from the site and was cancelled unpaid. New pricing (Daniel's plan): free up to 15 guests, 2 cents per extra guest with €1 minimum, €9 once for a 30-day unlimited pass. |
 
 ## Notes for each other
 
