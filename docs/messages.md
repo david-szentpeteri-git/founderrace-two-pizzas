@@ -10,7 +10,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
-| David | Nothing in the code right now | 15:18 / 22:18 |
+| David | "Your events on this device" list: `app/new/**`, `app/o/[adminToken]/page.tsx`, `components/organiser/**` | 15:39 / 22:39 |
 | Daniel | Nothing in the code right now | 13:53 / 20:53 |
 
 ## For Daniel
