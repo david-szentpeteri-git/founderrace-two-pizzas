@@ -14,7 +14,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 | Who pays | The organiser of a community event of 15 to 150 people: student club and society committees, meetup hosts, community managers, office social committees. Guests never pay. |
 | Problem | At club socials, mixers and meetups, most guests spend the evening with the people they arrived with. Newcomers and quieter people leave without a single new contact, icebreaker games feel forced, and name tags say nothing about who is worth talking to. The organiser put in the work to fill the room and the room never mixes. |
 | Key feature | Guests sign up through the event link and answer four short questions. Claude picks the three people each guest should meet, says why, and suggests a first question. Guests see their three hellos on their phone; the organiser can print name badges and intro cards. |
-| Price | Free up to 15 guests per event. **€29 per event** for up to 150 guests, one-time, through Stripe Checkout. |
+| Price | Free up to 15 guests per event. **2 cents per extra guest**, at least €1 per payment. **€9 once for 30 days** of unlimited events (by organiser email). Stripe Checkout, one-time payments. Changed from €29 per event at 13:49 Paris, see section 2. |
 | Theme fit | Artificial Intelligence: Claude does the matching and writes each reason and opener. Human Connection: the product exists to get strangers talking face to face. |
 
 ## 2. Decisions taken
@@ -24,7 +24,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 | Idea | Event icebreaker (Daniel's idea 1, merged with the seating-plan idea) | Highest amount per sale, buyers we can reach today, instant result for the demo |
 | Name | Three Hellos | Says the promise |
 | Domain | None: the product runs on three-hellos.vercel.app (David, Sat 12:41 Paris) | Saves the purchase. Costs the "own domain" checkpoint (+2, show points only) and rules out email from our own domain, so the contact address is a free product Gmail (Daniel creates it) and sending email (Resend) is dropped |
-| Pricing | Free up to 15 guests, €29 per event up to 150 | One price, easy for a club to approve; the free tier brings sign-ups |
+| Pricing | Free up to 15 guests, 2 cents per extra guest (at least €1), €9 for a 30-day pass. Was €29 per event until Sat 13:33 Paris. | Daniel's call, agreed by David: an easy yes for organisers and more distinct paying customers. Known trade-off: the jury counts the amount collected and says an artificially low price gives no advantage. |
 | Stack | Next.js + Supabase + Vercel + Claude API + Stripe | One TypeScript repo, both of us building in parallel with Claude Code |
 | AI model | `claude-opus-5-5` through the Anthropic TypeScript SDK | Current default model; structured output for the matches |
 | **Pilot rule** | Any club or group that Daniel or David runs or sits on the committee of (the AI Club included, where one of us is VP of Events) is a **free pilot**: it counts for users, feedback and footage, **never as a paying customer** (plan `pilot` in the database). | Rules forbid purchases by the team; the first-customer checkpoint excludes team members |
