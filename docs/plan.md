@@ -9,7 +9,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 | | |
 |---|---|
 | Name | Three Hellos |
-| Address | https://three-hellos.vercel.app (no custom domain: decided Sat 12:41 Paris, see section 2) |
+| Address | https://threehellos.app (bought Sat 15:13 Paris, one year, auto-renew off; three-hellos.vercel.app keeps working) |
 | Tagline (draft) | Walk into any event knowing the three people you should say hello to. |
 | Who pays | The organiser of a community event of 15 to 150 people: student club and society committees, meetup hosts, community managers, office social committees. Guests never pay. |
 | Problem | At club socials, mixers and meetups, most guests spend the evening with the people they arrived with. Newcomers and quieter people leave without a single new contact, icebreaker games feel forced, and name tags say nothing about who is worth talking to. The organiser put in the work to fill the room and the room never mixes. |
@@ -23,7 +23,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 |---|---|---|
 | Idea | Event icebreaker (Daniel's idea 1, merged with the seating-plan idea) | Highest amount per sale, buyers we can reach today, instant result for the demo |
 | Name | Three Hellos | Says the promise |
-| Domain | None: the product runs on three-hellos.vercel.app (David, Sat 12:41 Paris) | Saves the purchase. Costs the "own domain" checkpoint (+2, show points only) and rules out email from our own domain, so the contact address is a free product Gmail (Daniel creates it) and sending email (Resend) is dropped |
+| Domain | threehellos.app, bought by David on Sat 15:13 Paris for one year with auto-renew off (first decided against at 12:41) | Saves the purchase. Costs the "own domain" checkpoint (+2, show points only) and rules out email from our own domain, so the contact address is a free product Gmail (Daniel creates it) and sending email (Resend) is dropped |
 | Pricing | Free up to 15 guests, 2 cents per extra guest (at least €1), €9 for a 30-day pass. Was €29 per event until Sat 13:33 Paris. | Daniel's call, agreed by David: an easy yes for organisers and more distinct paying customers. Known trade-off: the jury counts the amount collected and says an artificially low price gives no advantage. |
 | Stack | Next.js + Supabase + Vercel + Claude API + Stripe | One TypeScript repo, both of us building in parallel with Claude Code |
 | AI model | `claude-opus-5-5` through the Anthropic TypeScript SDK | Current default model; structured output for the matches |
@@ -43,7 +43,7 @@ How to use it: find your rows in the task board (section 6), work in the files y
 7. Stripe Checkout for €29 (test mode first, then live).
 8. Demo event with sample guests, clearly labelled as sample data.
 9. Legal notice, terms of sale and privacy pages, linked from the footer.
-10. Deployed on three-hellos.vercel.app, readable on a phone, Vercel Web Analytics on.
+10. Deployed on threehellos.app, readable on a phone, Vercel Web Analytics on.
 
 ### P1: by Sat 19:00 Paris / Sun 02:00 SGT
 1. Print view: name badges ("Ask me about...") and one intro card per guest, A4.
@@ -80,7 +80,7 @@ Accounts and passwords, several organisers per event, chat between guests, nativ
 | Database | Supabase Postgres, region Singapore (`ap-southeast-1`). Accessed only from the server with the service role key; row level security on, no public policies. |
 | AI | `@anthropic-ai/sdk`, model `claude-opus-5-5`, structured output with `client.messages.parse` and `zodOutputFormat`, roster block cached with `cache_control`, effort `low` (raise to `medium` if the reasons read generic). |
 | Payments | `stripe` npm package, Checkout Session, EUR, one-time. |
-| Hosting | Vercel, function region `sin1` (next to the database), Web Analytics, address three-hellos.vercel.app. Production deployment protection off. |
+| Hosting | Vercel, function region `sin1` (next to the database), Web Analytics, address threehellos.app. Production deployment protection off. |
 | Other | `zod` (validation), `nanoid` (tokens), `qrcode` (QR codes). P1 `resend`. P2 `@tavily/core` or the Tavily REST API. |
 
 ### 5.2 Environment variables (`.env.example` lists names only)
@@ -358,9 +358,9 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 
 **Message drafts** (adapt to each person; plain and short):
 
-> Hi [name], I saw you're running [event] on [date]. We built Three Hellos this weekend: guests answer four quick questions when they sign up, and each one gets the three people they should meet that night, with a reason and a first question. It's free up to 15 guests and €29 for bigger events. Want me to set it up for [event]? Here's a sample event: three-hellos.vercel.app/demo
+> Hi [name], I saw you're running [event] on [date]. We built Three Hellos this weekend: guests answer four quick questions when they sign up, and each one gets the three people they should meet that night, with a reason and a first question. It's free up to 15 guests and €29 for bigger events. Want me to set it up for [event]? Here's a sample event: threehellos.app/demo
 
-> Hey [name], quick one: does [club] have a social or mixer coming up? We made a small tool so people actually meet each other instead of staying with their friends. I can set it up for you in five minutes if you want to try it: three-hellos.vercel.app
+> Hey [name], quick one: does [club] have a social or mixer coming up? We made a small tool so people actually meet each other instead of staying with their friends. I can set it up for you in five minutes if you want to try it: threehellos.app
 
 **Tracking.** Every 2 hours from Sunday 07:00 SGT, one line in `docs/log.md`: visitors, organisers, guests, paying organisers, euros collected. Ask happy organisers and guests for one sentence we can quote with their first name, with their permission.
 
@@ -382,7 +382,7 @@ Written to `task_rules/writing.md`. Update them when the product changes.
 
 ## 11. Submission and the freeze
 
-- MVP URL: https://three-hellos.vercel.app (saved on the finish line Sat 12:31 Paris).
+- MVP URL: https://threehellos.app (was three-hellos.vercel.app from 12:31 Paris; switched on the finish line after the domain was bought).
 - Video: first cut at 07:00 / 14:00, final at 08:00 / 15:00.
 - Traction proof: already saved and verified.
 - GitHub: public at 08:30 / 15:30 by David, URL saved on the finish line.

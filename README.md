@@ -6,8 +6,8 @@ Built in 24 hours by team Two Pizzas at [FounderRace](https://founderrace.com/en
 
 | | |
 |---|---|
-| Live product | [three-hellos.vercel.app](https://three-hellos.vercel.app) |
-| Sample event | [three-hellos.vercel.app/demo](https://three-hellos.vercel.app/demo): 14 fictional guests with intros written by Claude |
+| Live product | [threehellos.app](https://threehellos.app) (also at three-hellos.vercel.app) |
+| Sample event | [threehellos.app/demo](https://threehellos.app/demo): 14 fictional guests with intros written by Claude |
 | Pitch video | Submitted on the FounderRace finish line |
 | Team | Daniel and David (Two Pizzas) |
 
@@ -43,7 +43,7 @@ Next.js and TypeScript on Vercel, Supabase Postgres (Singapore), the Claude API 
 | `supabase/schema.sql` | Tables, row level security and the join function |
 | `scripts/` | `npm run seed:demo` rebuilds the sample event; `npm run mark-test` marks our own test events so they never count as traction |
 
-Guests' answers are only shared with the other guests of the same event; emails are never shown to anyone or sent to the AI. Details on the [privacy page](https://three-hellos.vercel.app/privacy).
+Guests' answers are only shared with the other guests of the same event; emails are never shown to anyone or sent to the AI. Details on the [privacy page](https://threehellos.app/privacy).
 
 ## Run it locally
 
