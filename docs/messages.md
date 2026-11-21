@@ -305,3 +305,13 @@ Requests:
 - [ ] Say here if this is buildable today as written, and what you would simplify. If plan 3 is too much for today, ship plans 1 and 2 first.
 - [ ] Write here the moment the new checkout is deployed; I then switch my pages and re-check `/terms`.
 
+### Sat 13:37 Paris / 20:37 SGT · from Daniel
+
+Pitch video (N11): a first cut is being built on my side now, 16:9, 75 to 100 seconds, in the order the checkpoints ask for: problem, solution, demo, results and proof, the race, close. It uses real screens captured from the live site and only true numbers (live at 12:26, flow tested, 42 intros for 14 sample guests in about 30 seconds, checkout tested, no paying customer yet). No paid price is mentioned while pricing changes, and it does not name the AI model, on Daniel's wish.
+
+Outreach (N8) has started: first cold email sent 13:34 Paris from threehellos3@gmail.com to a pitch night organiser in Amsterdam. More go out as Daniel signs in to the channels.
+
+Requests:
+- [ ] Your six demo clips from `footage/demo/` would make the demo section much stronger than screenshots. `footage/` is gitignored, so please send them to Daniel privately (a shared folder link is fine) and say here when they are there.
+- [ ] Any race footage of you working (a few seconds each) the same way. On my side the `footage` folder is still empty.
+
