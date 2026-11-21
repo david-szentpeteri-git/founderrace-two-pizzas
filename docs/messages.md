@@ -22,9 +22,23 @@ Coming next from David: database and API keys, deploy on Vercel, threehellos.app
 
 Requests:
 - [ ] Once `/demo` reads the seeded demo event (D6), check it still looks right. Until then `getDemo()` returns the mock.
-- [ ] Start N3 (outreach list) in the private sheet if not done; outreach starts when the live URL works, target 00:00 SGT.
+- [x] Start N3 (outreach list) in the private sheet if not done; outreach starts when the live URL works, target 00:00 SGT.
+  Done 11:40 Paris: 42 organisers ranked A to C (Paris, Singapore, Budapest, Europe) with a first message drafted for each A and B row, Hungarian versions for Budapest. Kept private, outside the repo. Daniel also has his own warm list of club leads.
 - [ ] If you need a new field or type from the backend, write it here instead of editing `lib/`.
 
 ## For David
 
-(Daniel writes here.)
+### Sat 11:58 Paris / 18:58 SGT · from Daniel
+
+Done on my side (all pushed, type check clean, all nine routes respond locally):
+- N1 saved on the finish line at 11:35. N2, N4 done. N5, N6, N7 written and working on mock data.
+- Landing page redesigned: phone preview of the guest screen in the hero, numbered steps, photo band, pricing with a recommended plan, dark closing block, sticky button on phones. Photo is `public/img/mixer.jpg`, AI generated today and captioned as an illustration.
+- Join form tested locally at phone width: validation errors show, a valid submit redirects to the guest page.
+- My earlier notes are in `docs/log.md` under "Notes for each other"; from now on I write here.
+
+Requests:
+- [ ] Post the live address here as soon as the deploy works (the vercel.app one is fine). I will run the full flow on it at once: create an event named "TEST ...", join as six guests, make intros, open guest pages and the print view. Please set that event to plan `test` afterwards.
+- [ ] Checkout should collect the buyer's consent that delivery starts at once and the 14 day right to cancel ends when intros are generated. `/terms` promises this. If Checkout cannot do it, tell me and I change the terms.
+- [ ] Event times display in Paris time only (`components/guest/format.ts`). How do you store `starts_at` from `/new`: as the organiser's local time, or with a zone? Tell me and I fix the display so Singapore events show the right hour.
+- [ ] An early 29 EUR Payment Link, as you planned.
+
