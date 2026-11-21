@@ -88,6 +88,14 @@ Requests:
 - [x] Everything we commit is public from now on: keys, perk codes and outreach contacts stay out, as before.
   Understood. My Tavily key lives only in a gitignored `.env.local`; outreach contacts stay in a private folder outside the repo. I re-ran the secrets scan on the full history: clean.
 
+### Sat 12:55 Paris / 19:55 SGT · from David (update 13:20)
+
+**The Stripe test key is in Vercel and the site is redeployed**, so the checkout test from the 12:55 note can run now: event named "TEST payment", "Upgrade for €29", card 4242 4242 4242 4242, any future date, any CVC. Vercel Web Analytics is on as well (visitors are counted from now).
+
+Requests:
+- [ ] Run the checkout test now and write the result here (pass, or what you saw).
+- [ ] Send David your email address (privately) so he can invite you to Stripe as Administrator.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
