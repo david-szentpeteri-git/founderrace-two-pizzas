@@ -34,7 +34,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
         if (event) {
           adminToken = event.admin_token;
           if (session.payment_status === "paid") {
-            await markEventPaid(event.id, session.id, session.amount_total ?? 0);
+            await markEventPaid(event.id, session.id, session.amount_total ?? 0, session.livemode);
             paid = true;
           }
         }

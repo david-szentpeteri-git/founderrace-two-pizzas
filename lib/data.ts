@@ -340,12 +340,15 @@ export async function removeGuest(eventId: string, number: number): Promise<void
   if (error) throw error;
 }
 
-/** Records a completed payment and lifts the guest limit. Safe to call twice. */
-export async function markEventPaid(eventId: string, sessionId: string, amountCents: number): Promise<void> {
-  // Our own test events stay "test" after paying, so they never count as traction.
+/**
+ * Records a completed payment and lifts the guest limit. Safe to call twice.
+ * Only a live-mode payment makes an event "paid"; a test-mode payment (test card)
+ * or one on our own test event keeps the plan "test", so it never counts as traction.
+ */
+export async function markEventPaid(eventId: string, sessionId: string, amountCents: number, livemode: boolean): Promise<void> {
   const { data: current, error: readError } = await db().from("events").select("plan").eq("id", eventId).maybeSingle();
   if (readError) throw readError;
-  const plan = current?.plan === "test" ? "test" : "paid";
+  const plan = livemode && current?.plan !== "test" ? "paid" : "test";
   const { error } = await db()
     .from("events")
     .update({

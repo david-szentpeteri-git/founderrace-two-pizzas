@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     const eventId = session.metadata?.event_id ?? session.client_reference_id;
     if (eventId && session.payment_status === "paid") {
       try {
-        await markEventPaid(eventId, session.id, session.amount_total ?? 0);
+        await markEventPaid(eventId, session.id, session.amount_total ?? 0, session.livemode);
       } catch (error) {
         console.error("Webhook could not mark event paid", error);
         return new Response("Retry later", { status: 500 });
