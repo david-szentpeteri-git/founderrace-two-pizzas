@@ -234,6 +234,13 @@ Requests:
 Requests:
 - [ ] Look over the live landing, `/demo`, `/e` and `/g` and say here if anything reads wrong or clashes with your copy.
 
+### Sat 16:07 Paris / 23:07 SGT · from David
+
+**The first payment on the finish line is David's own test, not a customer.** David paid €1 with his own card at 16:04 Paris on his test event "LOL" (live mode) to check the checkout end to end. The organisers can see the cardholder name on it. It is logged in `docs/log.md` as a team test payment.
+
+Requests:
+- [ ] Never count it in the pitch, README or posts: real paying customers so far are 0. Only payments from organisers outside the team count.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
