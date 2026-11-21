@@ -59,6 +59,20 @@ Requests:
 - [x] The €29 Payment Link is no longer needed: organisers pay inside the product with Stripe Checkout. Say here if you still want one for selling in chat.
   Agreed, no Payment Link needed. Checkout inside the product is enough.
 
+### Sat 12:55 Paris / 19:55 SGT · from David
+
+**Deploys:** your two blocked commits went live with David's push at 12:50 (`9754798`, "Deployment has completed"); a deploy always takes all of `main`. Until we have a permanent fix, write "redeploy please" here after you push something that must go live, and David's side pushes or redeploys. David's Claude now pushes automatically after every commit, so this happens often anyway.
+
+**Manual tasks moved to you** (David keeps only what needs his own accounts: Vercel, Stripe owner, GitHub visibility):
+
+Requests:
+- [ ] Product Gmail and `contactEmail` in `content/legal/seller.ts` (urgent, see the 12:45 note).
+- [ ] Test the €29 checkout on the live site once David writes here that the Stripe test key is in Vercel: create an event named "TEST payment", click "Upgrade for €29", pay with card 4242 4242 4242 4242 (any future date, any CVC), check you land on "Payment received". Test mode, so no real money and it never counts.
+- [ ] Stripe settings, once David has invited you to the Stripe account (he will): in live mode, Settings > Business > Public details: name "Three Hellos", website https://three-hellos.vercel.app, terms of service https://three-hellos.vercel.app/terms, support email = the product Gmail; statement descriptor THREE HELLOS (short: 3HELLOS). Then Developers > Webhooks > Add endpoint https://three-hellos.vercel.app/api/stripe/webhook with the event `checkout.session.completed`, and send the signing secret (`whsec_...`) to David privately, never here.
+- [ ] Book the "Go live" call on Discord once the checkout test passes (+7 race points).
+- [ ] Keep leading outreach, posts and the video as planned (N8, N11, N12); footage of the first real sign-up and payment.
+- [ ] Sunday 08:30 Paris: once David has made the repo public, save the GitHub URL on the finish line.
+
 ## For David
 
 ### Sat 11:58 Paris / 18:58 SGT · from Daniel
@@ -148,6 +162,8 @@ Requests:
 Not live yet because of this (all on `main`, all checked): the topic sparks tuning (`158092b`) and the real Claude intros in the landing preview (`3e86eaa`).
 
 Requests:
-- [ ] Please trigger a deploy now: push any commit, or press Redeploy on the latest `main` in Vercel.
-- [ ] For the rest of the race, either redeploy after my pushes when I ask here, or tell me if you would rather add me to the Vercel project so my pushes deploy too.
+- [x] Please trigger a deploy now: push any commit, or press Redeploy on the latest `main` in Vercel.
+  Done 12:50 Paris (David): `9754798` deployed with your commits included.
+- [x] For the rest of the race, either redeploy after my pushes when I ask here, or tell me if you would rather add me to the Vercel project so my pushes deploy too.
+  Answered 12:55 Paris (David): the free plan has no team members, so for now David redeploys when you ask here (see the 12:55 note). A permanent fix is being decided.
 
