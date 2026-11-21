@@ -22,7 +22,6 @@ export function Sparks({ sparks, headingLevel = 2 }: { sparks: Spark[]; headingL
         {sparks.map((spark) => (
           <li key={spark.url} className="rounded-2xl border border-zinc-200 bg-white p-5">
             <p className="text-base font-medium leading-relaxed text-zinc-900">{spark.prompt}</p>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-500">{spark.title}</p>
             <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
               <span className="text-zinc-500">{spark.source}</span>
               <a

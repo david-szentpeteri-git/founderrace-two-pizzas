@@ -94,7 +94,7 @@ export const howItWorks = {
     },
     {
       title: "Say hello",
-      body: "Each guest sees their three hellos on their phone, with names and badge numbers so they can find each other. You can also print name badges and intro cards.",
+      body: "Each guest sees their three hellos on their phone, with names and badge numbers so they can find each other. They also get a few things to talk about from this week's news on your event's theme, when there are stories to find. You can also print name badges and intro cards.",
     },
   ] satisfies Step[],
 };
