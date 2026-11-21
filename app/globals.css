@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/*
+  Three Hellos visual language (set by Daniel's landing page): white
+  background, zinc text, zinc-900 buttons, lime-300 highlights, rounded-2xl
+  cards. Prefer the Tailwind zinc and lime classes; the tokens below are
+  shortcuts for the same values.
+*/
+@theme {
+  --color-paper: #ffffff;
+  --color-card: #ffffff;
+  --color-ink: #18181b; /* zinc-900 */
+  --color-muted: #71717a; /* zinc-500 */
+  --color-line: #e4e4e7; /* zinc-200 */
+  --color-accent: #18181b; /* buttons are zinc-900 */
+  --color-accent-dark: #3f3f46; /* zinc-700 hover */
+  --color-sun: #bef264; /* lime-300 highlight */
+  --color-mint: #15803d;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-geist-sans), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: #ffffff;
+  color: #18181b;
+  font-family: var(--font-sans);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
