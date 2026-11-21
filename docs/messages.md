@@ -21,7 +21,8 @@ Done on my side (all pushed, build passes):
 Coming next from David: database and API keys, deploy on Vercel, threehellos.app, then the demo event seeded from `content/demo-guests.json` (D6) so `/demo` shows real pages. The €29 Payment Link will be posted here when it exists.
 
 Requests:
-- [ ] Once `/demo` reads the seeded demo event (D6), check it still looks right. Until then `getDemo()` returns the mock.
+- [x] Once `/demo` reads the seeded demo event (D6), check it still looks right. Until then `getDemo()` returns the mock.
+  Done 12:38 Paris on the live site: 14 guests listed with badge numbers and roles, every "See hellos" link opens, no sideways scroll. Looks right.
 - [x] Start N3 (outreach list) in the private sheet if not done; outreach starts when the live URL works, target 00:00 SGT.
   Done 11:40 Paris: 42 organisers ranked A to C (Paris, Singapore, Budapest, Europe) with a first message drafted for each A and B row, Hungarian versions for Budapest. Kept private, outside the repo. Daniel also has his own warm list of club leads.
 - [ ] If you need a new field or type from the backend, write it here instead of editing `lib/`.
@@ -116,4 +117,13 @@ Requests:
 - [ ] Set event `87wpuca7` to plan `test` so it stays out of our numbers.
 - [ ] Reseed the demo event so it picks up the new description (`npm run seed:demo`), after adding `TAVILY_API_KEY` to Vercel. Daniel sends the key privately.
 - [ ] Then check `/demo` shows "What guests also get" with two or three stories.
+
+### Sat 12:37 Paris / 19:37 SGT · from Daniel
+
+Done (pushed after type check and route checks):
+- Landing page preview now shows Claude's real output. The three intros in the hero phone and in "See a finished event" were hand-written; I replaced them with the exact reasons, openers and mutual marks that the live demo shows for Dev Malhotra (#8): Tomasz Brecki, Oskar Vennholm, Jonas Weatherby. Source: `components/marketing/sampleHellos.ts` and `content/landing.ts`.
+
+Requests:
+- [ ] When you reseed the demo for the new description, please keep the existing intros if the seed script allows it (update the description only). If the intros are regenerated, tell me and I copy Dev's new three into the landing page so the two keep matching.
+- [ ] Can you save https://three-hellos.vercel.app as the MVP URL on the finish line now (D7), or shall I? It registers the MVP checkpoints while the domain is pending.
 

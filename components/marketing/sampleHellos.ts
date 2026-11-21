@@ -4,8 +4,10 @@ import demoData from "@/content/demo-guests.json";
 
 // One sample guest from the demo event and the three hellos they get.
 // Names, roles and badge numbers come from content/demo-guests.json
-// (badge number = position in the list). Reasons and openers below are
-// written for the landing preview and point only to answers both guests gave.
+// (badge number = position in the list). Reasons, openers and the mutual
+// marks are copied word for word from what the matching engine (Claude)
+// generated for this guest in the seeded demo event on 21 Nov 2026, so the
+// landing page shows real output. If the demo is regenerated, copy again.
 // A name missing from the file drops that card instead of breaking the page.
 
 type DemoGuest = (typeof demoData.guests)[number];
@@ -16,7 +18,7 @@ function find(name: string): { guest: DemoGuest; number: number } | null {
   return { guest: demoData.guests[index], number: index + 1 };
 }
 
-function hello(rank: 1 | 2 | 3, name: string, reason: string, opener: string): Hello | null {
+function hello(rank: 1 | 2 | 3, name: string, reason: string, opener: string, mutual: boolean): Hello | null {
   const found = find(name);
   if (!found) return null;
   return {
@@ -27,7 +29,7 @@ function hello(rank: 1 | 2 | 3, name: string, reason: string, opener: string): H
     askMeAbout: found.guest.askMeAbout ?? null,
     reason,
     opener,
-    mutual: rank === 1,
+    mutual,
   };
 }
 
@@ -40,18 +42,20 @@ export const sampleGuest = me
 
 export const sampleHellos: Hello[] = me
   ? [
-      hello(1, "Tomasz Brecki", demo.example.reason, demo.example.opener),
+      hello(1, "Tomasz Brecki", demo.example.reason, demo.example.opener, true),
       hello(
         2,
         "Oskar Vennholm",
-        "You both listed robotics and open source. Oskar trains AI models on medical scans, so he can tell you what the software side of a research robot looks like.",
-        "Why can a model be right for the wrong reason, and how would you spot it in a robot?",
+        "Oskar shares your interests in robotics and open source.",
+        "Why can a model be right for the wrong reason?",
+        true,
       ),
       hello(
         3,
-        "Kenji Ostrander",
-        "You both care about open source, and Kenji maintains a project at weekends. Ask him what it takes to keep one going once people start using it.",
-        "How did you pick the open source project you maintain now?",
+        "Jonas Weatherby",
+        "Jonas loves bouldering and wants students with ideas to test against him.",
+        "What mistakes from your first company would you not repeat?",
+        true,
       ),
     ].filter((h): h is Hello => h !== null)
   : [];

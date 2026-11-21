@@ -106,8 +106,8 @@ export const demo = {
     label: "What an intro looks like",
     guest: "Dev, who leads a robotics society and wants an internship at a hardware startup",
     hello: "Tomasz, who recycles electric bike batteries and is hiring spring interns",
-    reason: "You both like robotics and bouldering, and Tomasz is looking for students for a spring internship.",
-    opener: "What would an intern actually build in their first month at your company?",
+    reason: "Tomasz runs a battery recycling startup, wants spring interns, and shares robotics and bouldering with you.",
+    opener: "What is inside a dead battery, and why is it worth money?",
   },
   disclaimer:
     "All names and answers in the demo are fictional. The intros shown there were written by the same matching that runs on real events.",
