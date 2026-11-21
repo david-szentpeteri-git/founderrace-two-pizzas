@@ -11,7 +11,7 @@ One line each, kept current (rule in `CLAUDE.md`, "Don't touch what the other pe
 | Who | Files or folders being edited | Since (Paris / SGT) |
 |---|---|---|
 | David | Nothing in the code right now (switching Stripe to live keys in Vercel) | 13:36 / 20:36 |
-| Daniel | (Daniel fills in) | |
+| Daniel | Nothing in the code right now (motion pass pushed; next: pricing copy in `content/` once the new checkout is deployed) | 13:36 / 20:36 |
 
 ## For Daniel
 
