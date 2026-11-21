@@ -25,7 +25,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="flex min-h-14 w-full items-center justify-center rounded-full bg-zinc-900 px-6 text-lg font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+      className="flex min-h-14 w-full items-center justify-center rounded-full bg-zinc-900 px-6 text-lg font-medium text-white transition-colors hover:bg-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? "Saving your answers…" : "Join and get my three hellos"}
     </button>
@@ -38,8 +38,8 @@ export function JoinForm({ slug, action }: { slug: string; action: JoinAction })
 
   if (state.done) {
     return (
-      <div className="rounded-3xl bg-zinc-50 p-6">
-        <h2 className="text-2xl font-semibold tracking-tight">You’re in.</h2>
+      <div className="rounded-3xl bg-zinc-50 p-6 ring-1 ring-zinc-200">
+        <h2 className="font-display text-2xl font-semibold tracking-tight">You’re in.</h2>
         <p className="mt-2 text-lg text-zinc-500">Thanks for joining. See you at the event.</p>
       </div>
     );

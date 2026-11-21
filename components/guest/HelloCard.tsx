@@ -9,11 +9,11 @@ const rankLabel: Record<Hello["rank"], string> = {
 /** One suggested introduction. Reused by the guest page, the landing page and the demo. */
 export function HelloCard({ hello }: { hello: Hello }) {
   return (
-    <article className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+    <article className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm shadow-zinc-900/5 sm:p-6">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <p className="text-sm font-medium text-zinc-500">{rankLabel[hello.rank]}</p>
-          <h3 className="mt-1 text-2xl font-semibold tracking-tight text-zinc-900">{hello.name}</h3>
+          <h3 className="mt-1 break-words font-display text-2xl font-semibold tracking-tight text-zinc-900">{hello.name}</h3>
           <p className="mt-1 text-base text-zinc-500">{hello.role}</p>
         </div>
         <div
@@ -21,7 +21,7 @@ export function HelloCard({ hello }: { hello: Hello }) {
           aria-label={`Badge number ${hello.number}`}
         >
           <span className="text-[10px] uppercase tracking-wider text-zinc-400">Badge</span>
-          <span className="text-xl font-semibold leading-none">{hello.number}</span>
+          <span className="mt-0.5 font-display text-xl font-semibold leading-none">{hello.number}</span>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import { Marker } from "@/components/guest/Marker";
 import { GuestNotFound } from "@/components/guest/NotFound";
 import { formatEventTime } from "@/components/guest/format";
 import { joinAction } from "./actions";
+import { BrandLine, MadeWith } from "@/components/guest/BrandLine";
 
 export const dynamic = "force-dynamic";
 
@@ -35,11 +36,11 @@ export default async function JoinPage({ params }: Props) {
   const when = formatEventTime(event.startsAt);
 
   return (
-    <main className="mx-auto min-h-dvh max-w-md bg-white px-6 pb-20 pt-10 text-zinc-900">
-      <p className="text-sm font-medium uppercase tracking-wide text-zinc-500">Three Hellos</p>
+    <main className="mx-auto min-h-dvh w-full max-w-md bg-white px-5 pb-12 pt-6 text-zinc-900 sm:px-6">
+      <BrandLine />
 
-      <header className="mt-6">
-        <h1 className="text-3xl font-semibold leading-tight tracking-tight">{event.name}</h1>
+      <header className="mt-8">
+        <h1 className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">{event.name}</h1>
         <dl className="mt-4 space-y-1 text-base text-zinc-500">
           {when && (
             <div>
@@ -61,7 +62,7 @@ export default async function JoinPage({ params }: Props) {
         {event.description && <p className="mt-4 text-base leading-relaxed">{event.description}</p>}
       </header>
 
-      <section className="mt-10 rounded-3xl bg-zinc-50 p-6">
+      <section className="mt-8 rounded-3xl bg-zinc-50 p-6 ring-1 ring-zinc-200">
         <p className="text-lg leading-relaxed">
           Answer a few short questions and we’ll suggest the <Marker>three people</Marker> you should say
           hello to at this event, with a first question for each.
@@ -76,6 +77,8 @@ export default async function JoinPage({ params }: Props) {
       <div className="mt-10">
         <JoinForm slug={event.slug} action={joinAction} />
       </div>
+
+      <MadeWith />
     </main>
   );
 }

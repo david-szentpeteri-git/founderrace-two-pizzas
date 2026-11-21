@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import type { BadgeCard, Hello, PrintData } from "@/lib/types";
 // Switch to "@/lib/data" at the integration sync (plan 5.6). Only import here.
 import { getPrintData } from "@/lib/data";
@@ -52,14 +53,26 @@ export default async function PrintPage({
       <style dangerouslySetInnerHTML={{ __html: printCss }} />
 
       <div className="pv-bar pv-no-print">
-        <div>
-          <p className="font-semibold">{event.name}</p>
-          <p className="text-zinc-600">
+        <div className="min-w-0">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full font-display text-sm font-semibold tracking-tight text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
+          >
+            <span
+              aria-hidden="true"
+              className="flex size-5 items-center justify-center rounded-md bg-zinc-900 text-xs text-lime-300"
+            >
+              3
+            </span>
+            Three Hellos
+          </Link>
+          <p className="mt-3 font-display text-xl font-semibold tracking-tight">{event.name}</p>
+          <p className="text-zinc-500">
             {[when, event.place].filter(Boolean).join(", ") || "Print view"}
             {" · "}
             {cards.length} {cards.length === 1 ? "guest" : "guests"}
           </p>
-          <p className="mt-1 text-zinc-600">Print from Chrome, A4, margins default.</p>
+          <p className="mt-1 text-zinc-500">Print from Chrome, A4, margins default.</p>
         </div>
         <PrintButton />
       </div>

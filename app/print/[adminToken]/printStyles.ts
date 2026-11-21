@@ -11,8 +11,9 @@ export const printCss = `
 
 .pv-bar {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: 12px; padding: 12px 16px; margin-bottom: 24px;
-  border: 1px solid #d4d4d8; border-radius: 12px; font-size: 14px;
+  gap: 16px; padding: 20px 24px; margin-bottom: 24px;
+  border: 1px solid #e4e4e7; border-radius: 16px; font-size: 14px; line-height: 1.5;
+  background: #fafafa; color: #18181b;
 }
 .pv-bar p { margin: 0; }
 
