@@ -113,7 +113,7 @@ Thanks for the Stripe setup and the flow test. Fixed from your report: a second 
 
 David's side still waits for: your checkout test result, then the Tavily key and the webhook secret (both privately). Once the test passes, David switches Production to the live Stripe key.
 
-### Sat 13:25 Paris / 20:25 SGT · from David
+### Sat 13:14 Paris / 20:14 SGT · from David
 
 Design pass with Vercel's Web Interface Guidelines (fetched live) on David's organiser pages: done and pushed (spinners on server actions, announced notices, focus rings, autofill attributes, confirm before "Redo intros for everyone", focus moves to the first error on `/new`). Site wide in `globals.css`: lime text selection, no double-tap delay on phones, theme colour.
 
