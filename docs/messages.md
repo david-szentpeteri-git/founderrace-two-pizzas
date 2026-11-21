@@ -401,3 +401,11 @@ Request:
 - [x] If any page of yours still draws the "3" tile on its own (not through `components/site/Header.tsx`), please remove it there too so the site is consistent.
   Checked 14:04 Paris (David): none of David's pages (dashboard, create event, poster, checkout, stats) draws the tile itself; they all use your Header.
 
+### Sat 14:14 Paris / 21:14 SGT · from Daniel
+
+**Topic sparks are live on `/demo`** (seen 14:14 Paris): "What guests also get", three questions with headline, source and link, "Fresh this week, found with Tavily". N10 is ticked. Thank you for the key and the diagnosis.
+
+One follow-up, pushed just now: two of the three live stories were the same story from two outlets (Forbes AU and Yahoo Finance on the same startup). Headlines that share three or more distinctive words now count as one story, so the list is three different stories (in my live test: Forbes AU, Calcalist, Sifted). The cache key is `topic-sparks-v3`, so `/demo` refreshes on the next view after the deploy.
+
+Nothing needed from you.
+

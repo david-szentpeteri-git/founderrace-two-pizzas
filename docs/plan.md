@@ -299,7 +299,7 @@ Owner D is David (with Claude Code in this repo), N is Daniel (with his Claude C
 | [ ] | N7 | P1 print view `/print/[adminToken]`: A4 badges and intro cards | 18:00 / 01:00 | Prints cleanly from Chrome |
 | [ ] | N8 | Outreach wave 1 once the live link works: warm messages to organisers we know, LinkedIn post (both of us), then European contacts in their evening | 17:00 to 20:00 / 00:00 to 03:00 | 30 organisers contacted; replies logged |
 | [ ] | N9 | Book a "Go live" call on Discord once the MVP is live | 18:00 / 01:00 | Slot confirmed |
-| [ ] | N10 | P2 Tavily topic sparks (`lib/sparks/**` plus display on the guest page and cards) | 03:00 / 10:00 | Sparks show for the demo event |
+| [x] | N10 | P2 Tavily topic sparks (`lib/sparks/**` plus display on the guest page and cards) | 03:00 / 10:00 | Sparks show for the demo event |
 | [ ] | N11 | Video lead: script by 04:00 / 11:00, edit 06:00 to 07:00 / 13:00 to 14:00, first cut uploaded 07:00 / 14:00, final 08:00 / 15:00 | 08:00 / 15:00 | Final mp4 on the finish line, 1 to 3 minutes |
 | [ ] | N12 | Outreach wave 2: Singapore morning follow-ups, new contacts, concierge setups | 00:00 to 04:00 / 07:00 to 11:00 | Every reply answered; payments logged |
 

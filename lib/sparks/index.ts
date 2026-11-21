@@ -72,7 +72,7 @@ const cachedSparks = unstable_cache(
     if (sparks.length === 0) throw new SearchFailed("too few stories");
     return sparks;
   },
-  ["topic-sparks-v2"],
+  ["topic-sparks-v3"],
   { revalidate: REVALIDATE_SECONDS },
 );
 

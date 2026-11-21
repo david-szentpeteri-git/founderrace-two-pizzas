@@ -161,6 +161,24 @@ function storyKey(title: string): string {
     .join(" ");
 }
 
+/** Distinctive words of a headline: longer than 3 letters, lower case. */
+function storyWords(title: string): Set<string> {
+  return new Set(
+    title
+      .toLowerCase()
+      .replace(/[^a-z0-9 ]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 3),
+  );
+}
+
+/** Two outlets covering the same story share several distinctive words. */
+function sameStory(a: Set<string>, b: Set<string>): boolean {
+  let shared = 0;
+  for (const w of a) if (b.has(w)) shared += 1;
+  return shared >= 3;
+}
+
 export function pickSparks(results: unknown): Spark[] {
   if (!Array.isArray(results)) return [];
   const ranked = results
@@ -174,6 +192,7 @@ export function pickSparks(results: unknown): Spark[] {
   const sparks: Spark[] = [];
   const sources = new Set<string>();
   const stories = new Set<string>();
+  const picked: Set<string>[] = [];
   for (const { r } of ranked) {
     // A weak match is worse than no spark: guests should only see stories on the event's theme.
     if (typeof r.score === "number" && r.score < MIN_SCORE) continue;
@@ -184,6 +203,9 @@ export function pickSparks(results: unknown): Spark[] {
     if (isBlockedSource(source)) continue;
     const key = storyKey(title);
     if (sources.has(source) || stories.has(key)) continue;
+    const words = storyWords(title);
+    if (picked.some((p) => sameStory(p, words))) continue;
+    picked.push(words);
     sources.add(source);
     stories.add(key);
     sparks.push({ title, source, url: url.toString(), prompt: promptFor(title, sparks.length) });
