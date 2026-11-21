@@ -7,6 +7,7 @@ Built in 24 hours by team Two Pizzas at [FounderRace](https://founderrace.com/en
 | | |
 |---|---|
 | Live product | [three-hellos.vercel.app](https://three-hellos.vercel.app) |
+| Sample event | [three-hellos.vercel.app/demo](https://three-hellos.vercel.app/demo): 14 fictional guests with intros written by Claude |
 | Pitch video | Submitted on the FounderRace finish line |
 | Team | Daniel and David (Two Pizzas) |
 
@@ -22,14 +23,27 @@ Organisers pay, guests never do. Events of up to 15 guests are free; a bigger ev
 
 ## How it works
 
-1. The organiser creates an event and gets a private dashboard link, a join link and a QR code.
-2. Guests join from their phone and answer the four questions.
-3. When the doors open, the organiser presses "Generate intros". Claude reads the guest list and writes three matches per guest, each with a reason that quotes what both people wrote and a first question. If the AI is unavailable, a simpler matcher based on shared interests takes over.
-4. Each guest opens their page and sees their three hellos, with badge numbers so they can find each other in the room.
+1. The organiser creates an event without an account and gets a private dashboard link, a join link and a QR code to show at the door.
+2. Guests join from their phone, answer the four questions and get a badge number and a personal page.
+3. When the doors open, the organiser presses "Make intros". Claude reads the guest list and writes three matches per guest, each with a reason based on what both people wrote and a first question to ask. It prefers pairs who would also pick each other and spreads attention so nobody is everyone's pick. If the AI is unavailable, a simpler matcher based on shared interests takes over.
+4. Each guest opens their page and sees their three hellos, with badge numbers so they can find each other in the room, plus three conversation starters drawn from this week's news on the event's theme.
+5. Late arrivals can be matched without redoing everyone, guests can be removed, and the organiser can print name badges and intro cards.
+6. Above 15 guests, the dashboard offers the €29 upgrade through Stripe Checkout; after payment the limit rises to 150.
 
 ## Stack
 
-Next.js and TypeScript on Vercel, Supabase Postgres, the Claude API (`claude-opus-5-5`) for matching, Stripe Checkout for payments.
+Next.js and TypeScript on Vercel, Supabase Postgres (Singapore), the Claude API (`claude-opus-5-5`) for matching, Stripe Checkout for payments, and Tavily search for the conversation starters. Stripe and Tavily are the race's partner tools.
+
+| Where | What |
+|---|---|
+| `app/` | Pages: landing, `/demo`, `/new` (create event), `/o/[token]` (organiser dashboard), `/e/[code]` (guest sign-up), `/g/[token]` (guest page), `/print/[token]`, legal pages, `/checkout/success`, `/api/stripe/webhook` |
+| `lib/matching/` | The matcher: Claude in parallel batches with structured output, plus the heuristic fallback |
+| `lib/sparks/` | Conversation starters from Tavily news search, cached per event |
+| `lib/data.ts` | All database access, server side only |
+| `supabase/schema.sql` | Tables, row level security and the join function |
+| `scripts/` | `npm run seed:demo` rebuilds the sample event; `npm run mark-test` marks our own test events so they never count as traction |
+
+Guests' answers are only shared with the other guests of the same event; emails are never shown to anyone or sent to the AI. Details on the [privacy page](https://three-hellos.vercel.app/privacy).
 
 ## Run it locally
 
@@ -41,7 +55,7 @@ cp .env.example .env.local   # fill in the keys
 npm run dev                  # http://localhost:3000
 ```
 
-The database schema is in `supabase/schema.sql`; run it once in the Supabase SQL editor. Until the Supabase keys are set, pages that read data use the sample data in `lib/mock.ts`.
+The variables are listed in `.env.example`. The database schema is in `supabase/schema.sql`; run it once in the Supabase SQL editor. Until the Supabase keys are set, pages that read data use the sample data in `lib/mock.ts`. Without a Claude key the heuristic matcher runs; without a Tavily key the conversation starters are left out.
 
 ## Boilerplates and templates
 
